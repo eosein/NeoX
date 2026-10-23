@@ -15,8 +15,8 @@
                         brand: {
                             dark: '#030508',
                             card: '#0a0d14',
-                            accent: '#06b6d4', // Ciano Cyberpunk
-                            purple: '#a855f7', // Violeta Neon
+                            accent: '#06b6d4',
+                            purple: '#a855f7',
                             glow: '#38bdf8'
                         }
                     }
@@ -47,7 +47,6 @@
         .glow-text {
             text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
         }
-        /* Canvas de Partículas */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -76,7 +75,6 @@
                 </span>
             </a>
 
-            <!-- Navegação Desktop -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
                 <a href="#home" class="hover:text-cyan-400 transition" data-i18n="nav_home">Home</a>
                 <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav_about">Sobre</a>
@@ -87,12 +85,10 @@
             </nav>
 
             <div class="flex items-center gap-4">
-                <!-- Seletor de Idioma -->
                 <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-cyan-300 hover:text-white transition flex items-center gap-2 border border-cyan-500/30">
                     <i class="fa-solid fa-globe"></i>
                     <span id="lang-label">PT-BR</span>
                 </button>
-                <!-- Discord CTA -->
                 <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-sm transition shadow-lg shadow-cyan-600/30">
                     <i class="fa-brands fa-discord"></i> Discord
                 </a>
@@ -129,7 +125,6 @@
                     </a>
                 </div>
 
-                <!-- Estatísticas -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-3xl mx-auto">
                     <div class="glass-card p-6 rounded-2xl border border-cyan-500/20">
                         <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400" id="stat-players">12.5K+</div>
@@ -204,8 +199,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Anime Paradise -->
                 <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563193007652732988/image.png" alt="Anime Paradise" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/180DAY-96665881849072/500/280/Image/Png';">
+                    <div class="relative h-48 bg-gradient-to-br from-cyan-950 to-black flex items-center justify-center overflow-hidden">
+                        <i class="fa-solid fa-dragon text-6xl text-cyan-500/30 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0d14] via-transparent to-transparent"></div>
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
                         </div>
@@ -228,8 +224,9 @@
 
                 <!-- Anime Crash -->
                 <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563192322793939024/image.png" alt="Anime Crash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/180DAY-111173250236559/500/280/Image/Png';">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-950 to-black flex items-center justify-center overflow-hidden">
+                        <i class="fa-solid fa-bolt text-6xl text-purple-500/30 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0d14] via-transparent to-transparent"></div>
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/90 text-white shadow-md" data-i18n="badge_dev">Em Desenvolvimento</span>
                         </div>
@@ -255,8 +252,9 @@
 
                 <!-- FREE FIRE MAX -->
                 <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563193243317837904/noFilter.png" alt="Free Fire Max" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/180DAY-93233198656969/500/280/Image/Png';">
+                    <div class="relative h-48 bg-gradient-to-br from-red-950 to-black flex items-center justify-center overflow-hidden">
+                        <i class="fa-solid fa-crosshair text-6xl text-red-500/30 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0d14] via-transparent to-transparent"></div>
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
                         </div>
@@ -284,7 +282,7 @@
             <div class="text-center max-w-3xl mx-auto space-y-4">
                 <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Demonstrativos</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="media_title">Mídia Oficial</h2>
-                <p class="text-gray-400" data-i18n="media_subtitle">Vídeos e capturas exclusivas dos projetos da NeoX Studio.</p>
+                <p class="text-gray-400" data-i18n="media_subtitle">Demonstrações e conceitos visuais dos projetos NeoX Studio.</p>
             </div>
 
             <!-- Mídia Anime Crash -->
@@ -293,12 +291,9 @@
                     <i class="fa-solid fa-gamepad"></i> Anime Crash
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Gameplay -->
-                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
-                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
-                            <video controls class="w-full h-full object-cover">
-                                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205091421323315/ac.mp4" type="video/mp4">
-                            </video>
+                    <div class="glass-card rounded-2xl p-6 border border-cyan-500/20 space-y-4 text-center">
+                        <div class="h-40 rounded-xl bg-cyan-950/40 border border-cyan-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-play-circle text-5xl text-cyan-400"></i>
                         </div>
                         <div>
                             <span class="text-xs font-bold text-cyan-400 uppercase">Gameplay Oficial</span>
@@ -306,12 +301,9 @@
                         </div>
                     </div>
 
-                    <!-- Quests -->
-                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
-                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
-                            <video controls class="w-full h-full object-cover">
-                                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205091421323315/ac.mp4" type="video/mp4">
-                            </video>
+                    <div class="glass-card rounded-2xl p-6 border border-cyan-500/20 space-y-4 text-center">
+                        <div class="h-40 rounded-xl bg-purple-950/40 border border-purple-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-scroll text-5xl text-purple-400"></i>
                         </div>
                         <div>
                             <span class="text-xs font-bold text-purple-400 uppercase">Sistema de Quests</span>
@@ -319,29 +311,14 @@
                         </div>
                     </div>
 
-                    <!-- Skill Tree -->
-                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
-                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205145377116311/1.png" alt="Skill Tree" class="w-full h-full object-cover">
+                    <div class="glass-card rounded-2xl p-6 border border-cyan-500/20 space-y-4 text-center">
+                        <div class="h-40 rounded-xl bg-pink-950/40 border border-pink-500/30 flex items-center justify-center">
+                            <i class="fa-solid fa-sitemap text-5xl text-pink-400"></i>
                         </div>
                         <div>
                             <span class="text-xs font-bold text-pink-400 uppercase">Interface & Habilidades</span>
                             <h4 class="text-base font-bold text-white">Árvore de Skills</h4>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mídia Anime Paradise -->
-            <div class="space-y-6 pt-8">
-                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-purple-900/40 pb-3 text-purple-400">
-                    <i class="fa-solid fa-star"></i> Anime Paradise
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="ap-media-container">
-                    <div class="glass-card p-8 rounded-2xl border border-purple-500/20 text-center space-y-3">
-                        <i class="fa-solid fa-film text-4xl text-purple-400 animate-pulse"></i>
-                        <h4 class="font-bold text-white">Mídias em Breve</h4>
-                        <p class="text-xs text-gray-400">As fotos e vídeos do Anime Paradise serão adicionados aqui!</p>
                     </div>
                 </div>
             </div>
@@ -359,8 +336,8 @@
                 <!-- SasaDev -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-cyan-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199856661495878/sasa.png" alt="SasaDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-5790284269-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-cyan-900/40 to-black border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-400 transition">
+                            <span class="text-4xl font-black text-cyan-400">SD</span>
                         </div>
                         <h3 class="text-xl font-bold">SasaDev</h3>
                         <p class="text-xs font-semibold text-cyan-400 uppercase mt-1">Owner</p>
@@ -375,8 +352,8 @@
                 <!-- DaviDev -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-purple-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199873938100415/davi.png" alt="DaviDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-1213557895-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-purple-900/40 to-black border border-purple-500/30 flex items-center justify-center group-hover:border-purple-400 transition">
+                            <span class="text-4xl font-black text-purple-400">DD</span>
                         </div>
                         <h3 class="text-xl font-bold">DaviDev</h3>
                         <p class="text-xs font-semibold text-purple-400 uppercase mt-1">Co-Owner & Game Designer</p>
@@ -389,10 +366,10 @@
                 </div>
 
                 <!-- oSein -->
-                <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/40 bg-cyan-950/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-cyan-400/40 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199940430266448/osein.png" alt="oSein" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-4565735367-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-cyan-600/30 to-purple-600/30 border border-cyan-400/50 flex items-center justify-center group-hover:border-cyan-300 transition">
+                            <span class="text-4xl font-black text-cyan-300">oS</span>
                         </div>
                         <h3 class="text-xl font-bold">oSein</h3>
                         <p class="text-xs font-semibold text-cyan-300 uppercase mt-1">Game Designer</p>
@@ -407,8 +384,8 @@
                 <!-- Slow -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-blue-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199888102129865/Slow.png" alt="Slow" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-2620031389-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-blue-900/40 to-black border border-blue-500/30 flex items-center justify-center group-hover:border-blue-400 transition">
+                            <span class="text-4xl font-black text-blue-400">SL</span>
                         </div>
                         <h3 class="text-xl font-bold">Slow</h3>
                         <p class="text-xs font-semibold text-blue-400 uppercase mt-1">Animator</p>
@@ -423,8 +400,8 @@
                 <!-- Flex -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-emerald-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199926110920855/flex.png" alt="Flex" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-1569820932-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-emerald-900/40 to-black border border-emerald-500/30 flex items-center justify-center group-hover:border-emerald-400 transition">
+                            <span class="text-4xl font-black text-emerald-400">FL</span>
                         </div>
                         <h3 class="text-xl font-bold">Flex</h3>
                         <p class="text-xs font-semibold text-emerald-400 uppercase mt-1">Modelator</p>
@@ -439,8 +416,8 @@
                 <!-- Oguest -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-amber-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199951406768241/ogust.png" alt="Oguest" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-8093384811-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-amber-900/40 to-black border border-amber-500/30 flex items-center justify-center group-hover:border-amber-400 transition">
+                            <span class="text-4xl font-black text-amber-400">OG</span>
                         </div>
                         <h3 class="text-xl font-bold">Oguest</h3>
                         <p class="text-xs font-semibold text-amber-400 uppercase mt-1">VFX Maker</p>
@@ -455,8 +432,8 @@
                 <!-- Reject -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-teal-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199900768927824/reject.png" alt="Reject" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-1569820932-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-teal-900/40 to-black border border-teal-500/30 flex items-center justify-center group-hover:border-teal-400 transition">
+                            <span class="text-4xl font-black text-teal-400">RJ</span>
                         </div>
                         <h3 class="text-xl font-bold">Reject</h3>
                         <p class="text-xs font-semibold text-teal-400 uppercase mt-1">UI/UX Maker</p>
@@ -471,8 +448,8 @@
                 <!-- Moon -->
                 <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-violet-500/30 bg-black">
-                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199970293583973/moon.png" alt="Moon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-1587723048-Png/420/420/AvatarHeadshot/Png';">
+                        <div class="w-full h-44 rounded-xl mb-4 bg-gradient-to-tr from-violet-900/40 to-black border border-violet-500/30 flex items-center justify-center group-hover:border-violet-400 transition">
+                            <span class="text-4xl font-black text-violet-400">MN</span>
                         </div>
                         <h3 class="text-xl font-bold">Moon</h3>
                         <p class="text-xs font-semibold text-violet-400 uppercase mt-1">Community Manager</p>
@@ -549,7 +526,6 @@
 
     <!-- SCRIPTS -->
     <script>
-        /* Partículas Interativas no Canvas */
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -593,7 +569,6 @@
         }
         animateParticles();
 
-        /* Tradução Dinâmica PT / EN */
         const translations = {
             'pt': {
                 'nav_home': 'Home', 'nav_about': 'Sobre', 'nav_games': 'Jogos', 'nav_media': 'Trailers', 'nav_team': 'Equipe', 'nav_contact': 'Contato',
@@ -614,7 +589,7 @@
                 'game_2_desc': 'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
                 'game_3_desc': 'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
                 'btn_play': 'Jogar Agora', 'btn_preview': 'Ver Projeto', 'btn_discord_server': 'Discord do Jogo',
-                'media_tag': 'Cinemáticas & Demonstrativos', 'media_title': 'Mídia Oficial', 'media_subtitle': 'Vídeos e capturas exclusivas dos projetos da NeoX Studio.',
+                'media_tag': 'Cinemáticas & Demonstrativos', 'media_title': 'Mídia Oficial', 'media_subtitle': 'Demonstrações e conceitos visuais dos projetos NeoX Studio.',
                 'team_tag': 'Os Criadores', 'team_title': 'A Equipe NeoX', 'team_subtitle': 'Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.',
                 'contact_tag': 'Fale Conosco', 'contact_title': 'Pronto para a diversão?', 'contact_subtitle': 'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
                 'form_name': 'Seu Nome', 'form_email': 'Seu E-mail', 'form_roblox': 'Nick do Roblox (Opcional)', 'form_msg': 'Mensagem (Mínimo 16 caracteres)', 'form_btn': 'Enviar Mensagem'
@@ -638,7 +613,7 @@
                 'game_2_desc': 'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
                 'game_3_desc': 'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
                 'btn_play': 'Play Now', 'btn_preview': 'View Project', 'btn_discord_server': 'Game Discord',
-                'media_tag': 'Cinematics & Showcases', 'media_title': 'Official Media', 'media_subtitle': 'Exclusive videos and captures of NeoX Studio projects.',
+                'media_tag': 'Cinematics & Showcases', 'media_title': 'Official Media', 'media_subtitle': 'Demonstrations and visual concepts of NeoX Studio projects.',
                 'team_tag': 'The Creators', 'team_title': 'The NeoX Team', 'team_subtitle': 'Brilliant minds united to build the future of Roblox games.',
                 'contact_tag': 'Get in Touch', 'contact_title': 'Ready for the fun?', 'contact_subtitle': 'Send a message, join our Discord and be part of the NeoX family!',
                 'form_name': 'Your Name', 'form_email': 'Your Email', 'form_roblox': 'Roblox Nickname (Optional)', 'form_msg': 'Message (Minimum 16 characters)', 'form_btn': 'Send Message'
@@ -657,7 +632,6 @@
             });
         }
 
-        /* Simulação / Fetch de Jogadores Ativos */
         async function fetchPlayerCounts() {
             try {
                 const activeCount = Math.floor(Math.random() * 250) + 780;
