@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoX Studio | Play the Future</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,9 +23,7 @@
             }
         }
     </script>
-    <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -74,13 +71,14 @@
         .reveal-on-scroll.is-visible { opacity:1; transform:translateY(0) scale(1); }
         .game-card:hover { transform:translateY(-8px) rotate(-.35deg); }
         @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.nav-click-pulse,.section-arrival{animation:none!important}.brand-mark,.game-card{animation:none!important}.reveal-on-scroll{opacity:1;transform:none;transition:none}}
-            h1,h2,h3,h4 { font-family: 'Nunito', sans-serif; letter-spacing: .01em; }
-        .team-role { color: #c4b5fd !important; letter-spacing: .08em; }
+        h1,h2,h3,h4 { font-family:'Nunito',sans-serif; letter-spacing:.01em; }
+        .team-role { color:#c4b5fd!important; letter-spacing:.08em; }
         .player-count-badge { display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .65rem; border-radius:999px; background:rgba(232,121,249,.14); border:1px solid rgba(167,139,250,.28); color:#ddd6fe; font-size:.8rem; font-weight:800; white-space:nowrap; }
         .player-count-badge i { color:#a78bfa; }
         .player-count-badge [id] { font-size:.95rem; color:#fff; }
-        .glass-card { border-color:rgba(167,139,250,.15); }        .team-role { font-family:'Nunito',sans-serif!important; color:#c4b5fd!important; font-size:.84rem!important; font-weight:600!important; letter-spacing:.09em; line-height:1.35; }
-        .team-card { background:rgba(12,6,16,.88)!important; border:1px solid rgba(167,139,250,.2)!important; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
+        .glass-card { border-color:rgba(167,139,250,.15); }
+        .team-role { font-family:'Nunito',sans-serif!important; color:#c4b5fd!important; font-size:.84rem!important; font-weight:600!important; letter-spacing:.09em; line-height:1.35; }
+        .team-card { background:rgba(12,6,16,.88)!important; border:1px solid rgba(167,139,250,.2)!important; transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease; }
         .team-card:hover { transform:translateY(-6px); border-color:rgba(167,139,250,.48)!important; background:rgba(20,12,28,.96)!important; box-shadow:0 14px 34px rgba(0,0,0,.34),0 0 22px rgba(232,121,249,.1); }
         .team-avatar-frame { background:linear-gradient(135deg,rgba(232,121,249,.15),rgba(0,0,0,.9))!important; border:1px solid rgba(167,139,250,.26)!important; overflow:hidden; }
         .team-avatar-frame img { transition:transform .32s cubic-bezier(.2,.8,.2,1),filter .32s ease; }
@@ -93,7 +91,8 @@
         a:not(.brand-link):hover,button:hover { filter:brightness(1.12); }
         button:hover { transform:translateY(-2px); }
         .brand-link,.brand-link:hover,.brand-link .brand-mark { transform:none!important; animation:none!important; transition:none!important; filter:none!important; }
-        @media (prefers-reduced-motion:reduce) { .team-card,.team-avatar-frame img,.game-card,.glass-card,a,button { transition:none!important; } .team-card:hover,.glass-card:hover,.game-card:hover,button:hover { transform:none!important; } }        .team-carousel { position:relative; --team-card-width:min(380px,82vw); display:flex; gap:24px; overflow-x:auto; padding:1.25rem max(0px,calc((100% - var(--team-card-width))/2)); scroll-padding-inline:max(0px,calc((100% - var(--team-card-width))/2)); scroll-snap-type:x mandatory; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+        @media (prefers-reduced-motion:reduce) { .team-card,.team-avatar-frame img,.game-card,.glass-card,a,button { transition:none!important; } .team-card:hover,.glass-card:hover,.game-card:hover,button:hover { transform:none!important; } }
+        .team-carousel { position:relative; --team-card-width:min(380px,82vw); display:flex; gap:24px; overflow-x:auto; padding:1.25rem max(0px,calc((100% - var(--team-card-width))/2)); scroll-padding-inline:max(0px,calc((100% - var(--team-card-width))/2)); scroll-snap-type:x mandatory; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
         .team-carousel::-webkit-scrollbar { display:none; }
         #team .team-card { box-sizing:border-box; flex:0 0 var(--team-card-width); min-height:330px; opacity:.38; filter:brightness(.58); transform:scale(.9); scroll-snap-align:center; transition:opacity .35s ease,filter .35s ease,transform .35s ease,box-shadow .35s ease,border-color .35s ease; }
         #team .team-card.is-active { opacity:1; filter:none; transform:scale(1); z-index:2; }
@@ -107,7 +106,8 @@
         .team-dot[aria-current="true"] { width:22px; background:#c4b5fd; }
         .team-carousel-status { min-height:1.2em; margin-top:8px; text-align:center; color:#938c9e; font-size:.72rem; }
         @media (max-width:640px) { .team-carousel { gap:16px; --team-card-width:min(340px,84vw); } #team .team-card { min-height:310px; } }
-        @media (prefers-reduced-motion:reduce) { #team .team-card,.team-arrow,.team-dot { transition:none!important; scroll-behavior:auto!important; } }        .team-carousel-viewport { width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; }
+        @media (prefers-reduced-motion:reduce) { #team .team-card,.team-arrow,.team-dot { transition:none!important; scroll-behavior:auto!important; } }
+        .team-carousel-viewport { width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; }
         .team-carousel { position:relative; display:flex; width:max-content; max-width:none; gap:24px; padding:0; overflow:visible; scroll-snap-type:none; scroll-padding:0; transform:translate3d(0,0,0); transition:transform .48s cubic-bezier(.22,.78,.24,1); will-change:transform; }
         #team .team-card { box-sizing:border-box; flex:0 0 min(380px,82vw); min-height:330px; opacity:.38; filter:brightness(.58); transform:scale(.9); scroll-snap-align:none; transition:opacity .35s ease,filter .35s ease,transform .35s ease,box-shadow .35s ease,border-color .35s ease; }
         #team .team-card.is-active { opacity:1; filter:none; transform:scale(1); z-index:2; }
@@ -115,27 +115,23 @@
         #team .team-card:not(.is-active):hover { opacity:.72; filter:brightness(.82); transform:scale(.94) translateY(-3px); }
         .team-card-clone { pointer-events:none; }
         @media (max-width:640px) { .team-carousel { gap:16px; } #team .team-card { flex-basis:min(340px,84vw); min-height:310px; } }
-        @media (prefers-reduced-motion:reduce) { .team-carousel { transition:none!important; } #team .team-card,.team-arrow,.team-dot { transition:none!important; } }        .team-carousel.is-returning-home { transition-duration:.78s; }
+        @media (prefers-reduced-motion:reduce) { .team-carousel { transition:none!important; } #team .team-card,.team-arrow,.team-dot { transition:none!important; } }
+        .team-carousel.is-returning-home { transition-duration:.78s; }
         .team-carousel.is-returning-home .team-card.is-active { filter:drop-shadow(0 0 18px rgba(232,121,249,.42)); }
         #team .team-card.team-home-arrival { animation:team-home-arrival .68s cubic-bezier(.2,.8,.2,1) both; }
         @keyframes team-home-arrival { 0%{transform:scale(.92);filter:brightness(.72)} 62%{transform:scale(1.045);filter:brightness(1.14)} 100%{transform:scale(1);filter:none} }
-        @media (prefers-reduced-motion:reduce) { .team-carousel.is-returning-home { transition-duration:0s!important; } #team .team-card.team-home-arrival { animation:none!important; } }</style>
+        @media (prefers-reduced-motion:reduce) { .team-carousel.is-returning-home { transition-duration:0s!important; } #team .team-card.team-home-arrival { animation:none!important; } }
+    </style>
 </head>
 <body class="relative selection:bg-fuchsia-400 selection:text-white">
-
-    <!-- Fundo de Partículas Interativas -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- HEADER / NAVEGAÇÃO -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-fuchsia-900/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="brand-link flex items-center gap-3">
                 <img src="assets/neox-logo.png" alt="NeoX Studio" class="brand-mark w-12 h-12 rounded-xl object-cover">
-                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-fuchsia-200 to-purple-400 bg-clip-text text-transparent">
-                    NEOX <span class="text-fuchsia-300">STUDIO</span>
-                </span>
+                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-fuchsia-200 to-purple-400 bg-clip-text text-transparent">NEOX <span class="text-fuchsia-300">STUDIO</span></span>
             </a>
-
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
                 <a href="#home" class="hover:text-fuchsia-400 transition" data-i18n="nav_home">Home</a>
                 <a href="#about" class="hover:text-fuchsia-400 transition" data-i18n="nav_about">Sobre</a>
@@ -144,11 +140,9 @@
                 <a href="#team" class="hover:text-fuchsia-400 transition" data-i18n="nav_team">Equipe</a>
                 <a href="#contact" class="hover:text-fuchsia-400 transition" data-i18n="nav_contact">Contato</a>
             </nav>
-
             <div class="flex items-center gap-4">
                 <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-fuchsia-300 hover:text-white transition flex items-center gap-2 border border-fuchsia-400/30">
-                    <i class="fa-solid fa-globe"></i>
-                    <span id="lang-label">PT-BR</span>
+                    <i class="fa-solid fa-globe"></i><span id="lang-label">PT-BR</span>
                 </button>
                 <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-semibold text-sm transition shadow-lg shadow-fuchsia-400/30">
                     <i class="fa-brands fa-discord"></i> Discord
@@ -157,35 +151,27 @@
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="relative z-10 pt-28">
-
-        <!-- HERO SECTION -->
         <section id="home" class="min-h-[85vh] flex items-center justify-center px-4 py-20 text-center">
             <div class="max-w-4xl mx-auto space-y-8">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-fuchsia-400 text-xs font-bold tracking-wide uppercase border border-fuchsia-400/30 animate-pulse">
-                    <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span>
-                    <span data-i18n="hero_tag">Criando Universos Inesquecíveis</span>
+                    <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span><span data-i18n="hero_tag">Criando Universos Inesquecíveis</span>
                 </div>
-                
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
                     <span data-i18n="hero_title_1">Jogos com energia, cores e</span> <br>
                     <span class="bg-gradient-to-r from-fuchsia-400 via-purple-400 to-purple-300 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">pura diversão.</span>
                 </h1>
-                
                 <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium" data-i18n="hero_desc">
                     A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.
                 </p>
-
                 <div class="flex flex-wrap justify-center gap-4 pt-4">
                     <a href="#games" class="px-8 py-4 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold transition shadow-xl shadow-fuchsia-400/40 flex items-center gap-3">
-                        <i class="fa-solid fa-gamepad"></i> <span data-i18n="btn_explore">Conhecer Jogos</span>
+                        <i class="fa-solid fa-gamepad"></i><span data-i18n="btn_explore">Conhecer Jogos</span>
                     </a>
                     <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl glass-card hover:bg-fuchsia-950/40 text-white font-bold transition border border-fuchsia-400/30 flex items-center gap-3">
-                        <i class="fa-brands fa-discord text-fuchsia-400"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
+                        <i class="fa-brands fa-discord text-fuchsia-400"></i><span data-i18n="btn_discord">Entrar no Discord</span>
                     </a>
                 </div>
-
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-3xl mx-auto">
                     <div class="glass-card p-6 rounded-2xl border border-fuchsia-400/20">
                         <div class="text-3xl sm:text-4xl font-extrabold text-fuchsia-400" id="stat-players">--</div>
@@ -203,43 +189,24 @@
             </div>
         </section>
 
-        <!-- SOBRE NÓS -->
         <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase">
-                        NX • <span data-i18n="about_tag">A Nossa Essência</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="about_title">
-                        Diversão levada a sério.
-                    </h2>
+                    <div class="inline-block px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase">NX • <span data-i18n="about_tag">A Nossa Essência</span></div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="about_title">Diversão levada a sério.</h2>
                     <p class="text-gray-400 text-base sm:text-lg leading-relaxed" data-i18n="about_desc">
                         A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20">
-                            <i class="fa-solid fa-bolt text-fuchsia-400 text-xl mb-2"></i>
-                            <h4 class="font-bold text-sm" data-i18n="feat_1_title">Gameplay Vibrante</h4>
-                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_1_desc">Ação dinâmica e fluida.</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20">
-                            <i class="fa-solid fa-users text-purple-400 text-xl mb-2"></i>
-                            <h4 class="font-bold text-sm" data-i18n="feat_2_title">Comunidade Ativa</h4>
-                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_2_desc">Ouvimos cada jogador.</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20">
-                            <i class="fa-solid fa-rotate text-fuchsia-400 text-xl mb-2"></i>
-                            <h4 class="font-bold text-sm" data-i18n="feat_3_title">Updates Constantes</h4>
-                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_3_desc">Conteúdo novo toda semana.</p>
-                        </div>
+                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20"><i class="fa-solid fa-bolt text-fuchsia-400 text-xl mb-2"></i><h4 class="font-bold text-sm" data-i18n="feat_1_title">Gameplay Vibrante</h4><p class="text-xs text-gray-400 mt-1" data-i18n="feat_1_desc">Ação dinâmica e fluida.</p></div>
+                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20"><i class="fa-solid fa-users text-purple-400 text-xl mb-2"></i><h4 class="font-bold text-sm" data-i18n="feat_2_title">Comunidade Ativa</h4><p class="text-xs text-gray-400 mt-1" data-i18n="feat_2_desc">Ouvimos cada jogador.</p></div>
+                        <div class="glass-card p-4 rounded-xl border border-fuchsia-400/20"><i class="fa-solid fa-rotate text-fuchsia-400 text-xl mb-2"></i><h4 class="font-bold text-sm" data-i18n="feat_3_title">Updates Constantes</h4><p class="text-xs text-gray-400 mt-1" data-i18n="feat_3_desc">Conteúdo novo toda semana.</p></div>
                     </div>
                 </div>
                 <div class="glass-card p-8 rounded-3xl relative border border-fuchsia-400/30 overflow-hidden group">
                     <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-fuchsia-400/20 rounded-full blur-3xl group-hover:bg-fuchsia-400/30 transition duration-500"></div>
                     <div class="relative z-10 space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-fuchsia-400 to-purple-300 flex items-center justify-center text-2xl font-bold">
-                            <i class="fa-solid fa-cube"></i>
-                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-fuchsia-400 to-purple-300 flex items-center justify-center text-2xl font-bold"><i class="fa-solid fa-cube"></i></div>
                         <h3 class="text-2xl font-bold" data-i18n="about_box_title">Inovação em Cada Detalhe</h3>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="about_box_desc">
                             Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.
@@ -249,32 +216,25 @@
             </div>
         </section>
 
-        <!-- JOGOS -->
         <section id="games" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase" data-i18n="games_tag">O Que Jogar Agora</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="games_title">Nossos Universos</h2>
                 <p class="text-gray-400" data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Anime Paradise -->
                 <div class="game-card glass-card rounded-2xl overflow-hidden border border-fuchsia-400/20 flex flex-col justify-between group">
                     <div data-game-place="96665881849072" class="relative h-48 bg-gradient-to-br from-fuchsia-950 to-black flex items-center justify-center overflow-hidden">
                         <img src="assets/anime-paradise.png" alt="Anime Paradise" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#09050a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-fuchsia-400/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
-                        </div>
+                        <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full text-xs font-bold bg-fuchsia-400/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span></div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-bold group-hover:text-fuchsia-400 transition">Anime Paradise</h3>
-                            <span class="player-count-badge"><i class="fa-solid fa-users"></i> <span id="ap-players" aria-live="polite" title="Contagem atualizada automaticamente">--</span></span>
+                            <span class="player-count-badge"><i class="fa-solid fa-users"></i><span id="ap-players" aria-live="polite" title="Contagem atualizada automaticamente">--</span></span>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_1_desc">
-                            Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.
-                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_1_desc">Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.</p>
                     </div>
                     <div class="p-6 pt-0 space-y-2">
                         <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-400/30"><i class="fa-solid fa-play"></i><span data-i18n="btn_play">Jogar Agora</span></a>
@@ -282,97 +242,65 @@
                     </div>
                 </div>
 
-                <!-- Anime Crash -->
                 <div class="game-card glass-card rounded-2xl overflow-hidden border border-fuchsia-400/20 flex flex-col justify-between group">
                     <div data-game-place="111173250236559" class="relative h-48 bg-gradient-to-br from-purple-300/15 to-black flex items-center justify-center overflow-hidden">
                         <img src="assets/anime-crash.png" alt="Anime Crash" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#09050a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-300/25 text-white shadow-md" data-i18n="badge_dev">Em Desenvolvimento</span>
-                        </div>
+                        <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-300/25 text-white shadow-md" data-i18n="badge_dev">Em Desenvolvimento</span></div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-bold group-hover:text-fuchsia-400 transition">Anime Crash</h3>
                             <span class="player-count-badge"><i class="fa-solid fa-users"></i><span id="cr-players" aria-live="polite" title="Contagem atualizada automaticamente">--</span></span>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_2_desc">
-                            Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.
-                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_2_desc">Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.</p>
                     </div>
                     <div class="p-6 pt-0 space-y-2">
-                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-fuchsia-400/40 hover:bg-fuchsia-400 text-white font-bold text-sm transition flex items-center justify-center gap-2 border border-fuchsia-400/30">
-                            <i class="fa-solid fa-code"></i> <span data-i18n="btn_preview">Ver Projeto</span>
-                        </a>
-                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl glass-card hover:bg-fuchsia-950/40 text-fuchsia-300 font-semibold text-xs transition flex items-center justify-center gap-2 border border-fuchsia-400/20">
-                            <i class="fa-brands fa-discord"></i> <span data-i18n="btn_discord_server">Discord do Jogo</span>
-                        </a>
+                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-fuchsia-400/40 hover:bg-fuchsia-400 text-white font-bold text-sm transition flex items-center justify-center gap-2 border border-fuchsia-400/30"><i class="fa-solid fa-code"></i><span data-i18n="btn_preview">Ver Projeto</span></a>
+                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl glass-card hover:bg-fuchsia-950/40 text-fuchsia-300 font-semibold text-xs transition flex items-center justify-center gap-2 border border-fuchsia-400/20"><i class="fa-brands fa-discord"></i><span data-i18n="btn_discord_server">Discord do Jogo</span></a>
                     </div>
                 </div>
 
-                <!-- FREE FIRE MAX -->
                 <div class="game-card glass-card rounded-2xl overflow-hidden border border-fuchsia-400/20 flex flex-col justify-between group">
                     <div data-game-place="93233198656969" class="relative h-48 bg-gradient-to-br from-fuchsia-950 to-black flex items-center justify-center overflow-hidden">
                         <img src="assets/free-fire-max.png" alt="FREE FIRE MAX" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#09050a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-fuchsia-400/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
-                        </div>
+                        <div class="absolute top-3 left-3"><span class="px-3 py-1 rounded-full text-xs font-bold bg-fuchsia-400/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span></div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-2xl font-bold group-hover:text-fuchsia-400 transition">FREE FIRE MAX</h3>
                             <span class="player-count-badge"><i class="fa-solid fa-users"></i><span id="ff-players" aria-live="polite" title="Contagem atualizada automaticamente">--</span></span>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_3_desc">
-                            Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.
-                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_3_desc">Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.</p>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-400/30">
-                            <i class="fa-solid fa-play"></i> <span data-i18n="btn_play">Jogar Agora</span>
-                        </a>
+                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-fuchsia-400/30"><i class="fa-solid fa-play"></i><span data-i18n="btn_play">Jogar Agora</span></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MÍDIA / TRAILERS -->
         <section id="media" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
             <div class="text-center max-w-3xl mx-auto space-y-4">
                 <span class="px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Demonstrativos</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="media_title">Mídia Oficial</h2>
                 <p class="text-gray-400" data-i18n="media_subtitle">Demonstrações e conceitos visuais dos projetos NeoX Studio.</p>
             </div>
-
-            <!-- Mídia Anime Crash -->
             <div class="space-y-6">
-                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-fuchsia-900/40 pb-3 text-fuchsia-400">
-                    <i class="fa-solid fa-gamepad"></i> Anime Crash
-                </h3>
+                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-fuchsia-900/40 pb-3 text-fuchsia-400"><i class="fa-solid fa-gamepad"></i> Anime Crash</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="glass-card rounded-2xl p-6 border border-fuchsia-400/20 space-y-4 text-center">
                         <video class="w-full h-40 rounded-xl object-cover bg-black border border-fuchsia-400/30" controls playsinline preload="metadata"><source src="assets/anime-crash-gameplay.mp4" type="video/mp4">Seu navegador não reproduz este vídeo.</video>
-                        <div>
-                            <span class="text-xs font-bold text-fuchsia-400 uppercase">Gameplay Oficial</span>
-                            <h4 class="text-base font-bold text-white">Combate & Movimentação</h4>
-                        </div>
+                        <div><span class="text-xs font-bold text-fuchsia-400 uppercase">Gameplay Oficial</span><h4 class="text-base font-bold text-white">Combate & Movimentação</h4></div>
                     </div>
-
                     <div class="glass-card rounded-2xl p-6 border border-fuchsia-400/20 space-y-4 text-center">
                         <img class="w-full h-40 rounded-xl object-cover bg-black border border-purple-300/20" src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" loading="lazy">
-                        <div>
-                            <span class="text-xs font-bold text-purple-400 uppercase">Sistema de Quests</span>
-                            <h4 class="text-base font-bold text-white">Missões & Recompensas</h4>
-                        </div>
+                        <div><span class="text-xs font-bold text-purple-400 uppercase">Sistema de Quests</span><h4 class="text-base font-bold text-white">Missões & Recompensas</h4></div>
                     </div>
-
                     <div class="glass-card rounded-2xl p-6 border border-fuchsia-400/20 space-y-4 text-center">
                         <img class="w-full h-40 rounded-xl object-cover bg-black border border-purple-300/20" src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" loading="lazy">
-                        <div>
-                            <span class="text-xs font-bold text-fuchsia-400 uppercase">Interface & Habilidades</span>
-                            <h4 class="text-base font-bold text-white">Árvore de Skills</h4>
-                        </div>
+                        <div><span class="text-xs font-bold text-fuchsia-400 uppercase">Interface & Habilidades</span><h4 class="text-base font-bold text-white">Árvore de Skills</h4></div>
                     </div>
                 </div>
             </div>
@@ -386,218 +314,94 @@
             </div>
         </section>
 
-        <!-- EQUIPE -->
         <section id="team" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase" data-i18n="team_tag">Os Criadores</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="team_title">A Equipe NeoX</h2>
                 <p class="text-gray-400" data-i18n="team_subtitle">Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.</p>
             </div>
-
             <div class="team-carousel-viewport" id="team-carousel-viewport" role="region" aria-label="Equipe NeoX" aria-roledescription="carrossel" tabindex="0">
-            <div class="team-carousel" id="team-carousel">
-                <!-- SasaDev -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/sasa.png" alt="SasaDev" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">SasaDev</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Owner</p>
+                <div class="team-carousel" id="team-carousel">
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/sasa.png" alt="SasaDev" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">SasaDev</h3><p class="team-role text-sm font-semibold uppercase mt-1">Owner</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/5790284269/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/5790284269/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/davi.png" alt="DaviDev" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">DaviDev</h3><p class="team-role text-sm font-semibold uppercase mt-1">Co-Owner & Game Designer</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/1213557895/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                </div>
-
-                <!-- DaviDev -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/davi.png" alt="DaviDev" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">DaviDev</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Co-Owner & Game Designer</p>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/osein.png" alt="oSein" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">oSein</h3><p class="team-role text-sm font-semibold uppercase mt-1">Game Designer</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/4565735367/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-fuchsia-300 hover:text-white transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1213557895/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/slow.png" alt="Slow" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">Slow</h3><p class="team-role text-sm font-semibold uppercase mt-1">Animator</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/2620031389/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                </div>
-
-                <!-- oSein -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/osein.png" alt="oSein" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">oSein</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Game Designer</p>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/flex.png" alt="Flex" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">Flex</h3><p class="team-role text-sm font-semibold uppercase mt-1">Modelador</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/4565735367/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-fuchsia-300 hover:text-white transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/oguest.png" alt="Oguest" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">Oguest</h3><p class="team-role text-sm font-semibold uppercase mt-1">VFX Maker</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/8093384811/profile?friendshipSourceType=PlayerSearch" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                </div>
-
-                <!-- Slow -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/slow.png" alt="Slow" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">Slow</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Animator</p>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/reject.png" alt="Reject" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">Reject</h3><p class="team-role text-sm font-semibold uppercase mt-1">UI/UX Maker</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/2620031389/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Flex -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/flex.png" alt="Flex" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">Flex</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Modelador</p>
-                    </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Oguest -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/oguest.png" alt="Oguest" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">Oguest</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">VFX Maker</p>
-                    </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/8093384811/profile?friendshipSourceType=PlayerSearch" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Reject -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/reject.png" alt="Reject" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">Reject</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">UI/UX Maker</p>
-                    </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Moon -->
-                <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center">
-                            <img class="w-full h-full rounded-xl object-cover" src="assets/moon.png" alt="Moon" loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <h3 class="text-xl font-bold">Moon</h3>
-                        <p class="team-role text-sm font-semibold uppercase mt-1">Community Manager</p>
-                    </div>
-                    <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1587723048/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
-                        </a>
+                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between group">
+                        <div><div class="team-avatar-frame w-full h-44 rounded-xl mb-4 flex items-center justify-center"><img class="w-full h-full rounded-xl object-cover" src="assets/moon.png" alt="Moon" loading="lazy" onerror="this.style.display='none'"></div><h3 class="text-xl font-bold">Moon</h3><p class="team-role text-sm font-semibold uppercase mt-1">Community Manager</p></div>
+                        <div class="pt-6"><a href="https://www.roblox.com/pt/users/1587723048/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-fuchsia-400 transition"><i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox</a></div>
                     </div>
                 </div>
             </div>
-                    </div>
             <div class="team-carousel-controls" aria-label="Controles da equipe">
                 <button type="button" class="team-arrow" id="team-prev" aria-label="Desenvolvedor anterior"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="team-carousel-dots" id="team-dots" aria-label="Escolher desenvolvedor"></div>
                 <button type="button" class="team-arrow" id="team-next" aria-label="Próximo desenvolvedor"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
-            <p class="team-carousel-status" id="team-carousel-status" aria-live="polite"></p></section>
+            <p class="team-carousel-status" id="team-carousel-status" aria-live="polite"></p>
+        </section>
 
-        <!-- CONTATO & REDES -->
         <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
             <div class="glass-card p-8 sm:p-12 rounded-3xl border border-fuchsia-400/30 relative overflow-hidden">
                 <div class="absolute -top-24 -right-24 w-72 h-72 bg-fuchsia-400/20 rounded-full blur-3xl"></div>
-                
                 <div class="relative z-10 space-y-8">
                     <div class="text-center space-y-3">
                         <span class="px-3 py-1 rounded-md bg-fuchsia-400/10 text-fuchsia-400 text-xs font-bold tracking-wider uppercase" data-i18n="contact_tag">Fale Conosco</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="contact_title">Pronto para a diversão?</h2>
                         <p class="text-gray-400 text-sm" data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
                     </div>
-
                     <form action="https://formsubmit.co/eosein00@gmail.com" method="POST" class="space-y-4">
                         <input type="hidden" name="_subject" value="Nova mensagem pelo site da NeoX Studio">
                         <input type="hidden" name="_template" value="box">
                         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_name">Seu Nome</label>
-                                <input name="name" type="text" autocomplete="name" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_email">Seu E-mail</label>
-                                <input name="email" type="email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white">
-                            </div>
+                            <div><label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_name">Seu Nome</label><input name="name" type="text" autocomplete="name" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white"></div>
+                            <div><label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_email">Seu E-mail</label><input name="email" type="email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white"></div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_roblox">Nick do Roblox (Opcional)</label>
-                            <input name="roblox" type="text" class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label>
-                            <textarea name="message" rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-4 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold text-sm transition shadow-lg shadow-fuchsia-400/30 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_btn">Enviar Mensagem</span>
-                        </button>
+                        <div><label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_roblox">Nick do Roblox (Opcional)</label><input name="roblox" type="text" class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white"></div>
+                        <div><label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label><textarea name="message" rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-fuchsia-400/20 focus:border-fuchsia-400 focus:outline-none text-sm transition text-white"></textarea></div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-fuchsia-400 hover:bg-fuchsia-400 text-white font-bold text-sm transition shadow-lg shadow-fuchsia-400/30 flex items-center justify-center gap-2"><i class="fa-solid fa-paper-plane"></i><span data-i18n="form_btn">Enviar Mensagem</span></button>
                         <p id="form-status" class="text-center text-sm text-purple-300" role="status" aria-live="polite"></p>
                     </form>
-
                     <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-fuchsia-400/20">
-                        <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl glass-card hover:bg-fuchsia-900/30 text-white font-bold text-xs transition border border-fuchsia-400/30 flex items-center gap-2">
-                            <i class="fa-brands fa-discord text-fuchsia-400"></i> Discord Oficial
-                        </a>
-                        <a href="https://x.com/NeoX351459" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl glass-card hover:bg-fuchsia-900/30 text-white font-bold text-xs transition border border-fuchsia-400/30 flex items-center gap-2">
-                            <i class="fa-brands fa-x-twitter text-fuchsia-400"></i> Twitter / X
-                        </a>
+                        <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl glass-card hover:bg-fuchsia-900/30 text-white font-bold text-xs transition border border-fuchsia-400/30 flex items-center gap-2"><i class="fa-brands fa-discord text-fuchsia-400"></i> Discord Oficial</a>
+                        <a href="https://x.com/NeoX351459" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl glass-card hover:bg-fuchsia-900/30 text-white font-bold text-xs transition border border-fuchsia-400/30 flex items-center gap-2"><i class="fa-brands fa-x-twitter text-fuchsia-400"></i> Twitter / X</a>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- RODAPÉ -->
     <footer class="relative z-10 glass-card border-t border-fuchsia-900/30 py-8 text-center text-xs text-gray-400">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <img src="assets/neox-logo.png" alt="NeoX Studio" class="brand-mark w-12 h-12 rounded-xl object-cover">
-                <span class="font-bold text-white">NeoX Studio</span>
-            </div>
+            <div class="flex items-center gap-2"><img src="assets/neox-logo.png" alt="NeoX Studio" class="brand-mark w-12 h-12 rounded-xl object-cover"><span class="font-bold text-white">NeoX Studio</span></div>
             <div>© 2026 NeoX. Todos os direitos reservados.</div>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
     <script>
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
@@ -693,90 +497,333 @@
             }
         };
 
-        let currentLang='en';
-        function toggleLanguage(){currentLang=currentLang==='pt'?'en':'pt';applyLanguage(currentLang);}
-
-        const extraEnglish={
-            'A mídia oficial de Anime Paradise será adicionada assim que você enviar os arquivos.':'Official Anime Paradise media will be added once you send the files.','Jogadores agora':'Players online','Seu navegador não reproduz este vídeo.':'Your browser does not support this video.','Discord do Anime Paradise':'Anime Paradise Discord','Anime Paradise — Prévias':'Anime Paradise — Sneak Peeks','Prévia 01':'Sneak Peek 01','Prévia 02':'Sneak Peek 02','Prévia 03':'Sneak Peek 03','Gameplay Oficial':'Official Gameplay','Combate & Movimentação':'Combat & Movement','Sistema de Quests':'Quest System','Missões & Recompensas':'Missions & Rewards','Interface & Habilidades':'Interface & Abilities','Árvore de Skills':'Skill Tree','Em breve':'Coming soon','Em Breve':'Coming soon','Jogar Anime Paradise':'Play Anime Paradise',
-            'Perfil Roblox':'Roblox Profile','Discord Oficial':'Official Discord','Twitter / X':'Twitter / X','© 2026 NeoX. Todos os direitos reservados.':'© 2026 NeoX. All rights reserved.',
-            'Fale Conosco':'Contact Us','Seu Nome':'Your Name','Seu E-mail':'Your Email','Nick do Roblox (Opcional)':'Roblox Username (Optional)','Mensagem (Mínimo 16 caracteres)':'Message (Minimum 16 characters)','Enviar Mensagem':'Send Message',
-            'Proprietário':'Owner','Coproprietário & Designer de Jogos':'Co-Owner & Game Designer','Designer de Jogos':'Game Designer','Coproprietário & Programador':'Co-Owner & Programmer','Animador':'Animator','Modelador':'Modeler','Artista de VFX':'VFX Artist','Designer de UI/UX':'UI/UX Designer','Gerente da Comunidade':'Community Manager'
+        const extraEnglish = {
+            'A mídia oficial de Anime Paradise será adicionada assim que você enviar os arquivos.':'Official Anime Paradise media will be added once you send the files.',
+            'Jogadores agora':'Players online',
+            'Seu navegador não reproduz este vídeo.':'Your browser does not support this video.',
+            'Discord do Anime Paradise':'Anime Paradise Discord',
+            'Anime Paradise — Prévias':'Anime Paradise — Sneak Peeks',
+            'Prévia 01':'Sneak Peek 01','Prévia 02':'Sneak Peek 02','Prévia 03':'Sneak Peek 03',
+            'Gameplay Oficial':'Official Gameplay','Combate & Movimentação':'Combat & Movement',
+            'Sistema de Quests':'Quest System','Missões & Recompensas':'Missions & Rewards',
+            'Interface & Habilidades':'Interface & Abilities','Árvore de Skills':'Skill Tree',
+            'Em breve':'Coming soon','Em Breve':'Coming soon','Jogar Anime Paradise':'Play Anime Paradise',
+            'Perfil Roblox':'Roblox Profile','Discord Oficial':'Official Discord','Twitter / X':'Twitter / X',
+            '© 2026 NeoX. Todos os direitos reservados.':'© 2026 NeoX. All rights reserved.',
+            'Fale Conosco':'Contact Us','Seu Nome':'Your Name','Seu E-mail':'Your Email',
+            'Nick do Roblox (Opcional)':'Roblox Username (Optional)',
+            'Mensagem (Mínimo 16 caracteres)':'Message (Minimum 16 characters)',
+            'Enviar Mensagem':'Send Message','Proprietário':'Owner',
+            'Coproprietário & Designer de Jogos':'Co-Owner & Game Designer',
+            'Designer de Jogos':'Game Designer','Coproprietário & Programador':'Co-Owner & Programmer',
+            'Animador':'Animator','Modelador':'Modeler','Artista de VFX':'VFX Artist',
+            'Designer de UI/UX':'UI/UX Designer','Gerente da Comunidade':'Community Manager'
         };
-        const extraPortuguese={'Anime Paradise — Sneak Peeks':'Anime Paradise — Prévias','Sneak Peek 01':'Prévia 01','Sneak Peek 02':'Prévia 02','Sneak Peek 03':'Prévia 03','Anime Paradise Discord':'Discord do Anime Paradise','Players online':'Jogadores agora','Your browser does not support this video.':'Seu navegador não reproduz este vídeo.','Owner':'Proprietário','Co-Owner & Game Designer':'Coproprietário & Designer de Jogos','Game Designer':'Designer de Jogos','Co-Owner & Programmer':'Coproprietário & Programador','Animator':'Animador','Modelator':'Modelador','VFX Maker':'Artista de VFX','UI/UX Maker':'Designer de UI/UX','Community Manager':'Gerente da Comunidade'};
-        const textNodes=[];const textWalker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let textNode;
-        while(textNode=textWalker.nextNode()){if(textNode.nodeValue.trim())textNodes.push({node:textNode,original:textNode.nodeValue});}
-        function applyLanguage(lang){
-            for(const item of textNodes){const raw=item.original,trim=raw.trim();let value=trim;
-                if(lang==='en'){const key=Object.keys(translations.pt).find(k=>translations.pt[k]===trim);value=extraEnglish[trim]||(key?translations.en[key]:trim);}
-                else{const key=Object.keys(translations.en).find(k=>translations.en[k]===trim);value=extraPortuguese[trim]||(key?translations.pt[key]:trim);}
-                const lead=raw.match(/^\s*/)?.[0]||'',tail=raw.match(/\s*$/)?.[0]||'';item.node.nodeValue=lead+value+tail;
+        const extraPortuguese = {
+            'Anime Paradise — Sneak Peeks':'Anime Paradise — Prévias',
+            'Sneak Peek 01':'Prévia 01','Sneak Peek 02':'Prévia 02','Sneak Peek 03':'Prévia 03',
+            'Anime Paradise Discord':'Discord do Anime Paradise','Players online':'Jogadores agora',
+            'Your browser does not support this video.':'Seu navegador não reproduz este vídeo.',
+            'Owner':'Proprietário','Co-Owner & Game Designer':'Coproprietário & Designer de Jogos',
+            'Game Designer':'Designer de Jogos','Co-Owner & Programmer':'Coproprietário & Programador',
+            'Animator':'Animador','Modelator':'Modelador','VFX Maker':'Artista de VFX',
+            'UI/UX Maker':'Designer de UI/UX','Community Manager':'Gerente da Comunidade'
+        };
+
+        const textNodes = [];
+        const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let textNode;
+        while (textNode = textWalker.nextNode()) {
+            if (textNode.nodeValue.trim()) textNodes.push({ node: textNode, original: textNode.nodeValue });
+        }
+
+        function applyLanguage(lang) {
+            for (const item of textNodes) {
+                const raw = item.original;
+                const trim = raw.trim();
+                let value = trim;
+
+                if (lang === 'en') {
+                    const key = Object.keys(translations.pt).find(k => translations.pt[k] === trim);
+                    value = extraEnglish[trim] || (key ? translations.en[key] : trim);
+                } else {
+                    const key = Object.keys(translations.en).find(k => translations.en[k] === trim);
+                    value = extraPortuguese[trim] || (key ? translations.pt[key] : trim);
+                }
+
+                const lead = raw.match(/^\s*/)?.[0] || '';
+                const tail = raw.match(/\s*$/)?.[0] || '';
+                item.node.nodeValue = lead + value + tail;
             }
-            document.documentElement.lang=lang==='pt'?'pt-BR':'en';document.title=lang==='pt'?'NeoX Studio | Jogue o Futuro':'NeoX Studio | Play the Future';document.getElementById('lang-label').textContent=lang==='pt'?'PT-BR':'EN';
+
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+            document.title = lang === 'pt' ? 'NeoX Studio | Jogue o Futuro' : 'NeoX Studio | Play the Future';
+            document.getElementById('lang-label').textContent = lang === 'pt' ? 'PT-BR' : 'EN';
         }
-        document.querySelectorAll('header nav a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{const section=document.querySelector(link.getAttribute('href'));link.classList.remove('nav-click-pulse');section?.classList.remove('section-arrival');void link.offsetWidth;link.classList.add('nav-click-pulse');section?.classList.add('section-arrival');window.setTimeout(()=>{link.classList.remove('nav-click-pulse');section?.classList.remove('section-arrival');},850);}));
-        const revealTargets=document.querySelectorAll('main section > div, .glass-card');
-        revealTargets.forEach((el,i)=>{el.classList.add('reveal-on-scroll');el.style.setProperty('--reveal-delay',Math.min(i%5,4)*75+'ms');});
-        if('IntersectionObserver' in window){const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.08});revealTargets.forEach(el=>revealObserver.observe(el));}else revealTargets.forEach(el=>el.classList.add('is-visible'));
-        applyLanguage('en');
-                const ROBLOX_PLACES={ap:'96665881849072',cr:'111173250236559',ff:'93233198656969'};
-        async function fetchJson(url){const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'}});if(!response.ok)throw new Error('Roblox API unavailable');return response.json();}
-        async function fetchPlayerCounts(){
-            const nodes={ap:document.getElementById('ap-players'),cr:document.getElementById('cr-players'),ff:document.getElementById('ff-players')},total=document.getElementById('stat-players');
-            const proxies=['https://apis.roblox.com','https://apis.roproxy.com'];let universeIds={};
-            for(const base of proxies){try{const pairs=await Promise.all(Object.entries(ROBLOX_PLACES).map(async([key,placeId])=>{const data=await fetchJson(`${base}/universes/v1/places/${placeId}/universe`);return[key,String(data.universeId)];}));universeIds=Object.fromEntries(pairs);break;}catch(error){continue;}}
-            if(Object.keys(universeIds).length!==Object.keys(ROBLOX_PLACES).length)throw new Error('Could not resolve game IDs');
-            const ids=Object.values(universeIds).join(',');let games=null;
-            for(const base of ['https://games.roblox.com','https://games.roproxy.com']){try{const data=await fetchJson(`${base}/v1/games?universeIds=${ids}`);games=data.data||[];if(games.length)break;}catch(error){continue;}}
-            if(!games?.length)throw new Error('No player data returned');
-            let sum=0;for(const [key,id] of Object.entries(universeIds)){const game=games.find(item=>String(item.id)===id);const count=game&&Number.isFinite(Number(game.playing))?Number(game.playing):null;nodes[key].textContent=count===null?'--':count.toLocaleString(currentLang==='pt'?'pt-BR':'en-US');if(count!==null)sum+=count;}
-            total.textContent=sum.toLocaleString(currentLang==='pt'?'pt-BR':'en-US');
+
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            applyLanguage(currentLang);
         }
-        async function refreshPlayerCounts(){try{await fetchPlayerCounts();}catch(error){Object.values({ap:document.getElementById('ap-players'),cr:document.getElementById('cr-players'),ff:document.getElementById('ff-players')}).forEach(node=>{node.textContent='--';node.title='Could not update now. We will try again shortly.';});document.getElementById('stat-players').textContent='--';}finally{window.setTimeout(refreshPlayerCounts,30000);}}
-        refreshPlayerCounts();                            (()=>{
-            const track=document.getElementById('team-carousel');
-            const viewport=document.getElementById('team-carousel-viewport');
-            if(!track||!viewport)return;
-            const originals=Array.from(track.querySelectorAll('.team-card'));
-            const total=originals.length;
-            if(total<2)return;
-            const dotsRoot=document.getElementById('team-dots');
-            const status=document.getElementById('team-carousel-status');
-            function makeClone(card){const clone=card.cloneNode(true);clone.classList.add('team-card-clone');clone.setAttribute('aria-hidden','true');clone.setAttribute('inert','');clone.inert=true;return clone;}
-            track.insertBefore(makeClone(originals[total-1]),originals[0]);
-            track.appendChild(makeClone(originals[0]));
-            const cards=Array.from(track.querySelectorAll('.team-card'));
-            const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-            let physical=1,logical=0,locked=false,startX=null;
-            const dots=originals.map((card,index)=>{
-                const dot=document.createElement('button');dot.type='button';dot.className='team-dot';
-                dot.setAttribute('aria-label',`Ver perfil ${index+1}: ${card.querySelector('h3')?.textContent.trim()||'Dev'}`);dot.setAttribute('aria-current','false');
-                dot.addEventListener('click',()=>moveTo(index+1));dotsRoot.appendChild(dot);return dot;
+
+        document.querySelectorAll('header nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const section = document.querySelector(link.getAttribute('href'));
+                link.classList.remove('nav-click-pulse');
+                section?.classList.remove('section-arrival');
+                void link.offsetWidth;
+                link.classList.add('nav-click-pulse');
+                section?.classList.add('section-arrival');
+                window.setTimeout(() => {
+                    link.classList.remove('nav-click-pulse');
+                    section?.classList.remove('section-arrival');
+                }, 850);
             });
-            function setPosition(index){const card=cards[index];const x=viewport.clientWidth/2-(card.offsetLeft+card.offsetWidth/2);track.style.transform=`translate3d(${x}px,0,0)`;}
-            function paint(index){physical=index;logical=index===0?total-1:index===total+1?0:index-1;cards.forEach((card,i)=>card.classList.toggle('is-active',i===physical));dots.forEach((dot,i)=>dot.setAttribute('aria-current',i===logical?'true':'false'));if(status)status.textContent=`${logical+1} / ${total}`;}
-            function settle(){
-                if(physical!==0&&physical!==total+1){locked=false;return;}
-                const returningHome=physical===total+1;
-                const destination=physical===0?total:1;
-                track.style.transition='none';paint(destination);setPosition(destination);track.getBoundingClientRect();
-                requestAnimationFrame(()=>{
-                    track.style.transition='';
+        });
+
+        const revealTargets = document.querySelectorAll('main section > div, .glass-card');
+        revealTargets.forEach((el, i) => {
+            el.classList.add('reveal-on-scroll');
+            el.style.setProperty('--reveal-delay', Math.min(i % 5, 4) * 75 + 'ms');
+        });
+
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            }), { threshold: .08 });
+            revealTargets.forEach(el => revealObserver.observe(el));
+        } else {
+            revealTargets.forEach(el => el.classList.add('is-visible'));
+        }
+
+        applyLanguage('en');
+
+        const ROBLOX_PLACES = {
+            ap: '96665881849072',
+            cr: '111173250236559',
+            ff: '93233198656969'
+        };
+
+        async function fetchJson(url) {
+            const response = await fetch(url, {
+                cache: 'no-store',
+                headers: { Accept: 'application/json' }
+            });
+            if (!response.ok) throw new Error('Roblox API unavailable');
+            return response.json();
+        }
+
+        async function fetchPlayerCounts() {
+            const nodes = {
+                ap: document.getElementById('ap-players'),
+                cr: document.getElementById('cr-players'),
+                ff: document.getElementById('ff-players')
+            };
+            const total = document.getElementById('stat-players');
+            let universeIds = {};
+
+            for (const base of ['https://apis.roblox.com', 'https://apis.roproxy.com']) {
+                try {
+                    const pairs = await Promise.all(Object.entries(ROBLOX_PLACES).map(async ([key, placeId]) => {
+                        const data = await fetchJson(`${base}/universes/v1/places/${placeId}/universe`);
+                        if (!data.universeId) throw new Error('Universe ID missing');
+                        return [key, String(data.universeId)];
+                    }));
+                    universeIds = Object.fromEntries(pairs);
+                    break;
+                } catch (error) {
+                    continue;
+                }
+            }
+
+            if (Object.keys(universeIds).length !== Object.keys(ROBLOX_PLACES).length) {
+                throw new Error('Could not resolve game IDs');
+            }
+
+            const ids = Object.values(universeIds).join(',');
+            let games = null;
+
+            for (const base of ['https://games.roblox.com', 'https://games.roproxy.com']) {
+                try {
+                    const data = await fetchJson(`${base}/v1/games?universeIds=${ids}`);
+                    games = data.data || [];
+                    if (games.length) break;
+                } catch (error) {
+                    continue;
+                }
+            }
+
+            if (!games?.length) throw new Error('No player data returned');
+
+            let sum = 0;
+            for (const [key, id] of Object.entries(universeIds)) {
+                const game = games.find(item => String(item.id) === id);
+                const count = game && Number.isFinite(Number(game.playing)) ? Number(game.playing) : null;
+                nodes[key].textContent = count === null
+                    ? '--'
+                    : count.toLocaleString(currentLang === 'pt' ? 'pt-BR' : 'en-US');
+                if (count !== null) sum += count;
+            }
+
+            total.textContent = sum.toLocaleString(currentLang === 'pt' ? 'pt-BR' : 'en-US');
+        }
+
+        async function refreshPlayerCounts() {
+            try {
+                await fetchPlayerCounts();
+            } catch (error) {
+                ['ap', 'cr', 'ff'].forEach(key => {
+                    document.getElementById(`${key}-players`).textContent = '--';
+                });
+                document.getElementById('stat-players').textContent = '--';
+            } finally {
+                window.setTimeout(refreshPlayerCounts, 30000);
+            }
+        }
+
+        refreshPlayerCounts();
+
+        (() => {
+            const track = document.getElementById('team-carousel');
+            const viewport = document.getElementById('team-carousel-viewport');
+            if (!track || !viewport) return;
+
+            const originals = Array.from(track.querySelectorAll('.team-card'));
+            const total = originals.length;
+            if (total < 2) return;
+
+            const dotsRoot = document.getElementById('team-dots');
+            const status = document.getElementById('team-carousel-status');
+
+            function makeClone(card) {
+                const clone = card.cloneNode(true);
+                clone.classList.add('team-card-clone');
+                clone.setAttribute('aria-hidden', 'true');
+                clone.setAttribute('inert', '');
+                clone.inert = true;
+                return clone;
+            }
+
+            track.insertBefore(makeClone(originals[total - 1]), originals[0]);
+            track.appendChild(makeClone(originals[0]));
+
+            const cards = Array.from(track.querySelectorAll('.team-card'));
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let physical = 1;
+            let logical = 0;
+            let locked = false;
+            let startX = null;
+
+            const dots = originals.map((card, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'team-dot';
+                dot.setAttribute('aria-label', `Ver perfil ${index + 1}: ${card.querySelector('h3')?.textContent.trim() || 'Dev'}`);
+                dot.setAttribute('aria-current', 'false');
+                dot.addEventListener('click', () => moveTo(index + 1));
+                dotsRoot.appendChild(dot);
+                return dot;
+            });
+
+            function setPosition(index) {
+                const card = cards[index];
+                const x = viewport.clientWidth / 2 - (card.offsetLeft + card.offsetWidth / 2);
+                track.style.transform = `translate3d(${x}px,0,0)`;
+            }
+
+            function paint(index) {
+                physical = index;
+                logical = index === 0 ? total - 1 : index === total + 1 ? 0 : index - 1;
+                cards.forEach((card, i) => card.classList.toggle('is-active', i === physical));
+                dots.forEach((dot, i) => dot.setAttribute('aria-current', i === logical ? 'true' : 'false'));
+                if (status) status.textContent = `${logical + 1} / ${total}`;
+            }
+
+            function settle() {
+                if (physical !== 0 && physical !== total + 1) {
+                    locked = false;
+                    return;
+                }
+
+                const returningHome = physical === total + 1;
+                const destination = physical === 0 ? total : 1;
+
+                track.style.transition = 'none';
+                paint(destination);
+                setPosition(destination);
+                track.getBoundingClientRect();
+
+                requestAnimationFrame(() => {
+                    track.style.transition = '';
                     track.classList.remove('is-returning-home');
-                    if(returningHome&&!reducedMotion.matches){originals[0].classList.add('team-home-arrival');window.setTimeout(()=>originals[0].classList.remove('team-home-arrival'),720);}
-                    locked=false;
+
+                    if (returningHome && !reducedMotion.matches) {
+                        originals[0].classList.add('team-home-arrival');
+                        window.setTimeout(() => originals[0].classList.remove('team-home-arrival'), 720);
+                    }
+                    locked = false;
                 });
             }
-            function moveTo(index){if(locked)return;const target=Math.max(0,Math.min(index,cards.length-1));if(target===physical)return;locked=true;if(target===total+1)track.classList.add('is-returning-home');paint(target);setPosition(target);if(reducedMotion.matches)settle();}
-            function step(direction){if(locked)return;if(direction>0&&physical===total)moveTo(total+1);else if(direction<0&&physical===1)moveTo(0);else moveTo(physical+direction);}
-            document.getElementById('team-prev')?.addEventListener('click',()=>step(-1));
-            document.getElementById('team-next')?.addEventListener('click',()=>step(1));
-            track.addEventListener('transitionend',event=>{if(event.target===track&&event.propertyName==='transform')settle();});
-            viewport.addEventListener('pointerdown',event=>{startX=event.clientX;viewport.setPointerCapture?.(event.pointerId);});
-            viewport.addEventListener('pointerup',event=>{if(startX===null)return;const delta=event.clientX-startX;startX=null;if(Math.abs(delta)>45)step(delta<0?1:-1);});
-            viewport.addEventListener('pointercancel',()=>{startX=null;});
-            viewport.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();step(1);}else if(event.key==='ArrowLeft'){event.preventDefault();step(-1);}});
-            window.addEventListener('resize',()=>setPosition(physical),{passive:true});
-            paint(1);requestAnimationFrame(()=>setPosition(1));
-        })();</script>
+
+            function moveTo(index) {
+                if (locked) return;
+                const target = Math.max(0, Math.min(index, cards.length - 1));
+                if (target === physical) return;
+
+                locked = true;
+                if (target === total + 1) track.classList.add('is-returning-home');
+                paint(target);
+                setPosition(target);
+
+                if (reducedMotion.matches) settle();
+            }
+
+            function step(direction) {
+                if (locked) return;
+                if (direction > 0 && physical === total) moveTo(total + 1);
+                else if (direction < 0 && physical === 1) moveTo(0);
+                else moveTo(physical + direction);
+            }
+
+            document.getElementById('team-prev')?.addEventListener('click', () => step(-1));
+            document.getElementById('team-next')?.addEventListener('click', () => step(1));
+
+            track.addEventListener('transitionend', event => {
+                if (event.target === track && event.propertyName === 'transform') settle();
+            });
+
+            viewport.addEventListener('pointerdown', event => {
+                startX = event.clientX;
+                viewport.setPointerCapture?.(event.pointerId);
+            });
+
+            viewport.addEventListener('pointerup', event => {
+                if (startX === null) return;
+                const delta = event.clientX - startX;
+                startX = null;
+                if (Math.abs(delta) > 45) step(delta < 0 ? 1 : -1);
+            });
+
+            viewport.addEventListener('pointercancel', () => { startX = null; });
+
+            viewport.addEventListener('keydown', event => {
+                if (event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    step(1);
+                } else if (event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    step(-1);
+                }
+            });
+
+            window.addEventListener('resize', () => setPosition(physical), { passive: true });
+            paint(1);
+            requestAnimationFrame(() => setPosition(1));
+        })();
+    </script>
 </body>
 </html>
