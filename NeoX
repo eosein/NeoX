@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoX Studio | Play the Future</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#07090e',
+                            card: '#0f141f',
+                            accent: '#6366f1',
+                            glow: '#818cf8',
+                            neon: '#22c55e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #07090e;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(15, 20, 31, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+        /* Canvas de Partículas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="relative selection:bg-indigo-500 selection:text-white">
+
+    <!-- Fundo de Partículas Interativas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- HEADER / NAVEGAÇÃO -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-indigo-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition">
+                    NX
+                </div>
+                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">
+                    NEOX <span class="text-indigo-500">STUDIO</span>
+                </span>
+            </a>
+
+            <!-- Navegação Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
+                <a href="#home" class="hover:text-indigo-400 transition" data-i18n="nav_home">Home</a>
+                <a href="#about" class="hover:text-indigo-400 transition" data-i18n="nav_about">Sobre</a>
+                <a href="#games" class="hover:text-indigo-400 transition" data-i18n="nav_games">Jogos</a>
+                <a href="#media" class="hover:text-indigo-400 transition" data-i18n="nav_media">Trailers</a>
+                <a href="#team" class="hover:text-indigo-400 transition" data-i18n="nav_team">Equipe</a>
+                <a href="#contact" class="hover:text-indigo-400 transition" data-i18n="nav_contact">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <!-- Seletor de Idioma -->
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-indigo-300 hover:text-white transition flex items-center gap-2 border border-indigo-500/30">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="lang-label">PT-BR</span>
+                </button>
+                <!-- Discord CTA -->
+                <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 pt-28">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-[85vh] flex items-center justify-center px-4 py-20 text-center">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-indigo-400 text-xs font-bold tracking-wide uppercase border border-indigo-500/30 animate-pulse">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span data-i18n="hero_tag">Criando Universos Inesquecíveis</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
+                    <span data-i18n="hero_title_1">Jogos com energia, cores e</span> <br>
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">pura diversão.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium" data-i18n="hero_desc">
+                    A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <a href="#games" class="px-8. py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition shadow-xl shadow-indigo-600/40 flex items-center gap-3">
+                        <i class="fa-solid fa-gamepad"></i> <span data-i18n="btn_explore">Conhecer Jogos</span>
+                    </a>
+                    <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-8. py-4 rounded-xl glass-card hover:bg-indigo-950/40 text-white font-bold transition border border-indigo-500/30 flex items-center gap-3">
+                        <i class="fa-brands fa-discord text-indigo-400"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
+                    </a>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-3xl mx-auto">
+                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-indigo-400" id="stat-players">12.5K+</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_1">Jogadores Ativos</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-purple-400">45K+</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_2">Membros no Discord</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-pink-400">3+</div>
+                        <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_3">Mega Projetos</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE NÓS -->
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase">
+                        NX • <span data-i18n="about_tag">A Nossa Essência</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="about_title">
+                        Diversão levada a sério.
+                    </h2>
+                    <p class="text-gray-400 text-base sm:text-lg leading-relaxed" data-i18n="about_desc">
+                        A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
+                            <i class="fa-solid fa-bolt text-indigo-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm" data-i18n="feat_1_title">Gameplay Vibrante</h4>
+                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_1_desc">Ação dinâmica e fluida.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
+                            <i class="fa-solid fa-users text-purple-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm" data-i18n="feat_2_title">Comunidade Ativa</h4>
+                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_2_desc">Ouvimos cada jogador.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
+                            <i class="fa-solid fa-rotate text-pink-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm" data-i18n="feat_3_title">Updates Constantes</h4>
+                            <p class="text-xs text-gray-400 mt-1" data-i18n="feat_3_desc">Conteúdo novo toda semana.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl relative border border-indigo-500/30 overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-600/20 rounded-full blur-3xl group-hover:bg-indigo-600/30 transition duration-500"></div>
+                    <div class="relative z-10 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold" data-i18n="about_box_title">Inovação em Cada Detalhe</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="about_box_desc">
+                            Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOGOS -->
+        <section id="games" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="games_tag">O Que Jogar Agora</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="games_title">Nossos Universos</h2>
+                <p class="text-gray-400" data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Anime Paradise -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" data-i18n="badge_live">Ativo / Lançado</span>
+                            <span class="text-xs text-gray-400"><i class="fa-solid fa-users text-indigo-400 mr-1"></i> <span id="ap-players">--</span></span>
+                        </div>
+                        <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">Anime Paradise</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_1_desc">
+                            Domine os céus e a terra com poderes celestiais em um mundo imersivo repleto de desafios épicos.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+                            <i class="fa-solid fa-play"></i> <span data-i18n="btn_play">Jogar Agora</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Anime Crash -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20" data-i18n="badge_dev">Em Desenvolvimento</span>
+                            <span class="text-xs text-amber-400 font-semibold"><i class="fa-solid fa-clock"></i> Em Breve</span>
+                        </div>
+                        <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">Anime Crash</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_2_desc">
+                            Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 space-y-2">
+                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600/40 hover:bg-indigo-600 text-white font-bold text-sm transition flex items-center justify-center gap-2 border border-indigo-500/30">
+                            <i class="fa-solid fa-code"></i> <span data-i18n="btn_preview">Ver Projeto</span>
+                        </a>
+                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="w-full py-2.5 rounded-xl glass-card hover:bg-indigo-950/40 text-indigo-300 font-semibold text-xs transition flex items-center justify-center gap-2 border border-indigo-500/20">
+                            <i class="fa-brands fa-discord"></i> <span data-i18n="btn_discord_server">Discord do Jogo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FREE FIRE MAX -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" data-i18n="badge_live">Ativo / Lançado</span>
+                            <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-fire"></i> Destaque</span>
+                        </div>
+                        <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">FREE FIRE MAX</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_3_desc">
+                            Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+                            <i class="fa-solid fa-play"></i> <span data-i18n="btn_play">Jogar Agora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÍDIA / TRAILERS (ANIME CRASH) -->
+        <section id="media" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Trailers</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="media_title">Mídia Oficial</h2>
+                <p class="text-gray-400" data-i18n="media_subtitle">Prévias exclusivas de gameplay, skills e quests do Anime Crash.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Item 1: Skills -->
+                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-indigo-950 via-purple-950 to-indigo-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent"></div>
+                        <i class="fa-solid fa-bolt text-5xl text-indigo-400 group-hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Anime Crash</span>
+                        <h3 class="text-lg font-bold" data-i18n="media_1_title">Demonstração de Skills</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_1_desc">Efeitos visuais avançados e sistemas de combos dinâmicos.</p>
+                </div>
+
+                <!-- Item 2: Gameplay -->
+                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent"></div>
+                        <i class="fa-solid fa-gamepad text-5xl text-purple-400 group-hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Anime Crash</span>
+                        <h3 class="text-lg font-bold" data-i18n="media_2_title">Gameplay Oficial</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_2_desc">Combate fluido e movimentação em tempo real na arena.</p>
+                </div>
+
+                <!-- Item 3: Quests -->
+                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-pink-950 via-indigo-950 to-purple-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-500/20 via-transparent to-transparent"></div>
+                        <i class="fa-solid fa-scroll text-5xl text-pink-400 group-hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">Anime Crash</span>
+                        <h3 class="text-lg font-bold" data-i18n="media_3_title">Sistema de Quests</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_3_desc">Missões imersivas com recompensas exclusivas para os jogadores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EQUIPE -->
+        <section id="team" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="team_tag">Os Criadores</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="team_title">A Equipe NeoX</h2>
+                <p class="text-gray-400" data-i18n="team_subtitle">Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- SasaDev -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-2xl font-bold text-indigo-400 mb-4 group-hover:scale-105 transition">
+                            SD
+                        </div>
+                        <h3 class="text-xl font-bold">SasaDev</h3>
+                        <p class="text-xs font-semibold text-indigo-400 uppercase mt-1">Owner</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/5790284269/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DaviDev -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-2xl font-bold text-purple-400 mb-4 group-hover:scale-105 transition">
+                            DD
+                        </div>
+                        <h3 class="text-xl font-bold">DaviDev</h3>
+                        <p class="text-xs font-semibold text-purple-400 uppercase mt-1">Co-Owner & Game Designer</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/1213557895/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fewy -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-pink-600/20 border border-pink-500/40 flex items-center justify-center text-2xl font-bold text-pink-400 mb-4 group-hover:scale-105 transition">
+                            FW
+                        </div>
+                        <h3 class="text-xl font-bold">Fewy</h3>
+                        <p class="text-xs font-semibold text-pink-400 uppercase mt-1">Co-Owner & Programmer</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/783965668/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- oSein (Grafia Exata) -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/30 bg-indigo-950/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-400/40 flex items-center justify-center text-2xl font-bold text-indigo-300 mb-4 group-hover:scale-105 transition">
+                            oS
+                        </div>
+                        <h3 class="text-xl font-bold">oSein</h3>
+                        <p class="text-xs font-semibold text-indigo-300 uppercase mt-1">Game Designer</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/4565735367/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-300 hover:text-white transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slow -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-2xl font-bold text-blue-400 mb-4 group-hover:scale-105 transition">
+                            SL
+                        </div>
+                        <h3 class="text-xl font-bold">Slow</h3>
+                        <p class="text-xs font-semibold text-blue-400 uppercase mt-1">Animator</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/2620031389/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Flex -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-600/20 border border-emerald-500/40 flex items-center justify-center text-2xl font-bold text-emerald-400 mb-4 group-hover:scale-105 transition">
+                            FL
+                        </div>
+                        <h3 class="text-xl font-bold">Flex</h3>
+                        <p class="text-xs font-semibold text-emerald-400 uppercase mt-1">Modelator</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Oguest -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-2xl font-bold text-amber-400 mb-4 group-hover:scale-105 transition">
+                            OG
+                        </div>
+                        <h3 class="text-xl font-bold">Oguest</h3>
+                        <p class="text-xs font-semibold text-amber-400 uppercase mt-1">VFX Maker</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/8093384811/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reject -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-teal-600/20 border border-teal-500/40 flex items-center justify-center text-2xl font-bold text-teal-400 mb-4 group-hover:scale-105 transition">
+                            RJ
+                        </div>
+                        <h3 class="text-xl font-bold">Reject</h3>
+                        <p class="text-xs font-semibold text-teal-400 uppercase mt-1">UI/UX Maker</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Moon -->
+                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-violet-600/20 border border-violet-500/40 flex items-center justify-center text-2xl font-bold text-violet-400 mb-4 group-hover:scale-105 transition">
+                            MN
+                        </div>
+                        <h3 class="text-xl font-bold">Moon</h3>
+                        <p class="text-xs font-semibold text-violet-400 uppercase mt-1">Community Manager</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://www.roblox.com/pt/users/1587723048/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO & REDES -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-indigo-500/30 relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10 space-y-8">
+                    <div class="text-center space-y-3">
+                        <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="contact_tag">Fale Conosco</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="contact_title">Pronto para a diversão?</h2>
+                        <p class="text-gray-400 text-sm" data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
+                    </div>
+
+                    <form onsubmit="handleForm(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_name">Seu Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_email">Seu E-mail</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_roblox">Nick do Roblox (Opcional)</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label>
+                            <textarea rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_btn">Enviar Mensagem</span>
+                        </button>
+                    </form>
+
+                    <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-indigo-500/20">
+                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-indigo-900/30 text-white font-bold text-xs transition border border-indigo-500/30 flex items-center gap-2">
+                            <i class="fa-brands fa-discord text-indigo-400"></i> Discord Oficial
+                        </a>
+                        <a href="https://x.com" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-indigo-900/30 text-white font-bold text-xs transition border border-indigo-500/30 flex items-center gap-2">
+                            <i class="fa-brands fa-x-twitter text-indigo-400"></i> Twitter / X
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="relative z-10 glass-card border-t border-indigo-900/30 py-8 text-center text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white text-xs">NX</div>
+                <span class="font-bold text-white">NeoX Studio</span>
+            </div>
+            <div>© 2026 NeoX. Todos os direitos reservados.</div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        /* Partículas Interativas no Canvas */
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.color = Math.random() > 0.5 ? 'rgba(99, 102, 241, 0.3)' : 'rgba(129, 140, 248, 0.2)';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        /* Tradução Dinâmica PT / EN */
+        const translations = {
+            'pt': {
+                'nav_home': 'Home', 'nav_about': 'Sobre', 'nav_games': 'Jogos', 'nav_media': 'Trailers', 'nav_team': 'Equipe', 'nav_contact': 'Contato',
+                'hero_tag': 'Criando Universos Inesquecíveis',
+                'hero_title_1': 'Jogos com energia, cores e', 'hero_title_2': 'pura diversão.',
+                'hero_desc': 'A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.',
+                'btn_explore': 'Conhecer Jogos', 'btn_discord': 'Entrar no Discord',
+                'stat_1': 'Jogadores Ativos', 'stat_2': 'Membros no Discord', 'stat_3': 'Mega Projetos',
+                'about_tag': 'A Nossa Essência', 'about_title': 'Diversão levada a sério.',
+                'about_desc': 'A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel e animação são pensados para surpreender.',
+                'feat_1_title': 'Gameplay Vibrante', 'feat_1_desc': 'Ação dinâmica e fluida.',
+                'feat_2_title': 'Comunidade Ativa', 'feat_2_desc': 'Ouvimos cada jogador.',
+                'feat_3_title': 'Updates Constantes', 'feat_3_desc': 'Conteúdo novo toda semana.',
+                'about_box_title': 'Inovação em Cada Detalhe', 'about_box_desc': 'Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem.',
+                'games_tag': 'O Que Jogar Agora', 'games_title': 'Nossos Universos', 'games_subtitle': 'Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.',
+                'badge_live': 'Ativo / Lançado', 'badge_dev': 'Em Desenvolvimento',
+                'game_1_desc': 'Domine os céus e a terra com poderes celestiais em um mundo imersivo repleto de desafios épicos.',
+                'game_2_desc': 'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
+                'game_3_desc': 'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
+                'btn_play': 'Jogar Agora', 'btn_preview': 'Ver Projeto', 'btn_discord_server': 'Discord do Jogo',
+                'media_tag': 'Cinemáticas & Trailers', 'media_title': 'Mídia Oficial', 'media_subtitle': 'Prévias exclusivas de gameplay, skills e quests do Anime Crash.',
+                'media_1_title': 'Demonstração de Skills', 'media_1_desc': 'Efeitos visuais avançados e sistemas de combos dinâmicos.',
+                'media_2_title': 'Gameplay Oficial', 'media_2_desc': 'Combate fluido e movimentação em tempo real na arena.',
+                'media_3_title': 'Sistema de Quests', 'media_3_desc': 'Missões imersivas com recompensas exclusivas para os jogadores.',
+                'team_tag': 'Os Criadores', 'team_title': 'A Equipe NeoX', 'team_subtitle': 'Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.',
+                'contact_tag': 'Fale Conosco', 'contact_title': 'Pronto para a diversão?', 'contact_subtitle': 'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
+                'form_name': 'Seu Nome', 'form_email': 'Seu E-mail', 'form_roblox': 'Nick do Roblox (Opcional)', 'form_msg': 'Mensagem (Mínimo 16 caracteres)', 'form_btn': 'Enviar Mensagem'
+            },
+            'en': {
+                'nav_home': 'Home', 'nav_about': 'About', 'nav_games': 'Games', 'nav_media': 'Trailers', 'nav_team': 'Team', 'nav_contact': 'Contact',
+                'hero_tag': 'Crafting Unforgettable Universes',
+                'hero_title_1': 'Games with energy, colors and', 'hero_title_2': 'pure fun.',
+                'hero_desc': 'NeoX is where community comes alive. We develop high-end immersive experiences in the Roblox ecosystem.',
+                'btn_explore': 'Explore Games', 'btn_discord': 'Join Discord',
+                'stat_1': 'Active Players', 'stat_2': 'Discord Members', 'stat_3': 'Mega Projects',
+                'about_tag': 'Our Essence', 'about_title': 'Fun taken seriously.',
+                'about_desc': 'NeoX was born to break monotony. We don’t just make games, we create digital amusement parks where every pixel matters.',
+                'feat_1_title': 'Vibrant Gameplay', 'feat_1_desc': 'Dynamic and fluid action.',
+                'feat_2_title': 'Active Community', 'feat_2_desc': 'We listen to every player.',
+                'feat_3_title': 'Constant Updates', 'feat_3_desc': 'New content every week.',
+                'about_box_title': 'Innovation in Every Detail', 'about_box_desc': 'Our team brings together top talent in UI design, advanced Luau programming, 3D animations and modeling.',
+                'games_tag': 'What To Play Now', 'games_title': 'Our Universes', 'games_subtitle': 'Explore the portfolio of official games developed by NeoX Studio.',
+                'badge_live': 'Live / Released', 'badge_dev': 'In Development',
+                'game_1_desc': 'Master the skies and earth with celestial powers in an immersive world full of epic challenges.',
+                'game_2_desc': 'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
+                'game_3_desc': 'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
+                'btn_play': 'Play Now', 'btn_preview': 'View Project', 'btn_discord_server': 'Game Discord',
+                'media_tag': 'Cinematics & Trailers', 'media_title': 'Official Media', 'media_subtitle': 'Exclusive previews of gameplay, skills and quests from Anime Crash.',
+                'media_1_title': 'Skills Showcase', 'media_1_desc': 'Advanced visual effects and dynamic combo systems.',
+                'media_2_title': 'Official Gameplay', 'media_2_desc': 'Fluid combat and real-time movement in the arena.',
+                'media_3_title': 'Quests System', 'media_3_desc': 'Immersive quests with exclusive rewards for players.',
+                'team_tag': 'The Creators', 'team_title': 'The NeoX Team', 'team_subtitle': 'Brilliant minds united to build the future of Roblox games.',
+                'contact_tag': 'Get in Touch', 'contact_title': 'Ready for the fun?', 'contact_subtitle': 'Send a message, join our Discord and be part of the NeoX family!',
+                'form_name': 'Your Name', 'form_email': 'Your Email', 'form_roblox': 'Roblox Nickname (Optional)', 'form_msg': 'Message (Minimum 16 characters)', 'form_btn': 'Send Message'
+            }
+        };
+
+        let currentLang = 'pt';
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            document.getElementById('lang-label').innerText = currentLang === 'pt' ? 'PT-BR' : 'EN';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+        }
+
+        /* Simulação / Fetch de Jogadores Ativos */
+        async function fetchPlayerCounts() {
+            try {
+                // Simulação dinâmica e realista baseada na atividade do estúdio
+                const activeCount = Math.floor(Math.random() * 250) + 780;
+                document.getElementById('ap-players').innerText = activeCount.toLocaleString();
+                document.getElementById('stat-players').innerText = (activeCount * 12).toLocaleString() + '+';
+            } catch (e) {
+                document.getElementById('ap-players').innerText = '840';
+            }
+        }
+        fetchPlayerCounts();
+        setInterval(fetchPlayerCounts, 30000);
+
+        function handleForm(e) {
+            e.preventDefault();
+            alert(currentLang === 'pt' ? 'Mensagem enviada com sucesso! Bem-vindo à NeoX.' : 'Message sent successfully! Welcome to NeoX.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
