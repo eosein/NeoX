@@ -8,225 +8,247 @@
     <meta name="theme-color" content="#030405">
     <link rel="icon" href="assets/neox-logo.png">
 
-    <!-- Open Graph (troque por URLs absolutas do seu site para o preview funcionar no Discord) -->
+    <!-- SITE_URL: troque https://neoxstudio.com.br pelo domínio real em TODO o projeto (index.html, robots.txt, sitemap.xml) -->
+    <link rel="canonical" href="https://neoxstudio.com.br/">
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="NeoX Studio | Play the Future">
+    <meta property="og:site_name" content="NeoX Studio">
+    <meta property="og:url" content="https://neoxstudio.com.br/">
+    <meta property="og:title" content="NeoX Studio | Jogue o Futuro">
     <meta property="og:description" content="Jogos com energia, cores e pura diversão no Roblox.">
-    <meta property="og:image" content="assets/neox-logo.png">
+    <meta property="og:image" content="https://neoxstudio.com.br/assets/neox-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="NeoX Studio: jogos no Roblox">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NeoX351459">
+    <meta name="twitter:image" content="https://neoxstudio.com.br/assets/neox-logo.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NeoX Studio",
+        "url": "https://neoxstudio.com.br/",
+        "logo": "https://neoxstudio.com.br/assets/neox-logo.png",
+        "description": "Estúdio de jogos no Roblox: Anime Paradise, Anime Crash e FREE FIRE MAX.",
+        "sameAs": ["https://x.com/NeoX351459", "https://discord.gg/4ACnyKR8HQ"]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: { extend: { colors: { nx: { cyan:'#35c4e5', cyan2:'#00e5ff', pink:'#f45b9b', ink:'#030405' } } } }
-        };
-    </script>
+    <link rel="preconnect" href="https://apis.roproxy.com" crossorigin>
+    <link rel="preconnect" href="https://games.roproxy.com" crossorigin>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root{
-            --nx-cyan:#35c4e5; --nx-cyan2:#00e5ff; --nx-pink:#f45b9b; --nx-ink:#030405;
-            --ease:cubic-bezier(.16,1,.3,1);
-        }
-        html{ scroll-behavior:smooth; scroll-padding-top:96px; }
-        main section{ scroll-margin-top:90px; }
-        body{
-            font-family:'Nunito',sans-serif; color:#f3f4f6; overflow-x:hidden;
-            background-color:var(--nx-ink);
-            background-image:
-                radial-gradient(ellipse at 12% 12%, rgba(0,229,255,.07), transparent 38%),
-                radial-gradient(ellipse at 90% 45%, rgba(53,196,229,.05), transparent 36%),
-                linear-gradient(180deg,#030405,#050709 50%,#030405);
-        }
-        ::selection{ background:var(--nx-cyan); color:#000; }
-        h1,h2,h3,h4{ font-family:'Nunito',sans-serif; letter-spacing:.01em; }
-        .glow-text{ text-shadow:0 0 24px rgba(0,229,255,.35); }
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.-bottom-10{bottom:-2.5rem}.-right-10{right:-2.5rem}.-right-24{right:-6rem}.-top-24{top:-6rem}.left-0{left:0}.left-3{left:.75rem}.right-0{right:0}.top-0{top:0}.top-3{top:.75rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:.25rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-48{height:12rem}.h-64{height:16rem}.h-72{height:18rem}.h-full{height:100%}.max-h-\[calc\(100vh-5rem\)\]{max-height:calc(100vh - 5rem)}.min-h-\[40px\]{min-height:40px}.min-h-\[85vh\]{min-height:85vh}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-2{width:.5rem}.w-24{width:6rem}.w-64{width:16rem}.w-72{width:18rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-not-allowed{cursor:not-allowed}.resize{resize:both}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-16>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(4rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(4rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-nx-cyan\/30{border-color:rgba(53,196,229,.3)}.border-nx-cyan\/40{border-color:rgba(53,196,229,.4)}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-black\/70{background-color:rgba(0,0,0,.7)}.bg-black\/80{background-color:rgba(0,0,0,.8)}.bg-nx-cyan{--tw-bg-opacity:1;background-color:rgb(53 196 229/var(--tw-bg-opacity,1))}.bg-nx-cyan\/10{background-color:rgba(53,196,229,.1)}.bg-nx-cyan\/15{background-color:rgba(53,196,229,.15)}.bg-nx-pink{--tw-bg-opacity:1;background-color:rgb(244 91 155/var(--tw-bg-opacity,1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}.from-\[\#04060a\]{--tw-gradient-from:#04060a var(--tw-gradient-from-position);--tw-gradient-to:rgba(4,6,10,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan{--tw-gradient-from:#35c4e5 var(--tw-gradient-from-position);--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan\/10{--tw-gradient-from:rgba(53,196,229,.1) var(--tw-gradient-from-position);--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan2{--tw-gradient-from:#00e5ff var(--tw-gradient-from-position);--tw-gradient-to:rgba(0,229,255,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-nx-cyan{--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#35c4e5 var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),transparent var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-nx-cyan{--tw-gradient-to:#35c4e5 var(--tw-gradient-to-position)}.to-nx-cyan2{--tw-gradient-to:#00e5ff var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{-o-object-fit:cover;object-fit:cover}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-3{padding-bottom:.75rem}.pt-0{padding-top:0}.pt-16{padding-top:4rem}.pt-28{padding-top:7rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235/var(--tw-text-opacity,1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-nx-cyan{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}.text-nx-cyan\/70{color:rgba(53,196,229,.7)}.text-nx-pink{--tw-text-opacity:1;color:rgb(244 91 155/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-60{opacity:.6}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-nx-cyan\/25{--tw-shadow-color:rgba(53,196,229,.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-nx-cyan\/30{--tw-shadow-color:rgba(53,196,229,.3);--tw-shadow:var(--tw-shadow-colored)}.blur-3xl{--tw-blur:blur(64px)}.blur-3xl,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-500{transition-duration:.5s}.hover\:bg-nx-cyan:hover{--tw-bg-opacity:1;background-color:rgb(53 196 229/var(--tw-bg-opacity,1))}.hover\:bg-nx-cyan2:hover{--tw-bg-opacity:1;background-color:rgb(0 229 255/var(--tw-bg-opacity,1))}.hover\:bg-white\/5:hover{background-color:hsla(0,0%,100%,.05)}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.hover\:text-nx-cyan:hover{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.focus\:border-nx-cyan:focus{--tw-border-opacity:1;border-color:rgb(53 196 229/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:bg-nx-cyan\/25{background-color:rgba(53,196,229,.25)}.group:hover .group-hover\:text-nx-cyan{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}@media (min-width:360px){.min-\[360px\]\:inline{display:inline}}@media (min-width:640px){.sm\:inline-flex{display:inline-flex}.sm\:h-12{height:3rem}.sm\:h-28{height:7rem}.sm\:w-12{width:3rem}.sm\:w-28{width:7rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-3{gap:.75rem}.sm\:p-12{padding:3rem}.sm\:px-3{padding-left:.75rem;padding-right:.75rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:tracking-wider{letter-spacing:.05em}}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-7xl{font-size:4.5rem;line-height:1}}
+</style>
+    <style>
+:root{
+    --nx-cyan:#35c4e5; --nx-cyan2:#00e5ff; --nx-pink:#f45b9b; --nx-ink:#030405;
+    --ease:cubic-bezier(.16,1,.3,1);
+}
+html{ scroll-behavior:smooth; scroll-padding-top:96px; }
+main section{ scroll-margin-top:90px; }
+body{
+    font-family:'Nunito',sans-serif; color:#f3f4f6; overflow-x:hidden;
+    background-color:var(--nx-ink);
+    background-image:
+        radial-gradient(ellipse at 12% 12%, rgba(0,229,255,.07), transparent 38%),
+        radial-gradient(ellipse at 90% 45%, rgba(53,196,229,.05), transparent 36%),
+        linear-gradient(180deg,#030405,#050709 50%,#030405);
+}
+::selection{ background:var(--nx-cyan); color:#000; }
+h1,h2,h3,h4{ font-family:'Nunito',sans-serif; letter-spacing:.01em; }
+.glow-text{ text-shadow:0 0 24px rgba(0,229,255,.35); }
 
-        .skip-link{ position:absolute; left:-999px; top:8px; z-index:100; padding:.6rem 1rem; border-radius:.75rem; background:#fff; color:#000; font-weight:800; }
-        .skip-link:focus{ left:8px; }
+.skip-link{ position:absolute; left:-999px; top:8px; z-index:100; padding:.6rem 1rem; border-radius:.75rem; background:#fff; color:#000; font-weight:800; }
+.skip-link:focus{ left:8px; }
 
-        #particle-canvas{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+#particle-canvas{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
 
-        /* Barra de progresso de rolagem (ponta rosa = detalhe mínimo) */
-        #scroll-progress{
-            position:fixed; top:0; left:0; right:0; height:3px; z-index:60; transform:scaleX(0); transform-origin:left;
-            background:linear-gradient(90deg,var(--nx-cyan),var(--nx-cyan2) 94%,var(--nx-pink));
-            pointer-events:none;
-        }
+/* Barra de progresso de rolagem (ponta rosa = detalhe mínimo) */
+#scroll-progress{
+    position:fixed; top:0; left:0; right:0; height:3px; z-index:60; transform:scaleX(0); transform-origin:left;
+    background:linear-gradient(90deg,var(--nx-cyan),var(--nx-cyan2) 94%,var(--nx-pink));
+    pointer-events:none;
+}
 
-        /* Cards de vidro */
-        .glass-card{
-            background:rgba(6,8,11,.9);
-            backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-            border:1px solid rgba(255,255,255,.09);
-            box-shadow:0 10px 28px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.03);
-            transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
-        }
-        .glass-card:hover{ border-color:rgba(0,229,255,.3); box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 24px rgba(0,229,255,.08); }
-        @media (max-width:767px){
-            .glass-card{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
-        }
+/* Cards de vidro */
+.glass-card{
+    background:rgba(6,8,11,.9);
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 10px 28px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.03);
+    transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+}
+.glass-card:hover{ border-color:rgba(0,229,255,.3); box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 24px rgba(0,229,255,.08); }
+@media (max-width:767px){
+    .glass-card{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+}
 
-        @media (hover:hover){
-            .lift:hover{ transform:translateY(-6px); }
-            .btn:hover:not(:disabled){ filter:brightness(1.1); transform:translateY(-2px); }
-        }
-        .btn{ transition:filter .2s ease, transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+@media (hover:hover){
+    .lift:hover{ transform:translateY(-6px); }
+    .btn:hover:not(:disabled){ filter:brightness(1.1); transform:translateY(-2px); }
+}
+.btn{ transition:filter .2s ease, transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
 
-        /* Menu: sublinhado animado + link ativo */
-        .nav-link{ position:relative; padding:.35rem 0; transition:color .2s ease; }
-        .nav-link::after{
-            content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:2px;
-            background:var(--nx-cyan2); transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
-        }
-        .nav-link:hover{ color:#fff; }
-        .nav-link:hover::after, .nav-link.is-active::after{ transform:scaleX(1); }
-        .nav-link.is-active{ color:#fff; }
+/* Menu: sublinhado animado + link ativo */
+.nav-link{ position:relative; padding:.35rem 0; transition:color .2s ease; }
+.nav-link::after{
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:2px;
+    background:var(--nx-cyan2); transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
+}
+.nav-link:hover{ color:#fff; }
+.nav-link:hover::after, .nav-link.is-active::after{ transform:scaleX(1); }
+.nav-link.is-active{ color:#fff; }
 
-        @keyframes nav-click{ 0%{transform:scale(1)} 40%{transform:scale(1.14);color:var(--nx-cyan2)} 100%{transform:scale(1)} }
-        @keyframes section-arrive{ 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.2)} }
-        .nav-click-pulse{ display:inline-block; animation:nav-click .48s ease-out; }
-        .section-arrival{ animation:section-arrive .8s ease-out; }
+@keyframes nav-click{ 0%{transform:scale(1)} 40%{transform:scale(1.14);color:var(--nx-cyan2)} 100%{transform:scale(1)} }
+@keyframes section-arrive{ 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.2)} }
+.nav-click-pulse{ display:inline-block; animation:nav-click .48s ease-out; }
+.section-arrival{ animation:section-arrive .8s ease-out; }
 
-        /* Entrada do hero (stagger) + logo flutuando */
-        @keyframes fade-up{ from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:none; } }
-        .intro{ animation:fade-up .85s var(--ease) backwards; animation-delay:calc(var(--i,0) * 110ms + 120ms); }
-        @keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
-        .hero-logo{ animation:float 5s ease-in-out infinite; box-shadow:0 0 0 1px rgba(0,229,255,.25), 0 0 46px rgba(0,229,255,.28); }
+/* Entrada do hero (stagger) + logo flutuando */
+@keyframes fade-up{ from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:none; } }
+.intro{ animation:fade-up .85s var(--ease) backwards; animation-delay:calc(var(--i,0) * 110ms + 120ms); }
+@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+.hero-logo{ animation:float 5s ease-in-out infinite; box-shadow:0 0 0 1px rgba(0,229,255,.25), 0 0 46px rgba(0,229,255,.28); }
 
-        /* Reveal ao rolar */
-        .reveal{ transition:opacity .78s var(--ease), transform .78s var(--ease); }
-        .reveal:not(.is-visible){ opacity:0; transform:translateY(26px) scale(.985); }
+/* Reveal ao rolar */
+.reveal{ transition:opacity .78s var(--ease), transform .78s var(--ease); }
+.reveal:not(.is-visible){ opacity:0; transform:translateY(26px) scale(.985); }
 
-        /* Cards de jogo */
-        .game-card{ position:relative; }
-        .game-card::after{
-            content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-            box-shadow:inset 0 0 34px rgba(0,229,255,.14); opacity:0; animation:card-breathe 6.4s ease-in-out infinite;
-        }
-        .game-card:nth-child(2)::after{ animation-delay:-2.1s; }
-        .game-card:nth-child(3)::after{ animation-delay:-4.2s; }
-        @keyframes card-breathe{ 0%,100%{opacity:0} 50%{opacity:1} }
-        .game-card img{ transition:transform .3s ease, filter .3s ease; }
-        @media (hover:hover){
-            .game-card:hover img{ transform:scale(1.03); filter:brightness(1.05); }
-        }
-        .game-card .btn{ position:relative; overflow:hidden; }
-        .game-card a.btn::before{
-            content:""; position:absolute; inset:0 auto 0 -60%; width:36%; transform:skewX(-20deg);
-            background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
-            transition:transform .65s var(--ease);
-        }
-        @media (hover:hover){
-            .game-card a.btn:hover::before{ transform:translateX(460%) skewX(-20deg); }
-        }
+/* Cards de jogo */
+.game-card{ position:relative; }
+.game-card::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    box-shadow:inset 0 0 34px rgba(0,229,255,.14); opacity:0; animation:card-breathe 6.4s ease-in-out infinite;
+}
+.game-card:nth-child(2)::after{ animation-delay:-2.1s; }
+.game-card:nth-child(3)::after{ animation-delay:-4.2s; }
+@keyframes card-breathe{ 0%,100%{opacity:0} 50%{opacity:1} }
+.game-card img{ transition:transform .3s ease, filter .3s ease; }
+@media (hover:hover){
+    .game-card:hover img{ transform:scale(1.03); filter:brightness(1.05); }
+}
+.game-card .btn{ position:relative; overflow:hidden; }
+.game-card a.btn::before{
+    content:""; position:absolute; inset:0 auto 0 -60%; width:36%; transform:skewX(-20deg);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+    transition:transform .65s var(--ease);
+}
+@media (hover:hover){
+    .game-card a.btn:hover::before{ transform:translateX(460%) skewX(-20deg); }
+}
 
-        /* Badges */
-        .player-count-badge, .visit-count-badge{
-            display:inline-flex; align-items:center; gap:.38rem; padding:.38rem .62rem; border-radius:999px;
-            background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); color:#e8eaf0;
-            font-size:.76rem; font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums;
-        }
-        .player-count-badge i, .visit-count-badge i{ color:var(--nx-cyan); }
-        .visit-count-badge small{ color:#98a3b0; }
-        .game-live-stats{ display:flex; align-items:center; justify-content:flex-end; gap:.4rem; flex-wrap:wrap; }
-        .game-stats-note{ color:#9aa3ad; font-size:.75rem; min-height:1.1rem; }
+/* Badges */
+.player-count-badge, .visit-count-badge{
+    display:inline-flex; align-items:center; gap:.38rem; padding:.38rem .62rem; border-radius:999px;
+    background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); color:#e8eaf0;
+    font-size:.76rem; font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums;
+}
+.player-count-badge i, .visit-count-badge i{ color:var(--nx-cyan); }
+.visit-count-badge small{ color:#b3bbc5; }
+.game-live-stats{ display:flex; align-items:center; justify-content:flex-end; gap:.4rem; flex-wrap:wrap; }
+.game-stats-note{ color:#b3bbc5; font-size:.78rem; min-height:1.1rem; }
 
-        .stat-number{
-            display:block; max-width:100%; white-space:nowrap; line-height:1.05;
-            font-size:clamp(1.4rem,3vw,2.5rem); color:#f4f5f7; font-variant-numeric:tabular-nums; letter-spacing:-.035em;
-        }
+.stat-number{
+    display:block; max-width:100%; white-space:nowrap; line-height:1.05;
+    font-size:clamp(1.4rem,3vw,2.5rem); color:#f4f5f7; font-variant-numeric:tabular-nums; letter-spacing:-.035em;
+}
 
-        /* Mídia: todos os cards com a mesma estrutura, moldura 16:9 e altura igual */
-        .media-card{ display:flex; flex-direction:column; gap:1rem; padding:1.25rem; height:100%; }
-        .media-frame{
-            position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:14px;
-            border:1px solid rgba(255,255,255,.12); background:#010203;
-        }
-        .media-frame video, .media-frame img{
-            position:absolute; inset:0; width:100%; height:100%; display:block;
-            object-fit:cover; /* troque por "contain" se quiser ver a imagem inteira, sem cortar */
-            transition:transform .3s ease, filter .3s ease;
-        }
-        @media (hover:hover){
-            .media-card:hover .media-frame img{ transform:scale(1.03); filter:brightness(1.05); }
-        }
-        .media-placeholder{
-            position:absolute; inset:0; display:grid; place-items:center; padding:1rem; text-align:center;
-            border:1px dashed rgba(255,255,255,.18); border-radius:14px; background:#010203;
-            color:#9aa0ac; font-weight:700; font-size:.85rem;
-        }
-        .media-caption{ margin-top:auto; display:flex; flex-direction:column; gap:.3rem; text-align:center; }
-        .media-tag{ display:block; font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--nx-cyan); }
-        .media-title{ display:block; font-size:1rem; line-height:1.3; font-weight:800; color:#fff; }
+/* Mídia: todos os cards com a mesma estrutura, moldura 16:9 e altura igual */
+.media-card{ display:flex; flex-direction:column; gap:1rem; padding:1.25rem; height:100%; }
+.media-frame{
+    position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:14px;
+    border:1px solid rgba(255,255,255,.12); background:#010203;
+}
+.media-frame video, .media-frame img{
+    position:absolute; inset:0; width:100%; height:100%; display:block;
+    object-fit:cover; /* troque por "contain" se quiser ver a imagem inteira, sem cortar */
+    transition:transform .3s ease, filter .3s ease;
+}
+@media (hover:hover){
+    .media-card:hover .media-frame img{ transform:scale(1.03); filter:brightness(1.05); }
+}
+.media-placeholder{
+    position:absolute; inset:0; display:grid; place-items:center; padding:1rem; text-align:center;
+    border:1px dashed rgba(255,255,255,.18); border-radius:14px; background:#010203;
+    color:#b3bbc5; font-weight:700; font-size:.85rem;
+}
+.media-caption{ margin-top:auto; display:flex; flex-direction:column; gap:.3rem; text-align:center; }
+.media-tag{ display:block; font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--nx-cyan); }
+.media-title{ display:block; font-size:1rem; line-height:1.3; font-weight:800; color:#fff; }
 
-        /* Equipe */
-        .team-role{ color:#c0c4ce; font-size:.84rem; font-weight:600; letter-spacing:.09em; line-height:1.35; }
-        .team-card{
-            background:rgba(6,8,11,.92); border:1px solid rgba(255,255,255,.09);
-            transition:transform .35s ease, opacity .35s ease, filter .35s ease, box-shadow .35s ease, border-color .35s ease;
-        }
-        .team-avatar-frame{ background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,0,0,.9)); border:1px solid rgba(0,229,255,.22); overflow:hidden; }
-        .team-avatar-frame img{ object-position:center 25%; transition:transform .32s var(--ease), filter .32s ease; -webkit-user-drag:none; user-select:none; }
-        @media (hover:hover){
-            .team-card:hover .team-avatar-frame img{ transform:scale(1.045); filter:brightness(1.06); }
-        }
+/* Equipe */
+.team-role{ color:#c0c4ce; font-size:.84rem; font-weight:600; letter-spacing:.09em; line-height:1.35; }
+.team-card{
+    background:rgba(6,8,11,.92); border:1px solid rgba(255,255,255,.09);
+    transition:transform .35s ease, opacity .35s ease, filter .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.team-avatar-frame{ background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,0,0,.9)); border:1px solid rgba(0,229,255,.22); overflow:hidden; }
+.team-avatar-frame img{ object-position:center 25%; transition:transform .32s var(--ease), filter .32s ease; -webkit-user-drag:none; user-select:none; }
+@media (hover:hover){
+    .team-card:hover .team-avatar-frame img{ transform:scale(1.045); filter:brightness(1.06); }
+}
 
-        .team-carousel-viewport{ width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; }
-        .team-carousel{
-            display:flex; width:max-content; max-width:none; gap:24px;
-            transform:translate3d(0,0,0); transition:transform .48s var(--ease); will-change:transform;
-        }
-        #team .team-card{
-            box-sizing:border-box; flex:0 0 min(380px,82vw); min-height:420px;
-            opacity:.38; filter:brightness(.58); transform:scale(.9);
-        }
-        #team .team-card.is-active{ opacity:1; filter:none; transform:scale(1); z-index:2; border-color:rgba(0,229,255,.35); }
-        @media (hover:hover){
-            #team .team-card.is-active:hover{ transform:scale(1.015) translateY(-5px); }
-            #team .team-card:not(.is-active):hover{ opacity:.72; filter:brightness(.82); transform:scale(.94) translateY(-3px); }
-        }
-        .team-card-clone{ pointer-events:none; }
-        .team-card a{ position:relative; z-index:5; }
-        .team-carousel.is-returning-home{ transition-duration:.78s; }
-        #team .team-card.team-home-arrival{ animation:team-home-arrival .68s var(--ease) both; }
-        @keyframes team-home-arrival{ 0%{transform:scale(.92);filter:brightness(.72)} 62%{transform:scale(1.045);filter:brightness(1.14)} 100%{transform:scale(1);filter:none} }
+.team-carousel-viewport{ width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; }
+.team-carousel{
+    display:flex; width:max-content; max-width:none; gap:24px;
+    transform:translate3d(0,0,0); transition:transform .48s var(--ease); will-change:transform;
+}
+#team .team-card{
+    box-sizing:border-box; flex:0 0 min(380px,82vw); min-height:420px;
+    opacity:.38; filter:brightness(.58); transform:scale(.9);
+}
+#team .team-card.is-active{ opacity:1; filter:none; transform:scale(1); z-index:2; border-color:rgba(0,229,255,.35); }
+@media (hover:hover){
+    #team .team-card.is-active:hover{ transform:scale(1.015) translateY(-5px); }
+    #team .team-card:not(.is-active):hover{ opacity:.72; filter:brightness(.82); transform:scale(.94) translateY(-3px); }
+}
+.team-card-clone{ pointer-events:none; }
+.team-card a{ position:relative; z-index:5; }
+.team-carousel.is-returning-home{ transition-duration:.78s; }
+#team .team-card.team-home-arrival{ animation:team-home-arrival .68s var(--ease) both; }
+@keyframes team-home-arrival{ 0%{transform:scale(.92);filter:brightness(.72)} 62%{transform:scale(1.045);filter:brightness(1.14)} 100%{transform:scale(1);filter:none} }
 
-        .team-carousel-controls{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:14px; }
-        .team-arrow{
-            width:48px; height:48px; border-radius:16px; display:grid; place-items:center; color:#eee9fa;
-            background:rgba(10,12,16,.95); border:1px solid rgba(255,255,255,.13); cursor:pointer;
-            transition:background .2s ease, border-color .2s ease;
-        }
-        @media (hover:hover){ .team-arrow:hover{ background:rgba(0,229,255,.1); border-color:rgba(0,229,255,.45); } }
-        .team-carousel-dots{ display:flex; justify-content:center; align-items:center; gap:9px; flex-wrap:wrap; max-width:60vw; }
-        .team-dot{ position:relative; width:8px; height:8px; border:0; border-radius:999px; padding:0; background:#4a4f58; cursor:pointer; transition:width .25s ease, background .25s ease; }
-        .team-dot::after{ content:""; position:absolute; inset:-10px; }
-        .team-dot[aria-current="true"]{ width:22px; background:var(--nx-cyan2); }
-        .team-carousel-status{ min-height:1.2em; margin-top:8px; text-align:center; color:#8d949e; font-size:.72rem; }
-        @media (max-width:640px){
-            .team-carousel{ gap:16px; }
-            #team .team-card{ flex-basis:min(340px,84vw); min-height:400px; }
-        }
+.team-carousel-controls{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:14px; }
+.team-arrow{
+    width:48px; height:48px; border-radius:16px; display:grid; place-items:center; color:#eee9fa;
+    background:rgba(10,12,16,.95); border:1px solid rgba(255,255,255,.13); cursor:pointer;
+    transition:background .2s ease, border-color .2s ease;
+}
+@media (hover:hover){ .team-arrow:hover{ background:rgba(0,229,255,.1); border-color:rgba(0,229,255,.45); } }
+.team-carousel-dots{ display:flex; justify-content:center; align-items:center; gap:9px; flex-wrap:wrap; max-width:60vw; }
+.team-dot{ position:relative; width:8px; height:8px; border:0; border-radius:999px; padding:0; background:#4a4f58; cursor:pointer; transition:width .25s ease, background .25s ease; }
+.team-dot::after{ content:""; position:absolute; inset:-10px; }
+.team-dot[aria-current="true"]{ width:22px; background:var(--nx-cyan2); }
+.team-carousel-status{ min-height:1.2em; margin-top:8px; text-align:center; color:#aeb6c0; font-size:.78rem; }
+@media (max-width:640px){
+    .team-carousel{ gap:16px; }
+    #team .team-card{ flex-basis:min(340px,84vw); min-height:400px; }
+}
 
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible{
-            outline:2px solid var(--nx-cyan2); outline-offset:3px;
-        }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--nx-cyan2); outline-offset:3px;
+}
 
-        @media (prefers-reduced-motion:reduce){
-            html{ scroll-behavior:auto; }
-            *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important; }
-            .reveal:not(.is-visible){ opacity:1; transform:none; }
-            .game-card a.btn::before{ display:none; }
-            .lift:hover, .btn:hover:not(:disabled){ transform:none; }
-        }
-    </style>
+@media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important; }
+    .reveal:not(.is-visible){ opacity:1; transform:none; }
+    .game-card a.btn::before{ display:none; }
+    .lift:hover, .btn:hover:not(:disabled){ transform:none; }
+}
+
+</style>
 </head>
 <body class="relative">
 
@@ -317,19 +339,19 @@
 
                 <div class="intro grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-16 max-w-6xl mx-auto" style="--i:5">
                     <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-players">…</div>
+                        <div class="stat-number font-extrabold" id="stat-players">—</div>
                         <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_1">Jogadores agora</div>
                     </div>
                     <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-likes">…</div>
+                        <div class="stat-number font-extrabold" id="stat-likes">—</div>
                         <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_2">Total de curtidas</div>
                     </div>
                     <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-favs">…</div>
+                        <div class="stat-number font-extrabold" id="stat-favs">—</div>
                         <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_3">Total de favoritos</div>
                     </div>
                     <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-visits">…</div>
+                        <div class="stat-number font-extrabold" id="stat-visits">—</div>
                         <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_4">Visitas totais</div>
                     </div>
                 </div>
@@ -387,6 +409,7 @@
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="games_title">Nossos Universos</h2>
                 <p class="text-gray-300" data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
                 <p class="game-stats-note" id="roblox-stats-updated" aria-live="polite"></p>
+                <noscript><p class="game-stats-note">Ative o JavaScript para ver as estatísticas ao vivo do Roblox.</p></noscript>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -403,8 +426,8 @@
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">Anime Paradise</h3>
                             <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ap-players">…</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ap-visits">…</span><small data-i18n="visits">Visitas</small></span>
+                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ap-players">—</span></span>
+                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ap-visits">—</span><small data-i18n="visits">Visitas</small></span>
                             </div>
                         </div>
                         <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_1_desc">Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.</p>
@@ -432,8 +455,8 @@
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">Anime Crash</h3>
                             <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="cr-players">…</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="cr-visits">…</span><small data-i18n="visits">Visitas</small></span>
+                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="cr-players">—</span></span>
+                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="cr-visits">—</span><small data-i18n="visits">Visitas</small></span>
                             </div>
                         </div>
                         <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_2_desc">Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.</p>
@@ -461,8 +484,8 @@
                         <div class="flex flex-wrap items-center justify-between gap-3">
                             <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">FREE FIRE MAX</h3>
                             <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ff-players">…</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ff-visits">…</span><small data-i18n="visits">Visitas</small></span>
+                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ff-players">—</span></span>
+                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ff-visits">—</span><small data-i18n="visits">Visitas</small></span>
                             </div>
                         </div>
                         <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_3_desc">Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.</p>
@@ -543,19 +566,13 @@
                         </div>
                     </article>
 
-                    <!--
-                        SNEAK PEEK 02 — MOVEMENT
-                        Coloque o vídeo em:  assets/anime-paradise-movement.mp4   (tudo minúsculo, com hífens)
-                        O navegador tenta os arquivos na ordem e usa o primeiro que existir e tocar.
-                        A última linha é um link TEMPORÁRIO do Discord (expira em ~1 dia): apague quando o arquivo estiver no assets/.
-                    -->
+                    <!-- SNEAK PEEK 02 — coloque o vídeo em assets/anime-paradise-movement.mp4 (tudo minúsculo, com hífens) -->
                     <article class="glass-card media-card rounded-2xl">
                         <div class="media-frame">
                             <video class="loop-video" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise movement">
                                 <source src="assets/anime-paradise-movement.mp4" type="video/mp4">
                                 <source src="assets/anime-paradise-movement.webm" type="video/webm">
                                 <source src="assets/anime-paradise-cutscene-models.mp4" type="video/mp4">
-                                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563272278177751190/Roblox-2026-09-17T13_03_45.830Z.mp4?ex=6add0643&amp;is=6adbb4c3&amp;hm=fea330348b8433cbcbd1ae141e8d7e9873b746e4d29d6a9256edc2c2d167f830&amp;" type="video/mp4">
                             </video>
                         </div>
                         <div class="media-caption">
@@ -593,7 +610,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/sasa.png" alt="SasaDev" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/sasa.png" alt="SasaDev" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">SasaDev</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_owner">Proprietário</p>
@@ -608,7 +625,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/davi.png" alt="DaviDev" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/davi.png" alt="DaviDev" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">DaviDev</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_coowner_gd">Coproprietário & Designer de Jogos</p>
@@ -623,7 +640,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/osein.png" alt="oSein" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/osein.png" alt="oSein" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">oSein</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_gd">Designer de Jogos</p>
@@ -638,7 +655,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/slow.png" alt="Slow" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/slow.png" alt="Slow" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">Slow</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_animator">Animador</p>
@@ -653,7 +670,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/flex.png" alt="Flex" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/flex.png" alt="Flex" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">Flex</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_modeler">Modelador</p>
@@ -668,7 +685,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/oguest.png" alt="Oguest" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/oguest.png" alt="Oguest" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">Oguest</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_vfx">Artista de VFX</p>
@@ -684,7 +701,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/reject.png" alt="Reject" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/reject.png" alt="Reject" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">Reject</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_ui">Designer de UI/UX</p>
@@ -694,7 +711,7 @@
                     <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
                         <div>
                             <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/moon.png" alt="Moon" loading="lazy" draggable="false" onerror="this.style.display='none'">
+                                <img class="w-full h-full rounded-xl object-cover" src="assets/moon.png" alt="Moon" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
                             </div>
                             <h3 class="text-xl font-bold">Moon</h3>
                             <p class="team-role uppercase mt-1" data-i18n="role_cm">Gerente da Comunidade</p>
@@ -729,8 +746,8 @@
                         <p class="text-gray-300 text-sm" data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
                     </div>
 
-                    <!-- DICA: depois de ativar o formulário no FormSubmit, troque o e-mail pelo código aleatório (https://formsubmit.co/el/xxxxxx) para não expor seu e-mail. -->
-                    <form id="contact-form" action="https://formsubmit.co/eosein00@gmail.com" method="POST" class="space-y-4">
+                    <!-- FORMSUBMIT: troque SEU_CODIGO pelo código aleatório do e-mail de ativação (o mesmo valor vai em FORMSUBMIT_ID no main.js). -->
+                    <form id="contact-form" action="https://formsubmit.co/SEU_CODIGO" method="POST" class="space-y-4">
                         <input type="hidden" name="_subject" value="Nova mensagem pelo site da NeoX Studio">
                         <input type="hidden" name="_template" value="box">
                         <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -783,600 +800,636 @@
     </footer>
 
     <script>
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    /* =========================================================
-       1. TRADUÇÕES
-       ========================================================= */
-    const i18n = {
-        pt: {
-            skip:'Pular para o conteúdo',
-            nav_home:'Home', nav_about:'Sobre', nav_games:'Jogos', nav_media:'Trailers', nav_team:'Equipe', nav_contact:'Contato',
-            hero_tag:'Criando Universos Inesquecíveis',
-            hero_title_1:'Jogos com energia, cores e', hero_title_2:'pura diversão.',
-            hero_desc:'A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.',
-            btn_explore:'Conhecer Jogos', btn_discord:'Entrar no Discord',
-            stat_1:'Jogadores agora', stat_2:'Total de curtidas', stat_3:'Total de favoritos', stat_4:'Visitas totais',
-            about_tag:'A Nossa Essência', about_title:'Diversão levada a sério.',
-            about_desc:'A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.',
-            feat_1_title:'Gameplay Vibrante', feat_1_desc:'Ação dinâmica e fluida.',
-            feat_2_title:'Comunidade Ativa', feat_2_desc:'Ouvimos cada jogador.',
-            feat_3_title:'Updates Constantes', feat_3_desc:'Conteúdo novo toda semana.',
-            about_box_title:'Inovação em Cada Detalhe',
-            about_box_desc:'Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.',
-            games_tag:'O Que Jogar Agora', games_title:'Nossos Universos',
-            games_subtitle:'Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.',
-            badge_live:'Ativo / Lançado', badge_dev:'Em Desenvolvimento', visits:'Visitas',
-            game_1_desc:'Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.',
-            game_2_desc:'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
-            game_3_desc:'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
-            btn_play:'Jogar Agora', btn_preview:'Ver Projeto', game_discord:'Discord do Jogo', discord_soon:'Discord em breve',
-            media_tag:'Cinemáticas & Demonstrativos', media_title:'Mídia Oficial',
-            media_subtitle:'Demonstrações e conceitos visuais dos projetos NeoX Studio.',
-            ac_1_tag:'Gameplay Oficial', ac_1_title:'Combate & Movimentação',
-            ac_2_tag:'Sistema de Quests', ac_2_title:'Missões & Recompensas',
-            ac_3_tag:'Interface & Habilidades', ac_3_title:'Árvore de Skills',
-            ap_title:'Anime Paradise — Prévias', peek_1:'Prévia 01', peek_2:'Prévia 02', peek_3:'Prévia 03',
-            media_cutscene_ui:'Cinemática & UI', media_movement:'Movimentação', media_models:'Modelos',
-            media_soon:'Mídia em breve',
-            team_tag:'Os Criadores', team_title:'A Equipe NeoX',
-            team_subtitle:'Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.',
-            role_owner:'Proprietário', role_coowner_gd:'Coproprietário & Designer de Jogos', role_gd:'Designer de Jogos',
-            role_animator:'Animador', role_modeler:'Modelador', role_vfx:'Artista de VFX', role_ui:'Designer de UI/UX', role_cm:'Gerente da Comunidade',
-            profile:'Perfil Roblox',
-            contact_tag:'Fale Conosco', contact_title:'Pronto para a diversão?',
-            contact_subtitle:'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
-            form_name:'Seu Nome', form_email:'Seu E-mail', form_roblox:'Nick do Roblox (Opcional)',
-            form_msg:'Mensagem (Mínimo 16 caracteres)', form_btn:'Enviar Mensagem',
-            official_discord:'Discord Oficial', footer:'© 2026 NeoX. Todos os direitos reservados.',
-            stats_loading:'Carregando dados do Roblox…',
-            stats_unavailable:'Dados do Roblox indisponíveis no momento.',
-            stats_updated:t=>`Dados do Roblox atualizados às ${t} · atualização a cada ~30 s`,
-            sending:'Enviando…', sent:'Mensagem enviada!', send_error:'Não foi possível enviar. Tente novamente.',
-            aria_menu_open:'Abrir menu', aria_menu_close:'Fechar menu', title:'NeoX Studio | Jogue o Futuro'
-        },
-        en: {
-            skip:'Skip to content',
-            nav_home:'Home', nav_about:'About', nav_games:'Games', nav_media:'Trailers', nav_team:'Team', nav_contact:'Contact',
-            hero_tag:'Crafting Unforgettable Universes',
-            hero_title_1:'Games with energy, colors and', hero_title_2:'pure fun.',
-            hero_desc:'NeoX is where community comes alive. We develop high-end immersive experiences in the Roblox ecosystem.',
-            btn_explore:'Explore Games', btn_discord:'Join Discord',
-            stat_1:'Players online', stat_2:'Total Likes', stat_3:'Total Favorites', stat_4:'Total Visits',
-            about_tag:'Our Essence', about_title:'Fun taken seriously.',
-            about_desc:'NeoX was born to break monotony. We don’t just make games, we create digital amusement parks where every pixel, animation and mechanic is designed to surprise.',
-            feat_1_title:'Vibrant Gameplay', feat_1_desc:'Dynamic and fluid action.',
-            feat_2_title:'Active Community', feat_2_desc:'We listen to every player.',
-            feat_3_title:'Constant Updates', feat_3_desc:'New content every week.',
-            about_box_title:'Innovation in Every Detail',
-            about_box_desc:'Our team brings together top talent in UI design, advanced Luau programming, 3D animation and modeling to deliver the highest standard in Roblox Studio.',
-            games_tag:'What To Play Now', games_title:'Our Universes',
-            games_subtitle:'Explore the portfolio of official games developed by NeoX Studio.',
-            badge_live:'Live / Released', badge_dev:'In Development', visits:'Visits',
-            game_1_desc:'Explore anime-inspired worlds, defeat enemies and recruit powerful champions.',
-            game_2_desc:'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
-            game_3_desc:'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
-            btn_play:'Play Now', btn_preview:'View Project', game_discord:'Game Discord', discord_soon:'Discord coming soon',
-            media_tag:'Cinematics & Showcases', media_title:'Official Media',
-            media_subtitle:'Demonstrations and visual concepts of NeoX Studio projects.',
-            ac_1_tag:'Official Gameplay', ac_1_title:'Combat & Movement',
-            ac_2_tag:'Quest System', ac_2_title:'Missions & Rewards',
-            ac_3_tag:'Interface & Abilities', ac_3_title:'Skill Tree',
-            ap_title:'Anime Paradise — Sneak Peeks', peek_1:'Sneak Peek 01', peek_2:'Sneak Peek 02', peek_3:'Sneak Peek 03',
-            media_cutscene_ui:'Cutscene & UI', media_movement:'Movement', media_models:'Models',
-            media_soon:'Media coming soon',
-            team_tag:'The Creators', team_title:'The NeoX Team',
-            team_subtitle:'Brilliant minds united to build the future of Roblox games.',
-            role_owner:'Owner', role_coowner_gd:'Co-Owner & Game Designer', role_gd:'Game Designer',
-            role_animator:'Animator', role_modeler:'Modeler', role_vfx:'VFX Artist', role_ui:'UI/UX Designer', role_cm:'Community Manager',
-            profile:'Roblox Profile',
-            contact_tag:'Get in Touch', contact_title:'Ready for the fun?',
-            contact_subtitle:'Send a message, join our Discord and be part of the NeoX family!',
-            form_name:'Your Name', form_email:'Your Email', form_roblox:'Roblox Username (Optional)',
-            form_msg:'Message (Minimum 16 characters)', form_btn:'Send Message',
-            official_discord:'Official Discord', footer:'© 2026 NeoX. All rights reserved.',
-            stats_loading:'Loading Roblox stats…',
-            stats_unavailable:'Roblox stats are unavailable right now.',
-            stats_updated:t=>`Roblox stats updated at ${t} · refreshes about every 30 s`,
-            sending:'Sending…', sent:'Message sent!', send_error:'Could not send. Please try again.',
-            aria_menu_open:'Open menu', aria_menu_close:'Close menu', title:'NeoX Studio | Play the Future'
-        }
-    };
-
-    function detectLang(){
-        try { const s = localStorage.getItem('neox-lang'); if (s === 'pt' || s === 'en') return s; } catch (e) {}
-        return (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+/* =========================================================
+   1. TRADUÇÕES
+   ========================================================= */
+const i18n = {
+    pt: {
+        skip:'Pular para o conteúdo',
+        nav_home:'Home', nav_about:'Sobre', nav_games:'Jogos', nav_media:'Trailers', nav_team:'Equipe', nav_contact:'Contato',
+        hero_tag:'Criando Universos Inesquecíveis',
+        hero_title_1:'Jogos com energia, cores e', hero_title_2:'pura diversão.',
+        hero_desc:'A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.',
+        btn_explore:'Conhecer Jogos', btn_discord:'Entrar no Discord',
+        stat_1:'Jogadores agora', stat_2:'Total de curtidas', stat_3:'Total de favoritos', stat_4:'Visitas totais',
+        about_tag:'A Nossa Essência', about_title:'Diversão levada a sério.',
+        about_desc:'A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.',
+        feat_1_title:'Gameplay Vibrante', feat_1_desc:'Ação dinâmica e fluida.',
+        feat_2_title:'Comunidade Ativa', feat_2_desc:'Ouvimos cada jogador.',
+        feat_3_title:'Updates Constantes', feat_3_desc:'Conteúdo novo toda semana.',
+        about_box_title:'Inovação em Cada Detalhe',
+        about_box_desc:'Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.',
+        games_tag:'O Que Jogar Agora', games_title:'Nossos Universos',
+        games_subtitle:'Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.',
+        badge_live:'Ativo / Lançado', badge_dev:'Em Desenvolvimento', visits:'Visitas',
+        game_1_desc:'Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.',
+        game_2_desc:'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
+        game_3_desc:'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
+        btn_play:'Jogar Agora', btn_preview:'Ver Projeto', game_discord:'Discord do Jogo', discord_soon:'Discord em breve',
+        media_tag:'Cinemáticas & Demonstrativos', media_title:'Mídia Oficial',
+        media_subtitle:'Demonstrações e conceitos visuais dos projetos NeoX Studio.',
+        ac_1_tag:'Gameplay Oficial', ac_1_title:'Combate & Movimentação',
+        ac_2_tag:'Sistema de Quests', ac_2_title:'Missões & Recompensas',
+        ac_3_tag:'Interface & Habilidades', ac_3_title:'Árvore de Skills',
+        ap_title:'Anime Paradise — Prévias', peek_1:'Prévia 01', peek_2:'Prévia 02', peek_3:'Prévia 03',
+        media_cutscene_ui:'Cinemática & UI', media_movement:'Movimentação', media_models:'Modelos',
+        media_soon:'Mídia em breve',
+        team_tag:'Os Criadores', team_title:'A Equipe NeoX',
+        team_subtitle:'Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.',
+        role_owner:'Proprietário', role_coowner_gd:'Coproprietário & Designer de Jogos', role_gd:'Designer de Jogos',
+        role_animator:'Animador', role_modeler:'Modelador', role_vfx:'Artista de VFX', role_ui:'Designer de UI/UX', role_cm:'Gerente da Comunidade',
+        profile:'Perfil Roblox',
+        contact_tag:'Fale Conosco', contact_title:'Pronto para a diversão?',
+        contact_subtitle:'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
+        form_name:'Seu Nome', form_email:'Seu E-mail', form_roblox:'Nick do Roblox (Opcional)',
+        form_msg:'Mensagem (Mínimo 16 caracteres)', form_btn:'Enviar Mensagem',
+        official_discord:'Discord Oficial', footer:'© 2026 NeoX. Todos os direitos reservados.',
+        stats_loading:'Carregando dados do Roblox…',
+        stats_unavailable:'Dados do Roblox indisponíveis no momento.',
+        stats_updated:t=>`Dados do Roblox atualizados às ${t} · atualização a cada ~30 s`,
+        sending:'Enviando…', sent:'Mensagem enviada!', send_error:'Não foi possível enviar. Tente novamente.',
+        aria_menu_open:'Abrir menu', aria_menu_close:'Fechar menu', title:'NeoX Studio | Jogue o Futuro'
+    },
+    en: {
+        skip:'Skip to content',
+        nav_home:'Home', nav_about:'About', nav_games:'Games', nav_media:'Trailers', nav_team:'Team', nav_contact:'Contact',
+        hero_tag:'Crafting Unforgettable Universes',
+        hero_title_1:'Games with energy, colors and', hero_title_2:'pure fun.',
+        hero_desc:'NeoX is where community comes alive. We develop high-end immersive experiences in the Roblox ecosystem.',
+        btn_explore:'Explore Games', btn_discord:'Join Discord',
+        stat_1:'Players online', stat_2:'Total Likes', stat_3:'Total Favorites', stat_4:'Total Visits',
+        about_tag:'Our Essence', about_title:'Fun taken seriously.',
+        about_desc:'NeoX was born to break monotony. We don’t just make games, we create digital amusement parks where every pixel, animation and mechanic is designed to surprise.',
+        feat_1_title:'Vibrant Gameplay', feat_1_desc:'Dynamic and fluid action.',
+        feat_2_title:'Active Community', feat_2_desc:'We listen to every player.',
+        feat_3_title:'Constant Updates', feat_3_desc:'New content every week.',
+        about_box_title:'Innovation in Every Detail',
+        about_box_desc:'Our team brings together top talent in UI design, advanced Luau programming, 3D animation and modeling to deliver the highest standard in Roblox Studio.',
+        games_tag:'What To Play Now', games_title:'Our Universes',
+        games_subtitle:'Explore the portfolio of official games developed by NeoX Studio.',
+        badge_live:'Live / Released', badge_dev:'In Development', visits:'Visits',
+        game_1_desc:'Explore anime-inspired worlds, defeat enemies and recruit powerful champions.',
+        game_2_desc:'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
+        game_3_desc:'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
+        btn_play:'Play Now', btn_preview:'View Project', game_discord:'Game Discord', discord_soon:'Discord coming soon',
+        media_tag:'Cinematics & Showcases', media_title:'Official Media',
+        media_subtitle:'Demonstrations and visual concepts of NeoX Studio projects.',
+        ac_1_tag:'Official Gameplay', ac_1_title:'Combat & Movement',
+        ac_2_tag:'Quest System', ac_2_title:'Missions & Rewards',
+        ac_3_tag:'Interface & Abilities', ac_3_title:'Skill Tree',
+        ap_title:'Anime Paradise — Sneak Peeks', peek_1:'Sneak Peek 01', peek_2:'Sneak Peek 02', peek_3:'Sneak Peek 03',
+        media_cutscene_ui:'Cutscene & UI', media_movement:'Movement', media_models:'Models',
+        media_soon:'Media coming soon',
+        team_tag:'The Creators', team_title:'The NeoX Team',
+        team_subtitle:'Brilliant minds united to build the future of Roblox games.',
+        role_owner:'Owner', role_coowner_gd:'Co-Owner & Game Designer', role_gd:'Game Designer',
+        role_animator:'Animator', role_modeler:'Modeler', role_vfx:'VFX Artist', role_ui:'UI/UX Designer', role_cm:'Community Manager',
+        profile:'Roblox Profile',
+        contact_tag:'Get in Touch', contact_title:'Ready for the fun?',
+        contact_subtitle:'Send a message, join our Discord and be part of the NeoX family!',
+        form_name:'Your Name', form_email:'Your Email', form_roblox:'Roblox Username (Optional)',
+        form_msg:'Message (Minimum 16 characters)', form_btn:'Send Message',
+        official_discord:'Official Discord', footer:'© 2026 NeoX. All rights reserved.',
+        stats_loading:'Loading Roblox stats…',
+        stats_unavailable:'Roblox stats are unavailable right now.',
+        stats_updated:t=>`Roblox stats updated at ${t} · refreshes about every 30 s`,
+        sending:'Sending…', sent:'Message sent!', send_error:'Could not send. Please try again.',
+        aria_menu_open:'Open menu', aria_menu_close:'Close menu', title:'NeoX Studio | Play the Future'
     }
-    let currentLang = detectLang();
-    let lastSnapshot = null;
-    let statsFailed = false;
+};
 
-    function applyLanguage(lang){
-        currentLang = lang;
-        const t = i18n[lang];
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const v = t[el.dataset.i18n];
-            if (typeof v === 'string') el.textContent = v;
-        });
-        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-        document.title = t.title;
-        document.getElementById('lang-label').textContent = lang === 'pt' ? 'PT-BR' : 'EN';
-        updateMenuLabel();
-        renderStatsNote();
-        try { localStorage.setItem('neox-lang', lang); } catch (e) {}
-    }
-    document.getElementById('lang-btn').addEventListener('click', () => {
-        applyLanguage(currentLang === 'pt' ? 'en' : 'pt');
-        if (lastSnapshot) renderStats(lastSnapshot);
+function detectLang(){
+    try { const s = localStorage.getItem('neox-lang'); if (s === 'pt' || s === 'en') return s; } catch (e) {}
+    return (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+}
+let currentLang = detectLang();
+let lastSnapshot = null;
+let statsFailed = false;
+
+function applyLanguage(lang){
+    currentLang = lang;
+    const t = i18n[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = t[el.dataset.i18n];
+        if (typeof v === 'string') el.textContent = v;
     });
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.title = t.title;
+    document.getElementById('lang-label').textContent = lang === 'pt' ? 'PT-BR' : 'EN';
+    updateMenuLabel();
+    renderStatsNote();
+    try { localStorage.setItem('neox-lang', lang); } catch (e) {}
+}
+document.getElementById('lang-btn').addEventListener('click', () => {
+    applyLanguage(currentLang === 'pt' ? 'en' : 'pt');
+    if (lastSnapshot) renderStats(lastSnapshot);
+});
 
-    /* =========================================================
-       2. MENU MOBILE
-       ========================================================= */
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    function updateMenuLabel(){
-        const open = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-label', open ? i18n[currentLang].aria_menu_close : i18n[currentLang].aria_menu_open);
+/* =========================================================
+   2. MENU MOBILE
+   ========================================================= */
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+function updateMenuLabel(){
+    const open = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-label', open ? i18n[currentLang].aria_menu_close : i18n[currentLang].aria_menu_open);
+}
+function setMenu(open){
+    mobileMenu.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    updateMenuLabel();
+}
+menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+window.matchMedia('(min-width:768px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+/* =========================================================
+   3. PULSO NO CLIQUE DO MENU
+   ========================================================= */
+document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+    const section = document.querySelector(link.getAttribute('href'));
+    link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival');
+    void link.offsetWidth;
+    link.classList.add('nav-click-pulse'); section?.classList.add('section-arrival');
+    setTimeout(() => { link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival'); }, 850);
+}));
+
+/* =========================================================
+   4. PROGRESSO DE ROLAGEM + LINK ATIVO NO MENU
+   ========================================================= */
+(function(){
+    const bar = document.getElementById('scroll-progress');
+    const links = Array.from(document.querySelectorAll('.nav-link'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    let ticking = false;
+    function update(){
+        ticking = false;
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+        let current = sections[0] ? sections[0].id : '';
+        sections.forEach(s => { if (s.getBoundingClientRect().top <= window.innerHeight * .35) current = s.id; });
+        if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4 && sections.length) current = sections[sections.length - 1].id;
+        links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + current));
     }
-    function setMenu(open){
-        mobileMenu.classList.toggle('hidden', !open);
-        menuBtn.setAttribute('aria-expanded', String(open));
-        menuIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        updateMenuLabel();
-    }
-    menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-    window.matchMedia('(min-width:768px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+    window.addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, { passive:true });
+    window.addEventListener('resize', update, { passive:true });
+    update();
+})();
 
-    /* =========================================================
-       3. PULSO NO CLIQUE DO MENU
-       ========================================================= */
-    document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
-        const section = document.querySelector(link.getAttribute('href'));
-        link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival');
-        void link.offsetWidth;
-        link.classList.add('nav-click-pulse'); section?.classList.add('section-arrival');
-        setTimeout(() => { link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival'); }, 850);
-    }));
-
-    /* =========================================================
-       4. PROGRESSO DE ROLAGEM + LINK ATIVO NO MENU
-       ========================================================= */
-    (function(){
-        const bar = document.getElementById('scroll-progress');
-        const links = Array.from(document.querySelectorAll('.nav-link'));
-        const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-        let ticking = false;
-        function update(){
-            ticking = false;
-            const doc = document.documentElement;
-            const max = doc.scrollHeight - window.innerHeight;
-            bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
-            let current = sections[0] ? sections[0].id : '';
-            sections.forEach(s => { if (s.getBoundingClientRect().top <= window.innerHeight * .35) current = s.id; });
-            if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4 && sections.length) current = sections[sections.length - 1].id;
-            links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + current));
-        }
-        window.addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(update); } }, { passive:true });
-        window.addEventListener('resize', update, { passive:true });
-        update();
-    })();
-
-    /* =========================================================
-       5. REVEAL AO ROLAR (o hero tem animação de entrada própria)
-       ========================================================= */
-    (function(){
-        const targets = document.querySelectorAll('main section:not(#home) > div');
-        if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
-        targets.forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = Math.min(i % 4, 3) * 75 + 'ms'; });
-        const io = new IntersectionObserver(entries => entries.forEach(entry => {
+/* =========================================================
+   5. REVEAL AO ROLAR (o hero tem animação de entrada própria)
+   ========================================================= */
+(function(){
+    const targets = document.querySelectorAll('main section:not(#home) > div');
+    if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
+    let io;
+    try {
+        io = new IntersectionObserver(entries => entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             const el = entry.target;
             el.classList.add('is-visible');
             io.unobserve(el);
             setTimeout(() => { el.classList.remove('reveal', 'is-visible'); el.style.transitionDelay = ''; }, 1500);
         }), { threshold: .05 });
-        targets.forEach(el => io.observe(el));
-    })();
+    } catch (e) { return; }
+    targets.forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = Math.min(i % 4, 3) * 75 + 'ms';
+        io.observe(el);
+    });
+    // Rede de segurança: se algo impedir o observer de disparar, nada fica invisível
+    setTimeout(() => targets.forEach(el => el.classList.add('is-visible')), 4000);
+})();
 
-    /* =========================================================
-       6. PARTÍCULAS (maioria ciano, rosa bem raro)
-       ========================================================= */
-    (function(){
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        const colors = ['rgba(53,196,229,.32)', 'rgba(0,229,255,.24)', 'rgba(53,196,229,.22)', 'rgba(244,91,155,.16)'];
-        let w = 0, h = 0, particles = [], raf = null;
+/* =========================================================
+   6. PARTÍCULAS (maioria ciano, rosa bem raro)
+   ========================================================= */
+(function(){
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    const colors = ['rgba(53,196,229,.32)', 'rgba(0,229,255,.24)', 'rgba(53,196,229,.22)', 'rgba(244,91,155,.16)'];
+    let w = 0, h = 0, particles = [], raf = null;
 
-        function make(){
-            const r = Math.random();
-            return { x:Math.random()*w, y:Math.random()*h, s:Math.random()*2+1,
-                     vx:(Math.random()-.5)*.5, vy:(Math.random()-.5)*.5,
-                     c: r < .08 ? colors[3] : colors[Math.floor(Math.random()*3)] };
-        }
-        function resize(){
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            w = window.innerWidth; h = window.innerHeight;
-            canvas.width = w * dpr; canvas.height = h * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            const count = w < 640 ? 30 : 60;
-            while (particles.length < count) particles.push(make());
-            particles.length = count;
-            particles.forEach(p => { p.x = Math.min(p.x, w); p.y = Math.min(p.y, h); });
-        }
-        function draw(){
-            ctx.clearRect(0, 0, w, h);
-            for (const p of particles){
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > w) p.vx *= -1;
-                if (p.y < 0 || p.y > h) p.vy *= -1;
-                ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
-            }
-        }
-        function loop(){ draw(); raf = requestAnimationFrame(loop); }
-        function start(){ if (raf || prefersReduced.matches) return; loop(); }
-        function stop(){ if (raf) cancelAnimationFrame(raf); raf = null; }
-
-        resize();
-        let lastW = window.innerWidth;
-        window.addEventListener('resize', () => {
-            if (window.innerWidth === lastW) return;
-            lastW = window.innerWidth; resize(); if (prefersReduced.matches) draw();
-        }, { passive:true });
-        document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-        prefersReduced.addEventListener('change', () => { stop(); prefersReduced.matches ? draw() : start(); });
-        prefersReduced.matches ? draw() : start();
-    })();
-
-    /* =========================================================
-       7. MÍDIA: vídeos mudos em loop (tipo GIF) + arquivos faltando
-       ========================================================= */
-    function showMediaPlaceholder(el){
-        if (el.dataset.missing) return;
-        el.dataset.missing = '1';
-        const ph = document.createElement('div');
-        ph.className = 'media-placeholder';
-        ph.setAttribute('data-i18n', 'media_soon');
-        ph.textContent = i18n[currentLang].media_soon;
-        el.style.display = 'none';
-        el.parentNode.insertBefore(ph, el);
+    function make(){
+        const r = Math.random();
+        return { x:Math.random()*w, y:Math.random()*h, s:Math.random()*2+1,
+                 vx:(Math.random()-.5)*.5, vy:(Math.random()-.5)*.5,
+                 c: r < .08 ? colors[3] : colors[Math.floor(Math.random()*3)] };
     }
-
-    document.querySelectorAll('img[data-fallbacks]').forEach(img => {
-        const queue = img.dataset.fallbacks.split(',').map(s => s.trim()).filter(Boolean);
-        const tried = [img.getAttribute('src')];
-        function next(){
-            const n = queue.shift();
-            if (n){ tried.push(n); img.src = n; }
-            else { console.warn('[NeoX] Imagem não encontrada. Caminhos testados:', tried); showMediaPlaceholder(img); }
+    function resize(){
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth; h = window.innerHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const count = w < 640 ? 30 : 60;
+        while (particles.length < count) particles.push(make());
+        particles.length = count;
+        particles.forEach(p => { p.x = Math.min(p.x, w); p.y = Math.min(p.y, h); });
+    }
+    function draw(){
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles){
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > w) p.vx *= -1;
+            if (p.y < 0 || p.y > h) p.vy *= -1;
+            ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
         }
-        img.addEventListener('error', next);
-        if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) next();
+    }
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    function start(){ if (raf || prefersReduced.matches) return; loop(); }
+    function stop(){ if (raf) cancelAnimationFrame(raf); raf = null; }
+
+    resize();
+    let lastW = window.innerWidth;
+    window.addEventListener('resize', () => {
+        if (window.innerWidth === lastW) return;
+        lastW = window.innerWidth; resize(); if (prefersReduced.matches) draw();
+    }, { passive:true });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    prefersReduced.addEventListener('change', () => { stop(); prefersReduced.matches ? draw() : start(); });
+    prefersReduced.matches ? draw() : start();
+})();
+
+/* =========================================================
+   7. MÍDIA: vídeos mudos em loop (tipo GIF) + arquivos faltando
+   ========================================================= */
+function showMediaPlaceholder(el){
+    if (el.dataset.missing) return;
+    el.dataset.missing = '1';
+    const ph = document.createElement('div');
+    ph.className = 'media-placeholder';
+    ph.setAttribute('data-i18n', 'media_soon');
+    ph.textContent = i18n[currentLang].media_soon;
+    el.style.display = 'none';
+    el.parentNode.insertBefore(ph, el);
+}
+
+document.querySelectorAll('img[data-fallbacks]').forEach(img => {
+    const queue = img.dataset.fallbacks.split(',').map(s => s.trim()).filter(Boolean);
+    const tried = [img.getAttribute('src')];
+    function next(){
+        const n = queue.shift();
+        if (n){ tried.push(n); img.src = n; }
+        else { console.warn('[NeoX] Imagem não encontrada. Caminhos testados:', tried); showMediaPlaceholder(img); }
+    }
+    img.addEventListener('error', next);
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) next();
+});
+
+(function(){
+    const videos = Array.from(document.querySelectorAll('video.loop-video'));
+    if (!videos.length) return;
+    const waiting = new Set();
+
+    videos.forEach(v => {
+        v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+        v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+        v.controls = false;
+        const sources = v.querySelectorAll('source');
+        const last = sources[sources.length - 1];
+        const paths = Array.from(sources).map(s => s.getAttribute('src'));
+        if (last) last.addEventListener('error', () => {
+            console.warn('[NeoX] Vídeo não carregou. Caminhos testados:', paths);
+            showMediaPlaceholder(v);
+        });
+        if (prefersReduced.matches) v.controls = true;
+    });
+    if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting){
+            const p = v.play();
+            if (p && p.catch) p.catch(() => waiting.add(v));
+        } else { v.pause(); waiting.delete(v); }
+    }), { threshold: .25 });
+    videos.forEach(v => io.observe(v));
+
+    ['touchstart','pointerdown','keydown','scroll'].forEach(ev =>
+        window.addEventListener(ev, () => { waiting.forEach(v => v.play().catch(()=>{})); waiting.clear(); }, { passive:true }));
+})();
+
+/* =========================================================
+   8. ESTATÍSTICAS DO ROBLOX (tempo real) + CONTAGEM ANIMADA
+      Ordem: (1) ao vivo via RoProxy  (2) roblox-stats.json  (3) último valor salvo
+   ========================================================= */
+const PLACES = { ap:'96665881849072', cr:'111173250236559', ff:'93233198656969' };
+const STATS_INTERVAL = 30000;
+let statsTimer = null;
+
+async function fetchJSON(url, timeout = 8000){
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), timeout);
+    try{
+        const r = await fetch(url, { signal: ctrl.signal, cache:'no-cache' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return await r.json();
+    } finally { clearTimeout(t); }
+}
+const num = v => (v == null || v === '' || !Number.isFinite(Number(v))) ? null : Number(v);
+function hasData(s){
+    if (!s || !s.games) return false;
+    return Object.values(s.games).some(g => g && (num(g.playing) !== null || num(g.visits) !== null));
+}
+const UNIVERSE_CACHE_KEY = 'neox-universes-v2';
+const UNIVERSE_CACHE_TTL = 3 * 24 * 60 * 60 * 1000;
+
+function loadUniverseCache(){
+    try {
+        localStorage.removeItem('neox-universes');
+        const raw = JSON.parse(localStorage.getItem(UNIVERSE_CACHE_KEY) || 'null');
+        if (raw && raw.savedAt && Date.now() - raw.savedAt < UNIVERSE_CACHE_TTL && raw.ids) return raw.ids;
+    } catch (e) {}
+    return {};
+}
+async function resolveUniverses(){
+    const cache = loadUniverseCache();
+    let changed = false;
+    await Promise.all(Object.values(PLACES).map(async place => {
+        if (cache[place]) return;
+        try{
+            const d = await fetchJSON(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
+            if (d && d.universeId){ cache[place] = d.universeId; changed = true; }
+        } catch (e) { console.warn('[NeoX] universo não resolvido para place', place, e.message); }
+    }));
+    if (changed){
+        try { localStorage.setItem(UNIVERSE_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), ids: cache })); } catch (e) {}
+    }
+    return cache;
+}
+async function fetchLive(){
+    const uni = await resolveUniverses();
+    const ids = Object.values(PLACES).map(p => uni[p]).filter(Boolean);
+    if (!ids.length) throw new Error('nenhum universeId resolvido');
+    const list = ids.join(',');
+    const [gamesRes, votesRes] = await Promise.allSettled([
+        fetchJSON(`https://games.roproxy.com/v1/games?universeIds=${list}`),
+        fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${list}`)
+    ]);
+    if (gamesRes.status !== 'fulfilled') throw gamesRes.reason;
+    if (votesRes.status !== 'fulfilled') console.warn('[NeoX] curtidas indisponíveis:', votesRes.reason && votesRes.reason.message);
+    const byId = {}, votes = {};
+    (gamesRes.value.data || []).forEach(g => { byId[g.id] = g; });
+    if (votesRes.status === 'fulfilled') (votesRes.value.data || []).forEach(v => { votes[v.id] = v; });
+    const games = {};
+    for (const [key, place] of Object.entries(PLACES)){
+        const id = uni[place], g = byId[id];
+        games[key] = g ? {
+            playing:g.playing, visits:g.visits, favorites:g.favoritedCount,
+            likes: votes[id] ? votes[id].upVotes : null
+        } : {};
+    }
+    return { updatedAt:new Date().toISOString(), games };
+}
+function loadCachedStats(){
+    try { return JSON.parse(localStorage.getItem('neox-stats') || 'null'); } catch (e) { return null; }
+}
+
+function fitStatNumbers(){
+    document.querySelectorAll('.stat-number').forEach(node => {
+        const len = Math.max(1, (node.dataset.fitText || node.textContent).trim().length);
+        const inner = Math.max(0, node.parentElement.clientWidth - 48);
+        node.style.fontSize = Math.max(18, Math.min(40, inner / (len * .62))) + 'px';
+    });
+}
+let fitQueued = false;
+function scheduleFit(){ if (fitQueued) return; fitQueued = true; requestAnimationFrame(() => { fitQueued = false; fitStatNumbers(); }); }
+
+// Anima o número de onde ele estava até o novo valor (começa do 0 na primeira vez)
+function setNumber(id, value){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const fmt = n => new Intl.NumberFormat(currentLang === 'pt' ? 'pt-BR' : 'en-US').format(n);
+    cancelAnimationFrame(el._raf);
+    if (value === null || value === undefined){ el.textContent = '—'; el.dataset.value = ''; delete el.dataset.fitText; scheduleFit(); return; }
+    const from = el.dataset.value ? Number(el.dataset.value) : 0;
+    el.dataset.value = String(value);
+    if (prefersReduced.matches || from === value){ el.textContent = fmt(value); delete el.dataset.fitText; scheduleFit(); return; }
+    // Ajusta a fonte uma vez para o valor final, evitando medir o layout a cada frame
+    el.dataset.fitText = fmt(value);
+    scheduleFit();
+    const start = performance.now(), dur = 1100;
+    function tick(now){
+        const t = Math.min(1, (now - start) / dur);
+        const e = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmt(Math.round(from + (value - from) * e));
+        if (t < 1) el._raf = requestAnimationFrame(tick);
+    }
+    el._raf = requestAnimationFrame(tick);
+}
+
+function renderStatsNote(){
+    const note = document.getElementById('roblox-stats-updated');
+    if (!note) return;
+    const t = i18n[currentLang];
+    if (lastSnapshot && lastSnapshot.updatedAt){
+        const d = new Date(lastSnapshot.updatedAt);
+        if (!isNaN(d)){
+            const time = d.toLocaleTimeString(currentLang === 'pt' ? 'pt-BR' : 'en-US', { hour:'2-digit', minute:'2-digit' });
+            note.textContent = t.stats_updated(time); return;
+        }
+    }
+    note.textContent = statsFailed ? t.stats_unavailable : t.stats_loading;
+}
+function renderStats(snapshot){
+    let pT = 0, vT = 0, lT = 0, fT = 0, hp = false, hv = false, hl = false, hf = false;
+    for (const key of Object.keys(PLACES)){
+        const rec = (snapshot.games && snapshot.games[key]) || {};
+        const p = num(rec.playing), v = num(rec.visits), l = num(rec.likes), f = num(rec.favorites);
+        setNumber(`${key}-players`, p);
+        setNumber(`${key}-visits`, v);
+        if (p !== null){ pT += p; hp = true; }
+        if (v !== null){ vT += v; hv = true; }
+        if (l !== null){ lT += l; hl = true; }
+        if (f !== null){ fT += f; hf = true; }
+    }
+    setNumber('stat-players', hp ? pT : null);
+    setNumber('stat-likes',   hl ? lT : null);
+    setNumber('stat-favs',    hf ? fT : null);
+    setNumber('stat-visits',  hv ? vT : null);
+}
+async function refreshRobloxStats(){
+    clearTimeout(statsTimer);
+    if (!document.hidden){
+        let snap = null;
+        try { snap = await fetchLive(); } catch (e) { console.warn('[NeoX] Stats ao vivo falharam:', e.message || e); }
+        if (!hasData(snap)){
+            try {
+                const s = await fetchJSON(new URL('roblox-stats.json', document.baseURI).href);
+                if (hasData(s)) snap = s;
+            } catch (e) { console.warn('[NeoX] roblox-stats.json falhou:', e.message || e); }
+        }
+        if (hasData(snap)){
+            try { localStorage.setItem('neox-stats', JSON.stringify(snap)); } catch (e) {}
+        } else {
+            snap = loadCachedStats();
+        }
+        if (hasData(snap)){ lastSnapshot = snap; statsFailed = false; renderStats(snap); }
+        else { statsFailed = true; renderStats({ games:{} }); }
+        renderStatsNote();
+    }
+    statsTimer = setTimeout(refreshRobloxStats, STATS_INTERVAL);
+}
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshRobloxStats(); });
+window.addEventListener('resize', fitStatNumbers, { passive:true });
+
+/* =========================================================
+   9. CARROSSEL DA EQUIPE (infinito)
+   ========================================================= */
+(function(){
+    const track = document.getElementById('team-carousel');
+    const viewport = document.getElementById('team-carousel-viewport');
+    if (!track || !viewport) return;
+    const originals = Array.from(track.querySelectorAll('.team-card'));
+    const total = originals.length;
+    if (total < 2) return;
+    const dotsRoot = document.getElementById('team-dots');
+    const status = document.getElementById('team-carousel-status');
+
+    function clone(card){
+        const c = card.cloneNode(true);
+        c.classList.add('team-card-clone'); c.setAttribute('aria-hidden','true'); c.setAttribute('inert',''); c.inert = true;
+        c.querySelectorAll('a,button').forEach(el => el.setAttribute('tabindex','-1'));
+        return c;
+    }
+    track.insertBefore(clone(originals[total-1]), originals[0]);
+    track.appendChild(clone(originals[0]));
+    const cards = Array.from(track.querySelectorAll('.team-card'));
+
+    let physical = 1, logical = 0, locked = false, startX = null, lockTimer = null;
+
+    const dots = originals.map((card, i) => {
+        const d = document.createElement('button');
+        d.type = 'button'; d.className = 'team-dot'; d.setAttribute('aria-current','false');
+        d.setAttribute('aria-label', `${i+1}: ${card.querySelector('h3')?.textContent.trim() || 'Dev'}`);
+        d.addEventListener('click', () => moveTo(i + 1));
+        dotsRoot.appendChild(d);
+        return d;
     });
 
-    (function(){
-        const videos = Array.from(document.querySelectorAll('video.loop-video'));
-        if (!videos.length) return;
-        const waiting = new Set();
-
-        videos.forEach(v => {
-            v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
-            v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-            v.controls = false;
-            const sources = v.querySelectorAll('source');
-            const last = sources[sources.length - 1];
-            const paths = Array.from(sources).map(s => s.getAttribute('src'));
-            if (last) last.addEventListener('error', () => {
-                console.warn('[NeoX] Vídeo não carregou. Caminhos testados:', paths);
-                showMediaPlaceholder(v);
-            });
-            if (prefersReduced.matches) v.controls = true;
-        });
-        if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
-
-        const io = new IntersectionObserver(entries => entries.forEach(e => {
-            const v = e.target;
-            if (e.isIntersecting){
-                const p = v.play();
-                if (p && p.catch) p.catch(() => waiting.add(v));
-            } else { v.pause(); waiting.delete(v); }
-        }), { threshold: .25 });
-        videos.forEach(v => io.observe(v));
-
-        ['touchstart','pointerdown','keydown','scroll'].forEach(ev =>
-            window.addEventListener(ev, () => { waiting.forEach(v => v.play().catch(()=>{})); waiting.clear(); }, { passive:true }));
-    })();
-
-    /* =========================================================
-       8. ESTATÍSTICAS DO ROBLOX (tempo real) + CONTAGEM ANIMADA
-          Ordem: (1) ao vivo via RoProxy  (2) roblox-stats.json  (3) último valor salvo
-       ========================================================= */
-    const PLACES = { ap:'96665881849072', cr:'111173250236559', ff:'93233198656969' };
-    const STATS_INTERVAL = 30000;
-    let statsTimer = null;
-
-    async function fetchJSON(url, timeout = 8000){
-        const ctrl = new AbortController();
-        const t = setTimeout(() => ctrl.abort(), timeout);
-        try{
-            const r = await fetch(url, { signal: ctrl.signal, cache:'no-cache' });
-            if (!r.ok) throw new Error('HTTP ' + r.status);
-            return await r.json();
-        } finally { clearTimeout(t); }
+    function setPosition(i){
+        const c = cards[i];
+        track.style.transform = `translate3d(${viewport.clientWidth/2 - (c.offsetLeft + c.offsetWidth/2)}px,0,0)`;
     }
-    const num = v => (v == null || v === '' || !Number.isFinite(Number(v))) ? null : Number(v);
-    function hasData(s){
-        if (!s || !s.games) return false;
-        return Object.values(s.games).some(g => g && (num(g.playing) !== null || num(g.visits) !== null));
+    function paint(i){
+        physical = i;
+        logical = i === 0 ? total - 1 : i === total + 1 ? 0 : i - 1;
+        cards.forEach((c, k) => c.classList.toggle('is-active', k === physical));
+        dots.forEach((d, k) => d.setAttribute('aria-current', k === logical ? 'true' : 'false'));
+        if (status) status.textContent = `${logical + 1} / ${total}`;
     }
-    async function resolveUniverses(){
-        let cache = {};
-        try { cache = JSON.parse(localStorage.getItem('neox-universes') || '{}'); } catch (e) {}
-        await Promise.all(Object.values(PLACES).map(async place => {
-            if (cache[place]) return;
-            try{
-                const d = await fetchJSON(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
-                if (d && d.universeId) cache[place] = d.universeId;
-            } catch (e) { console.warn('[NeoX] universo não resolvido para place', place, e.message); }
-        }));
-        try { localStorage.setItem('neox-universes', JSON.stringify(cache)); } catch (e) {}
-        return cache;
-    }
-    async function fetchLive(){
-        const uni = await resolveUniverses();
-        const ids = Object.values(PLACES).map(p => uni[p]).filter(Boolean);
-        if (!ids.length) throw new Error('nenhum universeId resolvido');
-        const list = ids.join(',');
-        const [gamesRes, votesRes] = await Promise.allSettled([
-            fetchJSON(`https://games.roproxy.com/v1/games?universeIds=${list}`),
-            fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${list}`)
-        ]);
-        if (gamesRes.status !== 'fulfilled') throw gamesRes.reason;
-        if (votesRes.status !== 'fulfilled') console.warn('[NeoX] curtidas indisponíveis:', votesRes.reason && votesRes.reason.message);
-        const byId = {}, votes = {};
-        (gamesRes.value.data || []).forEach(g => { byId[g.id] = g; });
-        if (votesRes.status === 'fulfilled') (votesRes.value.data || []).forEach(v => { votes[v.id] = v; });
-        const games = {};
-        for (const [key, place] of Object.entries(PLACES)){
-            const id = uni[place], g = byId[id];
-            games[key] = g ? {
-                playing:g.playing, visits:g.visits, favorites:g.favoritedCount,
-                likes: votes[id] ? votes[id].upVotes : null
-            } : {};
-        }
-        return { updatedAt:new Date().toISOString(), games };
-    }
-    function loadCachedStats(){
-        try { return JSON.parse(localStorage.getItem('neox-stats') || 'null'); } catch (e) { return null; }
-    }
-
-    function fitStatNumbers(){
-        document.querySelectorAll('.stat-number').forEach(node => {
-            const len = Math.max(1, node.textContent.trim().length);
-            const inner = Math.max(0, node.parentElement.clientWidth - 48);
-            node.style.fontSize = Math.max(18, Math.min(40, inner / (len * .62))) + 'px';
-        });
-    }
-    let fitQueued = false;
-    function scheduleFit(){ if (fitQueued) return; fitQueued = true; requestAnimationFrame(() => { fitQueued = false; fitStatNumbers(); }); }
-
-    // Anima o número de onde ele estava até o novo valor (começa do 0 na primeira vez)
-    function setNumber(id, value){
-        const el = document.getElementById(id);
-        if (!el) return;
-        const fmt = n => new Intl.NumberFormat(currentLang === 'pt' ? 'pt-BR' : 'en-US').format(n);
-        cancelAnimationFrame(el._raf);
-        if (value === null || value === undefined){ el.textContent = '—'; el.dataset.value = ''; scheduleFit(); return; }
-        const from = el.dataset.value ? Number(el.dataset.value) : 0;
-        el.dataset.value = String(value);
-        if (prefersReduced.matches || from === value){ el.textContent = fmt(value); scheduleFit(); return; }
-        const start = performance.now(), dur = 1100;
-        function tick(now){
-            const t = Math.min(1, (now - start) / dur);
-            const e = 1 - Math.pow(1 - t, 3);
-            el.textContent = fmt(Math.round(from + (value - from) * e));
-            scheduleFit();
-            if (t < 1) el._raf = requestAnimationFrame(tick);
-        }
-        el._raf = requestAnimationFrame(tick);
-    }
-
-    function renderStatsNote(){
-        const note = document.getElementById('roblox-stats-updated');
-        if (!note) return;
-        const t = i18n[currentLang];
-        if (lastSnapshot && lastSnapshot.updatedAt){
-            const d = new Date(lastSnapshot.updatedAt);
-            if (!isNaN(d)){
-                const time = d.toLocaleTimeString(currentLang === 'pt' ? 'pt-BR' : 'en-US', { hour:'2-digit', minute:'2-digit' });
-                note.textContent = t.stats_updated(time); return;
+    function settle(){
+        clearTimeout(lockTimer);
+        if (physical !== 0 && physical !== total + 1){ locked = false; return; }
+        const home = physical === total + 1;
+        const dest = physical === 0 ? total : 1;
+        track.style.transition = 'none';
+        paint(dest); setPosition(dest);
+        track.getBoundingClientRect();
+        requestAnimationFrame(() => {
+            track.style.transition = '';
+            track.classList.remove('is-returning-home');
+            if (home && !prefersReduced.matches){
+                originals[0].classList.add('team-home-arrival');
+                setTimeout(() => originals[0].classList.remove('team-home-arrival'), 720);
             }
-        }
-        note.textContent = statsFailed ? t.stats_unavailable : t.stats_loading;
+            locked = false;
+        });
     }
-    function renderStats(snapshot){
-        let pT = 0, vT = 0, lT = 0, fT = 0, hp = false, hv = false, hl = false, hf = false;
-        for (const key of Object.keys(PLACES)){
-            const rec = (snapshot.games && snapshot.games[key]) || {};
-            const p = num(rec.playing), v = num(rec.visits), l = num(rec.likes), f = num(rec.favorites);
-            setNumber(`${key}-players`, p);
-            setNumber(`${key}-visits`, v);
-            if (p !== null){ pT += p; hp = true; }
-            if (v !== null){ vT += v; hv = true; }
-            if (l !== null){ lT += l; hl = true; }
-            if (f !== null){ fT += f; hf = true; }
-        }
-        setNumber('stat-players', hp ? pT : null);
-        setNumber('stat-likes',   hl ? lT : null);
-        setNumber('stat-favs',    hf ? fT : null);
-        setNumber('stat-visits',  hv ? vT : null);
+    function moveTo(i){
+        if (locked) return;
+        const target = Math.max(0, Math.min(i, cards.length - 1));
+        if (target === physical) return;
+        locked = true;
+        if (target === total + 1) track.classList.add('is-returning-home');
+        paint(target); setPosition(target);
+        clearTimeout(lockTimer);
+        lockTimer = setTimeout(settle, 1000);
+        if (prefersReduced.matches) settle();
     }
-    async function refreshRobloxStats(){
-        clearTimeout(statsTimer);
-        if (!document.hidden){
-            let snap = null;
-            try { snap = await fetchLive(); } catch (e) { console.warn('[NeoX] Stats ao vivo falharam:', e.message || e); }
-            if (!hasData(snap)){
-                try {
-                    const s = await fetchJSON(new URL('roblox-stats.json', document.baseURI).href);
-                    if (hasData(s)) snap = s;
-                } catch (e) { console.warn('[NeoX] roblox-stats.json falhou:', e.message || e); }
-            }
-            if (hasData(snap)){
-                try { localStorage.setItem('neox-stats', JSON.stringify(snap)); } catch (e) {}
-            } else {
-                snap = loadCachedStats();
-            }
-            if (hasData(snap)){ lastSnapshot = snap; statsFailed = false; renderStats(snap); }
-            else { statsFailed = true; renderStats({ games:{} }); }
-            renderStatsNote();
-        }
-        statsTimer = setTimeout(refreshRobloxStats, STATS_INTERVAL);
+    function step(dir){
+        if (locked) return;
+        if (dir > 0 && physical === total) moveTo(total + 1);
+        else if (dir < 0 && physical === 1) moveTo(0);
+        else moveTo(physical + dir);
     }
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshRobloxStats(); });
-    window.addEventListener('resize', fitStatNumbers, { passive:true });
 
-    /* =========================================================
-       9. CARROSSEL DA EQUIPE (infinito)
-       ========================================================= */
-    (function(){
-        const track = document.getElementById('team-carousel');
-        const viewport = document.getElementById('team-carousel-viewport');
-        if (!track || !viewport) return;
-        const originals = Array.from(track.querySelectorAll('.team-card'));
-        const total = originals.length;
-        if (total < 2) return;
-        const dotsRoot = document.getElementById('team-dots');
-        const status = document.getElementById('team-carousel-status');
-
-        function clone(card){
-            const c = card.cloneNode(true);
-            c.classList.add('team-card-clone'); c.setAttribute('aria-hidden','true'); c.setAttribute('inert',''); c.inert = true;
-            c.querySelectorAll('a,button').forEach(el => el.setAttribute('tabindex','-1'));
-            return c;
-        }
-        track.insertBefore(clone(originals[total-1]), originals[0]);
-        track.appendChild(clone(originals[0]));
-        const cards = Array.from(track.querySelectorAll('.team-card'));
-
-        let physical = 1, logical = 0, locked = false, startX = null, lockTimer = null;
-
-        const dots = originals.map((card, i) => {
-            const d = document.createElement('button');
-            d.type = 'button'; d.className = 'team-dot'; d.setAttribute('aria-current','false');
-            d.setAttribute('aria-label', `${i+1}: ${card.querySelector('h3')?.textContent.trim() || 'Dev'}`);
-            d.addEventListener('click', () => moveTo(i + 1));
-            dotsRoot.appendChild(d);
-            return d;
-        });
-
-        function setPosition(i){
-            const c = cards[i];
-            track.style.transform = `translate3d(${viewport.clientWidth/2 - (c.offsetLeft + c.offsetWidth/2)}px,0,0)`;
-        }
-        function paint(i){
-            physical = i;
-            logical = i === 0 ? total - 1 : i === total + 1 ? 0 : i - 1;
-            cards.forEach((c, k) => c.classList.toggle('is-active', k === physical));
-            dots.forEach((d, k) => d.setAttribute('aria-current', k === logical ? 'true' : 'false'));
-            if (status) status.textContent = `${logical + 1} / ${total}`;
-        }
-        function settle(){
-            clearTimeout(lockTimer);
-            if (physical !== 0 && physical !== total + 1){ locked = false; return; }
-            const home = physical === total + 1;
-            const dest = physical === 0 ? total : 1;
-            track.style.transition = 'none';
-            paint(dest); setPosition(dest);
-            track.getBoundingClientRect();
-            requestAnimationFrame(() => {
-                track.style.transition = '';
-                track.classList.remove('is-returning-home');
-                if (home && !prefersReduced.matches){
-                    originals[0].classList.add('team-home-arrival');
-                    setTimeout(() => originals[0].classList.remove('team-home-arrival'), 720);
-                }
-                locked = false;
-            });
-        }
-        function moveTo(i){
-            if (locked) return;
-            const target = Math.max(0, Math.min(i, cards.length - 1));
-            if (target === physical) return;
-            locked = true;
-            if (target === total + 1) track.classList.add('is-returning-home');
-            paint(target); setPosition(target);
-            clearTimeout(lockTimer);
-            lockTimer = setTimeout(settle, 1000);
-            if (prefersReduced.matches) settle();
-        }
-        function step(dir){
-            if (locked) return;
-            if (dir > 0 && physical === total) moveTo(total + 1);
-            else if (dir < 0 && physical === 1) moveTo(0);
-            else moveTo(physical + dir);
-        }
-
-        document.getElementById('team-prev')?.addEventListener('click', () => step(-1));
-        document.getElementById('team-next')?.addEventListener('click', () => step(1));
-        track.addEventListener('transitionend', e => { if (e.target === track && e.propertyName === 'transform') settle(); });
-        viewport.addEventListener('pointerdown', e => {
-            if (e.target.closest('a,button,input,select,textarea,[role=button]')){ startX = null; return; }
-            startX = e.clientX;
-        });
-        viewport.addEventListener('pointerup', e => {
-            if (startX === null) return;
-            const delta = e.clientX - startX; startX = null;
-            if (Math.abs(delta) > 45) step(delta < 0 ? 1 : -1);
-        });
-        viewport.addEventListener('pointercancel', () => { startX = null; });
-        viewport.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
-            else if (e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
-        });
-        window.addEventListener('resize', () => {
-            track.style.transition = 'none'; setPosition(physical); track.getBoundingClientRect(); track.style.transition = '';
-        }, { passive:true });
-        paint(1);
-        requestAnimationFrame(() => setPosition(1));
-        window.addEventListener('load', () => setPosition(physical));
-    })();
-
-    /* =========================================================
-       10. FORMULÁRIO (Worker opcional)
-       ========================================================= */
-    const CONTACT_WORKER_URL = '';
-    document.getElementById('contact-form')?.addEventListener('submit', async event => {
-        if (!CONTACT_WORKER_URL) return;
-        event.preventDefault();
-        const form = event.currentTarget, status = document.getElementById('form-status'), btn = form.querySelector('[type="submit"]');
-        if (form.elements._honey?.value) return;
-        const t = i18n[currentLang];
-        btn.disabled = true; status.textContent = t.sending;
-        try{
-            const res = await fetch(CONTACT_WORKER_URL, {
-                method:'POST', headers:{ 'Content-Type':'application/json' },
-                body: JSON.stringify({
-                    name: form.elements.name.value, email: form.elements.email.value,
-                    roblox: form.elements.roblox.value, message: form.elements.message.value
-                })
-            });
-            if (!res.ok) throw new Error('send failed');
-            status.textContent = t.sent; form.reset();
-        } catch (err){ status.textContent = t.send_error; }
-        finally { btn.disabled = false; }
+    document.getElementById('team-prev')?.addEventListener('click', () => step(-1));
+    document.getElementById('team-next')?.addEventListener('click', () => step(1));
+    track.addEventListener('transitionend', e => { if (e.target === track && e.propertyName === 'transform') settle(); });
+    viewport.addEventListener('pointerdown', e => {
+        if (e.target.closest('a,button,input,select,textarea,[role=button]')){ startX = null; return; }
+        startX = e.clientX;
     });
+    viewport.addEventListener('pointerup', e => {
+        if (startX === null) return;
+        const delta = e.clientX - startX; startX = null;
+        if (Math.abs(delta) > 45) step(delta < 0 ? 1 : -1);
+    });
+    viewport.addEventListener('pointercancel', () => { startX = null; });
+    viewport.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
+        else if (e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
+    });
+    window.addEventListener('resize', () => {
+        track.style.transition = 'none'; setPosition(physical); track.getBoundingClientRect(); track.style.transition = '';
+    }, { passive:true });
+    paint(1);
+    requestAnimationFrame(() => setPosition(1));
+    window.addEventListener('load', () => setPosition(physical));
+})();
 
-    /* =========================================================
-       INÍCIO
-       ========================================================= */
-    applyLanguage(currentLang);
-    refreshRobloxStats();
-    fitStatNumbers();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStatNumbers);
-    </script>
+/* =========================================================
+   10. FORMULÁRIO (Worker opcional)
+   ========================================================= */
+// Opção A: Worker próprio (tem prioridade). Opção B: FormSubmit via AJAX, sem sair do site.
+const CONTACT_WORKER_URL = '';
+const FORMSUBMIT_ID = 'SEU_CODIGO';
+
+document.getElementById('contact-form')?.addEventListener('submit', async event => {
+    const form = event.currentTarget;
+    const endpoint = CONTACT_WORKER_URL || (FORMSUBMIT_ID !== 'SEU_CODIGO' ? `https://formsubmit.co/ajax/${FORMSUBMIT_ID}` : '');
+    if (!endpoint) return;
+    event.preventDefault();
+    const status = document.getElementById('form-status'), btn = form.querySelector('[type="submit"]');
+    if (form.elements._honey?.value) return;
+    const t = i18n[currentLang];
+    const payload = {
+        name: form.elements.name.value, email: form.elements.email.value,
+        roblox: form.elements.roblox.value, message: form.elements.message.value,
+        _subject: form.elements._subject?.value, _template: form.elements._template?.value
+    };
+    btn.disabled = true; status.textContent = t.sending;
+    try{
+        const res = await fetch(endpoint, {
+            method:'POST',
+            headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'send failed');
+        status.textContent = t.sent; form.reset();
+    } catch (err){
+        console.warn('[NeoX] Falha ao enviar formulário:', err.message || err);
+        status.textContent = t.send_error;
+    }
+    finally { btn.disabled = false; }
+});
+
+/* =========================================================
+   INÍCIO
+   ========================================================= */
+applyLanguage(currentLang);
+refreshRobloxStats();
+fitStatNumbers();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStatNumbers);
+
+</script>
 </body>
 </html>
