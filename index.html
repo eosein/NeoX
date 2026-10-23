@@ -13,11 +13,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#07090e',
-                            card: '#0f141f',
-                            accent: '#6366f1',
-                            glow: '#818cf8',
-                            neon: '#22c55e'
+                            dark: '#030508',
+                            card: '#0a0d14',
+                            accent: '#06b6d4', // Ciano Cyberpunk
+                            purple: '#a855f7', // Violeta Neon
+                            glow: '#38bdf8'
                         }
                     }
                 }
@@ -31,21 +31,21 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #07090e;
+            background-color: #030508;
             color: #f3f4f6;
             overflow-x: hidden;
         }
         .glass-card {
-            background: rgba(15, 20, 31, 0.7);
+            background: rgba(10, 13, 20, 0.85);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.2);
         }
         .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
         }
         .glow-text {
-            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
         }
         /* Canvas de Partículas */
         #particle-canvas {
@@ -59,41 +59,41 @@
         }
     </style>
 </head>
-<body class="relative selection:bg-indigo-500 selection:text-white">
+<body class="relative selection:bg-cyan-500 selection:text-white">
 
     <!-- Fundo de Partículas Interativas -->
     <canvas id="particle-canvas"></canvas>
 
     <!-- HEADER / NAVEGAÇÃO -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-indigo-900/30">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-900/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-purple-600 flex items-center justify-center font-black text-xl shadow-lg shadow-cyan-500/30 group-hover:scale-105 transition">
                     NX
                 </div>
-                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">
-                    NEOX <span class="text-indigo-500">STUDIO</span>
+                <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-cyan-200 to-purple-400 bg-clip-text text-transparent">
+                    NEOX <span class="text-cyan-400">STUDIO</span>
                 </span>
             </a>
 
             <!-- Navegação Desktop -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
-                <a href="#home" class="hover:text-indigo-400 transition" data-i18n="nav_home">Home</a>
-                <a href="#about" class="hover:text-indigo-400 transition" data-i18n="nav_about">Sobre</a>
-                <a href="#games" class="hover:text-indigo-400 transition" data-i18n="nav_games">Jogos</a>
-                <a href="#media" class="hover:text-indigo-400 transition" data-i18n="nav_media">Trailers</a>
-                <a href="#team" class="hover:text-indigo-400 transition" data-i18n="nav_team">Equipe</a>
-                <a href="#contact" class="hover:text-indigo-400 transition" data-i18n="nav_contact">Contato</a>
+                <a href="#home" class="hover:text-cyan-400 transition" data-i18n="nav_home">Home</a>
+                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav_about">Sobre</a>
+                <a href="#games" class="hover:text-cyan-400 transition" data-i18n="nav_games">Jogos</a>
+                <a href="#media" class="hover:text-cyan-400 transition" data-i18n="nav_media">Trailers</a>
+                <a href="#team" class="hover:text-cyan-400 transition" data-i18n="nav_team">Equipe</a>
+                <a href="#contact" class="hover:text-cyan-400 transition" data-i18n="nav_contact">Contato</a>
             </nav>
 
             <div class="flex items-center gap-4">
                 <!-- Seletor de Idioma -->
-                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-indigo-300 hover:text-white transition flex items-center gap-2 border border-indigo-500/30">
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-cyan-300 hover:text-white transition flex items-center gap-2 border border-cyan-500/30">
                     <i class="fa-solid fa-globe"></i>
                     <span id="lang-label">PT-BR</span>
                 </button>
                 <!-- Discord CTA -->
-                <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30">
+                <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-sm transition shadow-lg shadow-cyan-600/30">
                     <i class="fa-brands fa-discord"></i> Discord
                 </a>
             </div>
@@ -106,14 +106,14 @@
         <!-- HERO SECTION -->
         <section id="home" class="min-h-[85vh] flex items-center justify-center px-4 py-20 text-center">
             <div class="max-w-4xl mx-auto space-y-8">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-indigo-400 text-xs font-bold tracking-wide uppercase border border-indigo-500/30 animate-pulse">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-xs font-bold tracking-wide uppercase border border-cyan-500/30 animate-pulse">
                     <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                     <span data-i18n="hero_tag">Criando Universos Inesquecíveis</span>
                 </div>
                 
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
                     <span data-i18n="hero_title_1">Jogos com energia, cores e</span> <br>
-                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">pura diversão.</span>
+                    <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">pura diversão.</span>
                 </h1>
                 
                 <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-medium" data-i18n="hero_desc">
@@ -121,25 +121,25 @@
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-4 pt-4">
-                    <a href="#games" class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition shadow-xl shadow-indigo-600/40 flex items-center gap-3">
+                    <a href="#games" class="px-8 py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition shadow-xl shadow-cyan-600/40 flex items-center gap-3">
                         <i class="fa-solid fa-gamepad"></i> <span data-i18n="btn_explore">Conhecer Jogos</span>
                     </a>
-                    <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-8 py-4 rounded-xl glass-card hover:bg-indigo-950/40 text-white font-bold transition border border-indigo-500/30 flex items-center gap-3">
-                        <i class="fa-brands fa-discord text-indigo-400"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
+                    <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-8 py-4 rounded-xl glass-card hover:bg-cyan-950/40 text-white font-bold transition border border-cyan-500/30 flex items-center gap-3">
+                        <i class="fa-brands fa-discord text-cyan-400"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
                     </a>
                 </div>
 
                 <!-- Estatísticas -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-3xl mx-auto">
-                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
-                        <div class="text-3xl sm:text-4xl font-extrabold text-indigo-400" id="stat-players">12.5K+</div>
+                    <div class="glass-card p-6 rounded-2xl border border-cyan-500/20">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-cyan-400" id="stat-players">12.5K+</div>
                         <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_1">Jogadores Ativos</div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
+                    <div class="glass-card p-6 rounded-2xl border border-cyan-500/20">
                         <div class="text-3xl sm:text-4xl font-extrabold text-purple-400">45K+</div>
                         <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_2">Membros no Discord</div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border border-indigo-500/20">
+                    <div class="glass-card p-6 rounded-2xl border border-cyan-500/20">
                         <div class="text-3xl sm:text-4xl font-extrabold text-pink-400">3+</div>
                         <div class="text-xs sm:text-sm text-gray-400 font-semibold mt-1" data-i18n="stat_3">Mega Projetos</div>
                     </div>
@@ -151,7 +151,7 @@
         <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase">
+                    <div class="inline-block px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase">
                         NX • <span data-i18n="about_tag">A Nossa Essência</span>
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="about_title">
@@ -161,27 +161,27 @@
                         A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
-                            <i class="fa-solid fa-bolt text-indigo-400 text-xl mb-2"></i>
+                        <div class="glass-card p-4 rounded-xl border border-cyan-500/20">
+                            <i class="fa-solid fa-bolt text-cyan-400 text-xl mb-2"></i>
                             <h4 class="font-bold text-sm" data-i18n="feat_1_title">Gameplay Vibrante</h4>
                             <p class="text-xs text-gray-400 mt-1" data-i18n="feat_1_desc">Ação dinâmica e fluida.</p>
                         </div>
-                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
+                        <div class="glass-card p-4 rounded-xl border border-cyan-500/20">
                             <i class="fa-solid fa-users text-purple-400 text-xl mb-2"></i>
                             <h4 class="font-bold text-sm" data-i18n="feat_2_title">Comunidade Ativa</h4>
                             <p class="text-xs text-gray-400 mt-1" data-i18n="feat_2_desc">Ouvimos cada jogador.</p>
                         </div>
-                        <div class="glass-card p-4 rounded-xl border border-indigo-500/20">
+                        <div class="glass-card p-4 rounded-xl border border-cyan-500/20">
                             <i class="fa-solid fa-rotate text-pink-400 text-xl mb-2"></i>
                             <h4 class="font-bold text-sm" data-i18n="feat_3_title">Updates Constantes</h4>
                             <p class="text-xs text-gray-400 mt-1" data-i18n="feat_3_desc">Conteúdo novo toda semana.</p>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card p-8 rounded-3xl relative border border-indigo-500/30 overflow-hidden group">
-                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-600/20 rounded-full blur-3xl group-hover:bg-indigo-600/30 transition duration-500"></div>
+                <div class="glass-card p-8 rounded-3xl relative border border-cyan-500/30 overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-cyan-600/20 rounded-full blur-3xl group-hover:bg-cyan-600/30 transition duration-500"></div>
                     <div class="relative z-10 space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-2xl font-bold">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-600 to-purple-600 flex items-center justify-center text-2xl font-bold">
                             <i class="fa-solid fa-cube"></i>
                         </div>
                         <h3 class="text-2xl font-bold" data-i18n="about_box_title">Inovação em Cada Detalhe</h3>
@@ -196,47 +196,47 @@
         <!-- JOGOS -->
         <section id="games" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="games_tag">O Que Jogar Agora</span>
+                <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase" data-i18n="games_tag">O Que Jogar Agora</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="games_title">Nossos Universos</h2>
                 <p class="text-gray-400" data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Anime Paradise -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-gray-900">
-                        <img src="https://tr.rbxcdn.com/180DAY-96665881849072/500/280/Image/Png" alt="Anime Paradise" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://cdn.discordapp.com/attachments/1253521147962593320/1563193007652732988/image.png'">
+                <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden bg-black">
+                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563193007652732988/image.png" alt="Anime Paradise" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
                         </div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">Anime Paradise</h3>
-                            <span class="text-xs text-gray-400"><i class="fa-solid fa-users text-indigo-400 mr-1"></i> <span id="ap-players">--</span></span>
+                            <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition">Anime Paradise</h3>
+                            <span class="text-xs text-gray-400"><i class="fa-solid fa-users text-cyan-400 mr-1"></i> <span id="ap-players">--</span></span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_1_desc">
                             Domine os céus e a terra com poderes celestiais em um mundo imersivo repleto de desafios épicos.
                         </p>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+                        <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" class="w-full py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30">
                             <i class="fa-solid fa-play"></i> <span data-i18n="btn_play">Jogar Agora</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Anime Crash -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-gray-900">
-                        <img src="https://tr.rbxcdn.com/180DAY-111173250236559/500/280/Image/Png" alt="Anime Crash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://cdn.discordapp.com/attachments/1253521147962593320/1563192322793939024/image.png'">
+                <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden bg-black">
+                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563192322793939024/image.png" alt="Anime Crash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/90 text-white shadow-md" data-i18n="badge_dev">Em Desenvolvimento</span>
                         </div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">Anime Crash</h3>
+                            <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition">Anime Crash</h3>
                             <span class="text-xs text-amber-400 font-semibold"><i class="fa-solid fa-clock"></i> Em Breve</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_2_desc">
@@ -244,26 +244,26 @@
                         </p>
                     </div>
                     <div class="p-6 pt-0 space-y-2">
-                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600/40 hover:bg-indigo-600 text-white font-bold text-sm transition flex items-center justify-center gap-2 border border-indigo-500/30">
+                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" class="w-full py-3 rounded-xl bg-cyan-600/40 hover:bg-cyan-600 text-white font-bold text-sm transition flex items-center justify-center gap-2 border border-cyan-500/30">
                             <i class="fa-solid fa-code"></i> <span data-i18n="btn_preview">Ver Projeto</span>
                         </a>
-                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="w-full py-2.5 rounded-xl glass-card hover:bg-indigo-950/40 text-indigo-300 font-semibold text-xs transition flex items-center justify-center gap-2 border border-indigo-500/20">
+                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="w-full py-2.5 rounded-xl glass-card hover:bg-cyan-950/40 text-cyan-300 font-semibold text-xs transition flex items-center justify-center gap-2 border border-cyan-500/20">
                             <i class="fa-brands fa-discord"></i> <span data-i18n="btn_discord_server">Discord do Jogo</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- FREE FIRE MAX -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-indigo-500/20 flex flex-col justify-between group">
-                    <div class="relative h-48 overflow-hidden bg-gray-900">
-                        <img src="https://tr.rbxcdn.com/180DAY-93233198656969/500/280/Image/Png" alt="Free Fire Max" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://cdn.discordapp.com/attachments/1253521147962593320/1563193243317837904/noFilter.png'">
+                <div class="glass-card rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col justify-between group">
+                    <div class="relative h-48 overflow-hidden bg-black">
+                        <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563193243317837904/noFilter.png" alt="Free Fire Max" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/90 text-white shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
                         </div>
                     </div>
                     <div class="p-6 space-y-4">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition">FREE FIRE MAX</h3>
+                            <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition">FREE FIRE MAX</h3>
                             <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-fire"></i> Destaque</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game_3_desc">
@@ -271,7 +271,7 @@
                         </p>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" class="w-full py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30">
                             <i class="fa-solid fa-play"></i> <span data-i18n="btn_play">Jogar Agora</span>
                         </a>
                     </div>
@@ -279,52 +279,70 @@
             </div>
         </section>
 
-        <!-- MÍDIA / TRAILERS (ANIME CRASH) -->
-        <section id="media" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Trailers</span>
+        <!-- MÍDIA / TRAILERS -->
+        <section id="media" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Demonstrativos</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="media_title">Mídia Oficial</h2>
-                <p class="text-gray-400" data-i18n="media_subtitle">Prévias exclusivas de gameplay, skills e quests do Anime Crash.</p>
+                <p class="text-gray-400" data-i18n="media_subtitle">Vídeos e capturas exclusivas dos projetos da NeoX Studio.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Item 1: Skills -->
-                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-indigo-950 via-purple-950 to-indigo-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent"></div>
-                        <i class="fa-solid fa-bolt text-5xl text-indigo-400 group-hover:scale-110 transition duration-300"></i>
+            <!-- Mídia Anime Crash -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-cyan-900/40 pb-3 text-cyan-400">
+                    <i class="fa-solid fa-gamepad"></i> Anime Crash
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Gameplay -->
+                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
+                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205091421323315/ac.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-cyan-400 uppercase">Gameplay Oficial</span>
+                            <h4 class="text-base font-bold text-white">Combate & Movimentação</h4>
+                        </div>
                     </div>
-                    <div class="space-y-1">
-                        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Anime Crash</span>
-                        <h3 class="text-lg font-bold" data-i18n="media_1_title">Demonstração de Skills</h3>
-                    </div>
-                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_1_desc">Efeitos visuais avançados e sistemas de combos dinâmicos.</p>
-                </div>
 
-                <!-- Item 2: Gameplay -->
-                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-purple-950 via-indigo-950 to-violet-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent"></div>
-                        <i class="fa-solid fa-gamepad text-5xl text-purple-400 group-hover:scale-110 transition duration-300"></i>
+                    <!-- Quests -->
+                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
+                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
+                            <video controls class="w-full h-full object-cover">
+                                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205091421323315/ac.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-purple-400 uppercase">Sistema de Quests</span>
+                            <h4 class="text-base font-bold text-white">Missões & Recompensas</h4>
+                        </div>
                     </div>
-                    <div class="space-y-1">
-                        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Anime Crash</span>
-                        <h3 class="text-lg font-bold" data-i18n="media_2_title">Gameplay Oficial</h3>
-                    </div>
-                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_2_desc">Combate fluido e movimentação em tempo real na arena.</p>
-                </div>
 
-                <!-- Item 3: Quests -->
-                <div class="glass-card rounded-2xl p-6 border border-indigo-500/20 space-y-4 group">
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-pink-950 via-indigo-950 to-purple-900 flex items-center justify-center relative overflow-hidden border border-indigo-500/30">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-pink-500/20 via-transparent to-transparent"></div>
-                        <i class="fa-solid fa-scroll text-5xl text-pink-400 group-hover:scale-110 transition duration-300"></i>
+                    <!-- Skill Tree -->
+                    <div class="glass-card rounded-2xl p-4 border border-cyan-500/20 space-y-3">
+                        <div class="h-48 rounded-xl overflow-hidden bg-black border border-cyan-500/30">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563205145377116311/1.png" alt="Skill Tree" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-pink-400 uppercase">Interface & Habilidades</span>
+                            <h4 class="text-base font-bold text-white">Árvore de Skills</h4>
+                        </div>
                     </div>
-                    <div class="space-y-1">
-                        <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">Anime Crash</span>
-                        <h3 class="text-lg font-bold" data-i18n="media_3_title">Sistema de Quests</h3>
+                </div>
+            </div>
+
+            <!-- Mídia Anime Paradise (Espaço Reservado para você mandar) -->
+            <div class="space-y-6 pt-8">
+                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-purple-900/40 pb-3 text-purple-400">
+                    <i class="fa-solid fa-star"></i> Anime Paradise
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="ap-media-container">
+                    <div class="glass-card p-8 rounded-2xl border border-purple-500/20 text-center space-y-3">
+                        <i class="fa-solid fa-film text-4xl text-purple-400 animate-pulse"></i>
+                        <h4 class="font-bold text-white">Mídias em Breve</h4>
+                        <p class="text-xs text-gray-400">Assim que você enviar as fotos/vídeos do Anime Paradise, elas aparecerão aqui!</p>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="media_3_desc">Missões imersivas com recompensas exclusivas para os jogadores.</p>
                 </div>
             </div>
         </section>
@@ -332,135 +350,135 @@
         <!-- EQUIPE -->
         <section id="team" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="team_tag">Os Criadores</span>
+                <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase" data-i18n="team_tag">Os Criadores</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="team_title">A Equipe NeoX</h2>
                 <p class="text-gray-400" data-i18n="team_subtitle">Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- SasaDev -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-indigo-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=5790284269&width=420&height=420&format=png" alt="SasaDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-cyan-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199856661495878/sasa.png" alt="SasaDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">SasaDev</h3>
-                        <p class="text-xs font-semibold text-indigo-400 uppercase mt-1">Owner</p>
+                        <p class="text-xs font-semibold text-cyan-400 uppercase mt-1">Owner</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/5790284269/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/5790284269/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- DaviDev -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-purple-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1213557895&width=420&height=420&format=png" alt="DaviDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-purple-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199873938100415/davi.png" alt="DaviDev" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">DaviDev</h3>
                         <p class="text-xs font-semibold text-purple-400 uppercase mt-1">Co-Owner & Game Designer</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1213557895/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/1213557895/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- oSein -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/30 bg-indigo-950/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 bg-cyan-950/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-indigo-400/40 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=4565735367&width=420&height=420&format=png" alt="oSein" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-cyan-400/40 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199940430266448/osein.png" alt="oSein" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">oSein</h3>
-                        <p class="text-xs font-semibold text-indigo-300 uppercase mt-1">Game Designer</p>
+                        <p class="text-xs font-semibold text-cyan-300 uppercase mt-1">Game Designer</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/4565735367/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-indigo-300 hover:text-white transition">
+                        <a href="https://www.roblox.com/pt/users/4565735367/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-cyan-300 hover:text-white transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- Slow -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-blue-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=2620031389&width=420&height=420&format=png" alt="Slow" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-blue-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199888102129865/Slow.png" alt="Slow" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">Slow</h3>
                         <p class="text-xs font-semibold text-blue-400 uppercase mt-1">Animator</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/2620031389/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/2620031389/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- Flex -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-emerald-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1569820932&width=420&height=420&format=png" alt="Flex" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-emerald-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199926110920855/flex.png" alt="Flex" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">Flex</h3>
                         <p class="text-xs font-semibold text-emerald-400 uppercase mt-1">Modelator</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- Oguest -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-amber-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=8093384811&width=420&height=420&format=png" alt="Oguest" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-amber-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199951406768241/ogust.png" alt="Oguest" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">Oguest</h3>
                         <p class="text-xs font-semibold text-amber-400 uppercase mt-1">VFX Maker</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/8093384811/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/8093384811/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- Reject -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-teal-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1569820932&width=420&height=420&format=png" alt="Reject" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-teal-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199900768927824/reject.png" alt="Reject" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">Reject</h3>
                         <p class="text-xs font-semibold text-teal-400 uppercase mt-1">UI/UX Maker</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
                 </div>
 
                 <!-- Moon -->
-                <div class="glass-card p-6 rounded-2xl border border-indigo-500/20 flex flex-col justify-between group">
+                <div class="glass-card p-6 rounded-2xl border border-cyan-500/20 flex flex-col justify-between group">
                     <div>
-                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-violet-500/30 bg-gray-900 flex items-center justify-center">
-                            <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1587723048&width=420&height=420&format=png" alt="Moon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="w-full h-44 rounded-xl overflow-hidden mb-4 border border-violet-500/30 bg-black">
+                            <img src="https://cdn.discordapp.com/attachments/1253521147962593320/1563199970293583973/moon.png" alt="Moon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-xl font-bold">Moon</h3>
                         <p class="text-xs font-semibold text-violet-400 uppercase mt-1">Community Manager</p>
                     </div>
                     <div class="pt-6">
-                        <a href="https://www.roblox.com/pt/users/1587723048/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-indigo-400 transition">
+                        <a href="https://www.roblox.com/pt/users/1587723048/profile" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-cyan-400 transition">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i> Perfil Roblox
                         </a>
                     </div>
@@ -470,12 +488,12 @@
 
         <!-- CONTATO & REDES -->
         <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-indigo-500/30 relative overflow-hidden">
-                <div class="absolute -top-24 -right-24 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl"></div>
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-cyan-500/30 relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-cyan-600/20 rounded-full blur-3xl"></div>
                 
                 <div class="relative z-10 space-y-8">
                     <div class="text-center space-y-3">
-                        <span class="px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-wider uppercase" data-i18n="contact_tag">Fale Conosco</span>
+                        <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider uppercase" data-i18n="contact_tag">Fale Conosco</span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="contact_title">Pronto para a diversão?</h2>
                         <p class="text-gray-400 text-sm" data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
                     </div>
@@ -484,32 +502,32 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_name">Seu Nome</label>
-                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-cyan-500/20 focus:border-cyan-500 focus:outline-none text-sm transition text-white">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_email">Seu E-mail</label>
-                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-cyan-500/20 focus:border-cyan-500 focus:outline-none text-sm transition text-white">
                             </div>
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_roblox">Nick do Roblox (Opcional)</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white">
+                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-black/80 border border-cyan-500/20 focus:border-cyan-500 focus:outline-none text-sm transition text-white">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold text-gray-400 mb-1" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label>
-                            <textarea rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-indigo-500/20 focus:border-indigo-500 focus:outline-none text-sm transition text-white"></textarea>
+                            <textarea rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-cyan-500/20 focus:border-cyan-500 focus:outline-none text-sm transition text-white"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <button type="submit" class="w-full py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition shadow-lg shadow-cyan-600/30 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_btn">Enviar Mensagem</span>
                         </button>
                     </form>
 
-                    <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-indigo-500/20">
-                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-indigo-900/30 text-white font-bold text-xs transition border border-indigo-500/30 flex items-center gap-2">
-                            <i class="fa-brands fa-discord text-indigo-400"></i> Discord Oficial
+                    <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-cyan-500/20">
+                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-cyan-900/30 text-white font-bold text-xs transition border border-cyan-500/30 flex items-center gap-2">
+                            <i class="fa-brands fa-discord text-cyan-400"></i> Discord Oficial
                         </a>
-                        <a href="https://x.com" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-indigo-900/30 text-white font-bold text-xs transition border border-indigo-500/30 flex items-center gap-2">
-                            <i class="fa-brands fa-x-twitter text-indigo-400"></i> Twitter / X
+                        <a href="https://x.com" target="_blank" class="px-6 py-3 rounded-xl glass-card hover:bg-cyan-900/30 text-white font-bold text-xs transition border border-cyan-500/30 flex items-center gap-2">
+                            <i class="fa-brands fa-x-twitter text-cyan-400"></i> Twitter / X
                         </a>
                     </div>
                 </div>
@@ -519,10 +537,10 @@
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="relative z-10 glass-card border-t border-indigo-900/30 py-8 text-center text-xs text-gray-400">
+    <footer class="relative z-10 glass-card border-t border-cyan-900/30 py-8 text-center text-xs text-gray-400">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white text-xs">NX</div>
+                <div class="w-6 h-6 rounded-lg bg-cyan-600 flex items-center justify-center font-bold text-white text-xs">NX</div>
                 <span class="font-bold text-white">NeoX Studio</span>
             </div>
             <div>© 2026 NeoX. Todos os direitos reservados.</div>
@@ -550,7 +568,7 @@
                 this.size = Math.random() * 2 + 1;
                 this.speedX = (Math.random() - 0.5) * 0.5;
                 this.speedY = (Math.random() - 0.5) * 0.5;
-                this.color = Math.random() > 0.5 ? 'rgba(99, 102, 241, 0.3)' : 'rgba(129, 140, 248, 0.2)';
+                this.color = Math.random() > 0.5 ? 'rgba(6, 182, 212, 0.3)' : 'rgba(168, 85, 247, 0.2)';
             }
             update() {
                 this.x += this.speedX;
@@ -596,10 +614,7 @@
                 'game_2_desc': 'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
                 'game_3_desc': 'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
                 'btn_play': 'Jogar Agora', 'btn_preview': 'Ver Projeto', 'btn_discord_server': 'Discord do Jogo',
-                'media_tag': 'Cinemáticas & Trailers', 'media_title': 'Mídia Oficial', 'media_subtitle': 'Prévias exclusivas de gameplay, skills e quests do Anime Crash.',
-                'media_1_title': 'Demonstração de Skills', 'media_1_desc': 'Efeitos visuais avançados e sistemas de combos dinâmicos.',
-                'media_2_title': 'Gameplay Oficial', 'media_2_desc': 'Combate fluido e movimentação em tempo real na arena.',
-                'media_3_title': 'Sistema de Quests', 'media_3_desc': 'Missões imersivas com recompensas exclusivas para os jogadores.',
+                'media_tag': 'Cinemáticas & Demonstrativos', 'media_title': 'Mídia Oficial', 'media_subtitle': 'Vídeos e capturas exclusivas dos projetos da NeoX Studio.',
                 'team_tag': 'Os Criadores', 'team_title': 'A Equipe NeoX', 'team_subtitle': 'Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.',
                 'contact_tag': 'Fale Conosco', 'contact_title': 'Pronto para a diversão?', 'contact_subtitle': 'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
                 'form_name': 'Seu Nome', 'form_email': 'Seu E-mail', 'form_roblox': 'Nick do Roblox (Opcional)', 'form_msg': 'Mensagem (Mínimo 16 caracteres)', 'form_btn': 'Enviar Mensagem'
@@ -623,10 +638,7 @@
                 'game_2_desc': 'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
                 'game_3_desc': 'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
                 'btn_play': 'Play Now', 'btn_preview': 'View Project', 'btn_discord_server': 'Game Discord',
-                'media_tag': 'Cinematics & Trailers', 'media_title': 'Official Media', 'media_subtitle': 'Exclusive previews of gameplay, skills and quests from Anime Crash.',
-                'media_1_title': 'Skills Showcase', 'media_1_desc': 'Advanced visual effects and dynamic combo systems.',
-                'media_2_title': 'Official Gameplay', 'media_2_desc': 'Fluid combat and real-time movement in the arena.',
-                'media_3_title': 'Quests System', 'media_3_desc': 'Immersive quests with exclusive rewards for players.',
+                'media_tag': 'Cinematics & Showcases', 'media_title': 'Official Media', 'media_subtitle': 'Exclusive videos and captures of NeoX Studio projects.',
                 'team_tag': 'The Creators', 'team_title': 'The NeoX Team', 'team_subtitle': 'Brilliant minds united to build the future of Roblox games.',
                 'contact_tag': 'Get in Touch', 'contact_title': 'Ready for the fun?', 'contact_subtitle': 'Send a message, join our Discord and be part of the NeoX family!',
                 'form_name': 'Your Name', 'form_email': 'Your Email', 'form_roblox': 'Roblox Nickname (Optional)', 'form_msg': 'Message (Minimum 16 characters)', 'form_btn': 'Send Message'
