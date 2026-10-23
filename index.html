@@ -121,10 +121,10 @@
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-4 pt-4">
-                    <a href="#games" class="px-8. py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition shadow-xl shadow-indigo-600/40 flex items-center gap-3">
+                    <a href="#games" class="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition shadow-xl shadow-indigo-600/40 flex items-center gap-3">
                         <i class="fa-solid fa-gamepad"></i> <span data-i18n="btn_explore">Conhecer Jogos</span>
                     </a>
-                    <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-8. py-4 rounded-xl glass-card hover:bg-indigo-950/40 text-white font-bold transition border border-indigo-500/30 flex items-center gap-3">
+                    <a href="https://discord.gg/AnVatTF6GU" target="_blank" class="px-8 py-4 rounded-xl glass-card hover:bg-indigo-950/40 text-white font-bold transition border border-indigo-500/30 flex items-center gap-3">
                         <i class="fa-brands fa-discord text-indigo-400"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
                     </a>
                 </div>
@@ -371,7 +371,7 @@
                     </div>
                 </div>
 
-                <!-- oSein (Grafia Exata) -->
+                <!-- oSein -->
                 <div class="glass-card p-6 rounded-2xl border border-indigo-500/30 bg-indigo-950/20 flex flex-col justify-between group">
                     <div>
                         <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-400/40 flex items-center justify-center text-2xl font-bold text-indigo-300 mb-4 group-hover:scale-105 transition">
@@ -649,7 +649,6 @@
         /* Simulação / Fetch de Jogadores Ativos */
         async function fetchPlayerCounts() {
             try {
-                // Simulação dinâmica e realista baseada na atividade do estúdio
                 const activeCount = Math.floor(Math.random() * 250) + 780;
                 document.getElementById('ap-players').innerText = activeCount.toLocaleString();
                 document.getElementById('stat-players').innerText = (activeCount * 12).toLocaleString() + '+';
