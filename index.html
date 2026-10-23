@@ -2,21 +2,29 @@
 <html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NeoX Studio | Jogue o Futuro</title>
     <meta name="description" content="NeoX Studio: jogos cheios de energia, cores e diversão no Roblox. Conheça Anime Paradise, Anime Crash e FREE FIRE MAX.">
     <meta name="theme-color" content="#030405">
+    <meta name="color-scheme" content="dark">
     <link rel="icon" href="assets/neox-logo.png">
+    <link rel="apple-touch-icon" href="assets/neox-logo.png">
+
+    <!-- Segurança: CSP. Se usar um Worker próprio em outro domínio, adicione-o em connect-src. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://*.roproxy.com https://*.rprxy.xyz https://formsubmit.co https://*.workers.dev; object-src 'none'; base-uri 'self'; form-action 'self'">
 
     <!-- SITE_URL: troque https://neoxstudio.com.br pelo domínio real em TODO o projeto (index.html, robots.txt, sitemap.xml) -->
     <link rel="canonical" href="https://neoxstudio.com.br/">
+    <link rel="alternate" hreflang="pt-BR" href="https://neoxstudio.com.br/">
+    <link rel="alternate" hreflang="x-default" href="https://neoxstudio.com.br/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NeoX Studio">
     <meta property="og:url" content="https://neoxstudio.com.br/">
     <meta property="og:title" content="NeoX Studio | Jogue o Futuro">
     <meta property="og:description" content="Jogos com energia, cores e pura diversão no Roblox.">
-    <meta property="og:image" content="https://neoxstudio.com.br/assets/neox-logo.png">
+    <!-- IMPORTANTE: crie assets/og-cover.png com 1200x630 de verdade (o logo quadrado fica cortado no Discord/Twitter) -->
+    <meta property="og:image" content="https://neoxstudio.com.br/assets/og-cover.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="NeoX Studio: jogos no Roblox">
@@ -24,7 +32,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@NeoX351459">
-    <meta name="twitter:image" content="https://neoxstudio.com.br/assets/neox-logo.png">
+    <meta name="twitter:image" content="https://neoxstudio.com.br/assets/og-cover.png">
 
     <script type="application/ld+json">
     {
@@ -34,238 +42,484 @@
         "url": "https://neoxstudio.com.br/",
         "logo": "https://neoxstudio.com.br/assets/neox-logo.png",
         "description": "Estúdio de jogos no Roblox: Anime Paradise, Anime Crash e FREE FIRE MAX.",
-        "sameAs": ["https://x.com/NeoX351459", "https://discord.gg/4ACnyKR8HQ"]
+        "sameAs": [
+            "https://x.com/NeoX351459",
+            "https://discord.gg/4ACnyKR8HQ",
+            "https://www.roblox.com/pt/communities/35039927/Neo-X-Inc"
+        ]
     }
     </script>
+
+    <script>document.documentElement.classList.add('js');</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
     <link rel="preconnect" href="https://apis.roproxy.com" crossorigin>
     <link rel="preconnect" href="https://games.roproxy.com" crossorigin>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="image" href="assets/neox-logo.png">
 
     <style>
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.-bottom-10{bottom:-2.5rem}.-right-10{right:-2.5rem}.-right-24{right:-6rem}.-top-24{top:-6rem}.left-0{left:0}.left-3{left:.75rem}.right-0{right:0}.top-0{top:0}.top-3{top:.75rem}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:.25rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-48{height:12rem}.h-64{height:16rem}.h-72{height:18rem}.h-full{height:100%}.max-h-\[calc\(100vh-5rem\)\]{max-height:calc(100vh - 5rem)}.min-h-\[40px\]{min-height:40px}.min-h-\[85vh\]{min-height:85vh}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-2{width:.5rem}.w-24{width:6rem}.w-64{width:16rem}.w-72{width:18rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-not-allowed{cursor:not-allowed}.resize{resize:both}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-16>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(4rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(4rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-nx-cyan\/30{border-color:rgba(53,196,229,.3)}.border-nx-cyan\/40{border-color:rgba(53,196,229,.4)}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-black\/70{background-color:rgba(0,0,0,.7)}.bg-black\/80{background-color:rgba(0,0,0,.8)}.bg-nx-cyan{--tw-bg-opacity:1;background-color:rgb(53 196 229/var(--tw-bg-opacity,1))}.bg-nx-cyan\/10{background-color:rgba(53,196,229,.1)}.bg-nx-cyan\/15{background-color:rgba(53,196,229,.15)}.bg-nx-pink{--tw-bg-opacity:1;background-color:rgb(244 91 155/var(--tw-bg-opacity,1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}.from-\[\#04060a\]{--tw-gradient-from:#04060a var(--tw-gradient-from-position);--tw-gradient-to:rgba(4,6,10,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan{--tw-gradient-from:#35c4e5 var(--tw-gradient-from-position);--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan\/10{--tw-gradient-from:rgba(53,196,229,.1) var(--tw-gradient-from-position);--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-nx-cyan2{--tw-gradient-from:#00e5ff var(--tw-gradient-from-position);--tw-gradient-to:rgba(0,229,255,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-nx-cyan{--tw-gradient-to:rgba(53,196,229,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#35c4e5 var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),transparent var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-nx-cyan{--tw-gradient-to:#35c4e5 var(--tw-gradient-to-position)}.to-nx-cyan2{--tw-gradient-to:#00e5ff var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.to-white{--tw-gradient-to:#fff var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{-o-object-fit:cover;object-fit:cover}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-3{padding-bottom:.75rem}.pt-0{padding-top:0}.pt-16{padding-top:4rem}.pt-28{padding-top:7rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235/var(--tw-text-opacity,1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-nx-cyan{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}.text-nx-cyan\/70{color:rgba(53,196,229,.7)}.text-nx-pink{--tw-text-opacity:1;color:rgb(244 91 155/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-60{opacity:.6}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-nx-cyan\/25{--tw-shadow-color:rgba(53,196,229,.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-nx-cyan\/30{--tw-shadow-color:rgba(53,196,229,.3);--tw-shadow:var(--tw-shadow-colored)}.blur-3xl{--tw-blur:blur(64px)}.blur-3xl,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-500{transition-duration:.5s}.hover\:bg-nx-cyan:hover{--tw-bg-opacity:1;background-color:rgb(53 196 229/var(--tw-bg-opacity,1))}.hover\:bg-nx-cyan2:hover{--tw-bg-opacity:1;background-color:rgb(0 229 255/var(--tw-bg-opacity,1))}.hover\:bg-white\/5:hover{background-color:hsla(0,0%,100%,.05)}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.hover\:text-nx-cyan:hover{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.focus\:border-nx-cyan:focus{--tw-border-opacity:1;border-color:rgb(53 196 229/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:bg-nx-cyan\/25{background-color:rgba(53,196,229,.25)}.group:hover .group-hover\:text-nx-cyan{--tw-text-opacity:1;color:rgb(53 196 229/var(--tw-text-opacity,1))}@media (min-width:360px){.min-\[360px\]\:inline{display:inline}}@media (min-width:640px){.sm\:inline-flex{display:inline-flex}.sm\:h-12{height:3rem}.sm\:h-28{height:7rem}.sm\:w-12{width:3rem}.sm\:w-28{width:7rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:gap-3{gap:.75rem}.sm\:p-12{padding:3rem}.sm\:px-3{padding-left:.75rem;padding-right:.75rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:tracking-wider{letter-spacing:.05em}}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-7xl{font-size:4.5rem;line-height:1}}
-</style>
-    <style>
+/* =========================================================
+   NeoX Studio — CSS escrito à mão (sem Tailwind compilado).
+   Qualquer classe nova pode ser adicionada aqui sem rebuild.
+   ========================================================= */
 :root{
-    --nx-cyan:#35c4e5; --nx-cyan2:#00e5ff; --nx-pink:#f45b9b; --nx-ink:#030405;
+    --cyan:#35c4e5; --cyan2:#00e5ff; --pink:#f45b9b; --ink:#030405;
+    --text:#f3f4f6; --muted:#c4cad3; --line:rgba(255,255,255,.1);
     --ease:cubic-bezier(.16,1,.3,1);
+    --header-h:80px;
 }
-html{ scroll-behavior:smooth; scroll-padding-top:96px; }
-main section{ scroll-margin-top:90px; }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top:92px; -webkit-text-size-adjust:100%; text-size-adjust:100%; color-scheme:dark; }
 body{
-    font-family:'Nunito',sans-serif; color:#f3f4f6; overflow-x:hidden;
-    background-color:var(--nx-ink);
+    margin:0; font-family:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:var(--text);
+    line-height:1.5; overflow-x:hidden; overflow-x:clip; -webkit-tap-highlight-color:transparent;
+    background-color:var(--ink);
     background-image:
         radial-gradient(ellipse at 12% 12%, rgba(0,229,255,.07), transparent 38%),
         radial-gradient(ellipse at 90% 45%, rgba(53,196,229,.05), transparent 36%),
         linear-gradient(180deg,#030405,#050709 50%,#030405);
+    background-attachment:fixed;
 }
-::selection{ background:var(--nx-cyan); color:#000; }
-h1,h2,h3,h4{ font-family:'Nunito',sans-serif; letter-spacing:.01em; }
-.glow-text{ text-shadow:0 0 24px rgba(0,229,255,.35); }
+img,svg,video{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+h1,h2,h3,h4,p,dl,dd,dt,figure,ul{ margin:0; padding:0; }
+h1,h2,h3,h4{ letter-spacing:.01em; }
+::selection{ background:var(--cyan); color:#000; }
+[hidden]{ display:none !important; }
+
+.container{ width:100%; max-width:80rem; margin:0 auto; padding:0 1rem; }
+.container.narrow{ max-width:56rem; }
+@media (min-width:640px){ .container{ padding:0 1.5rem; } }
+@media (min-width:1024px){ .container{ padding:0 2rem; } }
 
 .skip-link{ position:absolute; left:-999px; top:8px; z-index:100; padding:.6rem 1rem; border-radius:.75rem; background:#fff; color:#000; font-weight:800; }
 .skip-link:focus{ left:8px; }
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
+.ico{ width:1em; height:1em; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ---------- Camadas de fundo ---------- */
 #particle-canvas{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+.orbs{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.orb{ position:absolute; border-radius:50%; will-change:transform; }
+.orb.o1{ width:60vmax; height:60vmax; left:-20vmax; top:-18vmax; background:radial-gradient(circle,rgba(0,229,255,.12),transparent 62%); animation:drift1 26s ease-in-out infinite; }
+.orb.o2{ width:52vmax; height:52vmax; right:-20vmax; top:30vh; background:radial-gradient(circle,rgba(53,196,229,.09),transparent 62%); animation:drift2 32s ease-in-out infinite; }
+.orb.o3{ width:34vmax; height:34vmax; left:30vw; bottom:-18vmax; background:radial-gradient(circle,rgba(244,91,155,.06),transparent 62%); animation:drift3 38s ease-in-out infinite; }
+@keyframes drift1{ 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(9vmax,7vmax,0) } }
+@keyframes drift2{ 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(-8vmax,-6vmax,0) } }
+@keyframes drift3{ 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(-6vmax,-5vmax,0) } }
+#cursor-glow{
+    position:fixed; left:0; top:0; width:520px; height:520px; margin:-260px 0 0 -260px; border-radius:50%;
+    background:radial-gradient(circle,rgba(0,229,255,.09),transparent 65%);
+    pointer-events:none; z-index:1; opacity:0; transition:opacity .4s ease; will-change:transform;
+}
+@media (hover:none),(pointer:coarse){ #cursor-glow{ display:none; } }
 
-/* Barra de progresso de rolagem (ponta rosa = detalhe mínimo) */
 #scroll-progress{
-    position:fixed; top:0; left:0; right:0; height:3px; z-index:60; transform:scaleX(0); transform-origin:left;
-    background:linear-gradient(90deg,var(--nx-cyan),var(--nx-cyan2) 94%,var(--nx-pink));
-    pointer-events:none;
+    position:fixed; top:0; left:0; right:0; height:3px; z-index:70; transform:scaleX(0); transform-origin:left; pointer-events:none;
+    background:linear-gradient(90deg,var(--cyan),var(--cyan2) 94%,var(--pink));
 }
 
-/* Cards de vidro */
+/* ---------- Cards de vidro ---------- */
 .glass-card{
-    background:rgba(6,8,11,.9);
-    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    position:relative; background:rgba(6,8,11,.88);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
     border:1px solid rgba(255,255,255,.09);
     box-shadow:0 10px 28px rgba(0,0,0,.4), inset 0 1px rgba(255,255,255,.03);
-    transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+    transition:transform .35s var(--ease), box-shadow .3s ease, border-color .3s ease, background .3s ease;
 }
-.glass-card:hover{ border-color:rgba(0,229,255,.3); box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 24px rgba(0,229,255,.08); }
-@media (max-width:767px){
-    .glass-card{ backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+.glass-card::before{
+    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity .3s ease;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(0,229,255,.1), transparent 60%);
 }
-
 @media (hover:hover){
-    .lift:hover{ transform:translateY(-6px); }
-    .btn:hover:not(:disabled){ filter:brightness(1.1); transform:translateY(-2px); }
+    .glass-card:hover{ border-color:rgba(0,229,255,.3); box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 26px rgba(0,229,255,.08); }
+    .glass-card:hover::before{ opacity:1; }
 }
-.btn{ transition:filter .2s ease, transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+@media (max-width:767px){
+    .glass-card{ backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(7,9,13,.94); }
+}
 
-/* Menu: sublinhado animado + link ativo */
+/* Inclinação 3D suave (desktop com mouse) */
+.tilt{
+    transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));
+    transition:transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease;
+}
+@media (hover:hover){ .tilt:hover{ --ty:-6px; } }
+
+/* ---------- Botões ---------- */
+.btn{
+    position:relative; overflow:hidden; isolation:isolate; display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    border-radius:.75rem; font-weight:800; font-size:.9rem; line-height:1.2; padding:.75rem 1.25rem; min-height:44px; text-align:center;
+    transition:filter .2s ease, transform .25s var(--ease), background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.btn:active:not(:disabled){ transform:scale(.97); }
+@media (hover:hover){ .btn:hover:not(:disabled){ transform:translateY(-2px); } }
+.btn-lg{ padding:1rem 2rem; }
+.btn-sm{ font-size:.78rem; padding:.6rem 1rem; min-height:40px; }
+.btn-block{ width:100%; }
+.btn-primary{ background:var(--cyan); color:#000; box-shadow:0 10px 24px rgba(53,196,229,.28); }
+.btn-primary:hover:not(:disabled){ background:var(--cyan2); }
+.btn-primary::after{
+    content:""; position:absolute; top:0; bottom:0; left:0; width:30%; pointer-events:none;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    transform:translateX(-140%) skewX(-20deg); animation:sheen 5.5s ease-in-out infinite;
+}
+@keyframes sheen{ 0%,62%{ transform:translateX(-140%) skewX(-20deg) } 100%{ transform:translateX(480%) skewX(-20deg) } }
+.btn-ghost{ background:rgba(255,255,255,.04); color:#fff; border:1px solid rgba(255,255,255,.12); }
+.btn-ghost:hover:not(:disabled){ background:rgba(255,255,255,.08); border-color:rgba(0,229,255,.45); }
+.btn-outline{ background:rgba(53,196,229,.12); color:var(--cyan); border:1px solid rgba(53,196,229,.4); }
+.btn-outline:hover:not(:disabled){ background:var(--cyan); color:#000; }
+.btn:disabled{ cursor:not-allowed; opacity:.7; }
+.btn:disabled:hover{ transform:none; }
+.btn .ico{ font-size:1.05em; }
+.ripple{ position:absolute; z-index:-1; border-radius:50%; pointer-events:none; background:rgba(255,255,255,.4); transform:scale(0); animation:ripple .6s ease-out forwards; }
+@keyframes ripple{ to{ transform:scale(1); opacity:0; } }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible{ outline:2px solid var(--cyan2); outline-offset:3px; }
+
+/* ---------- Header ---------- */
+.site-header{ position:fixed; top:0; left:0; right:0; z-index:60; border-radius:0; border-width:0 0 1px; padding-top:env(safe-area-inset-top); transition:background .3s ease; }
+.site-header::before{ display:none; }
+.site-header.scrolled{ --header-h:64px; background:rgba(4,6,9,.95); }
+.header-inner{ height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:.5rem; transition:height .35s var(--ease); }
+.brand{ display:flex; align-items:center; gap:.6rem; min-width:0; }
+.brand img{ width:44px; height:44px; border-radius:.75rem; object-fit:cover; flex:none; transition:transform .4s var(--ease); }
+@media (hover:hover){ .brand:hover img{ transform:rotate(-6deg) scale(1.06); } }
+.brand-text{
+    font-size:1.05rem; font-weight:800; letter-spacing:.04em; white-space:nowrap;
+    background:linear-gradient(90deg,#fff,var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.brand-sub{ display:none; color:var(--cyan); -webkit-text-fill-color:var(--cyan); }
+@media (min-width:360px){ .brand-sub{ display:inline; } }
+@media (min-width:640px){ .brand-text{ font-size:1.25rem; letter-spacing:.05em; } .brand img{ width:48px; height:48px; } }
+.main-nav{ display:none; align-items:center; gap:2rem; font-size:.875rem; font-weight:700; color:#d1d5db; }
+@media (min-width:768px){ .main-nav{ display:flex; } }
 .nav-link{ position:relative; padding:.35rem 0; transition:color .2s ease; }
 .nav-link::after{
-    content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:2px;
-    background:var(--nx-cyan2); transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; border-radius:2px; background:var(--cyan2);
+    transform:scaleX(0); transform-origin:left; transition:transform .3s var(--ease);
 }
-.nav-link:hover{ color:#fff; }
+.nav-link:hover, .nav-link.is-active{ color:#fff; }
 .nav-link:hover::after, .nav-link.is-active::after{ transform:scaleX(1); }
-.nav-link.is-active{ color:#fff; }
-
-@keyframes nav-click{ 0%{transform:scale(1)} 40%{transform:scale(1.14);color:var(--nx-cyan2)} 100%{transform:scale(1)} }
-@keyframes section-arrive{ 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.2)} }
+@keyframes nav-click{ 0%{transform:scale(1)} 40%{transform:scale(1.14);color:var(--cyan2)} 100%{transform:scale(1)} }
+@keyframes section-arrive{ 0%,100%{filter:brightness(1)} 45%{filter:brightness(1.18)} }
 .nav-click-pulse{ display:inline-block; animation:nav-click .48s ease-out; }
 .section-arrival{ animation:section-arrive .8s ease-out; }
-
-/* Entrada do hero (stagger) + logo flutuando */
-@keyframes fade-up{ from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:none; } }
-.intro{ animation:fade-up .85s var(--ease) backwards; animation-delay:calc(var(--i,0) * 110ms + 120ms); }
-@keyframes float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
-.hero-logo{ animation:float 5s ease-in-out infinite; box-shadow:0 0 0 1px rgba(0,229,255,.25), 0 0 46px rgba(0,229,255,.28); }
-
-/* Reveal ao rolar */
-.reveal{ transition:opacity .78s var(--ease), transform .78s var(--ease); }
-.reveal:not(.is-visible){ opacity:0; transform:translateY(26px) scale(.985); }
-
-/* Cards de jogo */
-.game-card{ position:relative; }
-.game-card::after{
-    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    box-shadow:inset 0 0 34px rgba(0,229,255,.14); opacity:0; animation:card-breathe 6.4s ease-in-out infinite;
+.header-actions{ display:flex; align-items:center; gap:.5rem; flex:none; }
+.lang-btn{ min-height:40px; padding:.35rem .7rem; font-size:.75rem; color:var(--cyan); border-color:rgba(53,196,229,.3); }
+.lang-btn:hover:not(:disabled){ color:#fff; }
+.desk-only{ display:none; }
+@media (min-width:640px){ .desk-only{ display:inline-flex; } .header-actions{ gap:.75rem; } }
+.menu-btn{ width:44px; height:44px; display:grid; place-items:center; border-radius:.75rem; background:rgba(255,255,255,.04); border:1px solid var(--line); font-size:1.15rem; color:#e5e7eb; }
+@media (min-width:768px){ .menu-btn{ display:none; } }
+.mobile-menu{
+    display:grid; grid-template-rows:0fr; visibility:hidden; border-top:1px solid transparent;
+    transition:grid-template-rows .38s var(--ease), visibility 0s .38s, border-color .3s ease;
 }
-.game-card:nth-child(2)::after{ animation-delay:-2.1s; }
-.game-card:nth-child(3)::after{ animation-delay:-4.2s; }
-@keyframes card-breathe{ 0%,100%{opacity:0} 50%{opacity:1} }
-.game-card img{ transition:transform .3s ease, filter .3s ease; }
-@media (hover:hover){
-    .game-card:hover img{ transform:scale(1.03); filter:brightness(1.05); }
-}
-.game-card .btn{ position:relative; overflow:hidden; }
-.game-card a.btn::before{
-    content:""; position:absolute; inset:0 auto 0 -60%; width:36%; transform:skewX(-20deg);
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
-    transition:transform .65s var(--ease);
-}
-@media (hover:hover){
-    .game-card a.btn:hover::before{ transform:translateX(460%) skewX(-20deg); }
-}
+.mobile-menu.open{ grid-template-rows:1fr; visibility:visible; border-top-color:var(--line); transition:grid-template-rows .38s var(--ease), visibility 0s, border-color .3s ease; }
+.mobile-menu-inner{ min-height:0; overflow:hidden; }
+.mobile-links{ display:flex; flex-direction:column; gap:.25rem; padding:1rem 1rem 1.25rem; font-size:.9rem; font-weight:800; color:#e5e7eb; max-height:calc(100vh - 5rem); max-height:calc(100dvh - 5rem); overflow-y:auto; }
+.mobile-links a{ padding:.85rem .75rem; border-radius:.6rem; transition:background .2s ease, transform .25s var(--ease); }
+.mobile-links a:active{ background:rgba(255,255,255,.08); transform:translateX(4px); }
+.mobile-links .btn{ margin-top:.5rem; }
+@media (min-width:768px){ .mobile-menu{ display:none; } }
 
-/* Badges */
-.player-count-badge, .visit-count-badge{
-    display:inline-flex; align-items:center; gap:.38rem; padding:.38rem .62rem; border-radius:999px;
-    background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.12); color:#e8eaf0;
-    font-size:.76rem; font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums;
-}
-.player-count-badge i, .visit-count-badge i{ color:var(--nx-cyan); }
-.visit-count-badge small{ color:#b3bbc5; }
-.game-live-stats{ display:flex; align-items:center; justify-content:flex-end; gap:.4rem; flex-wrap:wrap; }
-.game-stats-note{ color:#b3bbc5; font-size:.78rem; min-height:1.1rem; }
+main{ position:relative; z-index:10; padding-top:6rem; }
+.section{ padding:6rem 0; }
+@media (max-width:640px){ .section{ padding:4.25rem 0; } }
 
+/* ---------- Títulos de seção ---------- */
+.eyebrow{ display:inline-block; padding:.28rem .75rem; border-radius:.4rem; background:rgba(53,196,229,.1); color:var(--cyan); font-size:.75rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+.h2{ font-size:clamp(1.9rem,5vw,3rem); font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+.h2::after{ content:""; display:block; width:56px; height:4px; margin-top:.8rem; border-radius:4px; background:linear-gradient(90deg,var(--cyan2),var(--pink)); }
+.sec-head{ max-width:48rem; margin:0 auto 3.5rem; display:flex; flex-direction:column; align-items:center; gap:1rem; text-align:center; }
+.sec-head .h2::after{ margin-inline:auto; }
+.sec-head p{ color:var(--muted); }
+.muted{ color:var(--muted); }
+
+/* ---------- Revelar ao rolar ---------- */
+.js [data-reveal]:not(.in){ opacity:0; }
+.js [data-reveal].in{ animation:reveal-in .9s var(--ease) backwards; animation-delay:var(--d,0ms); }
+@keyframes reveal-in{ from{ opacity:0; transform:translateY(34px) scale(.97); } }
+
+/* ---------- Hero ---------- */
+.hero{ min-height:85vh; min-height:85dvh; display:flex; align-items:center; justify-content:center; padding:4rem 1rem 5rem; text-align:center; }
+.hero-inner{ max-width:56rem; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:2rem; width:100%; }
+@keyframes fade-up{ from{ opacity:0; transform:translateY(26px); filter:blur(6px); } to{ opacity:1; transform:none; filter:none; } }
+.intro{ animation:fade-up .9s var(--ease) backwards; animation-delay:calc(var(--i,0) * 110ms + 120ms); }
+.logo-wrap{ position:relative; width:96px; height:96px; animation:float 5s ease-in-out infinite; }
+@media (min-width:640px){ .logo-wrap{ width:112px; height:112px; } }
+@keyframes float{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+.hero-logo{ position:relative; width:100%; height:100%; border-radius:1.5rem; object-fit:cover; box-shadow:0 0 0 1px rgba(0,229,255,.25), 0 0 46px rgba(0,229,255,.28); }
+.logo-ring{
+    position:absolute; inset:-6px; border-radius:1.9rem; padding:2px; pointer-events:none;
+    background:conic-gradient(from 0deg,var(--cyan2),transparent 35%,var(--pink) 55%,transparent 78%,var(--cyan2));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation:spin 7s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg) } }
+.fallback-badge{ display:grid; place-items:center; font-weight:800; color:#000; background:linear-gradient(135deg,var(--cyan),var(--cyan2)); }
+.hero-logo.fallback-badge{ font-size:2.2rem; border-radius:1.5rem; }
+.hero-tag{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border-radius:999px; color:var(--cyan); font-size:.75rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; border:1px solid rgba(53,196,229,.3); }
+.pulse-dot{ width:8px; height:8px; border-radius:50%; background:var(--pink); animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite; }
+@keyframes pulse{ 50%{ opacity:.45; transform:scale(.8); } }
+.hero h1{ font-size:clamp(2.25rem,7.2vw,4.5rem); font-weight:800; letter-spacing:-.02em; line-height:1.1; }
+.grad-text{
+    background:linear-gradient(90deg,var(--cyan2),var(--cyan),#fff,var(--cyan2)); background-size:300% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:gradshift 8s linear infinite;
+    text-shadow:0 0 24px rgba(0,229,255,.35);
+}
+@keyframes gradshift{ to{ background-position:300% 0; } }
+.hero-desc{ font-size:clamp(1.05rem,2.4vw,1.25rem); color:#d1d5db; max-width:42rem; font-weight:600; }
+.hero-actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; padding-top:.5rem; }
+.stats-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; width:100%; max-width:72rem; padding-top:3rem; }
+@media (min-width:768px){ .stats-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; } }
+.stat-card{ container-type:inline-size; padding:1.25rem 1rem; border-radius:1rem; text-align:center; }
+@media (min-width:640px){ .stat-card{ padding:1.5rem; } }
 .stat-number{
-    display:block; max-width:100%; white-space:nowrap; line-height:1.05;
-    font-size:clamp(1.4rem,3vw,2.5rem); color:#f4f5f7; font-variant-numeric:tabular-nums; letter-spacing:-.035em;
+    display:block; max-width:100%; white-space:nowrap; overflow:hidden; line-height:1.1; font-weight:800; color:#f4f5f7;
+    font-size:1.6rem; font-size:clamp(1.1rem, calc(100cqi / (var(--len, 6) * .64)), 2.5rem);
+    font-variant-numeric:tabular-nums; letter-spacing:-.035em;
 }
+.stat-number.is-loading{ width:55%; min-height:1.7rem; margin-inline:auto; color:transparent; border-radius:.5rem; background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.13),rgba(255,255,255,.04)); background-size:200% 100%; animation:shimmer 1.4s linear infinite; }
+@keyframes shimmer{ to{ background-position:-200% 0; } }
+.stat-label{ margin-top:.35rem; font-size:.78rem; color:#d1d5db; font-weight:700; }
+@media (min-width:640px){ .stat-label{ font-size:.875rem; } }
 
-/* Mídia: todos os cards com a mesma estrutura, moldura 16:9 e altura igual */
-.media-card{ display:flex; flex-direction:column; gap:1rem; padding:1.25rem; height:100%; }
+/* Faixa em movimento */
+.marquee{ overflow:hidden; border-block:1px solid var(--line); background:rgba(255,255,255,.015); padding:.95rem 0; -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); }
+.marquee-track{ display:flex; width:max-content; animation:marquee 32s linear infinite; }
+.marquee-group{ display:flex; align-items:center; gap:2rem; padding-right:2rem; }
+.marquee-group span{ font-size:.85rem; font-weight:800; letter-spacing:.2em; color:#8d97a6; white-space:nowrap; }
+.marquee-group i{ width:6px; height:6px; border-radius:50%; background:var(--cyan); flex:none; }
+.marquee-group i:nth-of-type(3n){ background:var(--pink); }
+@keyframes marquee{ to{ transform:translateX(-50%); } }
+
+/* ---------- Sobre ---------- */
+.about-grid{ display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+@media (min-width:1024px){ .about-grid{ grid-template-columns:1fr 1fr; } }
+.about-copy{ display:flex; flex-direction:column; gap:1.5rem; align-items:flex-start; }
+.about-copy p{ color:var(--muted); font-size:1.05rem; line-height:1.7; }
+.feat-grid{ display:grid; grid-template-columns:1fr; gap:1rem; width:100%; padding-top:.5rem; }
+@media (min-width:640px){ .feat-grid{ grid-template-columns:repeat(3,1fr); } }
+.feat{ padding:1rem; border-radius:.9rem; }
+.feat .ico{ font-size:1.35rem; color:var(--cyan); margin-bottom:.5rem; transition:transform .4s var(--ease); }
+@media (hover:hover){ .feat:hover .ico{ transform:scale(1.2) rotate(-8deg); } }
+.feat h3{ font-size:.9rem; font-weight:800; }
+.feat p{ font-size:.78rem; color:var(--muted); margin-top:.25rem; line-height:1.4; }
+.about-box{ padding:2rem; border-radius:1.5rem; overflow:hidden; }
+@media (min-width:640px){ .about-box{ padding:2.5rem; } }
+.about-box::after{ content:""; position:absolute; right:-70px; bottom:-70px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle,rgba(53,196,229,.22),transparent 65%); pointer-events:none; transition:transform .6s var(--ease); }
+@media (hover:hover){ .about-box:hover::after{ transform:scale(1.35); } }
+.about-box > *{ position:relative; z-index:1; }
+.about-box .icon-tile{ width:3.5rem; height:3.5rem; border-radius:1rem; margin-bottom:1.25rem; display:grid; place-items:center; font-size:1.5rem; color:#000; background:linear-gradient(45deg,var(--cyan),var(--cyan2)); animation:float 6s ease-in-out infinite; }
+.about-box h3{ font-size:1.5rem; font-weight:800; margin-bottom:.9rem; }
+.about-box p{ color:var(--muted); font-size:.92rem; line-height:1.7; }
+
+.community{ margin-top:4rem; }
+.community-head{ display:flex; flex-direction:column; gap:.75rem; align-items:center; text-align:center; margin-bottom:2rem; }
+.community-grid{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+@media (min-width:768px){ .community-grid{ grid-template-columns:1fr 1fr; } }
+.community-card{ display:flex; align-items:center; gap:1.1rem; padding:1.25rem 1.4rem; border-radius:1.25rem; }
+.comm-icon{ flex:none; width:3.5rem; height:3.5rem; display:grid; place-items:center; border-radius:1rem; font-size:1.6rem; color:#000; background:linear-gradient(135deg,var(--cyan),var(--cyan2)); transition:transform .45s var(--ease); }
+.community-card.is-discord .comm-icon{ background:linear-gradient(135deg,#8ea1ff,var(--cyan)); }
+@media (hover:hover){ .community-card:hover .comm-icon{ transform:rotate(-8deg) scale(1.08); } }
+.comm-info{ min-width:0; flex:1; display:flex; flex-direction:column; gap:.3rem; }
+.comm-info h4{ font-size:1.1rem; font-weight:800; }
+.comm-info p{ font-size:.85rem; color:var(--muted); line-height:1.5; }
+.comm-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; margin-top:.35rem; font-size:.78rem; font-weight:800; }
+.comm-count{ display:inline-flex; align-items:center; gap:.4rem; padding:.28rem .6rem; border-radius:999px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); font-variant-numeric:tabular-nums; }
+.comm-count .ico{ color:var(--cyan); }
+.comm-go{ display:inline-flex; align-items:center; gap:.4rem; color:var(--cyan); transition:gap .3s var(--ease); }
+@media (hover:hover){ .community-card:hover .comm-go{ gap:.7rem; } }
+
+/* ---------- Jogos ---------- */
+.games-grid{ display:grid; grid-template-columns:1fr; gap:2rem; }
+@media (min-width:768px){ .games-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; } }
+@media (min-width:1024px){ .games-grid{ gap:2rem; } }
+.game-stats-note{ color:#b3bbc5; font-size:.78rem; min-height:1.1rem; }
+.game-card{ display:flex; flex-direction:column; border-radius:1rem; overflow:hidden; }
+.game-cover{ position:relative; aspect-ratio:2/1; overflow:hidden; background:linear-gradient(135deg,rgba(53,196,229,.14),#000); }
+.game-cover img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease), filter .4s ease; }
+@media (hover:hover){ .game-card:hover .game-cover img{ transform:scale(1.07); filter:brightness(1.08); } }
+.game-cover.no-img::after{ content:attr(data-name); position:absolute; inset:0; display:grid; place-items:center; padding:1rem; text-align:center; font-weight:800; font-size:1.2rem; color:var(--cyan); }
+.cover-shade{ position:absolute; inset:0; background:linear-gradient(to top,#04060a 0%,rgba(4,6,10,.25) 48%,transparent 72%); }
+.status-chip{ position:absolute; top:.75rem; right:.75rem; display:inline-flex; align-items:center; gap:.4rem; padding:.3rem .7rem; border-radius:999px; font-size:.7rem; font-weight:800; letter-spacing:.03em; background:rgba(3,4,5,.72); border:1px solid rgba(255,255,255,.14); }
+.status-chip i{ width:6px; height:6px; border-radius:50%; }
+.status-chip.is-live{ color:var(--cyan2); border-color:rgba(0,229,255,.4); }
+.status-chip.is-live i{ background:var(--cyan2); }
+.status-chip.is-dev{ color:#ff9cc4; border-color:rgba(244,91,155,.45); }
+.status-chip.is-dev i{ background:var(--pink); animation:pulse 2s ease-in-out infinite; }
+.live-pill{ position:absolute; left:.75rem; bottom:.75rem; display:inline-flex; align-items:center; gap:.5rem; padding:.42rem .85rem; border-radius:999px; font-size:.82rem; font-weight:800; font-variant-numeric:tabular-nums; background:rgba(3,4,5,.78); border:1px solid rgba(255,255,255,.14); }
+.live-pill b{ font-weight:800; color:#fff; }
+.live-pill > span{ color:#c5ccd6; font-weight:700; }
+.live-dot{ position:relative; width:8px; height:8px; border-radius:50%; background:var(--cyan2); animation:ring 2s ease-out infinite; }
+@keyframes ring{ 0%{ box-shadow:0 0 0 0 rgba(0,229,255,.6); } 80%,100%{ box-shadow:0 0 0 9px rgba(0,229,255,0); } }
+.live-pill.is-zero .live-dot{ background:#6b7480; animation:none; }
+.game-body{ padding:1.25rem 1.4rem .5rem; display:flex; flex-direction:column; gap:.75rem; flex:1; }
+.game-body h3{ font-size:1.5rem; font-weight:800; transition:color .25s ease; }
+@media (hover:hover){ .game-card:hover .game-body h3{ color:var(--cyan); } }
+.game-body p{ color:var(--muted); font-size:.9rem; line-height:1.65; }
+.game-metrics{ display:grid; grid-template-columns:repeat(3,1fr); margin-top:auto; border:1px solid var(--line); border-radius:.85rem; background:rgba(255,255,255,.02); overflow:hidden; }
+.metric{ display:flex; flex-direction:column-reverse; gap:.2rem; padding:.7rem .3rem; text-align:center; min-width:0; }
+.metric + .metric{ border-left:1px solid var(--line); }
+.metric dd{ font-weight:800; font-size:1.02rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.metric dt{ display:flex; align-items:center; justify-content:center; gap:.3rem; font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#aab2bd; }
+.metric dt .ico{ color:var(--cyan); font-size:.9rem; }
+.game-actions{ padding:1rem 1.4rem 1.4rem; display:flex; flex-direction:column; gap:.55rem; }
+
+/* ---------- Mídia ---------- */
+.media-block{ display:flex; flex-direction:column; gap:1.5rem; }
+.media-block + .media-block{ margin-top:4rem; }
+.media-heading{ display:flex; align-items:center; gap:.5rem; padding-bottom:.75rem; border-bottom:1px solid var(--line); font-size:1.5rem; font-weight:800; color:var(--cyan); }
+.media-grid{ display:grid; grid-template-columns:1fr; gap:1.5rem; }
+@media (min-width:768px){ .media-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+.media-card{ display:flex; flex-direction:column; gap:1rem; padding:1.25rem; height:100%; border-radius:1rem; }
 .media-frame{
-    position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:14px;
-    border:1px solid rgba(255,255,255,.12); background:#010203;
+    position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:14px; border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(90deg,#05070a,#0d1218,#05070a); background-size:200% 100%; animation:shimmer 1.8s linear infinite;
 }
-.media-frame video, .media-frame img{
-    position:absolute; inset:0; width:100%; height:100%; display:block;
-    object-fit:cover; /* troque por "contain" se quiser ver a imagem inteira, sem cortar */
-    transition:transform .3s ease, filter .3s ease;
-}
-@media (hover:hover){
-    .media-card:hover .media-frame img{ transform:scale(1.03); filter:brightness(1.05); }
-}
-.media-placeholder{
-    position:absolute; inset:0; display:grid; place-items:center; padding:1rem; text-align:center;
-    border:1px dashed rgba(255,255,255,.18); border-radius:14px; background:#010203;
-    color:#b3bbc5; font-weight:700; font-size:.85rem;
-}
+.media-frame video, .media-frame img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease), filter .3s ease, opacity .5s ease; }
+.media-frame video{ opacity:0; pointer-events:none; background:#010203; }
+.media-frame video.ready{ opacity:1; }
+@media (hover:hover){ .media-card:hover .media-frame img, .media-card:hover .media-frame video{ transform:scale(1.04); } }
+.media-placeholder{ position:absolute; inset:0; z-index:2; display:grid; place-items:center; padding:1rem; text-align:center; border:1px dashed rgba(255,255,255,.18); border-radius:14px; background:#010203; color:#b3bbc5; font-weight:700; font-size:.85rem; }
 .media-caption{ margin-top:auto; display:flex; flex-direction:column; gap:.3rem; text-align:center; }
-.media-tag{ display:block; font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--nx-cyan); }
-.media-title{ display:block; font-size:1rem; line-height:1.3; font-weight:800; color:#fff; }
+.media-tag{ font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--cyan); }
+.media-title{ font-size:1rem; line-height:1.3; font-weight:800; color:#fff; }
 
-/* Equipe */
-.team-role{ color:#c0c4ce; font-size:.84rem; font-weight:600; letter-spacing:.09em; line-height:1.35; }
+/* ---------- Equipe (carrossel infinito) ---------- */
+.team-viewport{
+    width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; cursor:grab; user-select:none; -webkit-user-select:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
+.team-viewport.dragging{ cursor:grabbing; }
+.team-carousel{ position:relative; display:flex; width:max-content; gap:24px; transform:translate3d(0,0,0); transition:transform .55s var(--ease); will-change:transform; }
 .team-card{
-    background:rgba(6,8,11,.92); border:1px solid rgba(255,255,255,.09);
-    transition:transform .35s ease, opacity .35s ease, filter .35s ease, box-shadow .35s ease, border-color .35s ease;
+    box-sizing:border-box; flex:0 0 min(380px,82vw); min-height:420px; padding:1.5rem; border-radius:1rem;
+    display:flex; flex-direction:column; justify-content:space-between;
+    opacity:.4; transform:scale(.9);
+    transition:transform .55s var(--ease), opacity .45s ease, border-color .35s ease, box-shadow .35s ease;
 }
-.team-avatar-frame{ background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,0,0,.9)); border:1px solid rgba(0,229,255,.22); overflow:hidden; }
-.team-avatar-frame img{ object-position:center 25%; transition:transform .32s var(--ease), filter .32s ease; -webkit-user-drag:none; user-select:none; }
+.team-card.is-active{ opacity:1; transform:scale(1); z-index:2; border-color:rgba(0,229,255,.35); animation:card-pop .7s var(--ease); }
+@keyframes card-pop{ 0%{ transform:scale(.94) } 55%{ transform:scale(1.04) } 100%{ transform:scale(1) } }
+.team-carousel.jump .team-card{ transition:none !important; animation:none !important; }
 @media (hover:hover){
-    .team-card:hover .team-avatar-frame img{ transform:scale(1.045); filter:brightness(1.06); }
+    .team-card.is-active:hover{ transform:scale(1.015) translateY(-5px); }
+    .team-card:not(.is-active):hover{ opacity:.75; transform:scale(.94) translateY(-3px); }
 }
-
-.team-carousel-viewport{ width:100%; overflow:hidden; padding:1.25rem 0; touch-action:pan-y; }
-.team-carousel{
-    display:flex; width:max-content; max-width:none; gap:24px;
-    transform:translate3d(0,0,0); transition:transform .48s var(--ease); will-change:transform;
-}
-#team .team-card{
-    box-sizing:border-box; flex:0 0 min(380px,82vw); min-height:420px;
-    opacity:.38; filter:brightness(.58); transform:scale(.9);
-}
-#team .team-card.is-active{ opacity:1; filter:none; transform:scale(1); z-index:2; border-color:rgba(0,229,255,.35); }
-@media (hover:hover){
-    #team .team-card.is-active:hover{ transform:scale(1.015) translateY(-5px); }
-    #team .team-card:not(.is-active):hover{ opacity:.72; filter:brightness(.82); transform:scale(.94) translateY(-3px); }
-}
-.team-card-clone{ pointer-events:none; }
-.team-card a{ position:relative; z-index:5; }
-.team-carousel.is-returning-home{ transition-duration:.78s; }
-#team .team-card.team-home-arrival{ animation:team-home-arrival .68s var(--ease) both; }
-@keyframes team-home-arrival{ 0%{transform:scale(.92);filter:brightness(.72)} 62%{transform:scale(1.045);filter:brightness(1.14)} 100%{transform:scale(1);filter:none} }
-
-.team-carousel-controls{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:14px; }
-.team-arrow{
-    width:48px; height:48px; border-radius:16px; display:grid; place-items:center; color:#eee9fa;
-    background:rgba(10,12,16,.95); border:1px solid rgba(255,255,255,.13); cursor:pointer;
-    transition:background .2s ease, border-color .2s ease;
-}
+.team-card h3{ font-size:1.25rem; font-weight:800; }
+.team-avatar{ width:100%; height:16rem; border-radius:.75rem; margin-bottom:1rem; overflow:hidden; background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(0,0,0,.9)); border:1px solid rgba(0,229,255,.22); }
+.team-avatar img{ width:100%; height:100%; object-fit:cover; object-position:center 25%; transition:transform .4s var(--ease), filter .3s ease; -webkit-user-drag:none; user-select:none; }
+.team-avatar .fallback-badge{ width:100%; height:100%; font-size:3rem; }
+@media (hover:hover){ .team-card:hover .team-avatar img{ transform:scale(1.05); filter:brightness(1.06); } }
+.team-role{ margin-top:.25rem; color:#d3d7df; font-size:.84rem; font-weight:700; letter-spacing:.09em; line-height:1.35; text-transform:uppercase; }
+.team-foot{ padding-top:1.5rem; min-height:3.2rem; }
+.team-link{ display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 0; font-size:.78rem; font-weight:800; color:#d1d5db; transition:color .2s ease, gap .3s var(--ease); }
+.team-link:hover{ color:var(--cyan); gap:.75rem; }
+@media (max-width:640px){ .team-carousel{ gap:16px; } .team-card{ flex-basis:min(340px,84vw); min-height:400px; } }
+.team-controls{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:14px; }
+.team-arrow{ width:48px; height:48px; border-radius:16px; display:grid; place-items:center; font-size:1.1rem; color:#eee9fa; background:rgba(10,12,16,.95); border:1px solid rgba(255,255,255,.13); transition:background .2s ease, border-color .2s ease, transform .25s var(--ease); }
+.team-arrow:active{ transform:scale(.92); }
 @media (hover:hover){ .team-arrow:hover{ background:rgba(0,229,255,.1); border-color:rgba(0,229,255,.45); } }
-.team-carousel-dots{ display:flex; justify-content:center; align-items:center; gap:9px; flex-wrap:wrap; max-width:60vw; }
-.team-dot{ position:relative; width:8px; height:8px; border:0; border-radius:999px; padding:0; background:#4a4f58; cursor:pointer; transition:width .25s ease, background .25s ease; }
-.team-dot::after{ content:""; position:absolute; inset:-10px; }
-.team-dot[aria-current="true"]{ width:22px; background:var(--nx-cyan2); }
-.team-carousel-status{ min-height:1.2em; margin-top:8px; text-align:center; color:#aeb6c0; font-size:.78rem; }
-@media (max-width:640px){
-    .team-carousel{ gap:16px; }
-    #team .team-card{ flex-basis:min(340px,84vw); min-height:400px; }
-}
+.team-dots{ display:flex; justify-content:center; align-items:center; gap:9px; flex-wrap:wrap; max-width:60vw; }
+.team-dot{ position:relative; width:8px; height:8px; border-radius:999px; background:#4a4f58; transition:width .35s var(--ease), background .25s ease; }
+.team-dot::after{ content:""; position:absolute; inset:-12px; }
+.team-dot[aria-current="true"]{ width:24px; background:var(--cyan2); }
+.team-status{ min-height:1.2em; margin-top:8px; text-align:center; color:#aeb6c0; font-size:.78rem; }
 
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible{
-    outline:2px solid var(--nx-cyan2); outline-offset:3px;
+/* ---------- Contato ---------- */
+.contact-card{ position:relative; padding:1.5rem; border-radius:1.5rem; overflow:hidden; }
+@media (min-width:640px){ .contact-card{ padding:3rem; } }
+.contact-card::after{ content:""; position:absolute; top:-90px; right:-90px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle,rgba(53,196,229,.2),transparent 65%); pointer-events:none; }
+.contact-inner{ position:relative; z-index:1; display:flex; flex-direction:column; gap:2rem; }
+.contact-head{ display:flex; flex-direction:column; align-items:center; gap:.75rem; text-align:center; }
+.contact-head h2{ font-size:clamp(1.8rem,4.5vw,2.25rem); font-weight:800; letter-spacing:-.02em; }
+.contact-head p{ color:var(--muted); font-size:.9rem; }
+form{ display:flex; flex-direction:column; gap:1rem; }
+.form-row{ display:grid; grid-template-columns:1fr; gap:1rem; }
+@media (min-width:640px){ .form-row{ grid-template-columns:1fr 1fr; } }
+label{ display:block; margin-bottom:.3rem; font-size:.75rem; font-weight:700; color:#d1d5db; }
+input[type=text], input[type=email], textarea{
+    width:100%; padding:.8rem 1rem; border-radius:.75rem; background:rgba(0,0,0,.8); border:1px solid rgba(255,255,255,.1); color:#fff; font-size:1rem;
+    transition:border-color .2s ease, box-shadow .2s ease;
 }
+@media (min-width:640px){ input[type=text], input[type=email], textarea{ font-size:.9rem; } }
+input:focus, textarea:focus{ outline:none; border-color:var(--cyan); box-shadow:0 0 0 3px rgba(53,196,229,.15); }
+textarea{ resize:vertical; min-height:7rem; }
+.counter{ margin-top:.3rem; text-align:right; font-size:.72rem; color:#8d97a6; font-variant-numeric:tabular-nums; }
+.counter.ok{ color:var(--cyan); }
+.hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
+.form-note{ padding:.75rem 1rem; border-radius:.75rem; font-size:.82rem; color:#ffd0e3; background:rgba(244,91,155,.1); border:1px solid rgba(244,91,155,.35); text-align:center; }
+.form-status{ min-height:1.3em; text-align:center; font-size:.875rem; color:var(--cyan); }
+.form-status[data-state="error"]{ color:#ff9cc4; }
+.social-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; padding-top:1.5rem; border-top:1px solid var(--line); }
+.social-row .ico{ color:var(--cyan); }
+
+/* ---------- Rodapé ---------- */
+.site-footer{ position:relative; z-index:10; border-radius:0; border-width:1px 0 0; padding:2rem 0 calc(2rem + env(safe-area-inset-bottom)); font-size:.75rem; color:#d1d5db; }
+.site-footer::before{ display:none; }
+.footer-inner{ display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:1rem; }
+@media (min-width:640px){ .footer-inner{ flex-direction:row; } }
+.footer-brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; color:#fff; font-size:.9rem; }
+.footer-brand img, .footer-brand .fallback-badge{ width:44px; height:44px; border-radius:.75rem; object-fit:cover; }
+.footer-links{ display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:center; font-weight:700; }
+.footer-links a{ transition:color .2s ease; }
+.footer-links a:hover{ color:var(--cyan); }
 
 @media (prefers-reduced-motion:reduce){
     html{ scroll-behavior:auto; }
-    *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important; }
-    .reveal:not(.is-visible){ opacity:1; transform:none; }
-    .game-card a.btn::before{ display:none; }
-    .lift:hover, .btn:hover:not(:disabled){ transform:none; }
+    *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    .tilt{ transform:none !important; }
 }
-
-</style>
+    </style>
 </head>
-<body class="relative">
+<body>
+
+    <!-- Ícones (SVG próprios, sem biblioteca externa) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></symbol>
+        <symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="5.5"/><path d="M8 10.5v4M6 12.5h4"/><circle cx="15.5" cy="11.5" r=".7"/><circle cx="17.5" cy="13.7" r=".7"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4.5 2 4.5 4.5"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9-9.2C1.900 7.400 4 4.500 7 4.500c2 0 3.500 1.100 5 3 1.500-1.900 3-3 5-3 3 0 5.100 2.900 4 6.300C19.500 15.400 12 20 12 20z"/></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.800 5.800 6.200.8-4.500 4.400 1.100 6.300L12 17.300 6.400 20.300l1.100-6.300L3 9.600l6.200-.8z"/></symbol>
+        <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+        <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 11a8 8 0 10-2.300 5.700M20 4v7h-7"/></symbol>
+        <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 3l8 4.500v9L12 21l-8-4.500v-9z"/><path d="M12 12l8-4.500M12 12v9M12 12L4 7.500"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+        <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+        <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+        <symbol id="i-discord" viewBox="0 0 24 24"><path d="M5 6c2-1.500 4-2 7-2s5 .500 7 2c1.500 3 2.300 6.500 2 11-1.800 1.300-3.500 2-5.200 2.500l-1-2c-1 .300-1.900.400-2.800.400s-1.800-.100-2.800-.400l-1 2C6.500 19 4.800 18.300 3 17c-.3-4.500.5-8 2-11z"/><circle cx="9" cy="12" r="1.200"/><circle cx="15" cy="12" r="1.200"/></symbol>
+    </svg>
 
     <a href="#home" class="skip-link" data-i18n="skip">Pular para o conteúdo</a>
 
     <div id="scroll-progress" aria-hidden="true"></div>
+    <div class="orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div id="cursor-glow" aria-hidden="true"></div>
 
     <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10" style="border-radius:0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
-            <a href="#home" class="flex items-center gap-2 sm:gap-3 min-w-0" aria-label="NeoX Studio">
-                <img src="assets/neox-logo.png" alt="NeoX Studio" width="48" height="48" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover shrink-0">
-                <span class="text-base sm:text-xl font-extrabold tracking-wide sm:tracking-wider whitespace-nowrap bg-gradient-to-r from-white to-nx-cyan bg-clip-text text-transparent">NEOX<span class="text-nx-cyan hidden min-[360px]:inline"> STUDIO</span></span>
+    <header class="site-header glass-card" id="site-header">
+        <div class="container header-inner">
+            <a href="#home" class="brand" aria-label="NeoX Studio">
+                <img src="assets/neox-logo.png" alt="" width="48" height="48" data-guard="logo">
+                <span class="brand-text">NEOX<span class="brand-sub"> STUDIO</span></span>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300" aria-label="Principal">
+            <nav class="main-nav" aria-label="Principal">
                 <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
                 <a href="#about" class="nav-link" data-i18n="nav_about">Sobre</a>
                 <a href="#games" class="nav-link" data-i18n="nav_games">Jogos</a>
@@ -274,514 +528,363 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
                 <a href="#contact" class="nav-link" data-i18n="nav_contact">Contato</a>
             </nav>
 
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                <button type="button" id="lang-btn" class="btn min-h-[40px] px-2.5 sm:px-3 py-1.5 rounded-lg glass-card text-xs font-bold text-nx-cyan hover:text-white flex items-center gap-2 border border-nx-cyan/30" aria-label="Mudar idioma / Change language">
-                    <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <div class="header-actions">
+                <button type="button" id="lang-btn" class="btn btn-ghost lang-btn" aria-label="Mudar idioma / Change language">
+                    <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>
                     <span id="lang-label">PT-BR</span>
                 </button>
-                <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-nx-cyan hover:bg-nx-cyan2 text-black font-bold text-sm shadow-lg shadow-nx-cyan/25">
-                    <i class="fa-brands fa-discord" aria-hidden="true"></i> Discord
+                <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm desk-only">
+                    <svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg> Discord
                 </a>
-                <button type="button" id="menu-btn" class="md:hidden w-11 h-11 grid place-items-center rounded-xl glass-card text-gray-200" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <i class="fa-solid fa-bars" id="menu-icon" aria-hidden="true"></i>
+                <button type="button" id="menu-btn" class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="ico" id="menu-icon" aria-hidden="true"><use href="#i-menu"/></svg>
                 </button>
             </div>
         </div>
 
-        <nav id="mobile-menu" class="hidden md:hidden border-t border-white/10 px-4 py-4 max-h-[calc(100vh-5rem)] overflow-y-auto" aria-label="Menu mobile">
-            <div class="flex flex-col gap-1 text-sm font-bold text-gray-200">
-                <a href="#home" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_home">Home</a>
-                <a href="#about" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_about">Sobre</a>
-                <a href="#games" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_games">Jogos</a>
-                <a href="#media" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_media">Trailers</a>
-                <a href="#team" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_team">Equipe</a>
-                <a href="#contact" class="px-3 py-3 rounded-lg hover:bg-white/5" data-i18n="nav_contact">Contato</a>
-                <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="mt-2 px-3 py-3 rounded-lg bg-nx-cyan text-black text-center">
-                    <i class="fa-brands fa-discord" aria-hidden="true"></i> Discord
-                </a>
+        <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
+            <div class="mobile-menu-inner">
+                <div class="mobile-links">
+                    <a href="#home" data-i18n="nav_home">Home</a>
+                    <a href="#about" data-i18n="nav_about">Sobre</a>
+                    <a href="#games" data-i18n="nav_games">Jogos</a>
+                    <a href="#media" data-i18n="nav_media">Trailers</a>
+                    <a href="#team" data-i18n="nav_team">Equipe</a>
+                    <a href="#contact" data-i18n="nav_contact">Contato</a>
+                    <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg> Discord
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main class="relative z-10 pt-28">
+    <main>
 
         <!-- HERO -->
-        <section id="home" class="min-h-[85vh] flex items-center justify-center px-4 py-20 text-center">
-            <div class="max-w-4xl mx-auto space-y-8">
+        <section id="home" class="hero">
+            <div class="hero-inner">
                 <div class="intro" style="--i:0">
-                    <img src="assets/neox-logo.png" alt="" width="112" height="112" class="hero-logo mx-auto w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-cover" onerror="this.style.display='none'">
+                    <div class="logo-wrap">
+                        <span class="logo-ring" aria-hidden="true"></span>
+                        <img class="hero-logo" src="assets/neox-logo.png" alt="" width="112" height="112" fetchpriority="high" data-guard="logo">
+                    </div>
                 </div>
 
                 <div class="intro" style="--i:1">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-nx-cyan text-xs font-bold tracking-wide uppercase border border-nx-cyan/30">
-                        <span class="w-2 h-2 rounded-full bg-nx-pink animate-pulse"></span>
+                    <div class="hero-tag glass-card">
+                        <span class="pulse-dot"></span>
                         <span data-i18n="hero_tag">Criando Universos Inesquecíveis</span>
                     </div>
                 </div>
 
-                <h1 class="intro text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight" style="--i:2">
-                    <span data-i18n="hero_title_1">Jogos com energia, cores e</span> <br>
-                    <span class="bg-gradient-to-r from-nx-cyan2 via-nx-cyan to-white bg-clip-text text-transparent glow-text" data-i18n="hero_title_2">pura diversão.</span>
+                <h1 class="intro" style="--i:2">
+                    <span data-i18n="hero_title_1">Jogos com energia, cores e</span><br>
+                    <span class="grad-text" data-i18n="hero_title_2">pura diversão.</span>
                 </h1>
 
-                <p class="intro text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto font-medium" style="--i:3" data-i18n="hero_desc">
+                <p class="intro hero-desc" style="--i:3" data-i18n="hero_desc">
                     A NeoX é onde a comunidade ganha vida. Desenvolvemos experiências imersivas de alto nível no ecossistema Roblox.
                 </p>
 
-                <div class="intro flex flex-wrap justify-center gap-4 pt-4" style="--i:4">
-                    <a href="#games" class="btn px-8 py-4 rounded-xl bg-nx-cyan hover:bg-nx-cyan2 text-black font-bold shadow-xl shadow-nx-cyan/30 flex items-center gap-3">
-                        <i class="fa-solid fa-gamepad" aria-hidden="true"></i> <span data-i18n="btn_explore">Conhecer Jogos</span>
+                <div class="intro hero-actions" style="--i:4">
+                    <a href="#games" class="btn btn-primary btn-lg">
+                        <svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg> <span data-i18n="btn_explore">Conhecer Jogos</span>
                     </a>
-                    <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn px-8 py-4 rounded-xl glass-card hover:bg-white/5 text-white font-bold border border-nx-cyan/30 flex items-center gap-3">
-                        <i class="fa-brands fa-discord text-nx-cyan" aria-hidden="true"></i> <span data-i18n="btn_discord">Entrar no Discord</span>
+                    <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+                        <svg class="ico" style="color:var(--cyan)" aria-hidden="true"><use href="#i-discord"/></svg> <span data-i18n="btn_discord">Entrar no Discord</span>
                     </a>
                 </div>
 
-                <div class="intro grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-16 max-w-6xl mx-auto" style="--i:5">
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-players">—</div>
-                        <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_1">Jogadores agora</div>
+                <div class="intro stats-grid" style="--i:5">
+                    <div class="glass-card stat-card">
+                        <div class="stat-number is-loading" id="stat-players">—</div>
+                        <div class="stat-label" data-i18n="stat_1">Jogadores agora</div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-likes">—</div>
-                        <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_2">Total de curtidas</div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-number is-loading" id="stat-likes">—</div>
+                        <div class="stat-label" data-i18n="stat_2">Total de curtidas</div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-favs">—</div>
-                        <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_3">Total de favoritos</div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-number is-loading" id="stat-favs">—</div>
+                        <div class="stat-label" data-i18n="stat_3">Total de favoritos</div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl">
-                        <div class="stat-number font-extrabold" id="stat-visits">—</div>
-                        <div class="text-xs sm:text-sm text-gray-300 font-semibold mt-1" data-i18n="stat_4">Visitas totais</div>
+                    <div class="glass-card stat-card">
+                        <div class="stat-number is-loading" id="stat-visits">—</div>
+                        <div class="stat-label" data-i18n="stat_4">Visitas totais</div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- FAIXA -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-group"><span>ANIME PARADISE</span><i></i><span>ANIME CRASH</span><i></i><span>FREE FIRE MAX</span><i></i><span>ROBLOX</span><i></i><span>NEOX STUDIO</span><i></i><span>JOGUE O FUTURO</span><i></i></div>
+                <div class="marquee-group"><span>ANIME PARADISE</span><i></i><span>ANIME CRASH</span><i></i><span>FREE FIRE MAX</span><i></i><span>ROBLOX</span><i></i><span>NEOX STUDIO</span><i></i><span>JOGUE O FUTURO</span><i></i></div>
+            </div>
+        </div>
+
         <!-- SOBRE -->
-        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-md bg-nx-cyan/10 text-nx-cyan text-xs font-bold tracking-wider uppercase">
-                        NX <span class="text-nx-pink">•</span> <span data-i18n="about_tag">A Nossa Essência</span>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-grid" data-stagger>
+                    <div class="about-copy" data-reveal>
+                        <span class="eyebrow">NX <span style="color:var(--pink)">•</span> <span data-i18n="about_tag">A Nossa Essência</span></span>
+                        <h2 class="h2" data-i18n="about_title">Diversão levada a sério.</h2>
+                        <p data-i18n="about_desc">A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.</p>
+                        <div class="feat-grid">
+                            <div class="glass-card feat">
+                                <svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg>
+                                <h3 data-i18n="feat_1_title">Gameplay Vibrante</h3>
+                                <p data-i18n="feat_1_desc">Ação dinâmica e fluida.</p>
+                            </div>
+                            <div class="glass-card feat">
+                                <svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>
+                                <h3 data-i18n="feat_2_title">Comunidade Ativa</h3>
+                                <p data-i18n="feat_2_desc">Ouvimos cada jogador.</p>
+                            </div>
+                            <div class="glass-card feat">
+                                <svg class="ico" aria-hidden="true"><use href="#i-rotate"/></svg>
+                                <h3 data-i18n="feat_3_title">Updates Frequentes</h3>
+                                <p data-i18n="feat_3_desc">Sempre trazendo novidades.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="about_title">Diversão levada a sério.</h2>
-                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed" data-i18n="about_desc">
-                        A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                        <div class="glass-card p-4 rounded-xl">
-                            <i class="fa-solid fa-bolt text-nx-cyan text-xl mb-2" aria-hidden="true"></i>
-                            <h3 class="font-bold text-sm" data-i18n="feat_1_title">Gameplay Vibrante</h3>
-                            <p class="text-xs text-gray-300 mt-1" data-i18n="feat_1_desc">Ação dinâmica e fluida.</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl">
-                            <i class="fa-solid fa-users text-nx-cyan text-xl mb-2" aria-hidden="true"></i>
-                            <h3 class="font-bold text-sm" data-i18n="feat_2_title">Comunidade Ativa</h3>
-                            <p class="text-xs text-gray-300 mt-1" data-i18n="feat_2_desc">Ouvimos cada jogador.</p>
-                        </div>
-                        <div class="glass-card p-4 rounded-xl">
-                            <i class="fa-solid fa-rotate text-nx-cyan text-xl mb-2" aria-hidden="true"></i>
-                            <h3 class="font-bold text-sm" data-i18n="feat_3_title">Updates Constantes</h3>
-                            <p class="text-xs text-gray-300 mt-1" data-i18n="feat_3_desc">Conteúdo novo toda semana.</p>
-                        </div>
+                    <div class="glass-card tilt about-box" data-reveal>
+                        <div class="icon-tile"><svg class="ico" aria-hidden="true"><use href="#i-cube"/></svg></div>
+                        <h3 data-i18n="about_box_title">Inovação em Cada Detalhe</h3>
+                        <p data-i18n="about_box_desc">Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.</p>
                     </div>
                 </div>
-                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group">
-                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-nx-cyan/15 rounded-full blur-3xl group-hover:bg-nx-cyan/25 transition duration-500"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-nx-cyan to-nx-cyan2 text-black flex items-center justify-center text-2xl font-bold">
-                            <i class="fa-solid fa-cube" aria-hidden="true"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold" data-i18n="about_box_title">Inovação em Cada Detalhe</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="about_box_desc">
-                            Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.
-                        </p>
+
+                <div class="community">
+                    <div class="community-head" data-reveal>
+                        <span class="eyebrow" data-i18n="comm_tag">Faça Parte</span>
+                        <h2 class="h2" data-i18n="comm_title">Nossa Comunidade</h2>
+                    </div>
+                    <div class="community-grid" data-stagger>
+                        <a class="glass-card tilt community-card" data-reveal href="https://www.roblox.com/pt/communities/35039927/Neo-X-Inc#!/about" target="_blank" rel="noopener noreferrer">
+                            <span class="comm-icon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+                            <span class="comm-info">
+                                <h4 data-i18n="group_title">Grupo da NeoX no Roblox</h4>
+                                <p data-i18n="group_desc">Entre no grupo oficial Neo X Inc e acompanhe tudo de perto.</p>
+                                <span class="comm-meta">
+                                    <span class="comm-count"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><b id="group-members">—</b> <span data-i18n="members">membros</span></span>
+                                    <span class="comm-go"><span data-i18n="group_btn">Entrar no grupo</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></span>
+                                </span>
+                            </span>
+                        </a>
+                        <a class="glass-card tilt community-card is-discord" data-reveal href="https://discord.gg/animeparadiseee" target="_blank" rel="noopener noreferrer">
+                            <span class="comm-icon"><svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg></span>
+                            <span class="comm-info">
+                                <h4 data-i18n="disc_title">Servidor da Comunidade</h4>
+                                <p data-i18n="disc_desc">Converse com a galera, tire dúvidas e fique por dentro das novidades no Discord.</p>
+                                <span class="comm-meta">
+                                    <span class="comm-count"><svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg><span data-i18n="disc_meta">Discord Community</span></span>
+                                    <span class="comm-go"><span data-i18n="disc_btn">Entrar no servidor</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></span>
+                                </span>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- JOGOS -->
-        <section id="games" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="px-3 py-1 rounded-md bg-nx-cyan/10 text-nx-cyan text-xs font-bold tracking-wider uppercase" data-i18n="games_tag">O Que Jogar Agora</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="games_title">Nossos Universos</h2>
-                <p class="text-gray-300" data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
-                <p class="game-stats-note" id="roblox-stats-updated" aria-live="polite"></p>
-                <noscript><p class="game-stats-note">Ative o JavaScript para ver as estatísticas ao vivo do Roblox.</p></noscript>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Anime Paradise -->
-                <div class="game-card glass-card lift rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="relative h-48 bg-gradient-to-br from-nx-cyan/10 to-black overflow-hidden">
-                        <img src="assets/anime-paradise.png" alt="Anime Paradise" width="600" height="300" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04060a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-nx-cyan text-black shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">Anime Paradise</h3>
-                            <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ap-players">—</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ap-visits">—</span><small data-i18n="visits">Visitas</small></span>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_1_desc">Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.</p>
-                    </div>
-                    <div class="p-6 pt-0 space-y-2">
-                        <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" rel="noopener noreferrer" class="btn w-full py-3 rounded-xl bg-nx-cyan hover:bg-nx-cyan2 text-black font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-nx-cyan/25">
-                            <i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="btn_play">Jogar Agora</span>
-                        </a>
-                        <a href="https://discord.gg/animeparadisee" target="_blank" rel="noopener noreferrer" class="btn w-full py-2.5 rounded-xl glass-card hover:bg-white/5 text-nx-cyan font-semibold text-xs flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-discord" aria-hidden="true"></i><span data-i18n="game_discord">Discord do Jogo</span>
-                        </a>
-                    </div>
+        <section id="games" class="section">
+            <div class="container">
+                <div class="sec-head" data-reveal>
+                    <span class="eyebrow" data-i18n="games_tag">O Que Jogar Agora</span>
+                    <h2 class="h2" data-i18n="games_title">Nossos Universos</h2>
+                    <p data-i18n="games_subtitle">Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.</p>
+                    <p class="game-stats-note" id="roblox-stats-updated" aria-live="polite"></p>
                 </div>
-
-                <!-- Anime Crash -->
-                <div class="game-card glass-card lift rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="relative h-48 bg-gradient-to-br from-nx-cyan/10 to-black overflow-hidden">
-                        <img src="assets/anime-crash.png" alt="Anime Crash" width="600" height="300" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04060a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-black/70 text-nx-cyan border border-nx-cyan/40 shadow-md" data-i18n="badge_dev">Em Desenvolvimento</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">Anime Crash</h3>
-                            <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="cr-players">—</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="cr-visits">—</span><small data-i18n="visits">Visitas</small></span>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_2_desc">Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.</p>
-                    </div>
-                    <div class="p-6 pt-0 space-y-2">
-                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" rel="noopener noreferrer" class="btn w-full py-3 rounded-xl bg-nx-cyan/15 hover:bg-nx-cyan hover:text-black text-nx-cyan font-bold text-sm flex items-center justify-center gap-2 border border-nx-cyan/40">
-                            <i class="fa-solid fa-code" aria-hidden="true"></i><span data-i18n="btn_preview">Ver Projeto</span>
-                        </a>
-                        <a href="https://discord.gg/AnVatTF6GU" target="_blank" rel="noopener noreferrer" class="btn w-full py-2.5 rounded-xl glass-card hover:bg-white/5 text-nx-cyan font-semibold text-xs flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-discord" aria-hidden="true"></i><span data-i18n="game_discord">Discord do Jogo</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- FREE FIRE MAX -->
-                <div class="game-card glass-card lift rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="relative h-48 bg-gradient-to-br from-nx-cyan/10 to-black overflow-hidden">
-                        <img src="assets/free-fire-max.png" alt="FREE FIRE MAX" width="600" height="300" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#04060a] via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-nx-cyan text-black shadow-md" data-i18n="badge_live">Ativo / Lançado</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <div class="flex flex-wrap items-center justify-between gap-3">
-                            <h3 class="text-2xl font-bold group-hover:text-nx-cyan transition">FREE FIRE MAX</h3>
-                            <div class="game-live-stats">
-                                <span class="player-count-badge" title="Players online"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="ff-players">—</span></span>
-                                <span class="visit-count-badge" title="Total visits"><i class="fa-solid fa-eye" aria-hidden="true"></i><span id="ff-visits">—</span><small data-i18n="visits">Visitas</small></span>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="game_3_desc">Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.</p>
-                    </div>
-                    <div class="p-6 pt-0 space-y-2">
-                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" rel="noopener noreferrer" class="btn w-full py-3 rounded-xl bg-nx-cyan hover:bg-nx-cyan2 text-black font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-nx-cyan/25">
-                            <i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="btn_play">Jogar Agora</span>
-                        </a>
-                        <button type="button" disabled aria-disabled="true" class="btn w-full py-2.5 rounded-xl glass-card text-nx-cyan/70 font-semibold text-xs flex items-center justify-center gap-2 opacity-60 cursor-not-allowed">
-                            <i class="fa-brands fa-discord" aria-hidden="true"></i><span data-i18n="discord_soon">Discord em breve</span>
-                        </button>
-                    </div>
-                </div>
+                <div class="games-grid" id="games-grid" data-stagger></div>
+                <noscript>
+                    <p class="muted" style="text-align:center;margin-top:1.5rem">
+                        Ative o JavaScript para ver os jogos e as estatísticas ao vivo. Links diretos:
+                        <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" style="color:var(--cyan)">Anime Paradise</a> ·
+                        <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" style="color:var(--cyan)">Anime Crash</a> ·
+                        <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" style="color:var(--cyan)">FREE FIRE MAX</a>
+                    </p>
+                </noscript>
             </div>
         </section>
 
         <!-- MÍDIA -->
-        <section id="media" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
-            <div class="text-center max-w-3xl mx-auto space-y-4">
-                <span class="px-3 py-1 rounded-md bg-nx-cyan/10 text-nx-cyan text-xs font-bold tracking-wider uppercase" data-i18n="media_tag">Cinemáticas & Demonstrativos</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="media_title">Mídia Oficial</h2>
-                <p class="text-gray-300" data-i18n="media_subtitle">Demonstrações e conceitos visuais dos projetos NeoX Studio.</p>
-            </div>
-
-            <!-- ANIME CRASH -->
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-white/10 pb-3 text-nx-cyan">
-                    <i class="fa-solid fa-gamepad" aria-hidden="true"></i> Anime Crash
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <video class="loop-video" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Anime Crash gameplay">
-                                <source src="assets/anime-crash-gameplay.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="ac_1_tag">Gameplay Oficial</span>
-                            <h4 class="media-title" data-i18n="ac_1_title">Combate & Movimentação</h4>
-                        </div>
-                    </article>
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" width="640" height="360" loading="lazy">
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="ac_2_tag">Sistema de Quests</span>
-                            <h4 class="media-title" data-i18n="ac_2_title">Missões & Recompensas</h4>
-                        </div>
-                    </article>
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" width="640" height="360" loading="lazy">
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="ac_3_tag">Interface & Habilidades</span>
-                            <h4 class="media-title" data-i18n="ac_3_title">Árvore de Skills</h4>
-                        </div>
-                    </article>
+        <section id="media" class="section">
+            <div class="container">
+                <div class="sec-head" data-reveal>
+                    <span class="eyebrow" data-i18n="media_tag">Cinemáticas & Demonstrativos</span>
+                    <h2 class="h2" data-i18n="media_title">Mídia Oficial</h2>
+                    <p data-i18n="media_subtitle">Demonstrações e conceitos visuais dos projetos NeoX Studio.</p>
                 </div>
-            </div>
 
-            <!-- ANIME PARADISE (mesma estrutura do Crash) -->
-            <div class="space-y-6 pt-4">
-                <h3 class="text-2xl font-bold flex items-center gap-2 border-b border-white/10 pb-3 text-nx-cyan">
-                    <i class="fa-solid fa-gamepad" aria-hidden="true"></i> <span data-i18n="ap_title">Anime Paradise — Prévias</span>
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <video class="loop-video" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise cutscene and UI">
-                                <source src="assets/anime-paradise-cutscene-ui.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="peek_1">Prévia 01</span>
-                            <h4 class="media-title" data-i18n="media_cutscene_ui">Cinemática & UI</h4>
-                        </div>
-                    </article>
+                <!-- ANIME CRASH -->
+                <div class="media-block">
+                    <h3 class="media-heading" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg> Anime Crash</h3>
+                    <div class="media-grid" data-stagger>
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Crash gameplay">
+                                    <source src="assets/anime-crash-gameplay.mp4#t=0.1" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="ac_1_tag">Gameplay Oficial</span>
+                                <h4 class="media-title" data-i18n="ac_1_title">Combate & Movimentação</h4>
+                            </div>
+                        </article>
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="ac_2_tag">Sistema de Quests</span>
+                                <h4 class="media-title" data-i18n="ac_2_title">Missões & Recompensas</h4>
+                            </div>
+                        </article>
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="ac_3_tag">Interface & Habilidades</span>
+                                <h4 class="media-title" data-i18n="ac_3_title">Árvore de Skills</h4>
+                            </div>
+                        </article>
+                    </div>
+                </div>
 
-                    <!-- SNEAK PEEK 02 — coloque o vídeo em assets/anime-paradise-movement.mp4 (tudo minúsculo, com hífens) -->
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <video class="loop-video" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise movement">
-                                <source src="assets/anime-paradise-movement.mp4" type="video/mp4">
-                                <source src="assets/anime-paradise-movement.webm" type="video/webm">
-                                <source src="assets/anime-paradise-cutscene-models.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="peek_2">Prévia 02</span>
-                            <h4 class="media-title" data-i18n="media_movement">Movimentação</h4>
-                        </div>
-                    </article>
+                <!-- ANIME PARADISE -->
+                <div class="media-block">
+                    <h3 class="media-heading" data-reveal><svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg> <span data-i18n="ap_title">Anime Paradise — Prévias</span></h3>
+                    <div class="media-grid" data-stagger>
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise cutscene and UI">
+                                    <source src="assets/anime-paradise-cutscene-ui.mp4#t=0.1" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="peek_1">Prévia 01</span>
+                                <h4 class="media-title" data-i18n="media_cutscene_ui">Cinemática & UI</h4>
+                            </div>
+                        </article>
 
-                    <article class="glass-card media-card rounded-2xl">
-                        <div class="media-frame">
-                            <img src="assets/anime-paradise-models.png"
-                                 data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png"
-                                 alt="Modelos de Anime Paradise" width="640" height="360" loading="lazy">
-                        </div>
-                        <div class="media-caption">
-                            <span class="media-tag" data-i18n="peek_3">Prévia 03</span>
-                            <h4 class="media-title" data-i18n="media_models">Modelos</h4>
-                        </div>
-                    </article>
+                        <!-- Prévia 02: arquivo esperado em assets/anime-paradise-movement.mp4 (minúsculo, com hífens) -->
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise movement">
+                                    <source src="assets/anime-paradise-movement.mp4#t=0.1" type="video/mp4">
+                                    <source src="assets/anime-paradise-movement.webm#t=0.1" type="video/webm">
+                                </video>
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="peek_2">Prévia 02</span>
+                                <h4 class="media-title" data-i18n="media_movement">Movimentação</h4>
+                            </div>
+                        </article>
+
+                        <article class="glass-card media-card" data-reveal>
+                            <div class="media-frame">
+                                <img src="assets/anime-paradise-models.png"
+                                     data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png"
+                                     alt="Modelos de Anime Paradise" width="640" height="360" loading="lazy" decoding="async">
+                            </div>
+                            <div class="media-caption">
+                                <span class="media-tag" data-i18n="peek_3">Prévia 03</span>
+                                <h4 class="media-title" data-i18n="media_models">Modelos</h4>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- EQUIPE -->
-        <section id="team" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="px-3 py-1 rounded-md bg-nx-cyan/10 text-nx-cyan text-xs font-bold tracking-wider uppercase" data-i18n="team_tag">Os Criadores</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="team_title">A Equipe NeoX</h2>
-                <p class="text-gray-300" data-i18n="team_subtitle">Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.</p>
-            </div>
+        <section id="team" class="section">
+            <div class="container">
+                <div class="sec-head" data-reveal>
+                    <span class="eyebrow" data-i18n="team_tag">Os Criadores</span>
+                    <h2 class="h2" data-i18n="team_title">A Equipe NeoX</h2>
+                    <p data-i18n="team_subtitle">Mentes brilhantes unidas para construir o futuro dos jogos no Roblox.</p>
+                </div>
 
-            <div class="team-carousel-viewport" id="team-carousel-viewport" role="region" aria-label="Equipe NeoX" aria-roledescription="carrossel" tabindex="0">
-                <div class="team-carousel" id="team-carousel">
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/sasa.png" alt="SasaDev" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">SasaDev</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_owner">Proprietário</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/5790284269/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
+                <div data-reveal>
+                    <div class="team-viewport" id="team-viewport" role="region" aria-label="Equipe NeoX" aria-roledescription="carrossel" tabindex="0">
+                        <div class="team-carousel" id="team-carousel"></div>
                     </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/davi.png" alt="DaviDev" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">DaviDev</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_coowner_gd">Coproprietário & Designer de Jogos</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/1213557895/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
+                    <div class="team-controls">
+                        <button type="button" class="team-arrow" id="team-prev" data-i18n-aria="aria_prev" aria-label="Desenvolvedor anterior"><svg class="ico" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+                        <div class="team-dots" id="team-dots" role="group" data-i18n-aria="aria_dots" aria-label="Escolher desenvolvedor"></div>
+                        <button type="button" class="team-arrow" id="team-next" data-i18n-aria="aria_next" aria-label="Próximo desenvolvedor"><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
                     </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/osein.png" alt="oSein" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">oSein</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_gd">Designer de Jogos</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/4565735367/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/slow.png" alt="Slow" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">Slow</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_animator">Animador</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/2620031389/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/flex.png" alt="Flex" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">Flex</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_modeler">Modelador</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/1569820932/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/oguest.png" alt="Oguest" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">Oguest</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_vfx">Artista de VFX</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/8093384811/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reject: sem link de perfil por enquanto (antes apontava para o perfil do Flex) -->
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/reject.png" alt="Reject" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">Reject</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_ui">Designer de UI/UX</p>
-                        </div>
-                    </div>
-
-                    <div class="glass-card team-card p-6 rounded-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="team-avatar-frame w-full h-64 rounded-xl mb-4 flex items-center justify-center">
-                                <img class="w-full h-full rounded-xl object-cover" src="assets/moon.png" alt="Moon" width="380" height="256" loading="lazy" decoding="async" draggable="false" onerror="this.style.display='none'">
-                            </div>
-                            <h3 class="text-xl font-bold">Moon</h3>
-                            <p class="team-role uppercase mt-1" data-i18n="role_cm">Gerente da Comunidade</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://www.roblox.com/users/1587723048/profile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-gray-300 hover:text-nx-cyan transition py-2">
-                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span data-i18n="profile">Perfil Roblox</span>
-                            </a>
-                        </div>
-                    </div>
-
+                    <p class="team-status" id="team-status" aria-live="polite"></p>
                 </div>
             </div>
-
-            <div class="team-carousel-controls">
-                <button type="button" class="team-arrow" id="team-prev" aria-label="Desenvolvedor anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                <div class="team-carousel-dots" id="team-dots" role="group" aria-label="Escolher desenvolvedor"></div>
-                <button type="button" class="team-arrow" id="team-next" aria-label="Próximo desenvolvedor"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-            </div>
-            <p class="team-carousel-status" id="team-carousel-status" aria-live="polite"></p>
         </section>
 
         <!-- CONTATO -->
-        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-            <div class="glass-card p-6 sm:p-12 rounded-3xl relative overflow-hidden" style="transform:none">
-                <div class="absolute -top-24 -right-24 w-72 h-72 bg-nx-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
+        <section id="contact" class="section">
+            <div class="container narrow">
+                <div class="glass-card contact-card" data-reveal>
+                    <div class="contact-inner">
+                        <div class="contact-head">
+                            <span class="eyebrow" data-i18n="contact_tag">Fale Conosco</span>
+                            <h2 data-i18n="contact_title">Pronto para a diversão?</h2>
+                            <p data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
+                        </div>
 
-                <div class="relative z-10 space-y-8">
-                    <div class="text-center space-y-3">
-                        <span class="px-3 py-1 rounded-md bg-nx-cyan/10 text-nx-cyan text-xs font-bold tracking-wider uppercase" data-i18n="contact_tag">Fale Conosco</span>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="contact_title">Pronto para a diversão?</h2>
-                        <p class="text-gray-300 text-sm" data-i18n="contact_subtitle">Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!</p>
-                    </div>
-
-                    <!-- FORMSUBMIT: troque SEU_CODIGO pelo código aleatório do e-mail de ativação (o mesmo valor vai em FORMSUBMIT_ID no main.js). -->
-                    <form id="contact-form" action="https://formsubmit.co/SEU_CODIGO" method="POST" class="space-y-4">
-                        <input type="hidden" name="_subject" value="Nova mensagem pelo site da NeoX Studio">
-                        <input type="hidden" name="_template" value="box">
-                        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="f-name" class="block text-xs font-semibold text-gray-300 mb-1" data-i18n="form_name">Seu Nome</label>
-                                <input id="f-name" name="name" type="text" autocomplete="name" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-white/10 focus:border-nx-cyan focus:outline-none text-base sm:text-sm transition text-white">
+                        <!--
+                            FORMULÁRIO: escolha UMA opção no script (no fim do arquivo):
+                            A) CONTACT_WORKER_URL = 'https://seu-worker.workers.dev'  (prioridade)
+                            B) FORMSUBMIT_ID = 'codigo-aleatorio-do-email-de-ativacao'
+                            Enquanto ambas estiverem vazias, o botão fica desativado e aparece um aviso.
+                            Valide o mínimo de 16 caracteres TAMBÉM no servidor/Worker.
+                        -->
+                        <form id="contact-form" novalidate>
+                            <input type="hidden" name="_subject" value="Nova mensagem pelo site da NeoX Studio">
+                            <input type="hidden" name="_template" value="box">
+                            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <p class="form-note" id="form-note" data-i18n="form_note" hidden>O formulário ainda está sendo configurado. Enquanto isso, fale com a gente pelo Discord!</p>
+                            <div class="form-row">
+                                <div>
+                                    <label for="f-name" data-i18n="form_name">Seu Nome</label>
+                                    <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80">
+                                </div>
+                                <div>
+                                    <label for="f-email" data-i18n="form_email">Seu E-mail</label>
+                                    <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120">
+                                </div>
                             </div>
                             <div>
-                                <label for="f-email" class="block text-xs font-semibold text-gray-300 mb-1" data-i18n="form_email">Seu E-mail</label>
-                                <input id="f-email" name="email" type="email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-white/10 focus:border-nx-cyan focus:outline-none text-base sm:text-sm transition text-white">
+                                <label for="f-roblox" data-i18n="form_roblox">Nick do Roblox (Opcional)</label>
+                                <input id="f-roblox" name="roblox" type="text" maxlength="40" autocomplete="off">
                             </div>
-                        </div>
-                        <div>
-                            <label for="f-roblox" class="block text-xs font-semibold text-gray-300 mb-1" data-i18n="form_roblox">Nick do Roblox (Opcional)</label>
-                            <input id="f-roblox" name="roblox" type="text" class="w-full px-4 py-3 rounded-xl bg-black/80 border border-white/10 focus:border-nx-cyan focus:outline-none text-base sm:text-sm transition text-white">
-                        </div>
-                        <div>
-                            <label for="f-msg" class="block text-xs font-semibold text-gray-300 mb-1" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label>
-                            <textarea id="f-msg" name="message" rows="4" minlength="16" required class="w-full px-4 py-3 rounded-xl bg-black/80 border border-white/10 focus:border-nx-cyan focus:outline-none text-base sm:text-sm transition text-white"></textarea>
-                        </div>
-                        <button type="submit" class="btn w-full py-4 rounded-xl bg-nx-cyan hover:bg-nx-cyan2 text-black font-bold text-sm shadow-lg shadow-nx-cyan/25 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> <span data-i18n="form_btn">Enviar Mensagem</span>
-                        </button>
-                        <p id="form-status" class="text-center text-sm text-nx-cyan" role="status" aria-live="polite"></p>
-                    </form>
+                            <div>
+                                <label for="f-msg" data-i18n="form_msg">Mensagem (Mínimo 16 caracteres)</label>
+                                <textarea id="f-msg" name="message" rows="4" minlength="16" maxlength="2000" required></textarea>
+                                <div class="counter" id="msg-counter" aria-hidden="true">0/16</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" style="padding:1rem">
+                                <svg class="ico" aria-hidden="true"><use href="#i-send"/></svg> <span data-i18n="form_btn">Enviar Mensagem</span>
+                            </button>
+                            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                        </form>
 
-                    <div class="flex flex-wrap justify-center gap-4 pt-4 border-t border-white/10">
-                        <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn px-6 py-3 rounded-xl glass-card hover:bg-white/5 text-white font-bold text-xs flex items-center gap-2">
-                            <i class="fa-brands fa-discord text-nx-cyan" aria-hidden="true"></i> <span data-i18n="official_discord">Discord Oficial</span>
-                        </a>
-                        <a href="https://x.com/NeoX351459" target="_blank" rel="noopener noreferrer" class="btn px-6 py-3 rounded-xl glass-card hover:bg-white/5 text-white font-bold text-xs flex items-center gap-2">
-                            <i class="fa-brands fa-x-twitter text-nx-cyan" aria-hidden="true"></i> Twitter / X
-                        </a>
+                        <div class="social-row">
+                            <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                                <svg class="ico" aria-hidden="true"><use href="#i-discord"/></svg> <span data-i18n="official_discord">Discord Oficial</span>
+                            </a>
+                            <a href="https://x.com/NeoX351459" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                                <svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Twitter / X
+                            </a>
+                            <a href="https://www.roblox.com/pt/communities/35039927/Neo-X-Inc#!/about" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                                <svg class="ico" aria-hidden="true"><use href="#i-users"/></svg> <span data-i18n="group_short">Grupo no Roblox</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -789,18 +892,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="relative z-10 glass-card border-t border-white/10 py-8 text-center text-xs text-gray-300" style="border-radius:0">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <img src="assets/neox-logo.png" alt="" width="48" height="48" class="w-12 h-12 rounded-xl object-cover">
-                <span class="font-bold text-white">NeoX Studio</span>
+    <footer class="site-footer glass-card">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/neox-logo.png" alt="" width="48" height="48" loading="lazy" decoding="async" data-guard="logo">
+                <span>NeoX Studio</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://discord.gg/4ACnyKR8HQ" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="https://x.com/NeoX351459" target="_blank" rel="noopener noreferrer">X</a>
+                <a href="https://www.roblox.com/pt/communities/35039927/Neo-X-Inc#!/about" target="_blank" rel="noopener noreferrer">Roblox</a>
             </div>
             <div data-i18n="footer">© 2026 NeoX. Todos os direitos reservados.</div>
         </div>
     </footer>
 
     <script>
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+'use strict';
+
+/* =========================================================
+   0. UTILITÁRIOS
+   ========================================================= */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const store = {
+    get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+const fineMq   = window.matchMedia('(hover: hover) and (pointer: fine)');
+const icon = (name) => `<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-${name}"/></svg>`;
+const esc  = (s) => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 
 /* =========================================================
    1. TRADUÇÕES
@@ -818,12 +940,18 @@ const i18n = {
         about_desc:'A NeoX nasceu para quebrar a monotonia. Nós não fazemos apenas jogos, criamos parques de diversão digitais onde cada pixel, animação e mecânica são pensados para surpreender.',
         feat_1_title:'Gameplay Vibrante', feat_1_desc:'Ação dinâmica e fluida.',
         feat_2_title:'Comunidade Ativa', feat_2_desc:'Ouvimos cada jogador.',
-        feat_3_title:'Updates Constantes', feat_3_desc:'Conteúdo novo toda semana.',
+        feat_3_title:'Updates Frequentes', feat_3_desc:'Sempre trazendo novidades.',
         about_box_title:'Inovação em Cada Detalhe',
         about_box_desc:'Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.',
+        comm_tag:'Faça Parte', comm_title:'Nossa Comunidade',
+        group_title:'Grupo da NeoX no Roblox', group_desc:'Entre no grupo oficial Neo X Inc e acompanhe tudo de perto.',
+        group_btn:'Entrar no grupo', group_short:'Grupo no Roblox', members:'membros',
+        disc_title:'Servidor da Comunidade', disc_desc:'Converse com a galera, tire dúvidas e fique por dentro das novidades no Discord.',
+        disc_btn:'Entrar no servidor', disc_meta:'Discord Community',
         games_tag:'O Que Jogar Agora', games_title:'Nossos Universos',
         games_subtitle:'Explore o portfólio de jogos oficiais desenvolvidos pela NeoX Studio.',
-        badge_live:'Ativo / Lançado', badge_dev:'Em Desenvolvimento', visits:'Visitas',
+        badge_live:'Lançado', badge_dev:'Em desenvolvimento',
+        playing:'jogando', visits:'Visitas', likes:'Curtidas', favs:'Favoritos',
         game_1_desc:'Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.',
         game_2_desc:'Entre na arena e prove seu valor no jogo de ação mais frenético e competitivo do ano.',
         game_3_desc:'Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.',
@@ -841,15 +969,19 @@ const i18n = {
         role_owner:'Proprietário', role_coowner_gd:'Coproprietário & Designer de Jogos', role_gd:'Designer de Jogos',
         role_animator:'Animador', role_modeler:'Modelador', role_vfx:'Artista de VFX', role_ui:'Designer de UI/UX', role_cm:'Gerente da Comunidade',
         profile:'Perfil Roblox',
+        aria_prev:'Desenvolvedor anterior', aria_next:'Próximo desenvolvedor', aria_dots:'Escolher desenvolvedor',
         contact_tag:'Fale Conosco', contact_title:'Pronto para a diversão?',
         contact_subtitle:'Mande uma mensagem, entre no nosso Discord e faça parte da família NeoX!',
         form_name:'Seu Nome', form_email:'Seu E-mail', form_roblox:'Nick do Roblox (Opcional)',
         form_msg:'Mensagem (Mínimo 16 caracteres)', form_btn:'Enviar Mensagem',
+        form_note:'O formulário ainda está sendo configurado. Enquanto isso, fale com a gente pelo Discord!',
         official_discord:'Discord Oficial', footer:'© 2026 NeoX. Todos os direitos reservados.',
         stats_loading:'Carregando dados do Roblox…',
         stats_unavailable:'Dados do Roblox indisponíveis no momento.',
-        stats_updated:t=>`Dados do Roblox atualizados às ${t} · atualização a cada ~30 s`,
+        stats_updated:t=>`Dados do Roblox atualizados às ${t} · atualização a cada ~20 s`,
         sending:'Enviando…', sent:'Mensagem enviada!', send_error:'Não foi possível enviar. Tente novamente.',
+        too_short:'A mensagem precisa ter pelo menos 16 caracteres.', invalid:'Confira os campos e tente novamente.',
+        wait:'Aguarde alguns segundos antes de enviar outra mensagem.',
         aria_menu_open:'Abrir menu', aria_menu_close:'Fechar menu', title:'NeoX Studio | Jogue o Futuro'
     },
     en: {
@@ -864,12 +996,18 @@ const i18n = {
         about_desc:'NeoX was born to break monotony. We don’t just make games, we create digital amusement parks where every pixel, animation and mechanic is designed to surprise.',
         feat_1_title:'Vibrant Gameplay', feat_1_desc:'Dynamic and fluid action.',
         feat_2_title:'Active Community', feat_2_desc:'We listen to every player.',
-        feat_3_title:'Constant Updates', feat_3_desc:'New content every week.',
+        feat_3_title:'Frequent Updates', feat_3_desc:'Always bringing something new.',
         about_box_title:'Innovation in Every Detail',
         about_box_desc:'Our team brings together top talent in UI design, advanced Luau programming, 3D animation and modeling to deliver the highest standard in Roblox Studio.',
+        comm_tag:'Join Us', comm_title:'Our Community',
+        group_title:'NeoX Roblox Group', group_desc:'Join the official Neo X Inc group and follow everything up close.',
+        group_btn:'Join the group', group_short:'Roblox Group', members:'members',
+        disc_title:'Community Server', disc_desc:'Chat with the crew, ask questions and catch every update on Discord.',
+        disc_btn:'Join the server', disc_meta:'Discord Community',
         games_tag:'What To Play Now', games_title:'Our Universes',
         games_subtitle:'Explore the portfolio of official games developed by NeoX Studio.',
-        badge_live:'Live / Released', badge_dev:'In Development', visits:'Visits',
+        badge_live:'Released', badge_dev:'In development',
+        playing:'Playing', visits:'Visits', likes:'Likes', favs:'Favorites',
         game_1_desc:'Explore anime-inspired worlds, defeat enemies and recruit powerful champions.',
         game_2_desc:'Enter the arena and prove your worth in the most frenetic and competitive action game of the year.',
         game_3_desc:'Step into an intense tactical combat, strategy and survival experience in the Roblox ecosystem.',
@@ -887,91 +1025,206 @@ const i18n = {
         role_owner:'Owner', role_coowner_gd:'Co-Owner & Game Designer', role_gd:'Game Designer',
         role_animator:'Animator', role_modeler:'Modeler', role_vfx:'VFX Artist', role_ui:'UI/UX Designer', role_cm:'Community Manager',
         profile:'Roblox Profile',
+        aria_prev:'Previous developer', aria_next:'Next developer', aria_dots:'Choose developer',
         contact_tag:'Get in Touch', contact_title:'Ready for the fun?',
         contact_subtitle:'Send a message, join our Discord and be part of the NeoX family!',
         form_name:'Your Name', form_email:'Your Email', form_roblox:'Roblox Username (Optional)',
         form_msg:'Message (Minimum 16 characters)', form_btn:'Send Message',
+        form_note:'The contact form is still being set up. Meanwhile, reach us on Discord!',
         official_discord:'Official Discord', footer:'© 2026 NeoX. All rights reserved.',
         stats_loading:'Loading Roblox stats…',
         stats_unavailable:'Roblox stats are unavailable right now.',
-        stats_updated:t=>`Roblox stats updated at ${t} · refreshes about every 30 s`,
+        stats_updated:t=>`Roblox stats updated at ${t} · refreshes about every 20 s`,
         sending:'Sending…', sent:'Message sent!', send_error:'Could not send. Please try again.',
+        too_short:'Your message needs at least 16 characters.', invalid:'Please check the fields and try again.',
+        wait:'Please wait a few seconds before sending another message.',
         aria_menu_open:'Open menu', aria_menu_close:'Close menu', title:'NeoX Studio | Play the Future'
     }
 };
 
 function detectLang(){
-    try { const s = localStorage.getItem('neox-lang'); if (s === 'pt' || s === 'en') return s; } catch (e) {}
+    const saved = store.get('neox-lang');
+    if (saved === 'pt' || saved === 'en') return saved;
     return (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en';
 }
 let currentLang = detectLang();
+const tx = k => { const v = i18n[currentLang][k]; return v === undefined ? (i18n.pt[k] || '') : v; };
 let lastSnapshot = null;
 let statsFailed = false;
+let lastGroup = null;
 
 function applyLanguage(lang){
     currentLang = lang;
-    const t = i18n[lang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const v = t[el.dataset.i18n];
-        if (typeof v === 'string') el.textContent = v;
-    });
+    const dict = i18n[lang];
+    $$('[data-i18n]').forEach(el => { const v = dict[el.dataset.i18n]; if (typeof v === 'string') el.textContent = v; });
+    $$('[data-i18n-aria]').forEach(el => { const v = dict[el.dataset.i18nAria]; if (typeof v === 'string') el.setAttribute('aria-label', v); });
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    document.title = t.title;
-    document.getElementById('lang-label').textContent = lang === 'pt' ? 'PT-BR' : 'EN';
+    document.title = dict.title;
+    $('#lang-label').textContent = lang === 'pt' ? 'PT-BR' : 'EN';
     updateMenuLabel();
     renderStatsNote();
-    try { localStorage.setItem('neox-lang', lang); } catch (e) {}
+    $$('.media-placeholder').forEach(p => { p.textContent = dict.media_soon; });
+    store.set('neox-lang', lang);
 }
-document.getElementById('lang-btn').addEventListener('click', () => {
+$('#lang-btn').addEventListener('click', () => {
     applyLanguage(currentLang === 'pt' ? 'en' : 'pt');
     if (lastSnapshot) renderStats(lastSnapshot);
+    if (lastGroup !== null) setNumber('group-members', lastGroup);
 });
 
 /* =========================================================
-   2. MENU MOBILE
+   2. IMAGENS COM FALLBACK VISÍVEL
    ========================================================= */
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
+function guardImg(img, onFail){
+    const run = () => { if (img.dataset.failed) return; img.dataset.failed = '1'; onFail(img); };
+    img.addEventListener('error', run, { once:true });
+    if (img.loading !== 'lazy' && img.complete && img.naturalWidth === 0 && img.getAttribute('src')) run();
+}
+function badgeFallback(img, text){
+    const d = document.createElement('div');
+    d.className = img.className + ' fallback-badge';
+    d.textContent = text;
+    d.setAttribute('aria-hidden', 'true');
+    img.replaceWith(d);
+}
+$$('img[data-guard="logo"]').forEach(img => guardImg(img, el => badgeFallback(el, 'NX')));
+
+/* =========================================================
+   3. RENDERIZAÇÃO DOS DADOS (jogos e equipe)
+   ========================================================= */
+const PLACES = { ap:'96665881849072', cr:'111173250236559', ff:'93233198656969' };
+const GROUP_ID = '35039927';
+
+const GAMES = [
+    { key:'ap', name:'Anime Paradise', img:'assets/anime-paradise.png', status:'live', desc:'game_1_desc',
+      play:'https://www.roblox.com/pt/games/96665881849072/Anime-Paradise', discord:'https://discord.gg/animeparadisee' },
+    { key:'cr', name:'Anime Crash', img:'assets/anime-crash.png', status:'dev', desc:'game_2_desc',
+      play:'https://www.roblox.com/pt/games/111173250236559/Anime-Crash', discord:'https://discord.gg/AnVatTF6GU' },
+    { key:'ff', name:'FREE FIRE MAX', img:'assets/free-fire-max.png', status:'live', desc:'game_3_desc',
+      play:'https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX', discord:null }
+];
+
+const TEAM = [
+    { name:'SasaDev', role:'role_owner',      img:'assets/sasa.png',   rid:'5790284269' },
+    { name:'DaviDev', role:'role_coowner_gd', img:'assets/davi.png',   rid:'1213557895' },
+    { name:'oSein',   role:'role_gd',         img:'assets/osein.png',  rid:'4565735367' },
+    { name:'Slow',    role:'role_animator',   img:'assets/slow.png',   rid:'2620031389' },
+    { name:'Flex',    role:'role_modeler',    img:'assets/flex.png',   rid:'2362898887' },
+    { name:'Oguest',  role:'role_vfx',        img:'assets/oguest.png', rid:'8093384811' },
+    { name:'Reject',  role:'role_ui',         img:'assets/reject.png', rid:null },
+    { name:'Moon',    role:'role_cm',         img:'assets/moon.png',   rid:'1587723048' }
+];
+
+function toElement(html){
+    const tpl = document.createElement('template');
+    tpl.innerHTML = html.trim();
+    return tpl.content.firstElementChild;
+}
+
+function gameCard(g){
+    const live = g.status === 'live';
+    const el = toElement(`
+    <article class="game-card glass-card tilt" data-reveal data-game="${g.key}">
+        <div class="game-cover" data-name="${esc(g.name)}">
+            <img src="${g.img}" alt="${esc(g.name)}" width="600" height="300" loading="lazy" decoding="async">
+            <div class="cover-shade"></div>
+            <span class="status-chip ${live ? 'is-live' : 'is-dev'}"><i></i><span data-i18n="${live ? 'badge_live' : 'badge_dev'}">${tx(live ? 'badge_live' : 'badge_dev')}</span></span>
+            <span class="live-pill is-zero" id="${g.key}-pill"><i class="live-dot"></i><b id="${g.key}-players">—</b><span data-i18n="playing">${tx('playing')}</span></span>
+        </div>
+        <div class="game-body">
+            <h3>${esc(g.name)}</h3>
+            <p data-i18n="${g.desc}">${tx(g.desc)}</p>
+            <dl class="game-metrics">
+                <div class="metric"><dt>${icon('eye')}<span data-i18n="visits">${tx('visits')}</span></dt><dd id="${g.key}-visits">—</dd></div>
+                <div class="metric"><dt>${icon('heart')}<span data-i18n="likes">${tx('likes')}</span></dt><dd id="${g.key}-likes">—</dd></div>
+                <div class="metric"><dt>${icon('star')}<span data-i18n="favs">${tx('favs')}</span></dt><dd id="${g.key}-favs">—</dd></div>
+            </dl>
+        </div>
+        <div class="game-actions">
+            <a class="btn ${live ? 'btn-primary' : 'btn-outline'} btn-block" href="${g.play}" target="_blank" rel="noopener noreferrer">
+                ${icon(live ? 'play' : 'code')}<span data-i18n="${live ? 'btn_play' : 'btn_preview'}">${tx(live ? 'btn_play' : 'btn_preview')}</span>
+            </a>
+            ${g.discord
+                ? `<a class="btn btn-ghost btn-sm btn-block" href="${g.discord}" target="_blank" rel="noopener noreferrer">${icon('discord')}<span data-i18n="game_discord">${tx('game_discord')}</span></a>`
+                : `<button type="button" class="btn btn-ghost btn-sm btn-block" disabled aria-disabled="true">${icon('discord')}<span data-i18n="discord_soon">${tx('discord_soon')}</span></button>`}
+        </div>
+    </article>`);
+    const img = $('img', el);
+    guardImg(img, i => { i.style.display = 'none'; i.parentElement.classList.add('no-img'); });
+    return el;
+}
+function renderGames(){
+    const grid = $('#games-grid');
+    GAMES.forEach(g => grid.appendChild(gameCard(g)));
+}
+
+function teamCard(m){
+    const el = toElement(`
+    <article class="team-card glass-card">
+        <div>
+            <div class="team-avatar"><img src="${m.img}" alt="${esc(m.name)}" width="380" height="256" loading="lazy" decoding="async" draggable="false"></div>
+            <h3>${esc(m.name)}</h3>
+            <p class="team-role" data-i18n="${m.role}">${tx(m.role)}</p>
+        </div>
+        <div class="team-foot">${m.rid
+            ? `<a class="team-link" href="https://www.roblox.com/users/${m.rid}/profile" target="_blank" rel="noopener noreferrer">${icon('external')}<span data-i18n="profile">${tx('profile')}</span></a>`
+            : ''}</div>
+    </article>`);
+    guardImg($('img', el), img => {
+        const d = document.createElement('div');
+        d.className = 'fallback-badge';
+        d.textContent = m.name.slice(0, 2).toUpperCase();
+        d.setAttribute('aria-hidden', 'true');
+        img.replaceWith(d);
+    });
+    return el;
+}
+
+/* =========================================================
+   4. MENU MOBILE
+   ========================================================= */
+const menuBtn = $('#menu-btn');
+const mobileMenu = $('#mobile-menu');
+const menuIconUse = $('#menu-icon use');
 function updateMenuLabel(){
     const open = menuBtn.getAttribute('aria-expanded') === 'true';
     menuBtn.setAttribute('aria-label', open ? i18n[currentLang].aria_menu_close : i18n[currentLang].aria_menu_open);
 }
 function setMenu(open){
-    mobileMenu.classList.toggle('hidden', !open);
+    mobileMenu.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    menuIconUse.setAttribute('href', open ? '#i-close' : '#i-menu');
     updateMenuLabel();
 }
 menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+$$('a', mobileMenu).forEach(a => a.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+document.addEventListener('click', e => { if (menuBtn.getAttribute('aria-expanded') === 'true' && !e.target.closest('#site-header')) setMenu(false); });
 window.matchMedia('(min-width:768px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
 /* =========================================================
-   3. PULSO NO CLIQUE DO MENU
+   5. PULSO NO MENU, PROGRESSO, LINK ATIVO E HEADER
    ========================================================= */
-document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
-    const section = document.querySelector(link.getAttribute('href'));
-    link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival');
+$$('header nav a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+    const section = $(link.getAttribute('href'));
+    link.classList.remove('nav-click-pulse'); if (section) section.classList.remove('section-arrival');
     void link.offsetWidth;
-    link.classList.add('nav-click-pulse'); section?.classList.add('section-arrival');
-    setTimeout(() => { link.classList.remove('nav-click-pulse'); section?.classList.remove('section-arrival'); }, 850);
+    link.classList.add('nav-click-pulse'); if (section) section.classList.add('section-arrival');
+    setTimeout(() => { link.classList.remove('nav-click-pulse'); if (section) section.classList.remove('section-arrival'); }, 850);
 }));
 
-/* =========================================================
-   4. PROGRESSO DE ROLAGEM + LINK ATIVO NO MENU
-   ========================================================= */
 (function(){
-    const bar = document.getElementById('scroll-progress');
-    const links = Array.from(document.querySelectorAll('.nav-link'));
-    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const bar = $('#scroll-progress');
+    const header = $('#site-header');
+    const links = $$('.nav-link');
+    const sections = links.map(a => $(a.getAttribute('href'))).filter(Boolean);
     let ticking = false;
     function update(){
         ticking = false;
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
         bar.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+        header.classList.toggle('scrolled', window.scrollY > 24);
         let current = sections[0] ? sections[0].id : '';
         sections.forEach(s => { if (s.getBoundingClientRect().top <= window.innerHeight * .35) current = s.id; });
         if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4 && sections.length) current = sections[sections.length - 1].id;
@@ -983,36 +1236,41 @@ document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEve
 })();
 
 /* =========================================================
-   5. REVEAL AO ROLAR (o hero tem animação de entrada própria)
+   6. REVELAR AO ROLAR (com escalonamento)
    ========================================================= */
-(function(){
-    const targets = document.querySelectorAll('main section:not(#home) > div');
-    if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
+function initReveal(){
+    $$('[data-stagger]').forEach(parent => {
+        Array.from(parent.children).forEach((child, i) => {
+            if (child.hasAttribute('data-reveal')) child.style.setProperty('--d', Math.min(i, 6) * 90 + 'ms');
+        });
+    });
+    const targets = $$('[data-reveal]');
+    const showAll = () => targets.forEach(el => { el.classList.add('in'); el.removeAttribute('data-reveal'); });
+    if (reduceMq.matches || !('IntersectionObserver' in window)){ showAll(); return; }
     let io;
     try {
         io = new IntersectionObserver(entries => entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             const el = entry.target;
-            el.classList.add('is-visible');
             io.unobserve(el);
-            setTimeout(() => { el.classList.remove('reveal', 'is-visible'); el.style.transitionDelay = ''; }, 1500);
-        }), { threshold: .05 });
-    } catch (e) { return; }
-    targets.forEach((el, i) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = Math.min(i % 4, 3) * 75 + 'ms';
-        io.observe(el);
-    });
-    // Rede de segurança: se algo impedir o observer de disparar, nada fica invisível
-    setTimeout(() => targets.forEach(el => el.classList.add('is-visible')), 4000);
-})();
+            el.classList.add('in');
+            el.addEventListener('animationend', function done(ev){
+                if (ev.target !== el || ev.animationName !== 'reveal-in') return;
+                el.removeEventListener('animationend', done);
+                el.removeAttribute('data-reveal'); el.classList.remove('in'); el.style.removeProperty('--d');
+            });
+        }), { threshold:.06, rootMargin:'0px 0px -5% 0px' });
+    } catch (e) { showAll(); return; }
+    targets.forEach(el => io.observe(el));
+}
 
 /* =========================================================
-   6. PARTÍCULAS (maioria ciano, rosa bem raro)
+   7. PARTÍCULAS (maioria ciano, rosa bem raro)
    ========================================================= */
 (function(){
-    const canvas = document.getElementById('particle-canvas');
+    const canvas = $('#particle-canvas');
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     const colors = ['rgba(53,196,229,.32)', 'rgba(0,229,255,.24)', 'rgba(53,196,229,.22)', 'rgba(244,91,155,.16)'];
     let w = 0, h = 0, particles = [], raf = null;
 
@@ -1027,7 +1285,7 @@ document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEve
         w = window.innerWidth; h = window.innerHeight;
         canvas.width = w * dpr; canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const count = w < 640 ? 30 : 60;
+        const count = w < 640 ? 20 : 48;
         while (particles.length < count) particles.push(make());
         particles.length = count;
         particles.forEach(p => { p.x = Math.min(p.x, w); p.y = Math.min(p.y, h); });
@@ -1038,39 +1296,88 @@ document.querySelectorAll('header nav a[href^="#"]').forEach(link => link.addEve
             p.x += p.vx; p.y += p.vy;
             if (p.x < 0 || p.x > w) p.vx *= -1;
             if (p.y < 0 || p.y > h) p.vy *= -1;
-            ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+            ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2); ctx.fill();
         }
     }
     function loop(){ draw(); raf = requestAnimationFrame(loop); }
-    function start(){ if (raf || prefersReduced.matches) return; loop(); }
+    function start(){ if (raf || reduceMq.matches) return; loop(); }
     function stop(){ if (raf) cancelAnimationFrame(raf); raf = null; }
 
     resize();
     let lastW = window.innerWidth;
     window.addEventListener('resize', () => {
-        if (window.innerWidth === lastW) return;
-        lastW = window.innerWidth; resize(); if (prefersReduced.matches) draw();
+        if (window.innerWidth === lastW) return;   // evita recriar ao esconder/mostrar a barra do navegador no mobile
+        lastW = window.innerWidth; resize(); if (reduceMq.matches) draw();
     }, { passive:true });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    prefersReduced.addEventListener('change', () => { stop(); prefersReduced.matches ? draw() : start(); });
-    prefersReduced.matches ? draw() : start();
+    reduceMq.addEventListener('change', () => { stop(); reduceMq.matches ? draw() : start(); });
+    reduceMq.matches ? draw() : start();
 })();
 
 /* =========================================================
-   7. MÍDIA: vídeos mudos em loop (tipo GIF) + arquivos faltando
+   8. EFEITOS DE PONTEIRO (brilho, spotlight, inclinação 3D, ripple)
+   ========================================================= */
+(function(){
+    document.addEventListener('pointerdown', e => {
+        const b = e.target.closest ? e.target.closest('.btn') : null;
+        if (!b || b.disabled || reduceMq.matches) return;
+        const r = b.getBoundingClientRect();
+        const s = Math.max(r.width, r.height) * 2;
+        const sp = document.createElement('span');
+        sp.className = 'ripple';
+        sp.style.cssText = `width:${s}px;height:${s}px;left:${e.clientX - r.left - s / 2}px;top:${e.clientY - r.top - s / 2}px`;
+        b.appendChild(sp);
+        sp.addEventListener('animationend', () => sp.remove());
+    }, { passive:true });
+
+    if (!fineMq.matches) return;
+    const glow = $('#cursor-glow');
+    let px = 0, py = 0, target = null, raf = 0, tilted = null;
+
+    function resetTilt(){
+        if (!tilted) return;
+        tilted.style.setProperty('--rx', '0deg'); tilted.style.setProperty('--ry', '0deg');
+        tilted = null;
+    }
+    function frame(){
+        raf = 0;
+        glow.style.transform = `translate3d(${px}px,${py}px,0)`;
+        const card = target && target.closest ? target.closest('.glass-card') : null;
+        if (tilted && tilted !== card) resetTilt();
+        if (!card) return;
+        const r = card.getBoundingClientRect();
+        const x = px - r.left, y = py - r.top;
+        card.style.setProperty('--mx', x + 'px');
+        card.style.setProperty('--my', y + 'px');
+        if (card.classList.contains('tilt') && !reduceMq.matches){
+            card.style.setProperty('--ry', ((x / r.width - .5) * 8).toFixed(2) + 'deg');
+            card.style.setProperty('--rx', ((.5 - y / r.height) * 6).toFixed(2) + 'deg');
+            tilted = card;
+        }
+    }
+    document.addEventListener('pointermove', e => {
+        if (e.pointerType !== 'mouse') return;
+        px = e.clientX; py = e.clientY; target = e.target;
+        glow.style.opacity = '1';
+        if (!raf) raf = requestAnimationFrame(frame);
+    }, { passive:true });
+    document.documentElement.addEventListener('mouseleave', () => { glow.style.opacity = '0'; resetTilt(); });
+})();
+
+/* =========================================================
+   9. MÍDIA: vídeos em loop contínuo (igual a um GIF) + arquivos faltando
    ========================================================= */
 function showMediaPlaceholder(el){
     if (el.dataset.missing) return;
     el.dataset.missing = '1';
     const ph = document.createElement('div');
     ph.className = 'media-placeholder';
-    ph.setAttribute('data-i18n', 'media_soon');
-    ph.textContent = i18n[currentLang].media_soon;
+    ph.textContent = tx('media_soon');
     el.style.display = 'none';
     el.parentNode.insertBefore(ph, el);
 }
 
-document.querySelectorAll('img[data-fallbacks]').forEach(img => {
+$$('img[data-fallbacks]').forEach(img => {
     const queue = img.dataset.fallbacks.split(',').map(s => s.trim()).filter(Boolean);
     const tried = [img.getAttribute('src')];
     function next(){
@@ -1079,73 +1386,125 @@ document.querySelectorAll('img[data-fallbacks]').forEach(img => {
         else { console.warn('[NeoX] Imagem não encontrada. Caminhos testados:', tried); showMediaPlaceholder(img); }
     }
     img.addEventListener('error', next);
-    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) next();
 });
+$$('.media-frame img:not([data-fallbacks])').forEach(img => img.addEventListener('error', () => showMediaPlaceholder(img), { once:true }));
 
 (function(){
-    const videos = Array.from(document.querySelectorAll('video.loop-video'));
+    const videos = $$('video.loop-video');
     if (!videos.length) return;
-    const waiting = new Set();
+    const near = new Set();       // vídeos perto da tela (devem estar sempre tocando)
+    const waiting = new Set();    // vídeos que o navegador bloqueou até o primeiro toque
+
+    function tryPlay(v){
+        const p = v.play();
+        if (p && p.catch) p.then(() => waiting.delete(v)).catch(() => waiting.add(v));
+    }
+    function wake(v){
+        near.add(v);
+        if (v.preload !== 'auto') v.preload = 'auto';
+        tryPlay(v);
+    }
 
     videos.forEach(v => {
-        v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
-        v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-        v.controls = false;
-        const sources = v.querySelectorAll('source');
+        v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true; v.controls = false;
+        v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
+        v.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback');
+        v.disablePictureInPicture = true;
+        v.addEventListener('contextmenu', e => e.preventDefault());
+        v.addEventListener('loadeddata', () => v.classList.add('ready'));
+        v.addEventListener('canplay', () => { v.classList.add('ready'); if (near.has(v) && v.paused) tryPlay(v); });
+        // Se algo pausar o vídeo (sistema, aba, bateria), ele volta sozinho: nunca fica parado
+        v.addEventListener('pause', () => { if (near.has(v) && !document.hidden && !v.ended) setTimeout(() => { if (near.has(v) && v.paused) tryPlay(v); }, 150); });
+        v.addEventListener('ended', () => { v.currentTime = 0; tryPlay(v); });
+
+        const sources = $$('source', v);
         const last = sources[sources.length - 1];
-        const paths = Array.from(sources).map(s => s.getAttribute('src'));
+        const paths = sources.map(s => s.getAttribute('src'));
         if (last) last.addEventListener('error', () => {
             console.warn('[NeoX] Vídeo não carregou. Caminhos testados:', paths);
-            showMediaPlaceholder(v);
+            near.delete(v); showMediaPlaceholder(v);
         });
-        if (prefersReduced.matches) v.controls = true;
     });
-    if (prefersReduced.matches || !('IntersectionObserver' in window)) return;
 
-    const io = new IntersectionObserver(entries => entries.forEach(e => {
-        const v = e.target;
-        if (e.isIntersecting){
-            const p = v.play();
-            if (p && p.catch) p.catch(() => waiting.add(v));
-        } else { v.pause(); waiting.delete(v); }
-    }), { threshold: .25 });
-    videos.forEach(v => io.observe(v));
+    if ('IntersectionObserver' in window){
+        // margem grande: o vídeo começa a carregar/tocar bem antes de aparecer, sem delay ao rolar
+        const io = new IntersectionObserver(entries => entries.forEach(e => {
+            const v = e.target;
+            if (e.isIntersecting) wake(v);
+            else { near.delete(v); waiting.delete(v); v.pause(); }
+        }), { rootMargin:'1400px 0px', threshold:0 });
+        videos.forEach(v => io.observe(v));
+    } else {
+        videos.forEach(wake);
+    }
 
-    ['touchstart','pointerdown','keydown','scroll'].forEach(ev =>
-        window.addEventListener(ev, () => { waiting.forEach(v => v.play().catch(()=>{})); waiting.clear(); }, { passive:true }));
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) near.forEach(v => { if (v.paused) tryPlay(v); }); });
+    ['touchstart','pointerdown','keydown','click'].forEach(ev =>
+        window.addEventListener(ev, () => { waiting.forEach(v => tryPlay(v)); }, { passive:true }));
+    window.addEventListener('pageshow', () => near.forEach(v => { if (v.paused) tryPlay(v); }));
 })();
 
 /* =========================================================
-   8. ESTATÍSTICAS DO ROBLOX (tempo real) + CONTAGEM ANIMADA
-      Ordem: (1) ao vivo via RoProxy  (2) roblox-stats.json  (3) último valor salvo
+   10. ESTATÍSTICAS DO ROBLOX (tempo real) + CONTAGEM ANIMADA
+       Ordem: (1) ao vivo via proxy  (2) roblox-stats.json  (3) último valor salvo
+       Cada número é mesclado: se uma fonte falha, mantém o último valor bom.
+       DICA: gere roblox-stats.json automaticamente (GitHub Action a cada 5 min) para não depender só de proxies:
+         on: { schedule: [{cron: '*/5 * * * *'}] } -> busca games.roblox.com e faz commit do JSON com o formato abaixo
+         { "updatedAt": "ISO", "games": { "ap": {playing,visits,favorites,likes}, "cr": {...}, "ff": {...} } }
    ========================================================= */
-const PLACES = { ap:'96665881849072', cr:'111173250236559', ff:'93233198656969' };
-const STATS_INTERVAL = 30000;
-let statsTimer = null;
+const STATS_INTERVAL = 20000;
+const JSON_RETRY = 5 * 60 * 1000;
+const API_HOSTS = ['roproxy.com', 'rprxy.xyz'];
+const FIELDS = ['playing', 'visits', 'favorites', 'likes'];
+const apiUrls = (sub, path) => API_HOSTS.map(h => `https://${sub}.${h}${path}`);
+const bust = () => Math.floor(Date.now() / 10000);
+let statsTimer = null, lastJsonTry = 0, groupTick = 0;
 
-async function fetchJSON(url, timeout = 8000){
+async function fetchJSON(url, timeout = 8000, noCache = false){
     const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), timeout);
-    try{
-        const r = await fetch(url, { signal: ctrl.signal, cache:'no-cache' });
+    const tm = setTimeout(() => ctrl.abort(), timeout);
+    try {
+        const r = await fetch(url, noCache ? { signal:ctrl.signal, cache:'no-cache' } : { signal:ctrl.signal });
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return await r.json();
-    } finally { clearTimeout(t); }
+    } finally { clearTimeout(tm); }
+}
+async function fetchAny(urls, timeout){
+    let last;
+    for (const u of urls){
+        try { return await fetchJSON(u, timeout); } catch (e) { last = e; }
+    }
+    throw last || new Error('sem fontes');
 }
 const num = v => (v == null || v === '' || !Number.isFinite(Number(v))) ? null : Number(v);
+
+function mergeSnap(...snaps){
+    const out = { updatedAt:null, games:{} };
+    for (const s of snaps){
+        if (!s || !s.games) continue;
+        for (const key of Object.keys(PLACES)){
+            const rec = s.games[key] || {};
+            const o = out.games[key] = out.games[key] || {};
+            for (const f of FIELDS){ const v = num(rec[f]); if (v !== null) o[f] = v; }
+        }
+        if (s.updatedAt) out.updatedAt = s.updatedAt;
+    }
+    return out;
+}
 function hasData(s){
     if (!s || !s.games) return false;
-    return Object.values(s.games).some(g => g && (num(g.playing) !== null || num(g.visits) !== null));
+    return Object.values(s.games).some(g => g && FIELDS.some(f => num(g[f]) !== null));
 }
-const UNIVERSE_CACHE_KEY = 'neox-universes-v2';
-const UNIVERSE_CACHE_TTL = 3 * 24 * 60 * 60 * 1000;
+function isComplete(s){
+    if (!s || !s.games) return false;
+    return Object.keys(PLACES).every(k => s.games[k] && FIELDS.every(f => num(s.games[k][f]) !== null));
+}
 
+const UNIVERSE_CACHE_KEY = 'neox-universes-v2';
+const UNIVERSE_CACHE_TTL = 30 * 24 * 60 * 60 * 1000;
 function loadUniverseCache(){
-    try {
-        localStorage.removeItem('neox-universes');
-        const raw = JSON.parse(localStorage.getItem(UNIVERSE_CACHE_KEY) || 'null');
-        if (raw && raw.savedAt && Date.now() - raw.savedAt < UNIVERSE_CACHE_TTL && raw.ids) return raw.ids;
-    } catch (e) {}
+    const raw = store.get(UNIVERSE_CACHE_KEY);
+    if (raw && raw.savedAt && Date.now() - raw.savedAt < UNIVERSE_CACHE_TTL && raw.ids) return raw.ids;
     return {};
 }
 async function resolveUniverses(){
@@ -1153,79 +1512,96 @@ async function resolveUniverses(){
     let changed = false;
     await Promise.all(Object.values(PLACES).map(async place => {
         if (cache[place]) return;
-        try{
-            const d = await fetchJSON(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
+        try {
+            const d = await fetchAny(apiUrls('apis', `/universes/v1/places/${place}/universe`));
             if (d && d.universeId){ cache[place] = d.universeId; changed = true; }
         } catch (e) { console.warn('[NeoX] universo não resolvido para place', place, e.message); }
     }));
-    if (changed){
-        try { localStorage.setItem(UNIVERSE_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), ids: cache })); } catch (e) {}
-    }
+    if (changed) store.set(UNIVERSE_CACHE_KEY, { savedAt:Date.now(), ids:cache });
     return cache;
+}
+// Curtidas: tenta em lote; se falhar, tenta um universo por vez
+async function fetchVotes(ids){
+    try {
+        const d = await fetchAny(apiUrls('games', `/v1/games/votes?universeIds=${ids.join(',')}&_=${bust()}`));
+        const rows = d && d.data ? d.data : [];
+        if (rows.length) return rows;
+        throw new Error('votos vazios');
+    } catch (firstErr){
+        const out = [];
+        await Promise.all(ids.map(async id => {
+            try {
+                const d = await fetchAny(apiUrls('games', `/v1/games/votes?universeIds=${id}&_=${bust()}`));
+                (d.data || []).forEach(x => out.push(x));
+            } catch (e) {}
+        }));
+        if (!out.length) throw firstErr;
+        return out;
+    }
 }
 async function fetchLive(){
     const uni = await resolveUniverses();
     const ids = Object.values(PLACES).map(p => uni[p]).filter(Boolean);
     if (!ids.length) throw new Error('nenhum universeId resolvido');
-    const list = ids.join(',');
     const [gamesRes, votesRes] = await Promise.allSettled([
-        fetchJSON(`https://games.roproxy.com/v1/games?universeIds=${list}`),
-        fetchJSON(`https://games.roproxy.com/v1/games/votes?universeIds=${list}`)
+        fetchAny(apiUrls('games', `/v1/games?universeIds=${ids.join(',')}&_=${bust()}`)),
+        fetchVotes(ids)
     ]);
-    if (gamesRes.status !== 'fulfilled') throw gamesRes.reason;
+    if (gamesRes.status !== 'fulfilled' && votesRes.status !== 'fulfilled') throw gamesRes.reason;
+    if (gamesRes.status !== 'fulfilled') console.warn('[NeoX] dados dos jogos indisponíveis:', gamesRes.reason && gamesRes.reason.message);
     if (votesRes.status !== 'fulfilled') console.warn('[NeoX] curtidas indisponíveis:', votesRes.reason && votesRes.reason.message);
     const byId = {}, votes = {};
-    (gamesRes.value.data || []).forEach(g => { byId[g.id] = g; });
-    if (votesRes.status === 'fulfilled') (votesRes.value.data || []).forEach(v => { votes[v.id] = v; });
+    if (gamesRes.status === 'fulfilled') (gamesRes.value.data || []).forEach(g => { byId[g.id] = g; });
+    if (votesRes.status === 'fulfilled') votesRes.value.forEach(v => { votes[v.id] = v; });
     const games = {};
     for (const [key, place] of Object.entries(PLACES)){
-        const id = uni[place], g = byId[id];
-        games[key] = g ? {
-            playing:g.playing, visits:g.visits, favorites:g.favoritedCount,
-            likes: votes[id] ? votes[id].upVotes : null
-        } : {};
+        const id = uni[place], g = byId[id], v = votes[id];
+        games[key] = {
+            playing: g ? g.playing : null,
+            visits: g ? g.visits : null,
+            favorites: g ? g.favoritedCount : null,
+            likes: v ? v.upVotes : null
+        };
     }
     return { updatedAt:new Date().toISOString(), games };
 }
-function loadCachedStats(){
-    try { return JSON.parse(localStorage.getItem('neox-stats') || 'null'); } catch (e) { return null; }
-}
 
-function fitStatNumbers(){
-    document.querySelectorAll('.stat-number').forEach(node => {
-        const len = Math.max(1, (node.dataset.fitText || node.textContent).trim().length);
-        const inner = Math.max(0, node.parentElement.clientWidth - 48);
-        node.style.fontSize = Math.max(18, Math.min(40, inner / (len * .62))) + 'px';
-    });
+const fmtCache = {};
+function fmtNum(n, compact){
+    const loc = currentLang === 'pt' ? 'pt-BR' : 'en-US';
+    const key = loc + (compact ? 'c' : 'n');
+    if (!fmtCache[key]) fmtCache[key] = new Intl.NumberFormat(loc, compact ? { notation:'compact', maximumFractionDigits:1 } : {});
+    return fmtCache[key].format(n);
 }
-let fitQueued = false;
-function scheduleFit(){ if (fitQueued) return; fitQueued = true; requestAnimationFrame(() => { fitQueued = false; fitStatNumbers(); }); }
-
 // Anima o número de onde ele estava até o novo valor (começa do 0 na primeira vez)
-function setNumber(id, value){
+function setNumber(id, value, opts){
     const el = document.getElementById(id);
     if (!el) return;
-    const fmt = n => new Intl.NumberFormat(currentLang === 'pt' ? 'pt-BR' : 'en-US').format(n);
+    const compact = !!(opts && opts.compact);
+    const isBig = el.classList.contains('stat-number');
     cancelAnimationFrame(el._raf);
-    if (value === null || value === undefined){ el.textContent = '—'; el.dataset.value = ''; delete el.dataset.fitText; scheduleFit(); return; }
+    if (value === null || value === undefined){
+        el.textContent = '—'; el.dataset.value = '';
+        if (isBig) el.classList.add('is-loading');
+        return;
+    }
+    el.classList.remove('is-loading');
+    if (isBig) el.style.setProperty('--len', String(fmtNum(value, compact).length));
     const from = el.dataset.value ? Number(el.dataset.value) : 0;
     el.dataset.value = String(value);
-    if (prefersReduced.matches || from === value){ el.textContent = fmt(value); delete el.dataset.fitText; scheduleFit(); return; }
-    // Ajusta a fonte uma vez para o valor final, evitando medir o layout a cada frame
-    el.dataset.fitText = fmt(value);
-    scheduleFit();
+    if (reduceMq.matches || from === value){ el.textContent = fmtNum(value, compact); return; }
     const start = performance.now(), dur = 1100;
     function tick(now){
         const t = Math.min(1, (now - start) / dur);
         const e = 1 - Math.pow(1 - t, 3);
-        el.textContent = fmt(Math.round(from + (value - from) * e));
+        el.textContent = fmtNum(Math.round(from + (value - from) * e), compact);
         if (t < 1) el._raf = requestAnimationFrame(tick);
     }
     el._raf = requestAnimationFrame(tick);
 }
 
 function renderStatsNote(){
-    const note = document.getElementById('roblox-stats-updated');
+    const note = $('#roblox-stats-updated');
     if (!note) return;
     const t = i18n[currentLang];
     if (lastSnapshot && lastSnapshot.updatedAt){
@@ -1243,7 +1619,11 @@ function renderStats(snapshot){
         const rec = (snapshot.games && snapshot.games[key]) || {};
         const p = num(rec.playing), v = num(rec.visits), l = num(rec.likes), f = num(rec.favorites);
         setNumber(`${key}-players`, p);
-        setNumber(`${key}-visits`, v);
+        setNumber(`${key}-visits`, v, { compact:true });
+        setNumber(`${key}-likes`, l, { compact:true });
+        setNumber(`${key}-favs`, f, { compact:true });
+        const pill = document.getElementById(`${key}-pill`);
+        if (pill) pill.classList.toggle('is-zero', !p);
         if (p !== null){ pT += p; hp = true; }
         if (v !== null){ vT += v; hv = true; }
         if (l !== null){ lT += l; hl = true; }
@@ -1257,179 +1637,246 @@ function renderStats(snapshot){
 async function refreshRobloxStats(){
     clearTimeout(statsTimer);
     if (!document.hidden){
-        let snap = null;
-        try { snap = await fetchLive(); } catch (e) { console.warn('[NeoX] Stats ao vivo falharam:', e.message || e); }
-        if (!hasData(snap)){
+        const base = lastSnapshot || store.get('neox-stats');
+        let live = null;
+        try { live = await fetchLive(); } catch (e) { console.warn('[NeoX] Stats ao vivo falharam:', e.message || e); }
+        let merged = mergeSnap(base, live);
+        if (!isComplete(merged) && Date.now() - lastJsonTry > JSON_RETRY){
+            lastJsonTry = Date.now();
             try {
-                const s = await fetchJSON(new URL('roblox-stats.json', document.baseURI).href);
-                if (hasData(s)) snap = s;
+                const j = await fetchJSON(new URL('roblox-stats.json', document.baseURI).href, 8000, true);
+                merged = mergeSnap(j, base, live);   // o JSON só preenche o que falta; ao vivo sempre vence
             } catch (e) { console.warn('[NeoX] roblox-stats.json falhou:', e.message || e); }
         }
-        if (hasData(snap)){
-            try { localStorage.setItem('neox-stats', JSON.stringify(snap)); } catch (e) {}
+        if (hasData(merged)){
+            store.set('neox-stats', merged);
+            lastSnapshot = merged; statsFailed = false; renderStats(merged);
         } else {
-            snap = loadCachedStats();
+            statsFailed = true; renderStats({ games:{} });
         }
-        if (hasData(snap)){ lastSnapshot = snap; statsFailed = false; renderStats(snap); }
-        else { statsFailed = true; renderStats({ games:{} }); }
         renderStatsNote();
+        if (++groupTick % 15 === 1) refreshGroup();
     }
     statsTimer = setTimeout(refreshRobloxStats, STATS_INTERVAL);
 }
+async function refreshGroup(){
+    try {
+        const d = await fetchAny(apiUrls('groups', `/v1/groups/${GROUP_ID}`));
+        const n = num(d && d.memberCount);
+        if (n !== null){ lastGroup = n; store.set('neox-group', n); setNumber('group-members', n); return; }
+    } catch (e) { console.warn('[NeoX] grupo indisponível:', e.message || e); }
+    if (lastGroup === null){
+        const c = num(store.get('neox-group'));
+        if (c !== null){ lastGroup = c; setNumber('group-members', c); }
+    }
+}
 document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshRobloxStats(); });
-window.addEventListener('resize', fitStatNumbers, { passive:true });
 
 /* =========================================================
-   9. CARROSSEL DA EQUIPE (infinito)
+   11. CARROSSEL DA EQUIPE (ciclo infinito nos dois sentidos)
+       Sasa → … → Moon → Sasa → … (e o contrário também)
    ========================================================= */
-(function(){
-    const track = document.getElementById('team-carousel');
-    const viewport = document.getElementById('team-carousel-viewport');
-    if (!track || !viewport) return;
-    const originals = Array.from(track.querySelectorAll('.team-card'));
-    const total = originals.length;
-    if (total < 2) return;
-    const dotsRoot = document.getElementById('team-dots');
-    const status = document.getElementById('team-carousel-status');
+function initCarousel(){
+    const track = $('#team-carousel');
+    const viewport = $('#team-viewport');
+    const dotsRoot = $('#team-dots');
+    const status = $('#team-status');
+    const N = TEAM.length;
+    if (!track || !viewport || N < 2) return;
 
-    function clone(card){
-        const c = card.cloneNode(true);
-        c.classList.add('team-card-clone'); c.setAttribute('aria-hidden','true'); c.setAttribute('inert',''); c.inert = true;
-        c.querySelectorAll('a,button').forEach(el => el.setAttribute('tabindex','-1'));
-        return c;
+    // 3 conjuntos: [cópia][originais][cópia]. Sempre há vizinhos visíveis, em qualquer largura de tela.
+    for (let s = 0; s < 3; s++){
+        TEAM.forEach(m => {
+            const el = teamCard(m);
+            if (s !== 1){
+                el.setAttribute('aria-hidden', 'true');
+                $$('a', el).forEach(a => a.setAttribute('tabindex', '-1'));
+            }
+            track.appendChild(el);
+        });
     }
-    track.insertBefore(clone(originals[total-1]), originals[0]);
-    track.appendChild(clone(originals[0]));
-    const cards = Array.from(track.querySelectorAll('.team-card'));
+    const cards = Array.from(track.children);
+    const mod = (n, m) => ((n % m) + m) % m;
+    let idx = N, settleTimer = null, drag = null, justDragged = false;
 
-    let physical = 1, logical = 0, locked = false, startX = null, lockTimer = null;
-
-    const dots = originals.map((card, i) => {
+    const dots = TEAM.map((m, i) => {
         const d = document.createElement('button');
-        d.type = 'button'; d.className = 'team-dot'; d.setAttribute('aria-current','false');
-        d.setAttribute('aria-label', `${i+1}: ${card.querySelector('h3')?.textContent.trim() || 'Dev'}`);
-        d.addEventListener('click', () => moveTo(i + 1));
+        d.type = 'button'; d.className = 'team-dot'; d.setAttribute('aria-current', 'false');
+        d.setAttribute('aria-label', `${i + 1}: ${m.name}`);
+        d.addEventListener('click', () => {
+            let delta = i - mod(idx, N);
+            if (delta > N / 2) delta -= N;
+            if (delta < -N / 2) delta += N;
+            goTo(idx + delta);
+        });
         dotsRoot.appendChild(d);
         return d;
     });
 
-    function setPosition(i){
+    function offsetFor(i){
         const c = cards[i];
-        track.style.transform = `translate3d(${viewport.clientWidth/2 - (c.offsetLeft + c.offsetWidth/2)}px,0,0)`;
+        return viewport.clientWidth / 2 - (c.offsetLeft + c.offsetWidth / 2);
     }
-    function paint(i){
-        physical = i;
-        logical = i === 0 ? total - 1 : i === total + 1 ? 0 : i - 1;
-        cards.forEach((c, k) => c.classList.toggle('is-active', k === physical));
-        dots.forEach((d, k) => d.setAttribute('aria-current', k === logical ? 'true' : 'false'));
-        if (status) status.textContent = `${logical + 1} / ${total}`;
+    function place(animate, extra){
+        track.style.transition = animate ? '' : 'none';
+        track.style.transform = `translate3d(${offsetFor(idx) + (extra || 0)}px,0,0)`;
     }
+    function paint(){
+        cards.forEach((c, k) => c.classList.toggle('is-active', k === idx));
+        const l = mod(idx, N);
+        dots.forEach((d, k) => d.setAttribute('aria-current', k === l ? 'true' : 'false'));
+        if (status) status.textContent = `${l + 1} / ${N} · ${TEAM[l].name}`;
+    }
+    // Quando chega nas cópias, salta (sem animação) para o card idêntico do conjunto do meio
     function settle(){
-        clearTimeout(lockTimer);
-        if (physical !== 0 && physical !== total + 1){ locked = false; return; }
-        const home = physical === total + 1;
-        const dest = physical === 0 ? total : 1;
-        track.style.transition = 'none';
-        paint(dest); setPosition(dest);
-        track.getBoundingClientRect();
-        requestAnimationFrame(() => {
-            track.style.transition = '';
-            track.classList.remove('is-returning-home');
-            if (home && !prefersReduced.matches){
-                originals[0].classList.add('team-home-arrival');
-                setTimeout(() => originals[0].classList.remove('team-home-arrival'), 720);
-            }
-            locked = false;
-        });
+        clearTimeout(settleTimer);
+        if (idx >= N && idx < 2 * N) return;
+        track.classList.add('jump');
+        idx = mod(idx, N) + N;
+        paint(); place(false);
+        void track.offsetWidth;
+        requestAnimationFrame(() => requestAnimationFrame(() => { track.classList.remove('jump'); track.style.transition = ''; }));
     }
-    function moveTo(i){
-        if (locked) return;
-        const target = Math.max(0, Math.min(i, cards.length - 1));
-        if (target === physical) return;
-        locked = true;
-        if (target === total + 1) track.classList.add('is-returning-home');
-        paint(target); setPosition(target);
-        clearTimeout(lockTimer);
-        lockTimer = setTimeout(settle, 1000);
-        if (prefersReduced.matches) settle();
+    function goTo(i){
+        idx = Math.max(1, Math.min(cards.length - 2, i));
+        paint(); place(true);
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(settle, 750);
     }
-    function step(dir){
-        if (locked) return;
-        if (dir > 0 && physical === total) moveTo(total + 1);
-        else if (dir < 0 && physical === 1) moveTo(0);
-        else moveTo(physical + dir);
-    }
+    const step = dir => goTo(idx + dir);
 
-    document.getElementById('team-prev')?.addEventListener('click', () => step(-1));
-    document.getElementById('team-next')?.addEventListener('click', () => step(1));
+    $('#team-prev').addEventListener('click', () => step(-1));
+    $('#team-next').addEventListener('click', () => step(1));
     track.addEventListener('transitionend', e => { if (e.target === track && e.propertyName === 'transform') settle(); });
+
+    // Clique em card lateral = ir até ele (e não abrir o link dele)
+    track.addEventListener('click', e => {
+        const card = e.target.closest('.team-card');
+        if (!card) return;
+        if (justDragged){ e.preventDefault(); return; }
+        const k = cards.indexOf(card);
+        if (k !== idx){ e.preventDefault(); goTo(k); }
+    }, true);
+
+    // Arrastar / deslizar com o dedo ou mouse (acompanha o dedo)
     viewport.addEventListener('pointerdown', e => {
-        if (e.target.closest('a,button,input,select,textarea,[role=button]')){ startX = null; return; }
-        startX = e.clientX;
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        if (e.target.closest('button,input,select,textarea')) return;
+        drag = { x:e.clientX, y:e.clientY, t:performance.now(), active:false, id:e.pointerId };
     });
-    viewport.addEventListener('pointerup', e => {
-        if (startX === null) return;
-        const delta = e.clientX - startX; startX = null;
-        if (Math.abs(delta) > 45) step(delta < 0 ? 1 : -1);
+    viewport.addEventListener('pointermove', e => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const dx = e.clientX - drag.x;
+        if (!drag.active){
+            if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(e.clientY - drag.y)) return;
+            drag.active = true;
+            clearTimeout(settleTimer);
+            viewport.classList.add('dragging');
+            try { viewport.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        place(false, dx);
     });
-    viewport.addEventListener('pointercancel', () => { startX = null; });
+    function endDrag(e, cancelled){
+        if (!drag || e.pointerId !== drag.id) return;
+        const d = drag; drag = null;
+        viewport.classList.remove('dragging');
+        if (!d.active) return;
+        justDragged = true; setTimeout(() => { justDragged = false; }, 60);
+        const dx = e.clientX - d.x;
+        const v = Math.abs(dx) / Math.max(1, performance.now() - d.t);
+        if (!cancelled && (Math.abs(dx) > 60 || v > .5)) step(dx < 0 ? 1 : -1);
+        else { place(true); settleTimer = setTimeout(settle, 750); }
+    }
+    viewport.addEventListener('pointerup', e => endDrag(e, false));
+    viewport.addEventListener('pointercancel', e => endDrag(e, true));
+
     viewport.addEventListener('keydown', e => {
         if (e.key === 'ArrowRight'){ e.preventDefault(); step(1); }
         else if (e.key === 'ArrowLeft'){ e.preventDefault(); step(-1); }
+        else if (e.key === 'Home'){ e.preventDefault(); goTo(mod(idx, N) + N - mod(idx, N)); }
     });
+
+    let rz = 0;
     window.addEventListener('resize', () => {
-        track.style.transition = 'none'; setPosition(physical); track.getBoundingClientRect(); track.style.transition = '';
+        cancelAnimationFrame(rz);
+        rz = requestAnimationFrame(() => place(false));
     }, { passive:true });
-    paint(1);
-    requestAnimationFrame(() => setPosition(1));
-    window.addEventListener('load', () => setPosition(physical));
-})();
+    window.addEventListener('load', () => place(false));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => place(false));
+
+    track.classList.add('jump');
+    paint();
+    requestAnimationFrame(() => { place(false); requestAnimationFrame(() => { track.classList.remove('jump'); track.style.transition = ''; }); });
+}
 
 /* =========================================================
-   10. FORMULÁRIO (Worker opcional)
+   12. FORMULÁRIO
    ========================================================= */
 // Opção A: Worker próprio (tem prioridade). Opção B: FormSubmit via AJAX, sem sair do site.
+// Deixe os dois vazios até configurar: o botão fica desativado e aparece um aviso amigável.
 const CONTACT_WORKER_URL = '';
-const FORMSUBMIT_ID = 'SEU_CODIGO';
+const FORMSUBMIT_ID = '';      // ex.: 'a1b2c3d4e5f6...' (código do e-mail de ativação do FormSubmit)
 
-document.getElementById('contact-form')?.addEventListener('submit', async event => {
-    const form = event.currentTarget;
-    const endpoint = CONTACT_WORKER_URL || (FORMSUBMIT_ID !== 'SEU_CODIGO' ? `https://formsubmit.co/ajax/${FORMSUBMIT_ID}` : '');
-    if (!endpoint) return;
-    event.preventDefault();
-    const status = document.getElementById('form-status'), btn = form.querySelector('[type="submit"]');
-    if (form.elements._honey?.value) return;
-    const t = i18n[currentLang];
-    const payload = {
-        name: form.elements.name.value, email: form.elements.email.value,
-        roblox: form.elements.roblox.value, message: form.elements.message.value,
-        _subject: form.elements._subject?.value, _template: form.elements._template?.value
-    };
-    btn.disabled = true; status.textContent = t.sending;
-    try{
-        const res = await fetch(endpoint, {
-            method:'POST',
-            headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
-            body: JSON.stringify(payload)
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'send failed');
-        status.textContent = t.sent; form.reset();
-    } catch (err){
-        console.warn('[NeoX] Falha ao enviar formulário:', err.message || err);
-        status.textContent = t.send_error;
+(function(){
+    const form = $('#contact-form');
+    if (!form) return;
+    const status = $('#form-status'), note = $('#form-note'), counter = $('#msg-counter');
+    const btn = form.querySelector('[type="submit"]');
+    const msg = form.elements.message;
+    const endpoint = CONTACT_WORKER_URL || (FORMSUBMIT_ID ? `https://formsubmit.co/ajax/${FORMSUBMIT_ID}` : '');
+    let lastSent = 0;
+
+    if (!endpoint){ btn.disabled = true; note.hidden = false; }
+
+    function updateCounter(){
+        const n = msg.value.trim().length;
+        counter.textContent = `${Math.min(n, 16)}/16`;
+        counter.classList.toggle('ok', n >= 16);
     }
-    finally { btn.disabled = false; }
-});
+    msg.addEventListener('input', updateCounter);
+    updateCounter();
+
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!endpoint) return;
+        if (form.elements._honey && form.elements._honey.value) return;   // robô: ignora em silêncio
+        const t = i18n[currentLang];
+        status.dataset.state = '';
+        if (msg.value.trim().length < 16){ status.textContent = t.too_short; status.dataset.state = 'error'; msg.focus(); return; }
+        if (!form.checkValidity()){ status.textContent = t.invalid; status.dataset.state = 'error'; form.reportValidity(); return; }
+        if (Date.now() - lastSent < 15000){ status.textContent = t.wait; status.dataset.state = 'error'; return; }
+
+        const payload = {
+            name: form.elements.name.value.trim(), email: form.elements.email.value.trim(),
+            roblox: form.elements.roblox.value.trim(), message: msg.value.trim(),
+            _subject: form.elements._subject.value, _template: form.elements._template.value
+        };
+        btn.disabled = true; status.textContent = t.sending;
+        try {
+            const res = await fetch(endpoint, {
+                method:'POST',
+                headers:{ 'Content-Type':'application/json', 'Accept':'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'send failed');
+            lastSent = Date.now();
+            status.textContent = i18n[currentLang].sent; form.reset(); updateCounter();
+        } catch (err){
+            console.warn('[NeoX] Falha ao enviar formulário:', err.message || err);
+            status.textContent = i18n[currentLang].send_error; status.dataset.state = 'error';
+        } finally { btn.disabled = false; }
+    });
+})();
 
 /* =========================================================
    INÍCIO
    ========================================================= */
+renderGames();
+initCarousel();
 applyLanguage(currentLang);
+initReveal();
 refreshRobloxStats();
-fitStatNumbers();
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStatNumbers);
-
-</script>
+    </script>
 </body>
 </html>
