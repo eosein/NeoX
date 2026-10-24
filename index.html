@@ -998,6 +998,63 @@ body{
 .btn:active:not(:disabled){ transform:scale(.985); }
 .game-media,.media-frame{ contain:paint; }
 
+
+/* ---------- Tela de loading ---------- */
+#site-loader{
+  position:fixed; inset:0; z-index:9999; display:grid; place-items:center;
+  background:#030405; overflow:hidden;
+  transition:opacity .55s var(--ease), visibility .55s;
+}
+#site-loader::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(620px 420px at 50% 38%, rgba(0,229,255,.11), transparent 66%),
+    radial-gradient(520px 380px at 72% 72%, rgba(244,91,155,.07), transparent 66%);
+}
+.loader-inner{ position:relative; display:flex; flex-direction:column; align-items:center; gap:1.1rem; padding:1.5rem; text-align:center; }
+.loader-logo-wrap{ position:relative; width:88px; height:88px; }
+.loader-logo{
+  width:88px; height:88px; border-radius:24px; object-fit:cover; display:block;
+  animation:loader-float 2.6s ease-in-out infinite;
+  box-shadow:0 0 0 1px rgba(0,229,255,.25), 0 0 46px rgba(0,229,255,.22);
+}
+.loader-logo-wrap::after{
+  content:""; position:absolute; inset:-14px; border-radius:34px;
+  border:1px dashed rgba(255,255,255,.14);
+  animation:loader-ring 14s linear infinite; pointer-events:none;
+}
+.loader-brand{ font-size:1.05rem; font-weight:800; letter-spacing:.2em; color:#fff; }
+.loader-brand span{ color:var(--cyan); }
+.loader-bar{
+  position:relative; width:min(260px,64vw); height:2px; border-radius:999px;
+  background:rgba(255,255,255,.09); overflow:hidden;
+}
+.loader-bar span{
+  display:block; position:relative; height:100%; width:0; overflow:hidden;
+  background:linear-gradient(90deg,var(--cyan),var(--cyan-2));
+  transition:width .2s linear;
+}
+.loader-bar span::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:translateX(-100%); animation:loader-shine 1.4s ease-in-out infinite;
+}
+.loader-meta{
+  display:flex; justify-content:space-between; width:min(260px,64vw);
+  font-size:.6rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--muted-2);
+}
+.loader-meta strong{ color:var(--cyan); font-weight:800; }
+#site-loader.is-done{ opacity:0; visibility:hidden; pointer-events:none; }
+html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
+@keyframes loader-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
+@keyframes loader-ring{ to{ transform:rotate(360deg); } }
+@keyframes loader-shine{ 0%{ transform:translateX(-100%); } 60%,100%{ transform:translateX(120%); } }
+@media (prefers-reduced-motion:reduce){
+  .loader-logo,.loader-logo-wrap::after,.loader-bar span::after{ animation:none !important; }
+  #site-loader{ transition-duration:.15s !important; }
+}
+
 @media (max-width:767px){
   .ambient{ display:none; }
   #fx-canvas{ opacity:.32; }
@@ -1023,8 +1080,33 @@ body{
   .ambient span{ animation:none !important; }
 }
 </style>
+<noscript><style>#site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 </head>
 <body>
+
+<div id="site-loader" role="status" aria-label="Carregando" data-i18n-aria="loading">
+  <div class="loader-inner">
+    <div class="loader-logo-wrap">
+      <img class="loader-logo" src="assets/neox-logo.png" alt="" width="88" height="88" data-logo>
+      <span class="img-fallback" style="border-radius:24px">NX</span>
+    </div>
+    <div class="loader-brand">NEOX <span>STUDIO</span></div>
+    <div class="loader-bar"><span id="loader-progress"></span></div>
+    <div class="loader-meta"><span data-i18n="loading">Carregando…</span><strong id="loader-percent" aria-hidden="true">0%</strong></div>
+  </div>
+</div>
+<script>
+  document.documentElement.classList.add('is-loading');
+  document.body.setAttribute('aria-busy', 'true');
+  window.setTimeout(function () {
+    var l = document.getElementById('site-loader');
+    if (l && !l.classList.contains('is-done')) {
+      l.classList.add('is-done');
+      document.documentElement.classList.remove('is-loading');
+      document.body.removeAttribute('aria-busy');
+    }
+  }, 5000);
+</script>
 
 <div id="scroll-progress" aria-hidden="true"></div>
 <canvas id="fx-canvas" aria-hidden="true"></canvas>
@@ -1780,7 +1862,7 @@ window.NEOX_CONFIG = {
   /* ---------------- Traduções ---------------- */
   const i18n = {
     pt: {
-      skip: 'Pular para o conteúdo',
+      skip: 'Pular para o conteúdo', loading: 'Carregando…',
       nav_home: 'Home', nav_about: 'Sobre', nav_games: 'Jogos',
       nav_media: 'Trailers', nav_team: 'Equipe', nav_contact: 'Contato',
       hero_tag: 'Criando Universos Inesquecíveis',
@@ -1854,7 +1936,7 @@ window.NEOX_CONFIG = {
       title: 'NeoX Studio | Jogue o Futuro'
     },
     en: {
-      skip: 'Skip to content',
+      skip: 'Skip to content', loading: 'Loading…',
       nav_home: 'Home', nav_about: 'About', nav_games: 'Games',
       nav_media: 'Trailers', nav_team: 'Team', nav_contact: 'Contact',
       hero_tag: 'Crafting Unforgettable Universes',
@@ -3072,6 +3154,68 @@ window.NEOX_CONFIG = {
     });
   }
 
+  /* ---------------- Tela de loading ---------------- */
+  function initLoader() {
+    const loader = document.getElementById('site-loader');
+    if (!loader) return;
+    const bar = document.getElementById('loader-progress');
+    const percent = document.getElementById('loader-percent');
+    const started = performance.now();
+    const minTime = reduceMQ.matches ? 350 : 850;
+    const maxTime = 3200;
+    let progress = 0, raf = null, finishing = false, hidden = false, scheduled = false;
+
+    const paint = () => {
+      if (bar) bar.style.width = progress.toFixed(1) + '%';
+      if (percent) percent.textContent = Math.round(progress) + '%';
+    };
+    const tick = (now) => {
+      const elapsed = now - started;
+      const target = Math.min(88, (elapsed / 1150) * 88);
+      if (target > progress) { progress = target; paint(); }
+      if (!finishing) raf = requestAnimationFrame(tick);
+    };
+    const hide = () => {
+      if (hidden) return;
+      hidden = true;
+      loader.classList.add('is-done');
+      document.documentElement.classList.remove('is-loading');
+      document.body.removeAttribute('aria-busy');
+      window.setTimeout(() => loader.setAttribute('aria-hidden', 'true'), 650);
+    };
+    const complete = () => {
+      const from = progress;
+      const startedComplete = performance.now();
+      const step = (now) => {
+        const p = Math.min(1, (now - startedComplete) / 260);
+        progress = from + (100 - from) * p;
+        paint();
+        if (p < 1) requestAnimationFrame(step);
+        else hide();
+      };
+      requestAnimationFrame(step);
+    };
+    const maybeFinish = () => {
+      if (scheduled || hidden) return;
+      scheduled = true;
+      const wait = Math.max(0, minTime - (performance.now() - started));
+      window.setTimeout(() => {
+        finishing = true;
+        if (raf) cancelAnimationFrame(raf);
+        complete();
+      }, wait);
+    };
+
+    paint();
+    raf = requestAnimationFrame(tick);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', maybeFinish, { once: true });
+    } else {
+      window.setTimeout(maybeFinish, 220);
+    }
+    window.setTimeout(maybeFinish, maxTime);
+  }
+
   /* ---------------- Idioma ---------------- */
   const langBtn = $('#lang-btn');
   if (langBtn) {
@@ -3082,6 +3226,7 @@ window.NEOX_CONFIG = {
 
   /* ---------------- Início ---------------- */
   applyLanguage(lang, false);
+  initLoader();
   renderStats();
   renderStatsNote();
   refreshStats();
