@@ -43,7 +43,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https://cdn.discordapp.com; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <script type="application/ld+json">
@@ -195,6 +195,9 @@ ul,ol{ margin:0; padding:0; list-style:none; }
 .btn-primary{ background:linear-gradient(135deg,var(--cyan-2),var(--cyan)); color:#001014; box-shadow:0 12px 30px -12px rgba(0,229,255,.55); }
 .btn-ghost{ background:rgba(255,255,255,.04); border-color:rgba(53,196,229,.26); color:#eaf6fa; }
 .btn-soft{ background:rgba(53,196,229,.12); border-color:rgba(53,196,229,.35); color:var(--cyan); }
+.btn-quiet{ background:rgba(255,255,255,.025); border-color:rgba(255,255,255,.08); color:#7f8b99; }
+@media (hover:hover){ .btn-quiet:hover:not(:disabled){ background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.16); color:#c3ced9; } }
+.btn-quiet:disabled{ background:rgba(255,255,255,.02); border-color:rgba(255,255,255,.08); color:#7f8b99; opacity:1; filter:none; transform:none; }
 
 .btn:disabled{ opacity:.7; cursor:not-allowed; filter:grayscale(.3); transform:none; box-shadow:none; }
 .btn::after{
@@ -430,7 +433,7 @@ main{ position:relative; z-index:1; }
 .game-desc{ color:var(--muted); font-size:.86rem; line-height:1.55; }
 .game-actions{ display:flex; flex-direction:column; gap:.5rem; padding:.9rem 1.15rem 1.15rem; }
 .game-actions .btn{ width:100%; padding:.78rem 1rem; font-size:.82rem; }
-.game-actions .btn-soft{ padding:.62rem 1rem; font-size:.74rem; }
+.game-actions .btn-soft,.game-actions .btn-quiet{ padding:.62rem 1rem; font-size:.74rem; }
 
 /* ---------- Mídia ---------- */
 .media-group + .media-group{ margin-top:clamp(2.4rem,5vw,3.8rem); }
@@ -1192,10 +1195,10 @@ body{
             <p class="game-desc" data-i18n="game_1_desc">Explore mundos inspirados em animes, derrote inimigos e recrute campeões poderosos.</p>
           </div>
           <div class="game-actions">
-            <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <a href="https://www.roblox.com/pt/games/96665881849072/Anime-Paradise" target="_blank" rel="noopener noreferrer" class="btn btn-soft">
               <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span data-i18n="btn_play">Jogar Agora</span>
             </a>
-            <a href="https://discord.gg/animeparadiseee" target="_blank" rel="noopener noreferrer" class="btn btn-soft">
+            <a href="https://discord.gg/animeparadiseee" target="_blank" rel="noopener noreferrer" class="btn btn-quiet">
               <svg class="icon" aria-hidden="true"><use href="#i-discord"/></svg><span data-i18n="game_discord">Game Discord</span>
             </a>
           </div>
@@ -1218,7 +1221,7 @@ body{
             <a href="https://www.roblox.com/pt/games/111173250236559/Anime-Crash" target="_blank" rel="noopener noreferrer" class="btn btn-soft">
               <svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span data-i18n="btn_preview">Ver Projeto</span>
             </a>
-            <button type="button" disabled class="btn btn-soft" style="font-size:.74rem">
+            <button type="button" disabled class="btn btn-quiet" style="font-size:.74rem">
               <svg class="icon" aria-hidden="true"><use href="#i-discord"/></svg><span data-i18n="discord_soon">Discord Coming Soon</span>
             </button>
           </div>
@@ -1244,10 +1247,10 @@ body{
             <p class="game-desc" data-i18n="game_3_desc">Entre em uma experiência intensa de combate tático, estratégia e sobrevivência no ecossistema Roblox.</p>
           </div>
           <div class="game-actions">
-            <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <a href="https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX" target="_blank" rel="noopener noreferrer" class="btn btn-soft">
               <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span data-i18n="btn_play">Jogar Agora</span>
             </a>
-            <button type="button" disabled class="btn btn-soft" style="font-size:.74rem">
+            <button type="button" disabled class="btn btn-quiet" style="font-size:.74rem">
               <svg class="icon" aria-hidden="true"><use href="#i-discord"/></svg><span data-i18n="discord_soon">Discord Coming Soon</span>
             </button>
           </div>
@@ -1271,7 +1274,7 @@ body{
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg> Anime Crash</h3>
         </div>
         <div class="media-grid">
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:0ms">
             <div class="media-frame is-loading">
               <video class="loop-video" autoplay muted loop playsinline preload="auto" poster="assets/anime-crash-quests.png" data-fallback-img="assets/anime-crash-quests.png"
                      disablepictureinpicture disableremoteplayback aria-label="Anime Crash — combate e movimentação">
@@ -1283,7 +1286,7 @@ body{
             </div>
           </article>
 
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:100ms">
             <div class="media-frame">
               <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
             </div>
@@ -1292,7 +1295,7 @@ body{
             </div>
           </article>
 
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:200ms">
             <div class="media-frame">
               <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
             </div>
@@ -1309,7 +1312,7 @@ body{
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg> <span data-i18n="ap_title">Anime Paradise — Prévias</span></h3>
         </div>
         <div class="media-grid">
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:0ms">
             <div class="media-frame is-loading">
               <video class="loop-video" autoplay muted loop playsinline preload="auto" poster="assets/anime-paradise-models.png" data-fallback-img="assets/anime-paradise-models.png"
                      disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — cinemática e interface">
@@ -1321,12 +1324,13 @@ body{
             </div>
           </article>
 
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:100ms">
             <div class="media-frame is-loading">
               <!-- Mantenha o vídeo de Movement em assets/anime-paradise-movement.mp4 (.webm opcional). -->
               <video class="loop-video" autoplay muted loop playsinline preload="auto" poster="assets/anime-paradise-models.png" data-fallback-img="assets/anime-paradise-models.png"
                      disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
                 <source src="assets/anime-paradise-movement.mp4" type="video/mp4">
+                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563344560917184543/Roblox_24mb.mp4?ex=6add4994&amp;is=6adbf814&amp;hm=241509bf26834cf4c86885234c73011b8864e7c500d6de1321a0267aeac35b73&amp;" type="video/mp4">
                 <source src="assets/anime-paradise-movement.webm" type="video/webm">
               </video>
             </div>
@@ -1335,7 +1339,7 @@ body{
             </div>
           </article>
 
-          <article class="media-card glass card-hover">
+          <article class="media-card glass card-hover" data-reveal style="--d:200ms">
             <div class="media-frame">
               <img src="assets/anime-paradise-models.png"
                    data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png"
