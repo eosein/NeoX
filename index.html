@@ -1060,14 +1060,6 @@ html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
 /* =========================================================
    ANIMATION PASS 2 — mais movimento, mesma performance
    ========================================================= */
-.cursor-glow{
-  position:fixed; top:0; left:0; width:520px; height:520px;
-  margin:-260px 0 0 -260px; border-radius:50%; pointer-events:none; z-index:1;
-  background:radial-gradient(circle,rgba(0,229,255,.11),rgba(0,229,255,.035) 42%,transparent 70%);
-  opacity:0; transition:opacity .45s ease; will-change:transform;
-  transform:translate3d(-100px,-100px,0);
-}
-.cursor-glow.is-on{ opacity:1; }
 .intro{
   animation-duration:1.1s !important;
   animation-delay:calc(var(--i,0) * 120ms + 120ms) !important;
@@ -1321,45 +1313,33 @@ html.has-nx-cursor textarea,
 html.has-nx-cursor select{ cursor:text !important; }
 .nx-cursor{
   position:fixed; inset:0; z-index:10001; pointer-events:none;
-  display:none; opacity:0; transition:opacity .2s ease;
+  display:none; opacity:0; transition:opacity .18s ease;
 }
 html.has-nx-cursor .nx-cursor{ display:block; }
 .nx-cursor.is-active{ opacity:1; }
-.nx-cursor-dot{
-  position:absolute; left:0; top:0; width:6px; height:6px;
-  margin:-3px 0 0 -3px; border-radius:50%;
-  background:#fff; box-shadow:0 0 10px rgba(0,229,255,.75);
-  scale:1; transition:scale .2s var(--ease), opacity .2s ease;
+.nx-cursor-inner{
+  position:fixed; left:0; top:0; width:34px; height:34px;
+  margin:-17px 0 0 -17px; will-change:transform;
 }
 .nx-cursor-ring{
-  position:absolute; left:0; top:0; width:30px; height:30px;
-  margin:-15px 0 0 -15px; border-radius:50%;
-  border:1px solid rgba(255,255,255,.42);
-  border-top-color:var(--cyan-2);
-  border-right-color:rgba(0,229,255,.16);
-  transition:width .24s var(--ease), height .24s var(--ease),
-             margin .24s var(--ease), border-color .24s ease,
-             background-color .24s ease, opacity .2s ease;
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid #fff; background:rgba(255,255,255,.025);
+  box-shadow:0 2px 0 rgba(0,0,0,.35);
+  transition:transform .24s var(--ease), border-color .24s ease, background-color .24s ease;
 }
-.nx-cursor-ring::after{
-  content:""; position:absolute; inset:-1px; border-radius:50%;
-  border:1px solid transparent; border-bottom-color:rgba(0,229,255,.4);
-  animation:cursor-spin 4.5s linear infinite;
+.nx-cursor-dot{
+  position:absolute; left:50%; top:50%; width:7px; height:7px;
+  margin:-3.5px 0 0 -3.5px; border-radius:50%; background:#fff;
+  transition:background-color .24s ease, transform .24s var(--ease);
 }
-@keyframes cursor-spin{ to{ transform:rotate(360deg); } }
 .nx-cursor.is-hover .nx-cursor-ring{
-  width:46px; height:46px; margin:-23px 0 0 -23px;
-  border-color:rgba(0,229,255,.62);
-  background:rgba(0,229,255,.045);
+  transform:scale(1.5); border-color:var(--cyan-2);
+  background:rgba(0,229,255,.08);
 }
-.nx-cursor.is-hover .nx-cursor-dot{ scale:.55; }
-.nx-cursor.is-down .nx-cursor-ring{
-  width:22px; height:22px; margin:-11px 0 0 -11px;
-  border-color:rgba(0,229,255,.85);
-}
-.nx-cursor.is-hidden,
-.nx-cursor.is-hidden .nx-cursor-ring,
-.nx-cursor.is-hidden .nx-cursor-dot{ opacity:0; }
+.nx-cursor.is-hover .nx-cursor-dot{ background:var(--cyan-2); }
+.nx-cursor.is-down .nx-cursor-ring{ transform:scale(.82); }
+.nx-cursor.is-down .nx-cursor-dot{ transform:scale(.8); }
+.nx-cursor.is-hidden{ opacity:0; }
 @media (hover:none), (pointer:coarse){
   html.has-nx-cursor, html.has-nx-cursor *{ cursor:auto !important; }
   .nx-cursor{ display:none !important; }
@@ -1372,6 +1352,7 @@ html.has-nx-cursor .nx-cursor{ display:block; }
   padding:.55rem .85rem; border-radius:999px;
   background:rgba(10,14,19,.94); border:1px solid rgba(255,255,255,.11);
   color:#dbe2ea; font-size:.72rem; font-weight:800; letter-spacing:.01em;
+  max-width:calc(100vw - 88px); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   opacity:0; visibility:hidden; pointer-events:none;
   transform:translate(-50%,12px);
@@ -1416,8 +1397,7 @@ html.is-traveling #scroll-progress{
 
 <div id="scroll-progress" aria-hidden="true"></div>
 <canvas id="fx-canvas" aria-hidden="true"></canvas>
-<div class="cursor-glow" aria-hidden="true"></div>
-<div id="nx-cursor" class="nx-cursor" aria-hidden="true"><span class="nx-cursor-ring"></span><span class="nx-cursor-dot"></span></div>
+<div id="nx-cursor" class="nx-cursor" aria-hidden="true"><span class="nx-cursor-inner"><span class="nx-cursor-ring"></span><span class="nx-cursor-dot"></span></span></div>
 <!-- Sprite de ícones (SVG inline: zero requisições, ~4 KB) -->
 <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <symbol id="i-discord" viewBox="0 0 24 24">
@@ -3371,26 +3351,6 @@ window.NEOX_CONFIG = {
     else if (reduceMQ.addListener) reduceMQ.addListener(onMotionPref);
   })();
 
-  /* ---------------- Brilho que segue o cursor ---------------- */
-  (() => {
-    const glow = document.querySelector('.cursor-glow');
-    if (!glow || reduceMQ.matches) return;
-    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-    let frame = null, x = 0, y = 0;
-    const apply = () => {
-      frame = null;
-      glow.style.transform = `translate3d(${x}px,${y}px,0)`;
-    };
-    document.addEventListener('pointermove', (event) => {
-      if (event.pointerType === 'touch') return;
-      x = event.clientX;
-      y = event.clientY;
-      glow.classList.add('is-on');
-      if (!frame) frame = requestAnimationFrame(apply);
-    }, { passive: true });
-    document.addEventListener('mouseleave', () => glow.classList.remove('is-on'));
-  })();
-
   /* ---------------- Navegação suave + chegada de seção ---------------- */
   (() => {
     const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -3434,8 +3394,8 @@ window.NEOX_CONFIG = {
       if (raf) cancelAnimationFrame(raf);
       if (header) header.classList.remove('is-hidden');
       const navLink = target.id ? document.querySelector(`.nav-link[href="#${target.id}"]`) : null;
-      const label = labelOverride || (navLink ? navLink.textContent.trim() : '');
-      showToast(dict().going_to(label));
+      const label = navLink ? navLink.textContent.trim() : '';
+      showToast(labelOverride || dict().going_to(label));
       document.documentElement.classList.add('is-navigating', 'is-traveling');
       const duration = Math.min(1500, Math.max(620, Math.abs(distance) * 0.7));
       const started = performance.now();
@@ -3529,33 +3489,18 @@ window.NEOX_CONFIG = {
   (() => {
     if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
     const root = document.getElementById('nx-cursor');
-    if (!root) return;
-    const dot = root.querySelector('.nx-cursor-dot');
-    const ring = root.querySelector('.nx-cursor-ring');
-    if (!dot || !ring) return;
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let rx = mx, ry = my;
-    let frame = null;
+    const inner = root && root.querySelector('.nx-cursor-inner');
+    if (!root || !inner) return;
     let started = false;
-
-    const render = () => {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
-      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
-      frame = requestAnimationFrame(render);
-    };
 
     document.addEventListener('pointermove', (event) => {
       if (event.pointerType === 'touch') return;
-      mx = event.clientX;
-      my = event.clientY;
       if (!started) {
         started = true;
         document.documentElement.classList.add('has-nx-cursor');
         root.classList.add('is-active');
-        frame = requestAnimationFrame(render);
       }
+      inner.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0)`;
       root.classList.remove('is-hidden');
       const overText = event.target.closest('input, textarea, select');
       root.classList.toggle('is-hidden', !!overText);
@@ -3575,7 +3520,7 @@ window.NEOX_CONFIG = {
     window.addEventListener('focus', () => root.classList.remove('is-hidden'));
   })();
 
-  /* ---------------- Tilt + spotlight nos cards ---------------- */
+  /* ---------------- Tilt + spotlight nos cards ---------------- */  /* ---------------- Tilt + spotlight nos cards ---------------- */
   (() => {
     if (reduceMQ.matches) return;
     if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
