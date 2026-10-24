@@ -7,7 +7,7 @@
 
 <!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
      'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https://cdn.discordapp.com; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
@@ -78,6 +78,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/neox-logo.png" fetchpriority="high">
 <link rel="preconnect" href="https://games.roproxy.com" crossorigin>
+<link rel="preconnect" href="https://cdn.discordapp.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -968,7 +969,8 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
           </article>
           <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="metadata" data-alt="assets/anime-paradise-movement.MP4,assets/anime-paradise-Movement.mp4,assets/anime-paradise-moviment.mp4,assets/anime-paradise-movimentacao.mp4,assets/anime-paradise-movement.mov,assets/anime-paradise-movement.m4v" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
+              <video class="loop-video" muted loop playsinline preload="metadata" data-alt="assets/anime-paradise-movement.mp4.mp4,assets/anime-paradise-movement.MP4,assets/anime-paradise-Movement.mp4,assets/anime-paradise-moviment.mp4,assets/anime-paradise-movimentacao.mp4,assets/anime-paradise-movement.mov,assets/anime-paradise-movement.m4v" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
+                <source src="https://cdn.discordapp.com/attachments/1253521147962593320/1563635997059580077/anime-paradise-movement.mp4.mp4?ex=6ade5900&amp;is=6add0780&amp;hm=549f5b8ef2e21014b497a4b2ada7d3c43278d290dbd6cdd78c0e04e8e37f028e&amp;#t=0.001" type="video/mp4">
                 <source src="assets/anime-paradise-movement.mp4#t=0.001" type="video/mp4">
                 <source src="assets/anime-paradise-movement.webm#t=0.001" type="video/webm">
               </video>
@@ -1839,7 +1841,7 @@ window.NEOX_CONFIG = Object.freeze({
     clearTimeout(video._wd);
     const frame = video.closest('.media-frame');
     if (!frame) return;
-    console.warn('[NeoX] Vídeo não carregou (arquivo ausente, nome diferente, codec não suportado ou muito pesado):', video.currentSrc || video.getAttribute('src') || (video.querySelector('source') || {}).src || '');
+    console.warn('[NeoX] Vídeo não carregou (arquivo ausente, nome diferente, codec não suportado, link expirado ou muito pesado):', video.currentSrc || video.getAttribute('src') || (video.querySelector('source') || {}).src || '');
     try { video.pause(); } catch (e) { /* ok */ }
     const src = video.dataset.fallbackImg;
     if (src) {
