@@ -484,6 +484,7 @@ main{ position:relative; z-index:1; }
 }
 .js .team-viewport{ overflow:hidden; }
 .team-viewport.is-dragging{ cursor:grabbing; }
+.team-track.is-snapping .team-card{ transition:none !important; }
 .team-track{
   display:flex; gap:20px; width:max-content;
   transform:translate3d(0,0,0);
@@ -687,13 +688,7 @@ img[data-logo].is-missing{ opacity:0; }
 }
 
 /* ---------- Movimento reduzido ---------- */
-@media (prefers-reduced-motion:reduce){
-  html{ scroll-behavior:auto; }
-  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
-  [data-reveal],.stagger > *{ opacity:1 !important; transform:none !important; }
-  .team-track{ transition:none !important; }
-  
-}
+
 
 /* ================= MARQUEE ================= */
 .marquee{
@@ -875,13 +870,7 @@ body{
   .marquee-group{ gap:1rem; padding-right:1rem; }
   .marquee-group{ font-size:.6rem; letter-spacing:.14em; }
 }
-@media (prefers-reduced-motion:reduce){
-  /* A faixa continua passando mesmo com "reduzir movimento" ativo. */
-  .marquee-track{ animation:marquee-scroll 42s linear infinite !important; }
-  .intro{ animation:none !important; opacity:1 !important; transform:none !important; filter:none !important; }
-  .hero-logo{ animation:none !important; }
-  .media-fallback-img{ animation:none !important; }
-}
+
 </style>
 
 <style>
@@ -957,6 +946,7 @@ body{
   50%{ background-position:100% 50%; }
 }
 .section-head .section-title{ position:relative; padding-bottom:1rem; }
+#media .section-head .section-title::after{ display:none; }
 .section-head .section-title::after{
   content:""; display:block; width:46px; height:2px; margin:.85rem auto 0;
   border-radius:2px; background:linear-gradient(90deg,var(--cyan),transparent);
@@ -1050,10 +1040,7 @@ html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
 @keyframes loader-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
 @keyframes loader-ring{ to{ transform:rotate(360deg); } }
 @keyframes loader-shine{ 0%{ transform:translateX(-100%); } 60%,100%{ transform:translateX(120%); } }
-@media (prefers-reduced-motion:reduce){
-  .loader-logo,.loader-logo-wrap::after,.loader-bar span::after{ animation:none !important; }
-  #site-loader{ transition-duration:.15s !important; }
-}
+
 
 @media (max-width:767px){
   .ambient{ display:none; }
@@ -1065,20 +1052,7 @@ html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
   .card-tilt{ transform:none !important; }
   .card-tilt::after{ display:none; }
 }
-@media (prefers-reduced-motion:reduce){
-  .ambient{ display:none !important; }
-  #fx-canvas{ display:none !important; }
-  .hero-logo-wrap::before,.hero-logo-wrap::after{ display:none !important; }
-  .hero h1 .grad{
-    animation:none !important; background:none !important; filter:none !important;
-    color:var(--cyan-2) !important; -webkit-text-fill-color:var(--cyan-2) !important;
-  }
-  .section-head .section-title::after{ transform:scaleX(1) !important; transition:none !important; }
-  .card-tilt,.card-hover.card-tilt:hover{ transform:none !important; }
-  .card-tilt::after,.team-progress{ display:none !important; }
-  .stat-value.is-bumped{ animation:none !important; }
-  .ambient span{ animation:none !important; }
-}
+
 </style>
 <noscript><style>#site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 
@@ -1176,21 +1150,7 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
   .js [data-reveal]{ transform:translateY(28px); filter:none; }
   .js [data-reveal="left"],.js [data-reveal="right"]{ transform:translateY(28px); }
 }
-@media (prefers-reduced-motion:reduce){
-  .cursor-glow{ display:none !important; }
-  .ambient{ display:none !important; }
-  .hero h1.intro{ animation:none !important; clip-path:none !important; }
-  .hero h1{ clip-path:none !important; }
-  .hero h1 .grad{
-    animation:none !important; background:none !important;
-    color:var(--cyan-2) !important; -webkit-text-fill-color:var(--cyan-2) !important; filter:none !important;
-  }
-  .js .section-head:not(.is-in) .section-title,
-  .js .about-copy:not(.is-in) .section-title{ clip-path:none !important; }
-  .game-media img,.media-frame img{ animation:none !important; transform:none !important; }
-  .game-card::before{ animation:none !important; opacity:.45; }
-  .js [data-reveal="left"],.js [data-reveal="right"]{ transform:none !important; }
-}
+
 
 .hero-scroll{
   display:inline-flex; justify-content:center; margin-top:1.2rem; padding:.35rem .8rem;
@@ -1225,20 +1185,17 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
   .ambient span{ filter:blur(38px); }
   .hero::after{ opacity:.7; }
 }
-@media (prefers-reduced-motion:reduce){
-  .hero::after{ display:none !important; }
-  .hero-scroll span::after{ animation:none !important; opacity:.7; }
-}
+
 </style>
 
 <style>
-/* Loading minimalista — wordmark + linha de progresso */
+/* Loading minimalista — wordmark, tagline e linha na base */
 #site-loader{
   background:#000 !important;
   transition:opacity .45s ease, visibility .45s !important;
 }
 #site-loader::before{ display:none !important; }
-.loader-inner{ gap:22px !important; padding:1rem !important; }
+.loader-inner{ gap:10px !important; padding:1rem !important; }
 .loader-word{
   font-family:'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size:clamp(46px, 7vw, 64px);
@@ -1247,12 +1204,20 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
   line-height:1;
   color:#fff;
 }
+.loader-word span{ color:var(--cyan-2); }
+.loader-tag{
+  font-size:9px; font-weight:800; letter-spacing:.42em;
+  text-transform:uppercase; color:#6f7a86; padding-left:.42em;
+}
 .loader-bar{
-  width:150px !important; height:2px !important; border-radius:0 !important;
-  background:#1a1a1a !important; overflow:hidden;
+  position:fixed !important; left:0 !important; right:0 !important;
+  bottom:0 !important; top:auto !important;
+  width:100% !important; height:2px !important; border-radius:0 !important;
+  background:rgba(255,255,255,.08) !important; overflow:hidden;
 }
 .loader-bar span{
-  height:100%; background:var(--cyan-2) !important;
+  display:block; height:100%; width:0;
+  background:linear-gradient(90deg,var(--cyan),var(--cyan-2)) !important;
   transition:width .15s linear !important;
 }
 .loader-bar span::after{ display:none !important; }
@@ -1264,9 +1229,10 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
 
 <div id="site-loader" role="status" aria-label="Carregando" data-i18n-aria="loading">
   <div class="loader-inner">
-    <div class="loader-word">NeoX</div>
-    <div class="loader-bar" aria-hidden="true"><span id="loader-progress"></span></div>
+    <div class="loader-word">Neo<span>X</span></div>
+    <div class="loader-tag">Studio</div>
   </div>
+  <div class="loader-bar" aria-hidden="true"><span id="loader-progress"></span></div>
 </div>
 <script>
   document.documentElement.classList.add('is-loading');
@@ -1711,7 +1677,7 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
       <!-- Anime Paradise -->
       <div class="media-group" data-reveal>
         <div class="media-group-head">
-          <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg> <span data-i18n="ap_title">Anime Paradise — Prévias</span></h3>
+          <h3 class="media-group-title"><span data-i18n="ap_title">Anime Paradise</span></h3>
         </div>
         <div class="media-grid">
           <article class="media-card glass card-hover" data-reveal style="--d:0ms">
@@ -1862,6 +1828,9 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
               <div class="team-info">
                 <h3 class="team-name">Reject</h3>
                 <p class="team-role" data-i18n="role_ui">Designer de UI/UX</p>
+                <a class="team-link" href="https://www.roblox.com/pt/users/1569820932/profile" target="_blank" rel="noopener noreferrer">
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span data-i18n="profile">Perfil Roblox</span>
+                </a>
               </div>
             </article>
 
@@ -2010,7 +1979,8 @@ window.NEOX_CONFIG = {
   /* ---------------- Utilidades ---------------- */
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Animações sempre ativas (o cliente pediu que não desliguem sozinhas).
+  const reduceMQ = { matches: false, addEventListener: () => {}, addListener: () => {} };
   const num = (v) => {
     if (v === null || v === undefined || v === '') return null;
     const n = Number(v);
@@ -2074,13 +2044,10 @@ window.NEOX_CONFIG = {
       game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
       media_tag: 'Cinemáticas & Demonstrativos', media_title: 'Mídia Oficial',
       media_subtitle: 'Demonstrações e conceitos visuais dos projetos NeoX Studio.',
-      media_group_tag: 'Demonstração', sneak_peek: 'Sneak peek',
-      ac_1_tag: 'Gameplay Oficial', ac_1_title: 'Combate & Movimentação',
-      ac_2_tag: 'Sistema de Quests', ac_2_title: 'Missões & Recompensas',
-      ac_3_tag: 'Interface & Habilidades', ac_3_title: 'Árvore de Skills',
-      tag_gameplay: 'Gameplay', tag_quests: 'Quests', tag_skills: 'Skills', tag_video: 'Vídeo',
-      ap_title: 'Anime Paradise — Prévias',
-      peek_1: 'Prévia 01', peek_2: 'Prévia 02', peek_3: 'Prévia 03',
+      ac_1_title: 'Combate & Movimentação',
+      ac_2_title: 'Missões & Recompensas',
+      ac_3_title: 'Árvore de Skills',
+      ap_title: 'Anime Paradise',
       media_cutscene_ui: 'Cinemática & UI', media_movement: 'Movimentação', media_models: 'Modelos',
       media_soon: 'Mídia em breve',
       team_tag: 'Os Criadores', team_title: 'A Equipe NeoX',
@@ -2148,13 +2115,10 @@ window.NEOX_CONFIG = {
       game_discord: 'Game Discord', discord_soon: 'Discord Coming Soon',
       media_tag: 'Cinematics & Showcases', media_title: 'Official Media',
       media_subtitle: 'Demonstrations and visual concepts of NeoX Studio projects.',
-      media_group_tag: 'Showcase', sneak_peek: 'Sneak peek',
-      ac_1_tag: 'Official Gameplay', ac_1_title: 'Combat & Movement',
-      ac_2_tag: 'Quest System', ac_2_title: 'Missions & Rewards',
-      ac_3_tag: 'Interface & Abilities', ac_3_title: 'Skill Tree',
-      tag_gameplay: 'Gameplay', tag_quests: 'Quests', tag_skills: 'Skills', tag_video: 'Video',
-      ap_title: 'Anime Paradise — Sneak Peeks',
-      peek_1: 'Sneak Peek 01', peek_2: 'Sneak Peek 02', peek_3: 'Sneak Peek 03',
+      ac_1_title: 'Combat & Movement',
+      ac_2_title: 'Missions & Rewards',
+      ac_3_title: 'Skill Tree',
+      ap_title: 'Anime Paradise',
       media_cutscene_ui: 'Cutscene & UI', media_movement: 'Movement', media_models: 'Models',
       media_soon: 'Media coming soon',
       team_tag: 'The Creators', team_title: 'The NeoX Team',
@@ -3043,11 +3007,18 @@ window.NEOX_CONFIG = {
       if (index >= 2 * total) { index -= total; changed = true; }
       else if (index < total) { index += total; changed = true; }
       if (changed) {
+        // Troca de cópia sem animar o scale dos cards: evita o "pulo" no loop.
+        track.classList.add('is-snapping');
         render(false);
         void track.offsetWidth;
-        requestAnimationFrame(() => { track.style.transition = ''; });
+        paint();
+        requestAnimationFrame(() => {
+          track.style.transition = '';
+          track.classList.remove('is-snapping');
+        });
+      } else {
+        paint();
       }
-      paint();
     }
     function settle() {
       clearTimeout(lockTimer);
@@ -3072,13 +3043,13 @@ window.NEOX_CONFIG = {
       restartProgress();
     }
     function step(dir) {
-      if (dragging) return;
+      if (locked || dragging) return;
       lastUser = Date.now();
       index += dir;
       beginMove();
     }
     function goTo(logical) {
-      if (dragging) return;
+      if (locked || dragging) return;
       if (logical === logicalOf(index)) return;
       // Escolhe o caminho mais curto (sem "arrastar" por todos os cards).
       const base = index - logicalOf(index);
@@ -3101,6 +3072,7 @@ window.NEOX_CONFIG = {
 
     // Arrastar / swipe
     viewport.addEventListener('pointerdown', (e) => {
+      if (locked) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       if (e.target.closest('a,button')) return;
       dragging = true;
