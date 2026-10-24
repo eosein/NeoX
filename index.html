@@ -440,7 +440,6 @@ main{ position:relative; z-index:1; }
 }
 .media-group-title{ display:flex; align-items:center; gap:.6rem; font-size:clamp(1.1rem,2.6vw,1.45rem); color:#eaf7fb; }
 .media-group-title .icon{ color:var(--cyan); font-size:1.1rem; }
-.media-group-tag{ font-size:.66rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); }
 .media-grid{ display:grid; gap:1rem; grid-template-columns:1fr; }
 .media-card{ display:flex; flex-direction:column; gap:.75rem; padding:.7rem; border-radius:18px; overflow:hidden; }
 .media-frame{
@@ -721,7 +720,6 @@ img[data-logo].is-missing{ opacity:0; }
 }
 .marquee-group i:nth-of-type(even){ background:var(--pink); opacity:.7; }
 @keyframes marquee-scroll{ from{ transform:translate3d(0,0,0); } to{ transform:translate3d(-50%,0,0); } }
-@media (hover:hover){ .marquee:hover .marquee-track{ animation-play-state:paused; } }
 
 /* ================= MINIMAL ================= */
 body{
@@ -773,24 +771,53 @@ body{
 }
 .stat-label{ margin-top:.2rem; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-2); }
 .stat-value.is-loading::after{ display:none; }
-.feature-grid{ gap:0; border-top:1px solid rgba(255,255,255,.07); margin-top:1.5rem; padding-top:1.2rem; }
-.feature{ background:none; border:0; border-radius:0; padding:.3rem 1rem .3rem 0; }
+.about-grid{ align-items:stretch; }
+.about-copy{
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius);
+  padding:clamp(1.2rem,2.4vw,2rem);
+}
+.about-copy > p{ color:#c3ced9; font-size:clamp(1rem,1.7vw,1.08rem); line-height:1.7; max-width:60ch; }
+.feature-grid{ gap:1rem; border-top:1px solid rgba(255,255,255,.08); margin-top:1.6rem; padding-top:1.3rem; }
+.feature{ background:none; border:0; border-radius:0; padding:0; }
 .feature .icon{ display:none; }
-.feature h3{ font-size:.86rem; color:#fff; }
-.feature p{ font-size:.75rem; margin-top:.1rem; }
+.feature h3{ font-size:.95rem; color:#fff; letter-spacing:-.01em; }
+.feature p{ font-size:.83rem; line-height:1.5; color:#a9b3c0; margin-top:.2rem; }
 .about-panel{
-  background:none; border:0; border-top:1px solid rgba(255,255,255,.08);
-  box-shadow:none; padding:1.2rem 0 0; margin-top:.4rem;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius);
+  box-shadow:none;
+  padding:clamp(1.2rem,2.4vw,2rem);
+  margin-top:0;
+  display:flex;
+  flex-direction:column;
 }
 .about-panel::after{ display:none; }
-
-.about-panel h3{ margin-top:0; }
-.community-grid{ gap:0; }
-.community-card{
-  background:none; border:0; border-top:1px solid rgba(255,255,255,.08);
-  border-radius:0; padding:.95rem .2rem;
+.about-panel::before{
+  content:"";
+  display:block;
+  width:34px;
+  height:2px;
+  margin-bottom:1.1rem;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--cyan),transparent);
 }
-.community-card:last-child{ border-bottom:1px solid rgba(255,255,255,.08); }
+.about-panel h3{ margin-top:0; font-size:clamp(1.3rem,2.6vw,1.65rem); }
+.about-panel p{ color:#c3ced9; font-size:.98rem; line-height:1.7; margin-top:.7rem; }
+.about-tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:auto; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.07); }
+.about-tags span{
+  display:inline-flex; align-items:center; padding:.35rem .62rem;
+  border-radius:999px; font-size:.68rem; font-weight:700;
+  color:#c3ced9; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);
+}
+.community-grid{ gap:.7rem; }
+.community-card{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px; padding:1rem 1.1rem;
+}
 .community-icon{ width:34px; height:34px; border:0; background:none; color:var(--cyan); font-size:1.1rem; }
 .community-card.is-discord .community-icon{ background:none; color:#aab3ff; }
 .community-card::before{ display:none; }
@@ -830,7 +857,12 @@ body{
 .site-footer{ background:none; border-color:rgba(255,255,255,.08); }
 @media (min-width:900px){
   .stats-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); }
-  .about-panel{ border-top:0; padding-top:0; margin-top:0; }
+}
+@media (min-width:900px){
+  .feature-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; }
+  .feature{ padding:0 1.1rem; }
+  .feature:first-child{ padding-left:0; }
+  .feature + .feature{ border-left:1px solid rgba(255,255,255,.07); }
 }
 @media (max-width:560px){
   .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -840,7 +872,11 @@ body{
   .marquee-group{ font-size:.6rem; letter-spacing:.14em; }
 }
 @media (prefers-reduced-motion:reduce){
-  .marquee-track{ animation:none !important; }
+  /* A faixa continua passando mesmo com "reduzir movimento" ativo. */
+  .marquee-track{ animation:marquee-scroll 42s linear infinite !important; }
+  .intro{ animation:none !important; opacity:1 !important; transform:none !important; filter:none !important; }
+  .hero-logo{ animation:none !important; }
+  .media-fallback-img{ animation:none !important; }
 }
 </style>
 </head>
@@ -1085,6 +1121,12 @@ body{
           <p data-i18n="about_box_desc">
             Nossa equipe reúne talentos de ponta em design de interfaces, programação avançada em Luau, animações 3D e modelagem para entregar o mais alto padrão do Roblox Studio.
           </p>
+          <div class="about-tags">
+            <span data-i18n="tech_ui">UI Design</span>
+            <span>Luau</span>
+            <span data-i18n="tech_anim">Animação 3D</span>
+            <span data-i18n="tech_model">Modelagem</span>
+          </div>
         </aside>
       </div>
 
@@ -1227,7 +1269,6 @@ body{
       <div class="media-group" data-reveal>
         <div class="media-group-head">
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg> Anime Crash</h3>
-          <span class="media-group-tag" data-i18n="media_group_tag">Demonstração</span>
         </div>
         <div class="media-grid">
           <article class="media-card glass card-hover">
@@ -1266,7 +1307,6 @@ body{
       <div class="media-group" data-reveal>
         <div class="media-group-head">
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg> <span data-i18n="ap_title">Anime Paradise — Prévias</span></h3>
-          <span class="media-group-tag" data-i18n="sneak_peek">Sneak peek</span>
         </div>
         <div class="media-grid">
           <article class="media-card glass card-hover">
@@ -1989,7 +2029,23 @@ window.NEOX_CONFIG = {
   (() => {
     const videos = $$('video.loop-video');
     if (!videos.length) return;
+    const ensureVideoState = (v) => {
+      // Comportamento de GIF: nunca com controles, nunca com som, sempre em loop.
+      if (v.controls) v.controls = false;
+      if (v.hasAttribute('controls')) v.removeAttribute('controls');
+      if (!v.muted) v.muted = true;
+      if (!v.hasAttribute('muted')) v.setAttribute('muted', '');
+      if (v.volume !== 0) v.volume = 0;
+      if (!v.loop) v.loop = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      v.disablePictureInPicture = true;
+      v.setAttribute('controlslist', 'nodownload noplaybackrate nofullscreen');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+    };
     const safePlay = (v) => {
+      ensureVideoState(v);
       const p = v.play();
       if (p && typeof p.catch === 'function') p.catch(() => { /* iOS low power: tentamos de novo no toque */ });
     };
@@ -2000,14 +2056,9 @@ window.NEOX_CONFIG = {
     };
 
     videos.forEach((v) => {
-      v.muted = true;
-      v.defaultMuted = true;
-      v.loop = true;
-      v.playsInline = true;
-      v.controls = false;
-      v.setAttribute('muted', '');
-      v.setAttribute('playsinline', '');
-      v.setAttribute('webkit-playsinline', '');
+      ensureVideoState(v);
+      v.autoplay = true;
+      v.setAttribute('autoplay', '');
 
       const lastSource = v.querySelector('source:last-of-type');
       if (lastSource) {
@@ -2017,30 +2068,28 @@ window.NEOX_CONFIG = {
         });
       }
 
-      if (reduceMQ.matches) {
-        // Acessibilidade: sem autoplay; usuário controla.
-        v.removeAttribute('autoplay');
-        v.controls = true;
-        v.loop = true;
-        v.pause();
-        const frame = v.closest('.media-frame');
-        if (frame) frame.classList.remove('is-loading');
-        v.classList.add('is-ready');
-        return;
-      }
-
       ['loadeddata', 'canplay', 'canplaythrough'].forEach((ev) => {
         v.addEventListener(ev, () => { markReady(v); safePlay(v); }, { passive: true });
       });
-      v.addEventListener('playing', () => markReady(v));
+      v.addEventListener('playing', () => { ensureVideoState(v); markReady(v); });
+      v.addEventListener('volumechange', () => ensureVideoState(v));
       v.addEventListener('stalled', () => { /* mantém o último frame */ });
       v.addEventListener('error', () => showVideoFallback(v));
+      v.addEventListener('click', () => safePlay(v));
+      // Se algo pausar o vídeo visível (controle nativo, atalho etc.), volta a tocar.
+      v.addEventListener('pause', () => {
+        if (document.hidden) return;
+        const rect = v.getBoundingClientRect();
+        const visible = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (visible) window.setTimeout(() => { if (v.paused) safePlay(v); }, 180);
+      });
+      window.setInterval(() => ensureVideoState(v), 2000);
       // tenta já; se o navegador bloquear, os eventos acima tentam de novo.
       safePlay(v);
     });
 
     // Toca ao entrar na tela e pausa fora dela (economiza bateria sem parecer "pausado").
-    if ('IntersectionObserver' in window && !reduceMQ.matches) {
+    if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           const v = entry.target;
@@ -2052,11 +2101,43 @@ window.NEOX_CONFIG = {
     }
 
     // iOS em modo de baixo consumo só libera após um gesto; uma única tentativa resolve.
-    const retry = () => videos.forEach((v) => { if (!reduceMQ.matches && !document.hidden) safePlay(v); });
+    const retry = () => videos.forEach((v) => { if (!document.hidden) safePlay(v); });
     ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach((ev) =>
       window.addEventListener(ev, retry, { passive: true })
     );
     document.addEventListener('visibilitychange', () => { if (!document.hidden) retry(); });
+  })();
+
+  /* ---------------- Faixa: movimento garantido (rAF) ---------------- */
+  (() => {
+    const track = document.querySelector('.marquee-track');
+    const group = track && track.querySelector('.marquee-group');
+    if (!track || !group) return;
+
+    // A animação CSS fica como fallback sem JS; com JS, controlamos o transform
+    // para garantir que a faixa ande mesmo com "reduzir movimento" ativo.
+    track.style.animation = 'none';
+    let offset = 0;
+    let last = 0;
+    let width = group.offsetWidth;
+    const speed = 38; // px por segundo
+
+    const measure = () => { width = group.offsetWidth; };
+    window.addEventListener('resize', measure, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+    const frame = (now) => {
+      if (!last) last = now;
+      const dt = Math.min(64, now - last) / 1000;
+      last = now;
+      if (!document.hidden && width > 0) {
+        offset -= speed * dt;
+        while (offset <= -width) offset += width;
+        track.style.transform = `translate3d(${offset}px,0,0)`;
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
   })();
 
   /* ---------------- Estatísticas Roblox ---------------- */
@@ -2106,11 +2187,13 @@ window.NEOX_CONFIG = {
   }
   const STATS_INTERVAL = 30000;
   const JSON_INTERVAL = 60000;
-  const JSON_URL = new URL('roblox-stats.json', document.baseURI).href;
 
-  // Configuração definida no bloco de configuração do topo do body (window.NEOX_CONFIG).
+  // Configuração definida no bloco do topo do body (window.NEOX_CONFIG).
   const NEOX_CONFIG = window.NEOX_CONFIG || {};
   const LIVE_STATS_ENDPOINT = NEOX_CONFIG.liveStatsEndpoint || '';
+  const JSON_URL = NEOX_CONFIG.statsJson
+    ? new URL(NEOX_CONFIG.statsJson, document.baseURI).href
+    : '';
 
   const stats = {
     games: Object.fromEntries(Object.keys(GAMES).map((key) => [key, { ...(FALLBACK_LIKES[key] || {}) }])),
@@ -2279,7 +2362,7 @@ window.NEOX_CONFIG = {
 
     // 1) JSON gerado automaticamente (fonte principal, sem CORS) e
     // 2) RoProxy ao vivo (secundária) — buscados em paralelo para não atrasar a tela.
-    const shouldFetchJSON = !jsonFetchedAt || Date.now() - jsonFetchedAt > JSON_INTERVAL;
+    const shouldFetchJSON = !!JSON_URL && (!jsonFetchedAt || Date.now() - jsonFetchedAt > JSON_INTERVAL);
     const jsonPromise = shouldFetchJSON
       ? fetchJSON(`${JSON_URL}?t=${Date.now()}`).then((snapshot) => ({ snapshot })).catch((error) => ({ error }))
       : Promise.resolve(null);
