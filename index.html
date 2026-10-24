@@ -1099,6 +1099,7 @@ html.is-loading, html.is-loading body{ overflow:hidden; height:100%; }
   animation-delay:calc(var(--i,0) * 120ms + 120ms) !important;
 }
 .hero h1{ clip-path:inset(0 0 0 0); }
+#about{ overflow-x:clip; }
 .hero h1.intro{
   animation:fade-up 1.05s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 120ms + 100ms) backwards,
             title-clip 1.25s cubic-bezier(.22,1,.36,1) calc(var(--i,0) * 120ms + 100ms) both !important;
@@ -1229,18 +1230,42 @@ html.is-loading .hero h1.intro{ animation-play-state:paused !important; }
   .hero-scroll span::after{ animation:none !important; opacity:.7; }
 }
 </style>
+
+<style>
+/* Loading minimalista — wordmark + linha de progresso */
+#site-loader{
+  background:#000 !important;
+  transition:opacity .45s ease, visibility .45s !important;
+}
+#site-loader::before{ display:none !important; }
+.loader-inner{ gap:22px !important; padding:1rem !important; }
+.loader-word{
+  font-family:'Nunito', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size:clamp(46px, 7vw, 64px);
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:1;
+  color:#fff;
+}
+.loader-bar{
+  width:150px !important; height:2px !important; border-radius:0 !important;
+  background:#1a1a1a !important; overflow:hidden;
+}
+.loader-bar span{
+  height:100%; background:var(--cyan-2) !important;
+  transition:width .15s linear !important;
+}
+.loader-bar span::after{ display:none !important; }
+.loader-logo,.loader-logo-wrap,.loader-brand,.loader-meta{ display:none !important; }
+#site-loader.is-done{ opacity:0; visibility:hidden; pointer-events:none; }
+</style>
 </head>
 <body>
 
 <div id="site-loader" role="status" aria-label="Carregando" data-i18n-aria="loading">
   <div class="loader-inner">
-    <div class="loader-logo-wrap">
-      <img class="loader-logo" src="assets/neox-logo.png" alt="" width="88" height="88" data-logo>
-      <span class="img-fallback" style="border-radius:24px">NX</span>
-    </div>
-    <div class="loader-brand">NEOX <span>STUDIO</span></div>
-    <div class="loader-bar"><span id="loader-progress"></span></div>
-    <div class="loader-meta"><span data-i18n="loading">Carregando…</span><strong id="loader-percent" aria-hidden="true">0%</strong></div>
+    <div class="loader-word">NeoX</div>
+    <div class="loader-bar" aria-hidden="true"><span id="loader-progress"></span></div>
   </div>
 </div>
 <script>
