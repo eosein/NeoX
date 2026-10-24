@@ -1309,6 +1309,88 @@ html{ scroll-behavior:auto; }
   .to-top{ right:14px; bottom:calc(14px + env(safe-area-inset-bottom,0px)); width:42px; height:42px; }
 }
 </style>
+
+<style>
+/* =========================================================
+   CURSOR PERSONALIZADO + AVISO DE NAVEGAÇÃO
+   ========================================================= */
+html.has-nx-cursor,
+html.has-nx-cursor *{ cursor:none !important; }
+html.has-nx-cursor input,
+html.has-nx-cursor textarea,
+html.has-nx-cursor select{ cursor:text !important; }
+.nx-cursor{
+  position:fixed; inset:0; z-index:10001; pointer-events:none;
+  display:none; opacity:0; transition:opacity .2s ease;
+}
+html.has-nx-cursor .nx-cursor{ display:block; }
+.nx-cursor.is-active{ opacity:1; }
+.nx-cursor-dot{
+  position:absolute; left:0; top:0; width:6px; height:6px;
+  margin:-3px 0 0 -3px; border-radius:50%;
+  background:#fff; box-shadow:0 0 10px rgba(0,229,255,.75);
+  scale:1; transition:scale .2s var(--ease), opacity .2s ease;
+}
+.nx-cursor-ring{
+  position:absolute; left:0; top:0; width:30px; height:30px;
+  margin:-15px 0 0 -15px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.42);
+  border-top-color:var(--cyan-2);
+  border-right-color:rgba(0,229,255,.16);
+  transition:width .24s var(--ease), height .24s var(--ease),
+             margin .24s var(--ease), border-color .24s ease,
+             background-color .24s ease, opacity .2s ease;
+}
+.nx-cursor-ring::after{
+  content:""; position:absolute; inset:-1px; border-radius:50%;
+  border:1px solid transparent; border-bottom-color:rgba(0,229,255,.4);
+  animation:cursor-spin 4.5s linear infinite;
+}
+@keyframes cursor-spin{ to{ transform:rotate(360deg); } }
+.nx-cursor.is-hover .nx-cursor-ring{
+  width:46px; height:46px; margin:-23px 0 0 -23px;
+  border-color:rgba(0,229,255,.62);
+  background:rgba(0,229,255,.045);
+}
+.nx-cursor.is-hover .nx-cursor-dot{ scale:.55; }
+.nx-cursor.is-down .nx-cursor-ring{
+  width:22px; height:22px; margin:-11px 0 0 -11px;
+  border-color:rgba(0,229,255,.85);
+}
+.nx-cursor.is-hidden,
+.nx-cursor.is-hidden .nx-cursor-ring,
+.nx-cursor.is-hidden .nx-cursor-dot{ opacity:0; }
+@media (hover:none), (pointer:coarse){
+  html.has-nx-cursor, html.has-nx-cursor *{ cursor:auto !important; }
+  .nx-cursor{ display:none !important; }
+}
+
+/* Aviso discreto de navegação */
+.nav-toast{
+  position:fixed; left:50%; bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  z-index:86; display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem .85rem; border-radius:999px;
+  background:rgba(10,14,19,.94); border:1px solid rgba(255,255,255,.11);
+  color:#dbe2ea; font-size:.72rem; font-weight:800; letter-spacing:.01em;
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transform:translate(-50%,12px);
+  transition:opacity .24s ease, transform .35s var(--ease), visibility .24s;
+}
+.nav-toast.is-visible{ opacity:1; visibility:visible; transform:translate(-50%,0); }
+.nav-toast-dot{
+  width:6px; height:6px; border-radius:50%; flex:none;
+  background:var(--cyan-2); animation:toast-ping 1.15s ease-out infinite;
+}
+@keyframes toast-ping{
+  0%{ box-shadow:0 0 0 0 rgba(0,229,255,.45); }
+  100%{ box-shadow:0 0 0 7px rgba(0,229,255,0); }
+}
+html.is-traveling #scroll-progress{
+  height:4px; opacity:1;
+  box-shadow:0 0 18px rgba(0,229,255,.55);
+}
+</style>
 </head>
 <body>
 
@@ -1335,6 +1417,7 @@ html{ scroll-behavior:auto; }
 <div id="scroll-progress" aria-hidden="true"></div>
 <canvas id="fx-canvas" aria-hidden="true"></canvas>
 <div class="cursor-glow" aria-hidden="true"></div>
+<div id="nx-cursor" class="nx-cursor" aria-hidden="true"><span class="nx-cursor-ring"></span><span class="nx-cursor-dot"></span></div>
 <!-- Sprite de ícones (SVG inline: zero requisições, ~4 KB) -->
 <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <symbol id="i-discord" viewBox="0 0 24 24">
@@ -2044,6 +2127,7 @@ window.NEOX_CONFIG = {
   </div>
 </footer>
 
+<div id="nav-toast" class="nav-toast" aria-live="polite" aria-hidden="true"><span class="nav-toast-dot" aria-hidden="true"></span><span id="nav-toast-text">Indo…</span></div>
 <button type="button" id="to-top" class="to-top" aria-label="Voltar ao topo" data-i18n-aria="to_top" aria-hidden="true" tabindex="-1">
   <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
 </button>
@@ -2169,6 +2253,8 @@ window.NEOX_CONFIG = {
       ph_name: "Seu nome", ph_email: 'voce@email.com', ph_roblox: "Seu usuário no Roblox", ph_msg: "Conta o que você precisa...",
       aria_menu_open: 'Abrir menu', aria_menu_close: 'Fechar menu',
       to_top: 'Voltar ao topo', scroll_hint: 'Ir para a seção Sobre',
+      going_to: (name) => (name ? `Indo para ${name}…` : 'Indo…'),
+      back_to_top: 'Voltando ao topo…',
       title: 'NeoX Studio | Jogos no Roblox'
     },
     en: {
@@ -2241,6 +2327,8 @@ window.NEOX_CONFIG = {
       ph_name: "Your name", ph_email: 'you@email.com', ph_roblox: "Your Roblox username", ph_msg: "Tell us what you need...",
       aria_menu_open: 'Open menu', aria_menu_close: 'Close menu',
       to_top: 'Back to top', scroll_hint: 'Go to the About section',
+      going_to: (name) => (name ? `Heading to ${name}…` : 'On the way…'),
+      back_to_top: 'Back to top…',
       title: 'NeoX Studio | Games on Roblox'
     }
   };
@@ -3307,7 +3395,21 @@ window.NEOX_CONFIG = {
   (() => {
     const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
     const header = $('#site-header');
+    const toast = document.getElementById('nav-toast');
+    const toastText = document.getElementById('nav-toast-text');
     let raf = null;
+
+    function showToast(text) {
+      if (!toast || !toastText) return;
+      toastText.textContent = text;
+      toast.setAttribute('aria-hidden', 'false');
+      toast.classList.add('is-visible');
+    }
+    function hideToast() {
+      if (!toast) return;
+      toast.classList.remove('is-visible');
+      toast.setAttribute('aria-hidden', 'true');
+    }
 
     function flash(section) {
       if (!section) return;
@@ -3323,7 +3425,7 @@ window.NEOX_CONFIG = {
       return Math.max(0, Math.round(window.scrollY + target.getBoundingClientRect().top - headerOffset));
     }
 
-    function animateTo(target) {
+    function animateTo(target, labelOverride) {
       if (!target) return;
       const to = target.id === 'home' ? 0 : targetTop(target);
       const from = window.scrollY;
@@ -3331,8 +3433,11 @@ window.NEOX_CONFIG = {
       if (Math.abs(distance) < 3) { flash(target); return; }
       if (raf) cancelAnimationFrame(raf);
       if (header) header.classList.remove('is-hidden');
-      document.documentElement.classList.add('is-navigating');
-      const duration = Math.min(1100, Math.max(520, Math.abs(distance) * 0.55));
+      const navLink = target.id ? document.querySelector(`.nav-link[href="#${target.id}"]`) : null;
+      const label = labelOverride || (navLink ? navLink.textContent.trim() : '');
+      showToast(dict().going_to(label));
+      document.documentElement.classList.add('is-navigating', 'is-traveling');
+      const duration = Math.min(1500, Math.max(620, Math.abs(distance) * 0.7));
       const started = performance.now();
       const step = (now) => {
         const t = Math.min(1, (now - started) / duration);
@@ -3341,7 +3446,8 @@ window.NEOX_CONFIG = {
           raf = requestAnimationFrame(step);
         } else {
           raf = null;
-          document.documentElement.classList.remove('is-navigating');
+          document.documentElement.classList.remove('is-navigating', 'is-traveling');
+          hideToast();
           const toTopBtn = document.getElementById('to-top');
           if (toTopBtn) {
             const showTop = window.scrollY > 560;
@@ -3359,7 +3465,8 @@ window.NEOX_CONFIG = {
       if (!raf) return;
       cancelAnimationFrame(raf);
       raf = null;
-      document.documentElement.classList.remove('is-navigating');
+      document.documentElement.classList.remove('is-navigating', 'is-traveling');
+      hideToast();
     };
     window.addEventListener('wheel', cancel, { passive: true });
     window.addEventListener('touchstart', cancel, { passive: true });
@@ -3381,7 +3488,7 @@ window.NEOX_CONFIG = {
     if (toTop) {
       toTop.addEventListener('click', () => {
         const home = document.getElementById('home');
-        animateTo(home || document.body);
+        animateTo(home || document.body, dict().back_to_top);
       });
     }
 
@@ -3416,6 +3523,56 @@ window.NEOX_CONFIG = {
       }, { passive: true });
       el.addEventListener('pointerleave', () => { el.style.transform = ''; });
     });
+  })();
+
+  /* ---------------- Cursor personalizado ---------------- */
+  (() => {
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    const root = document.getElementById('nx-cursor');
+    if (!root) return;
+    const dot = root.querySelector('.nx-cursor-dot');
+    const ring = root.querySelector('.nx-cursor-ring');
+    if (!dot || !ring) return;
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+    let frame = null;
+    let started = false;
+
+    const render = () => {
+      rx += (mx - rx) * 0.16;
+      ry += (my - ry) * 0.16;
+      dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
+      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+      frame = requestAnimationFrame(render);
+    };
+
+    document.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
+      mx = event.clientX;
+      my = event.clientY;
+      if (!started) {
+        started = true;
+        document.documentElement.classList.add('has-nx-cursor');
+        root.classList.add('is-active');
+        frame = requestAnimationFrame(render);
+      }
+      root.classList.remove('is-hidden');
+      const overText = event.target.closest('input, textarea, select');
+      root.classList.toggle('is-hidden', !!overText);
+      const overInteractive = !overText && event.target.closest(
+        'a, button, .btn, .game-card, .media-card, .team-card, .community-card, .chip-link, .team-arrow, .to-top'
+      );
+      root.classList.toggle('is-hover', !!overInteractive);
+    }, { passive: true });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'touch') root.classList.add('is-down');
+    });
+    document.addEventListener('pointerup', () => root.classList.remove('is-down'));
+    document.addEventListener('mouseleave', () => root.classList.add('is-hidden'));
+    document.addEventListener('mouseenter', () => root.classList.remove('is-hidden'));
+    window.addEventListener('blur', () => root.classList.add('is-hidden'));
+    window.addEventListener('focus', () => root.classList.remove('is-hidden'));
   })();
 
   /* ---------------- Tilt + spotlight nos cards ---------------- */
