@@ -553,6 +553,30 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
   .js .team-card.is-active:hover{ translate:0 -4px; }
 }
 
+/* ---------- Refinos de animação (sutis, em todo o site) ---------- */
+.field input,.field textarea{ transition:border-color .25s ease, box-shadow .3s ease, background-color .25s ease, transform .3s var(--ease); }
+@media (hover:hover){
+  .field input:hover:not(:focus),.field textarea:hover:not(:focus){ border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.04); }
+}
+.field input:focus,.field textarea:focus{ transform:translateY(-1px); }
+.form-status{ transition:color .3s ease; }
+.form-status.is-pop{ animation:fade-up .5s var(--ease); }
+.footer-links a{ display:inline-block; transition:color .25s ease, transform .3s var(--ease); }
+.footer-brand img{ transition:transform .5s var(--ease); }
+.gp-card{ transition:border-color .3s ease, background-color .3s ease, transform .4s var(--ease); }
+.dp-duties li{ transition:transform .35s var(--ease), color .3s ease; }
+.team-dot{ transition:width .4s var(--ease), background-color .3s ease, transform .3s var(--ease); }
+.about-panel::before{ transition:width .8s var(--ease); }
+@media (hover:hover){
+  .footer-links a:hover{ transform:translateY(-2px); }
+  .footer-brand:hover img{ transform:rotate(-6deg) scale(1.06); }
+  .gp-card:hover{ border-color:rgba(255,255,255,.2); transform:translateY(-3px); }
+  .dp-duties li:hover{ transform:translateX(4px); color:#fff; }
+  .team-dot:hover{ transform:scale(1.25); }
+  .about-panel:hover::before{ width:64px; }
+  .to-top.is-visible:hover{ transform:translateY(-3px); }
+}
+
 /* ---------- Responsivo ---------- */
 @media (min-width:560px){
   .feature-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -771,7 +795,7 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
           <h2 class="section-title"><span data-i18n="about_title">A gente leva a diversão a sério.</span></h2>
           <p data-i18n="about_desc">A NeoX começou com uma ideia simples: fazer jogos que dão vontade de ficar.</p>
 
-          <div class="feature-grid">
+          <div class="feature-grid stagger" data-stagger>
             <div class="feature">
               <h3 data-i18n="feat_1_title">Gameplay que responde</h3>
               <p data-i18n="feat_1_desc">Controle preciso, sem travar.</p>
@@ -1028,7 +1052,7 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
           <p data-i18n="contact_subtitle">Manda uma mensagem ou aparece no Discord.</p>
         </div>
 
-        <form id="contact-form" method="post" class="form-grid" novalidate autocomplete="on">
+        <form id="contact-form" method="post" class="form-grid stagger" data-stagger novalidate autocomplete="on">
           <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="f-name" data-i18n="form_name">Seu nome</label>
@@ -1172,6 +1196,7 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
 
 <!-- ================= CONFIGURAÇÃO RÁPIDA =================
      formEndpoint: mensagens do formulário chegam por e-mail via FormSubmit.
+     E-mail de destino: oosein00@gmail.com
      No primeiro envio o FormSubmit manda um e-mail de ativação para o endereço do dono
      (olhe também o SPAM): clique em "Activate Form". Sem isso TODO envio falha.
      Depois de ativar, o FormSubmit mostra um código aleatório; você pode trocar o e-mail
@@ -1180,14 +1205,14 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
 -->
 <script>
 window.NEOX_CONFIG = Object.freeze({
-  formEndpoint: 'https://formsubmit.co/ajax/eoseinn00@gmail.com',
+  formEndpoint: 'https://formsubmit.co/ajax/oosein00@gmail.com',
   liveStatsEndpoint: ''
 });
 </script>
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
-  <div class="container footer-inner">
+  <div class="container footer-inner stagger" data-stagger>
     <div class="footer-brand">
       <img src="assets/neox-logo.png" alt="" width="36" height="36">
       <strong>NeoX Studio</strong>
@@ -2750,9 +2775,10 @@ window.NEOX_CONFIG = Object.freeze({
     const setStatus = (state, text, cls) => {
       if (!formStatus) return;
       formStatus.dataset.state = state;
-      formStatus.classList.remove('is-error', 'is-ok');
+      formStatus.classList.remove('is-error', 'is-ok', 'is-pop');
       if (cls) formStatus.classList.add(cls);
       formStatus.textContent = text;
+      if (!reduced()) { void formStatus.offsetWidth; formStatus.classList.add('is-pop'); }
     };
 
     async function postTo(body, headers) {
@@ -2774,9 +2800,11 @@ window.NEOX_CONFIG = Object.freeze({
       if (!FORM_ENDPOINT) { setFormDisabled(); return; }
       const t = dict();
 
-      // Anti-robô: campo escondido preenchido ou formulário "preenchido" rápido demais.
+      // Anti-robô: campo escondido preenchido = robô (descarta em silêncio).
       const honey = contactForm.elements._honey;
-      if ((honey && honey.value) || Date.now() - openedAt < MIN_FILL_MS) return;
+      if (honey && honey.value) return;
+      // Formulário "preenchido" rápido demais: avisa o visitante em vez de falhar sem dizer nada.
+      if (Date.now() - openedAt < MIN_FILL_MS) { setStatus('wait', t.form_wait, 'is-error'); return; }
 
       // Limite de envios por visitante.
       const lastSent = num(store.get('neox-form-last')) || 0;
