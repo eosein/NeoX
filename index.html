@@ -1,8 +1,28 @@
 <!DOCTYPE html>
+<!-- © NeoX Studio. Todos os direitos reservados. Cópia, reprodução ou redistribuição deste código sem autorização é proibida. -->
 <html lang="pt-BR" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
+     'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Anti-clickjacking: se o site for aberto dentro de um iframe de outro domínio, ele some e sai do quadro. -->
+<style id="anti-frame">html{display:none!important}</style>
+<script>
+(function () {
+  if (window.top === window.self) {
+    var s = document.getElementById('anti-frame');
+    if (s && s.parentNode) s.parentNode.removeChild(s);
+  } else {
+    try { window.top.location = window.self.location; } catch (e) { /* bloqueado: o site continua oculto */ }
+  }
+})();
+</script>
+
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#020204">
 <meta name="format-detection" content="telephone=no">
@@ -35,11 +55,6 @@
 
 <link rel="icon" type="image/png" sizes="any" href="assets/neox-logo.png">
 <link rel="apple-touch-icon" href="assets/neox-logo.png">
-
-<!-- Segurança: em produção o ideal é enviar a MESMA política como cabeçalho HTTP no servidor.
-     'unsafe-inline' é necessário porque este arquivo tem CSS/JS inline. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://apis.roproxy.com https://games.roproxy.com https://api.allorigins.win https://r.jina.ai https://formsubmit.co; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <script type="application/ld+json">
 {
@@ -148,6 +163,7 @@ a,button{ touch-action:manipulation; }
 }
 .js [data-reveal].is-in,.js .stagger.is-in > *{ opacity:1; translate:none; scale:none; }
 .js [data-reveal].is-tilting{ transition:opacity .3s ease, translate .3s ease, transform .15s ease-out, border-color .3s ease; }
+.js .stagger > .is-tilting{ transition:opacity .3s ease, translate .3s ease, transform .15s ease-out, border-color .3s ease; }
 .stagger > :nth-child(2){ --sd:.08s; } .stagger > :nth-child(3){ --sd:.16s; }
 .stagger > :nth-child(4){ --sd:.24s; } .stagger > :nth-child(5){ --sd:.32s; } .stagger > :nth-child(6){ --sd:.4s; }
 .no-js [data-reveal],.no-js .stagger > *{ opacity:1 !important; translate:none !important; scale:none !important; }
@@ -333,7 +349,9 @@ html.is-loading .intro,html.is-loading .ambient span{ animation-play-state:pause
 @keyframes spin{ to{ transform:rotate(360deg); } }
 .media-caption h4{ font-size:.95rem; letter-spacing:-.01em; padding:0 .2rem; }
 .media-fallback-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.media-placeholder{ position:absolute; inset:0; display:grid; place-items:center; padding:1rem; text-align:center; color:var(--muted); font-size:.8rem; font-weight:600; background:radial-gradient(circle at 50% 45%,#0c1218,#020204 78%); }
+.media-placeholder{ position:absolute; inset:0; z-index:2; display:grid; place-items:center; padding:1rem; text-align:center; color:var(--muted); font-size:.8rem; font-weight:600; background:radial-gradient(circle at 50% 45%,#0c1218,#020204 78%); }
+.media-placeholder.is-retry{ cursor:pointer; transition:color .25s ease; }
+.media-placeholder.is-retry:hover{ color:#fff; }
 
 /* ---------- Equipe ---------- */
 .team-wrap{ position:relative; }
@@ -586,7 +604,7 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
   *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
 </style>
-<noscript><style>#site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
+<noscript><style>html{display:block!important} #site-loader{display:none!important} html.is-loading,html.is-loading body{overflow:auto!important;height:auto!important}</style></noscript>
 </head>
 <body>
 
@@ -911,22 +929,22 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
         <div class="media-group-head">
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg> Anime Crash</h3>
         </div>
-        <div class="media-grid">
-          <article class="media-card" data-reveal>
+        <div class="media-grid stagger" data-stagger>
+          <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="none" poster="assets/anime-crash-quests.png" data-fallback-img="assets/anime-crash-quests.png" disablepictureinpicture disableremoteplayback aria-label="Anime Crash — combate e movimentação">
-                <source src="assets/anime-crash-gameplay.mp4" type="video/mp4">
+              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Crash — combate e movimentação">
+                <source src="assets/anime-crash-gameplay.mp4#t=0.001" type="video/mp4">
               </video>
             </div>
             <div class="media-caption"><h4 data-i18n="ac_1_title">Combate & Movimento</h4></div>
           </article>
-          <article class="media-card" data-reveal style="--d:100ms">
+          <article class="media-card">
             <div class="media-frame">
               <img src="assets/anime-crash-quests.png" alt="Missões e recompensas de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
             </div>
             <div class="media-caption"><h4 data-i18n="ac_2_title">Missões & Recompensas</h4></div>
           </article>
-          <article class="media-card" data-reveal style="--d:200ms">
+          <article class="media-card">
             <div class="media-frame">
               <img src="assets/anime-crash-skill-tree.png" alt="Árvore de habilidades de Anime Crash" width="640" height="360" loading="lazy" decoding="async">
             </div>
@@ -939,25 +957,25 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
         <div class="media-group-head">
           <h3 class="media-group-title"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg> Anime Paradise</h3>
         </div>
-        <div class="media-grid">
-          <article class="media-card" data-reveal>
+        <div class="media-grid stagger" data-stagger>
+          <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="none" poster="assets/anime-paradise-models.png" data-fallback-img="assets/anime-paradise-models.png" data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — cinemática e interface">
-                <source src="assets/anime-paradise-cutscene-ui.mp4" type="video/mp4">
+              <video class="loop-video" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — cinemática e interface">
+                <source src="assets/anime-paradise-cutscene-ui.mp4#t=0.001" type="video/mp4">
               </video>
             </div>
             <div class="media-caption"><h4 data-i18n="media_cutscene_ui">Cinemática & UI</h4></div>
           </article>
-          <article class="media-card" data-reveal style="--d:100ms">
+          <article class="media-card">
             <div class="media-frame is-loading">
-              <video class="loop-video" muted loop playsinline preload="none" data-alt="assets/anime-paradise-movement.MP4,assets/anime-paradise-Movement.mp4,assets/anime-paradise-moviment.mp4,assets/anime-paradise-movimentacao.mp4,assets/anime-paradise-movement.mov,assets/anime-paradise-movement.m4v" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
-                <source src="assets/anime-paradise-movement.mp4" type="video/mp4">
-                <source src="assets/anime-paradise-movement.webm" type="video/webm">
+              <video class="loop-video" muted loop playsinline preload="metadata" data-alt="assets/anime-paradise-movement.MP4,assets/anime-paradise-Movement.mp4,assets/anime-paradise-moviment.mp4,assets/anime-paradise-movimentacao.mp4,assets/anime-paradise-movement.mov,assets/anime-paradise-movement.m4v" disablepictureinpicture disableremoteplayback aria-label="Anime Paradise — movimentação">
+                <source src="assets/anime-paradise-movement.mp4#t=0.001" type="video/mp4">
+                <source src="assets/anime-paradise-movement.webm#t=0.001" type="video/webm">
               </video>
             </div>
             <div class="media-caption"><h4 data-i18n="media_movement">Movimentação</h4></div>
           </article>
-          <article class="media-card" data-reveal style="--d:200ms">
+          <article class="media-card">
             <div class="media-frame">
               <img src="assets/anime-paradise-models.png" data-fallbacks="assets/anime-paradise-models.jpg,assets/anime-paradise-models.jpeg,assets/anime-paradise-models.webp,assets/image.png" alt="Modelos de Anime Paradise" width="640" height="360" loading="lazy" decoding="async">
             </div>
@@ -1008,11 +1026,11 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
           <p data-i18n="contact_subtitle">Manda uma mensagem ou aparece no Discord.</p>
         </div>
 
-        <form id="contact-form" method="post" class="form-grid" novalidate>
+        <form id="contact-form" method="post" class="form-grid" novalidate autocomplete="on">
           <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="f-name" data-i18n="form_name">Seu nome</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="Seu nome" data-i18n-placeholder="ph_name">
+            <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" placeholder="Seu nome" data-i18n-placeholder="ph_name">
           </div>
           <div class="field">
             <label for="f-email" data-i18n="form_email">Seu e-mail</label>
@@ -1151,15 +1169,18 @@ html.hero-off .ambient span,html.hero-off .hero-logo-wrap::before,html.hero-off 
 </section>
 
 <!-- ================= CONFIGURAÇÃO RÁPIDA =================
-     formEndpoint: mensagens do formulário chegam em eoseinn00@gmail.com (via FormSubmit).
-     No primeiro envio o FormSubmit manda um e-mail de ativação para esse endereço: clique em "Activate Form".
+     formEndpoint: mensagens do formulário chegam por e-mail via FormSubmit.
+     No primeiro envio o FormSubmit manda um e-mail de ativação para o endereço do dono
+     (olhe também o SPAM): clique em "Activate Form". Sem isso TODO envio falha.
+     Depois de ativar, o FormSubmit mostra um código aleatório; você pode trocar o e-mail
+     no endereço por esse código (https://formsubmit.co/ajax/CODIGO) para não expor o e-mail no código.
      liveStatsEndpoint: URL de um Worker (opcional). Vazio = usa RoProxy.
 -->
 <script>
-window.NEOX_CONFIG = {
+window.NEOX_CONFIG = Object.freeze({
   formEndpoint: 'https://formsubmit.co/ajax/eoseinn00@gmail.com',
   liveStatsEndpoint: ''
-};
+});
 </script>
 
 <!-- ================= FOOTER ================= -->
@@ -1195,7 +1216,7 @@ window.NEOX_CONFIG = {
   const root = document.documentElement;
   root.classList.remove('no-js');
   root.classList.add('js');
-  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) { /* ok */ }
+  try { if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual'; } catch (e) { /* ok */ }
 
   /* ---------------- Utilidades ---------------- */
   const $  = (sel, ctx = document) => ctx.querySelector(sel);
@@ -1218,9 +1239,16 @@ window.NEOX_CONFIG = {
     set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* modo privado */ } }
   };
   const debounce = (fn, wait = 150) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); }; };
+  // Só deixa passar endereços https (evita javascript:, data: etc. em links montados por script).
+  const safeHttps = (u) => {
+    try { const x = new URL(u, location.href); return x.protocol === 'https:' ? x.href : '#'; }
+    catch (e) { return '#'; }
+  };
+  // Remove caracteres de controle e limita o tamanho de texto digitado pelo visitante.
+  const cleanText = (s, max) => String(s || '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').trim().slice(0, max);
 
   /* ---------------- Equipe: dados e textos dos perfis ---------------- */
-  const DEVS = [
+  const DEVS = Object.freeze([
     {
       slug: 'sasadev', name: 'SasaDev', initials: 'SD', img: 'assets/sasa.png', role: 'role_owner',
       roblox: 'https://www.roblox.com/users/5790284269/profile',
@@ -1333,7 +1361,7 @@ window.NEOX_CONFIG = {
         duties: ['Discord and group moderation', 'Update and event announcements', 'Feedback and suggestion collection', 'Player support and questions']
       }
     }
-  ];
+  ]);
 
   /* ---------------- Traduções ---------------- */
   const i18n = {
@@ -1368,6 +1396,7 @@ window.NEOX_CONFIG = {
       media_subtitle: 'Gameplay, bastidores e alguns testes que a gente não resistiu em mostrar.',
       ac_1_title: 'Combate & Movimento', ac_2_title: 'Missões & Recompensas', ac_3_title: 'Árvore de Habilidades',
       media_cutscene_ui: 'Cinemática & UI', media_movement: 'Movimentação', media_models: 'Modelos', media_soon: 'Mídia em breve',
+      media_error: 'Vídeo indisponível. Toque para tentar de novo.',
       team_tag: 'Quem faz acontecer', team_title: 'A Equipe NeoX',
       team_subtitle: 'Um time pequeno, próximo e que gosta do que faz. Clique em alguém para abrir o perfil.',
       role_owner: 'Owner', role_coowner_gd: 'Co-Owner & Game Designer', role_gd: 'Designer de Jogos', role_animator: 'Animador',
@@ -1387,8 +1416,11 @@ window.NEOX_CONFIG = {
       stats_prefix: 'Números atualizados às', src_live: 'ao vivo', src_cache: 'último valor salvo',
       sending: 'Enviando…', sent: 'Mensagem enviada. A gente responde assim que puder.',
       send_error: 'Não deu para enviar. Tenta de novo ou chama no Discord.',
+      send_activation: 'O formulário ainda precisa ser ativado pelo dono do site. Chama a gente no Discord por enquanto.',
+      form_wait: 'Calma aí! Espera um pouquinho antes de mandar outra mensagem.',
       form_off: 'O formulário está fora do ar por enquanto. Chama a gente no Discord.',
       msg_short: 'Escreve um pouco mais (pelo menos 16 caracteres).',
+      email_bad: 'Digite um e-mail válido.', name_short: 'Digite seu nome.',
       ph_name: 'Seu nome', ph_email: 'voce@email.com', ph_roblox: 'Seu usuário no Roblox', ph_msg: 'Conta o que você precisa...',
       aria_menu_open: 'Abrir menu', aria_menu_close: 'Fechar menu', to_top: 'Voltar ao topo', scroll_hint: 'Ir para a seção Sobre',
       going_to: (name) => (name ? `Indo para ${name}…` : 'Indo…'), back_to_top: 'Voltando ao topo…',
@@ -1430,6 +1462,7 @@ window.NEOX_CONFIG = {
       media_subtitle: 'Gameplay, behind the scenes and a few tests we could not resist showing.',
       ac_1_title: 'Combat & Movement', ac_2_title: 'Missions & Rewards', ac_3_title: 'Skill Tree',
       media_cutscene_ui: 'Cutscene & UI', media_movement: 'Movement', media_models: 'Models', media_soon: 'Media coming soon',
+      media_error: 'Video unavailable. Tap to try again.',
       team_tag: 'The people behind it', team_title: 'The NeoX Team',
       team_subtitle: 'A small, close team that enjoys what it does. Click anyone to open their profile.',
       role_owner: 'Owner', role_coowner_gd: 'Co-Owner & Game Designer', role_gd: 'Game Designer', role_animator: 'Animator',
@@ -1449,8 +1482,11 @@ window.NEOX_CONFIG = {
       stats_prefix: 'Numbers updated at', src_live: 'live', src_cache: 'last saved value',
       sending: 'Sending…', sent: 'Message sent. We will get back to you soon.',
       send_error: 'Could not send. Try again or reach us on Discord.',
+      send_activation: 'The form still needs to be activated by the site owner. Reach us on Discord for now.',
+      form_wait: 'Easy there! Please wait a moment before sending another message.',
       form_off: 'The form is down for now. Reach us on Discord.',
       msg_short: 'Please write a bit more (at least 16 characters).',
+      email_bad: 'Enter a valid email.', name_short: 'Enter your name.',
       ph_name: 'Your name', ph_email: 'you@email.com', ph_roblox: 'Your Roblox username', ph_msg: 'Tell us what you need...',
       aria_menu_open: 'Open menu', aria_menu_close: 'Close menu', to_top: 'Back to top', scroll_hint: 'Go to the About section',
       going_to: (name) => (name ? `Heading to ${name}…` : 'On the way…'), back_to_top: 'Back to top…',
@@ -1484,22 +1520,24 @@ window.NEOX_CONFIG = {
     cr: { universe: '7660190629', soon: true },
     ff: { universe: '7139435866', soon: false }
   };
-  const GAME_PAGES = {
+  const GAME_PAGES = Object.freeze({
     ap: { slug: 'anime-paradise', name: 'Anime Paradise', img: 'assets/anime-paradise.png', pos: '50% 50%', desc: 'game_1_desc', play: 'https://www.roblox.com/pt/games/96665881849072/Anime-Paradise', dc: 'https://discord.gg/yACDzUah8Z' },
     ff: { slug: 'free-fire-max', name: 'FREE FIRE MAX', img: 'assets/free-fire-max.png', pos: '62% 50%', desc: 'game_3_desc', play: 'https://www.roblox.com/pt/games/93233198656969/FREE-FIRE-MAX', dc: '' }
-  };
+  });
   const UNIVERSE_TO_KEY = Object.fromEntries(Object.entries(GAMES).map(([key, g]) => [g.universe, key]));
   const FIELDS = ['playing', 'visits', 'favorites', 'likes', 'dislikes'];
   const FALLBACK_LIKES = { ap: { likes: 169 }, cr: { likes: 1645 }, ff: { likes: 4565 } };
   const NEOX_CONFIG = window.NEOX_CONFIG || {};
-  const FORM_ENDPOINT = NEOX_CONFIG.formEndpoint || '';
-  const LIVE_STATS_ENDPOINT = NEOX_CONFIG.liveStatsEndpoint || '';
+  // Só aceita os endereços esperados (se alguém alterar a config, não vira porta de entrada).
+  const FORM_ENDPOINT = /^https:\/\/formsubmit\.co\/ajax\/[^\s]+$/.test(NEOX_CONFIG.formEndpoint || '') ? NEOX_CONFIG.formEndpoint : '';
+  const LIVE_STATS_ENDPOINT = /^https:\/\//.test(NEOX_CONFIG.liveStatsEndpoint || '') ? NEOX_CONFIG.liveStatsEndpoint : '';
 
   const stats = {
     games: Object.fromEntries(Object.keys(GAMES).map((k) => [k, { ...(FALLBACK_LIKES[k] || {}) }])),
     meta: {}, updatedAt: 0, source: null, loaded: false, failed: false
   };
-  const history = { ap: [], cr: [], ff: [] };
+  // Atenção: NÃO chamar de "history" (isso escondia o window.history e quebrava a troca de endereço).
+  const liveHistory = { ap: [], cr: [], ff: [] };
   let lastLiveAt = 0;
 
   /* ---------------- Números ---------------- */
@@ -1578,10 +1616,14 @@ window.NEOX_CONFIG = {
       }
     });
     if (!FORM_ENDPOINT) setFormDisabled();
-    const msgField = $('#f-msg');
-    if (msgField) msgField.setCustomValidity('');
-    if (formStatus && formStatus.dataset.state === 'sent') formStatus.textContent = t.sent;
-    if (formStatus && formStatus.dataset.state === 'error') formStatus.textContent = t.send_error;
+    ['#f-msg', '#f-email', '#f-name'].forEach((id) => { const f = $(id); if (f) f.setCustomValidity(''); });
+    if (formStatus) {
+      const st = formStatus.dataset.state;
+      if (st === 'sent') formStatus.textContent = t.sent;
+      else if (st === 'error') formStatus.textContent = t.send_error;
+      else if (st === 'activation') formStatus.textContent = t.send_activation;
+      else if (st === 'wait') formStatus.textContent = t.form_wait;
+    }
     if (view && view.type === 'game') { fillGamePage(); renderGamePage(); }
     if (view && view.type === 'dev') fillDevPage();
     if (persist) store.set('neox-lang', lang);
@@ -1617,6 +1659,13 @@ window.NEOX_CONFIG = {
     });
     onMQ(mq('(min-width: 900px)'), (e) => { if (e.matches) setMenu(false); });
   }
+
+  /* ---------------- Segurança: links externos sempre com noopener ---------------- */
+  $$('a[target="_blank"]').forEach((a) => {
+    const rel = new Set((a.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+    rel.add('noopener'); rel.add('noreferrer');
+    a.setAttribute('rel', Array.from(rel).join(' '));
+  });
 
   /* ---------------- Scroll: progresso, header, link ativo ---------------- */
   (() => {
@@ -1746,18 +1795,27 @@ window.NEOX_CONFIG = {
     setTimeout(() => targets.forEach(show), 4500);
   })();
 
+  /* ---------------- Imagens: aquece as "preguiçosas" depois do carregamento ---------------- */
+  (() => {
+    const warm = () => $$('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+    const go = () => { if ('requestIdleCallback' in window) requestIdleCallback(warm, { timeout: 2500 }); else setTimeout(warm, 1200); };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+  })();
+
   /* ---------------- Imagens com fallback (vale também para clones) ---------------- */
-  function showMediaPlaceholder(el) {
+  function showMediaPlaceholder(el, key = 'media_soon', retry = false) {
     if (!el || el.dataset.missing) return;
     el.dataset.missing = '1';
     const box = el.closest('.media-frame') || el.parentElement;
     if (!box) return;
     el.style.display = 'none';
+    box.classList.remove('is-loading');
     if (box.querySelector('.media-placeholder')) return;
     const ph = document.createElement('div');
-    ph.className = 'media-placeholder';
-    ph.dataset.i18n = 'media_soon';
-    ph.textContent = dict().media_soon;
+    ph.className = 'media-placeholder' + (retry ? ' is-retry' : '');
+    if (retry) { ph.setAttribute('role', 'button'); ph.tabIndex = 0; }
+    ph.dataset.i18n = key;
+    ph.textContent = dict()[key];
     box.appendChild(ph);
   }
   function onImgError(img) {
@@ -1778,15 +1836,16 @@ window.NEOX_CONFIG = {
   /* ---------------- Vídeos em loop ---------------- */
   function showVideoFallback(video) {
     if (!video || video.dataset.missing) return;
-    video.dataset.missing = '1';
+    clearTimeout(video._wd);
     const frame = video.closest('.media-frame');
     if (!frame) return;
-    console.warn('[NeoX] Vídeo não carregou (arquivo ausente, nome diferente ou codec não suportado):', video.currentSrc || video.getAttribute('src') || (video.querySelector('source') || {}).src || '');
-    frame.classList.remove('is-loading');
+    console.warn('[NeoX] Vídeo não carregou (arquivo ausente, nome diferente, codec não suportado ou muito pesado):', video.currentSrc || video.getAttribute('src') || (video.querySelector('source') || {}).src || '');
     try { video.pause(); } catch (e) { /* ok */ }
-    video.style.display = 'none';
     const src = video.dataset.fallbackImg;
     if (src) {
+      video.dataset.missing = '1';
+      frame.classList.remove('is-loading');
+      video.style.display = 'none';
       const img = document.createElement('img');
       img.className = 'media-fallback-img';
       img.alt = '';
@@ -1794,7 +1853,7 @@ window.NEOX_CONFIG = {
       if (video.dataset.fallbacks) img.dataset.fallbacks = video.dataset.fallbacks;
       img.src = src;                       // se falhar, o handler global tenta os fallbacks e, por fim, mostra o aviso
       frame.appendChild(img);
-    } else showMediaPlaceholder(video);
+    } else showMediaPlaceholder(video, 'media_error', true);
   }
   // Se as fontes <source> falharem, tenta nomes alternativos antes de desistir.
   function tryAltSource(video) {
@@ -1804,7 +1863,7 @@ window.NEOX_CONFIG = {
     if (!next) { showVideoFallback(video); return; }
     $$('source', video).forEach((s) => s.remove());
     video.src = next;
-    video.preload = 'metadata';
+    video.preload = 'auto';
     video.load();
   }
   (() => {
@@ -1818,25 +1877,65 @@ window.NEOX_CONFIG = {
       v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
     };
     const play = (v) => { if (v.dataset.missing) return; prep(v); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
-    const ready = (v) => { const f = v.closest('.media-frame'); if (f) f.classList.remove('is-loading'); v.classList.add('is-ready'); };
+    const ready = (v) => { clearTimeout(v._wd); const f = v.closest('.media-frame'); if (f) f.classList.remove('is-loading'); v.classList.add('is-ready'); };
     const inView = (v) => { const r = v.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; };
-    const wake = (v) => { if (v._woke || v.dataset.missing) return; v._woke = true; v.preload = 'metadata'; v.load(); };
+    // Se o vídeo não ficar pronto em 20 s (arquivo pesado, ausente ou com codec ruim), mostra aviso com "tentar de novo".
+    const arm = (v) => { clearTimeout(v._wd); v._wd = setTimeout(() => { if (!v.classList.contains('is-ready') && !v.dataset.missing) showVideoFallback(v); }, 20000); };
+    const wake = (v) => {
+      if (v._woke || v.dataset.missing) return;
+      v._woke = true;
+      v.preload = 'auto';
+      if (v.networkState === 0 || v.networkState === 3) v.load();
+      arm(v);
+    };
+    const bindSources = (v) => {
+      const s = $$('source', v);
+      const last = s[s.length - 1];
+      if (last) last.addEventListener('error', () => tryAltSource(v));
+    };
 
     videos.forEach((v) => {
       prep(v);
-      const sources = $$('source', v);
-      const lastSource = sources[sources.length - 1];
-      if (lastSource) lastSource.addEventListener('error', () => tryAltSource(v));
+      v._srcNodes = $$('source', v).map((s) => s.cloneNode(true));
+      bindSources(v);
       ['loadeddata', 'canplay'].forEach((ev) => v.addEventListener(ev, () => { ready(v); if (inView(v)) play(v); }, { passive: true }));
       v.addEventListener('playing', () => ready(v));
       v.addEventListener('error', () => tryAltSource(v));
       v.addEventListener('click', () => play(v));
+      v._retry = () => {
+        const frame = v.closest('.media-frame');
+        if (!frame) return;
+        $$('.media-placeholder, .media-fallback-img', frame).forEach((n) => n.remove());
+        delete v.dataset.missing;
+        v._alt = null; v._woke = false;
+        v.style.display = '';
+        v.classList.remove('is-ready');
+        frame.classList.add('is-loading');
+        v.removeAttribute('src');
+        $$('source', v).forEach((s) => s.remove());
+        v._srcNodes.forEach((n) => v.appendChild(n.cloneNode(true)));
+        bindSources(v);
+        v.load();
+        wake(v);
+      };
     });
+
+    // Toque/Enter no aviso de erro tenta carregar o vídeo de novo.
+    const retryFrom = (target) => {
+      const ph = target.closest && target.closest('.media-placeholder.is-retry');
+      if (!ph) return;
+      const frame = ph.closest('.media-frame');
+      const v = frame && $('video.loop-video', frame);
+      if (v && v._retry) v._retry();
+    };
+    document.addEventListener('click', (e) => retryFrom(e.target));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { retryFrom(e.target); } });
+
     if ('IntersectionObserver' in window) {
-      // Só baixa o vídeo quando ele está perto da tela (economiza dados).
+      // Começa a baixar com bastante antecedência (1500px antes de aparecer) para não ter delay.
       const loader = new IntersectionObserver((entries) => {
         entries.forEach((en) => { if (en.isIntersecting) { wake(en.target); loader.unobserve(en.target); } });
-      }, { rootMargin: '400px 0px' });
+      }, { rootMargin: '1500px 0px' });
       const player = new IntersectionObserver((entries) => {
         entries.forEach((en) => { if (en.isIntersecting) { wake(en.target); play(en.target); } else en.target.pause(); });
       }, { threshold: 0.22 });
@@ -1904,7 +2003,7 @@ window.NEOX_CONFIG = {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
     try {
-      const response = await fetch(url, { signal: controller.signal, cache: 'no-store', headers: { Accept: 'application/json' } });
+      const response = await fetch(url, { signal: controller.signal, cache: 'no-store', credentials: 'omit', headers: { Accept: 'application/json' } });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       return await response.json();
     } finally { clearTimeout(timer); }
@@ -1913,7 +2012,7 @@ window.NEOX_CONFIG = {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
     try {
-      const response = await fetch(JINA + target, { signal: controller.signal, cache: 'no-store', headers: { Accept: 'text/plain' } });
+      const response = await fetch(JINA + target, { signal: controller.signal, cache: 'no-store', credentials: 'omit', headers: { Accept: 'text/plain' } });
       if (!response.ok) throw new Error('HTTP ' + response.status);
       const text = await response.text();
       const a = text.indexOf('{'), b = text.lastIndexOf('}');
@@ -1930,7 +2029,7 @@ window.NEOX_CONFIG = {
       const incoming = snap.games[key];
       if (!incoming) continue;
       const target = stats.games[key] || (stats.games[key] = {});
-      for (const f of FIELDS) { const v = num(incoming[f]); if (v !== null) { target[f] = v; merged = true; } }
+      for (const f of FIELDS) { const v = num(incoming[f]); if (v !== null && v >= 0) { target[f] = v; merged = true; } }
     }
     if (!merged) return false;
     const stamp = snap.updatedAt ? Date.parse(snap.updatedAt) : NaN;
@@ -1943,7 +2042,7 @@ window.NEOX_CONFIG = {
       lastLiveAt = Date.now();
       for (const k of Object.keys(GAMES)) {
         const p = num((stats.games[k] || {}).playing);
-        if (p !== null) { history[k].push({ v: p }); if (history[k].length > 90) history[k].shift(); }
+        if (p !== null) { liveHistory[k].push({ v: p }); if (liveHistory[k].length > 90) liveHistory[k].shift(); }
       }
     }
     return true;
@@ -1959,7 +2058,7 @@ window.NEOX_CONFIG = {
       const key = UNIVERSE_TO_KEY[String(g.id)];
       if (!key) continue;
       games[key] = { playing: num(g.playing), visits: num(g.visits), favorites: num(g.favoritedCount) };
-      stats.meta[key] = { genre: g.genre, maxPlayers: num(g.maxPlayers), updated: g.updated };
+      stats.meta[key] = { genre: cleanText(g.genre, 40), maxPlayers: num(g.maxPlayers), updated: g.updated };
     }
     if (!Object.keys(games).length) throw new Error('sem dados do Roblox');
     return { games, updatedAt: new Date().toISOString() };
@@ -1985,7 +2084,7 @@ window.NEOX_CONFIG = {
     } finally { votesBusy = false; }
   }
 
-    function renderStats() {
+  function renderStats() {
     let players = 0, likes = 0, favorites = 0, visits = 0;
     let hp = false, hl = false, hf = false, hv = false;
     for (const key of Object.keys(GAMES)) {
@@ -2042,25 +2141,41 @@ window.NEOX_CONFIG = {
       statsTimer = setTimeout(refreshStats, delay);
     }
   }
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshStats(); });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshStats(); });
 
-  /* ---------------- Equipe: monta os cards a partir de DEVS ---------------- */
+  /* ---------------- Equipe: monta os cards a partir de DEVS (sem innerHTML) ---------------- */
   (() => {
     const track = $('#team-track');
     if (!track) return;
-    const svgArrow = '<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>';
-    track.innerHTML = DEVS.map((d) => `
-      <article class="team-card panel" data-dev="${d.slug}">
-        <a class="team-avatar" href="#/equipe/${d.slug}" draggable="false">
-          <img src="${d.img}" alt="${d.name}" width="380" height="285" loading="lazy" decoding="async" draggable="false">
-          <span class="initials" aria-hidden="true">${d.initials}</span>
-        </a>
-        <div class="team-info">
-          <h3 class="team-name"><a href="#/equipe/${d.slug}" draggable="false">${d.name}</a></h3>
-          <p class="team-role" data-i18n="${d.role}"></p>
-          <a class="team-link" href="#/equipe/${d.slug}" draggable="false">${svgArrow}<span data-i18n="dev_more">Ver perfil</span></a>
-        </div>
-      </article>`).join('');
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    const el = (tag, attrs, ...kids) => {
+      const n = document.createElement(tag);
+      Object.entries(attrs || {}).forEach(([k, v]) => { if (k === 'text') n.textContent = v; else n.setAttribute(k, v); });
+      kids.forEach((kid) => n.append(kid));
+      return n;
+    };
+    const arrowIcon = () => {
+      const svg = document.createElementNS(SVG_NS, 'svg');
+      svg.setAttribute('class', 'icon');
+      svg.setAttribute('aria-hidden', 'true');
+      const use = document.createElementNS(SVG_NS, 'use');
+      use.setAttribute('href', '#i-arrow-up-right');
+      svg.appendChild(use);
+      return svg;
+    };
+    const frag = document.createDocumentFragment();
+    DEVS.forEach((d) => {
+      const href = '#/equipe/' + d.slug;
+      const avatar = el('a', { class: 'team-avatar', href, draggable: 'false' },
+        el('img', { src: d.img, alt: d.name, width: '380', height: '285', loading: 'lazy', decoding: 'async', draggable: 'false' }),
+        el('span', { class: 'initials', 'aria-hidden': 'true', text: d.initials }));
+      const info = el('div', { class: 'team-info' },
+        el('h3', { class: 'team-name' }, el('a', { href, draggable: 'false', text: d.name })),
+        el('p', { class: 'team-role', 'data-i18n': d.role }),
+        el('a', { class: 'team-link', href, draggable: 'false' }, arrowIcon(), el('span', { 'data-i18n': 'dev_more', text: 'Ver perfil' })));
+      frag.appendChild(el('article', { class: 'team-card panel', 'data-dev': d.slug }, avatar, info));
+    });
+    track.appendChild(frag);
   })();
 
   /* ---------------- Carrossel da equipe (loop infinito) ---------------- */
@@ -2386,14 +2501,14 @@ window.NEOX_CONFIG = {
     cover.alt = g.name;
     cover.style.setProperty('--pos', g.pos);
     $('#gp-desc').textContent = t[g.desc];
-    $('#gp-play').href = g.play;
+    $('#gp-play').href = safeHttps(g.play);
     $('#gp-dc').hidden = !g.dc;
-    if (g.dc) $('#gp-dc').href = g.dc;
+    if (g.dc) $('#gp-dc').href = safeHttps(g.dc);
     $('#gp-dc-off').hidden = !!g.dc;
     document.title = `${g.name} | NeoX Studio`;
   }
   function renderSpark() {
-    const pts = history[gameKey] || [];
+    const pts = liveHistory[gameKey] || [];
     const W = 300, H = 72, P = 8;
     const line = $('#gp-spark-line'), area = $('#gp-spark-area'), dot = $('#gp-spark-dot');
     if (pts.length < 2) {
@@ -2421,7 +2536,7 @@ window.NEOX_CONFIG = {
     setValue($('#gp-visits'), s.visits);
     setValue($('#gp-likes'), s.likes);
     setValue($('#gp-favs'), s.favorites);
-    const h = history[gameKey] || [];
+    const h = liveHistory[gameKey] || [];
     setValue($('#gp-peak'), h.length ? Math.max(...h.map((p) => p.v)) : num(s.playing));
     const up = num(s.likes), down = num(s.dislikes);
     const pct = up !== null && down !== null && up + down > 0 ? (up / (up + down)) * 100 : null;
@@ -2429,7 +2544,8 @@ window.NEOX_CONFIG = {
     $('#gp-bar').style.width = (pct || 0) + '%';
     $('#gp-genre').textContent = m.genre || '—';
     $('#gp-max').textContent = num(m.maxPlayers) !== null ? fmtFull(m.maxPlayers) : '—';
-    $('#gp-upd').textContent = m.updated ? new Date(m.updated).toLocaleDateString(locale(), { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+    const upd = m.updated ? new Date(m.updated) : null;
+    $('#gp-upd').textContent = upd && !Number.isNaN(upd.getTime()) ? upd.toLocaleDateString(locale(), { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
     $('#gp-note').textContent = noteText();
     renderSpark();
   }
@@ -2457,7 +2573,7 @@ window.NEOX_CONFIG = {
     $('#dp-role').textContent = t[d.role];
     $('#dp-tag').textContent = tx.tag;
     $('#dp-bio').textContent = tx.bio;
-    $('#dp-roblox').href = d.roblox;
+    $('#dp-roblox').href = safeHttps(d.roblox);
     const portrait = $('#dp-portrait'), img = $('#dp-img');
     portrait.classList.remove('is-missing');
     if (img.getAttribute('src') !== d.img) img.src = d.img;
@@ -2517,7 +2633,7 @@ window.NEOX_CONFIG = {
     const wasView = !!view;
     if (wasView) leaveView();
     if (r.type === 'bad') {
-      try { history.replaceState(null, '', '#games'); } catch (e) { /* file:// */ }
+      try { window.history.replaceState(null, '', '#games'); } catch (e) { /* file:// */ }
       const g = $('#games');
       if (g) jumpTo(g);
       return;
@@ -2547,7 +2663,7 @@ window.NEOX_CONFIG = {
     if (!target) return;
     event.preventDefault();
     if (view) { location.hash = href; return; }     // o roteador fecha a página e rola até a seção
-    try { history.replaceState(null, '', href); } catch (e) { /* file:// */ }
+    try { window.history.replaceState(null, '', href); } catch (e) { /* file:// */ }
     animateTo(target);
   });
 
@@ -2578,7 +2694,7 @@ window.NEOX_CONFIG = {
       if (!raf) raf = requestAnimationFrame(loop);
       const overText = !!e.target.closest('input, textarea');
       cursor.classList.toggle('is-hidden', overText);
-      cursor.classList.toggle('is-hover', !overText && !!e.target.closest('a, button, .game-card, .media-card, .team-card, .community-card, .chip-link'));
+      cursor.classList.toggle('is-hover', !overText && !!e.target.closest('a, button, .game-card, .media-card, .team-card, .community-card, .chip-link, .media-placeholder.is-retry'));
     }, { passive: true });
     document.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'touch') cursor.classList.add('is-down'); });
     document.addEventListener('pointerup', () => cursor.classList.remove('is-down'));
@@ -2618,54 +2734,96 @@ window.NEOX_CONFIG = {
 
   /* ---------------- Formulário ---------------- */
   if (contactForm) {
+    const fName = $('#f-name'), fEmail = $('#f-email'), fRoblox = $('#f-roblox'), fMsg = $('#f-msg');
+    const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
+    const COOLDOWN_MS = 45000;      // intervalo mínimo entre envios do mesmo visitante
+    const MIN_FILL_MS = 3000;       // ninguém preenche tudo em menos de 3 s: é robô
+    const openedAt = Date.now();
+
     if (!FORM_ENDPOINT) setFormDisabled();
     else if (formBtn) formBtn.disabled = false;
 
-    const messageField = contactForm.elements.message;
-    if (messageField) messageField.addEventListener('input', () => messageField.setCustomValidity(''));
+    [fName, fEmail, fMsg].forEach((f) => { if (f) f.addEventListener('input', () => f.setCustomValidity('')); });
+
+    const setStatus = (state, text, cls) => {
+      if (!formStatus) return;
+      formStatus.dataset.state = state;
+      formStatus.classList.remove('is-error', 'is-ok');
+      if (cls) formStatus.classList.add(cls);
+      formStatus.textContent = text;
+    };
+
+    async function postTo(body, headers) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST', headers, body, signal: controller.signal,
+          mode: 'cors', credentials: 'omit', referrerPolicy: 'strict-origin-when-cross-origin'
+        });
+        const data = await response.json().catch(() => ({}));
+        const ok = response.ok && data.success !== false && data.success !== 'false';
+        return { ok, data, status: response.status };
+      } finally { clearTimeout(timer); }
+    }
 
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!FORM_ENDPOINT) { setFormDisabled(); return; }
       const t = dict();
-      const honey = contactForm.elements._honey;
-      if (honey && honey.value) return;
 
-      const message = (contactForm.elements.message.value || '').trim();
-      contactForm.elements.message.setCustomValidity(message.length < 16 ? t.msg_short : '');
+      // Anti-robô: campo escondido preenchido ou formulário "preenchido" rápido demais.
+      const honey = contactForm.elements._honey;
+      if ((honey && honey.value) || Date.now() - openedAt < MIN_FILL_MS) return;
+
+      // Limite de envios por visitante.
+      const lastSent = num(store.get('neox-form-last')) || 0;
+      if (Date.now() - lastSent < COOLDOWN_MS) { setStatus('wait', t.form_wait, 'is-error'); return; }
+
+      const name = cleanText(fName.value, 80);
+      const email = cleanText(fEmail.value, 120);
+      const roblox = cleanText(fRoblox.value, 60);
+      const message = cleanText(fMsg.value, 2000);
+
+      fName.setCustomValidity(name.length < 2 ? t.name_short : '');
+      fEmail.setCustomValidity(EMAIL_RE.test(email) ? '' : t.email_bad);
+      fMsg.setCustomValidity(message.length < 16 ? t.msg_short : '');
       if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
 
       formBtn.disabled = true;
-      if (formStatus) {
-        formStatus.dataset.state = 'sending';
-        formStatus.classList.remove('is-error', 'is-ok');
-        formStatus.textContent = t.sending;
-      }
+      setStatus('sending', t.sending);
+
       const payload = {
-        name: contactForm.elements.name.value.trim(),
-        email: contactForm.elements.email.value.trim(),
-        roblox: contactForm.elements.roblox.value.trim(),
-        message,
+        name, email, roblox, message,
         _subject: 'Nova mensagem pelo site da NeoX Studio',
         _template: 'box',
         _captcha: 'false'
       };
-      try {
-        const response = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok || data.success === false || data.success === 'false') throw new Error(data.message || 'send failed');
-        if (formStatus) { formStatus.dataset.state = 'sent'; formStatus.classList.add('is-ok'); formStatus.classList.remove('is-error'); formStatus.textContent = t.sent; }
-        contactForm.reset();
-      } catch (error) {
-        console.warn('[NeoX] Falha ao enviar formulário:', error.message || error);
-        if (formStatus) { formStatus.dataset.state = 'error'; formStatus.classList.add('is-error'); formStatus.classList.remove('is-ok'); formStatus.textContent = t.send_error; }
-      } finally {
-        formBtn.disabled = false;
+
+      let res;
+      try { res = await postTo(JSON.stringify(payload), { 'Content-Type': 'application/json', Accept: 'application/json' }); }
+      catch (err) { res = { ok: false, data: { message: String((err && err.message) || err) }, status: 0 }; }
+
+      // Segunda tentativa em outro formato (alguns navegadores/redes barram o JSON).
+      if (!res.ok && !/activat/i.test(String((res.data && res.data.message) || ''))) {
+        try {
+          const fd = new FormData();
+          Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
+          res = await postTo(fd, { Accept: 'application/json' });
+        } catch (err) { res = { ok: false, data: { message: String((err && err.message) || err) }, status: 0 }; }
       }
+
+      if (res.ok) {
+        store.set('neox-form-last', Date.now());
+        setStatus('sent', t.sent, 'is-ok');
+        contactForm.reset();
+      } else {
+        const reason = String((res.data && res.data.message) || '');
+        console.warn('[NeoX] Falha ao enviar formulário:', res.status, reason);
+        if (/activat/i.test(reason)) setStatus('activation', t.send_activation, 'is-error');
+        else setStatus('error', t.send_error, 'is-error');
+      }
+      formBtn.disabled = false;
     });
   }
 
